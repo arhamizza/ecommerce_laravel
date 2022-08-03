@@ -1,0 +1,185 @@
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] HEADING
+    [2] LINK & COLUMN
+    [3] BLOCK FORM
+    [4] BLOCK TABLE
+  
+==============================================*/
+
+/*================ HEADING ===================*/
+
+html {
+	width: 100%;
+	outline: 0!important;
+	@include if-rtl {direction: rtl;}
+	@include if-ltr {direction: ltr;}
+}
+body {
+	color: $textBody;
+	font-size: $font-size-base;
+	@include scrollbars(.3em, $gray-light);
+	font-family: 'Open Sans', sans-serif;
+
+}
+h1 {font-size: $font-size-h1;}
+h2 {font-size: $font-size-h2;}
+h3 {font-size: $font-size-h3;}
+h4 {font-size: $font-size-h4;}
+h5 {font-size: $font-size-h5;}
+h6 {font-size: $font-size-h6;}
+
+.h1, .h2, .h3, h1, h2, h3,.h4, .h5, .h6, h4, h5, h6{margin: 0 0 15px 0;}
+
+select, textarea, input[type="text"], 
+input[type="search"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="tel"], 
+input[type="color"]{ box-shadow: none; }
+
+//Disable Auto Zoom in Input “Text” tag - Safari on iPhone
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select:focus, textarea, input[type="text"]:focus, input[type="search"]:focus {
+    font-size: 14px;
+  }
+}
+
+/*================ MOBILE APPS Ratchet ===================*/
+ @media  (min-width: 480px){ 
+	.content{width:441px;margin-left: auto;margin-right: auto;
+		.container {width:auto;}
+	}
+ }
+
+/*================ LINK & COLUMN ===================*/
+.textColor{color: $linkColor;}
+ul.menu, ol.menu ,ul.blank{list-style: none;margin: 0;padding: 0;}
+option { padding:2px 5px; border-width:1px;}
+.alert ol li {list-style-type:decimal;margin:0 0 5px 15px;	}
+
+img { max-width:100%;}
+.over{overflow: visible;}
+.align-center{display:table;margin:0 auto;}
+.text-danger{color: #fff; display: inline-block; background-color: #a94442; padding: 0 5px; margin: 5px 0; border-radius: 3px;font-size: 11px;}
+
+a{color: $gray-dark;
+	&:hover{color: $linkColorHover;text-decoration: none;}
+}
+a, a:visited, a:active, a:link, a:focus {cursor: pointer;text-decoration: none;outline: none; }
+
+ol {counter-reset: item;padding: 0 0 0 15px;}
+
+sup {color: #F00;font-size: 100%;top: -4px;}
+
+.list-inline{display: inline-block;margin: 0;
+	.container-megamenu &{
+		a{display: inline-block }
+	}
+	
+}
+.table-responsive{
+	@include if-rtl{ direction: ltr; }
+}
+
+.clearfix{clear: both;}
+
+.img-thumbnail{
+	&.pull-left{margin-right: 30px;}
+	&.pull-right{margin-left: 30px;}
+}
+.form-group {margin-bottom: 10px;}
+
+/*================ TABLE ===================*/
+.table thead > tr > th{background: #eee;}
+table.std th, table.std td {
+	vertical-align: middle;
+	border: $table-border-color;
+	padding: 10px;
+	text-align: center;
+}
+table.std th {
+	white-space: nowrap;
+	background: #f5f5f5;
+}
+table.std tfoot td {
+	color: #333;
+	text-align: $right;
+	white-space: nowrap;
+}
+ table.std {
+	background: #fdfdfd;
+	border-spacing: 0;
+	vertical-align: middle;
+	border: $table-border-color;
+	width: 100%;
+}
+table th {
+	border: $table-border-color;
+	color: #7a7a7a;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+
+table tfoot td { text-align: $right;}
+table.table-bordered thead >*{background-color: rgba(51, 51, 51, 0.1); font-weight: bold;}
+
+
+/*================ PAGINATION ===================*/
+.pagination > li {display: inline-block; margin: 0 2px; vertical-align: top;
+    span, a{padding: 3px 8px;}
+    a:hover, span:hover{color: #fff; background: $background1; border-color: $linkColor;}
+    &.active, &:hover{background: transparent; border-color: $linkColor;
+	   span{color: $linkColor; background: transparent; border-color: $linkColor;
+		  &:hover{background: $background1; border-color: $linkColor;}
+	   }
+    }
+    &:last-child{margin-#{$right}: 0;}
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span {border-radius: 0;}
+.pagination > li > a, .pagination > li > span {color: #666;}
+.pagination > li:last-child > a, .pagination > li:last-child > span {border-radius: 0;}
+
+/*================ RATCHET ===================*/
+.bar {
+	.title{    overflow: hidden;text-overflow: ellipsis;white-space: nowrap;     padding: 0 30px;}
+	@include if-rtl {
+		.icon-left-nav{ transform: rotate(180deg);}
+	}
+	
+}
+
+/*================ Magnific Popup responsive ===================*/
+.mfp-wrap figure{margin: 0;}
+.nopadding-xs > div{ padding: 0;}
+.btn-collapse{ font-size: 15px;
+	&:after{content: "\f107";font-family: $FontAwesome; font-size: 18px;}
+	&.active:after{content: "\f106";}
+}
+
+/*================ jGrowl Popup notification ===================*/
+.jGrowl{width:100%;}
+.jGrowl-notification{
+    margin: 4px 3%  4px;
+    width: 94%;
+	.jGrowl-header{margin-bottom: 0;text-transform: uppercase;}
+	.jGrowl-message{
+		color: #777;
+		a{@include link();}
+	}
+	.jGrowl-close{padding: 1px 6px;}
+    img{ display: none; }
+}

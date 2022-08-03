@@ -1,0 +1,580 @@
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] CONTACT PAGE
+    [2] PAEG ABOUT US
+    [3] PAGE BLOG
+    [4] PAGE 404 
+==============================================*/
+
+/*============ CONTACT PAGE ==============*/
+#map-canvas{
+  height: 250px;
+  width: 100%;
+  margin: 0px 0 10px;
+}
+.contacts{
+	fieldset{ border: none; padding: 0; margin-bottom: 5px; }
+}
+.info-contact{padding-top: 5px;
+    .name-store h3{
+        font-size: 16px;
+        color: $gray-darker;
+        text-transform: uppercase;
+    }
+    .text{padding-#{$left}: 30px;}
+    .comment{
+        padding-bottom: 15px;
+       
+        margin-bottom: 5px;
+    }
+    
+}
+
+.contact-form{
+  legend{
+      border: none;
+      padding: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 5px 0;
+      h2{
+        font-size: 12px;
+        color: #222;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 20px;
+        display: inline-block;
+        margin: 0;
+      }
+  }
+  textarea.form-control{ box-shadow: none; border-color: #e9e9e9;  }
+  .location-address{
+    position: relative;
+    li{
+      font-size: 12px;
+      color: #8c8c8c;
+      position: relative;
+      margin-bottom: 20px;
+      padding-#{$left}: 30px;
+      
+      &:before{
+        background: url("#{$imagePath}icon/sprites.png") no-repeat center;
+        content: "";
+        background-position: -17px -162px ;
+        width: 15px;
+        height: 19px;
+        position: absolute;
+        #{$left}: 0;
+        top: 20px;
+      }
+    }
+    strong{
+      font-weight: 700;
+      color: #222;
+      text-transform: capitalize;
+      font-size: 14px;
+      display: block;
+    }
+  }
+  .form-mail{
+     &:before{
+        background: url("#{$imagePath}icon/sprites.png") no-repeat center;
+        content: "";
+        background-position: -15px -118px ;
+        width: 19px;
+        height: 14px;
+        position: absolute;
+        #{$left}: 0;
+        top: 15px;
+      }
+  }
+  .form-name{
+     &:before{
+      background: url("#{$imagePath}icon/sprites.png") no-repeat center;
+      content: "";
+      background-position: -16px -20px ;
+      width: 17px;
+      height: 20px;
+      position: absolute;
+      #{$left}: 0;
+      top: 15px;
+    }
+  }
+  .form-mail,
+  .form-name{
+    margin: 0;
+    position: relative;
+    border-top: 1px solid #e9e9e9;
+    &:before{
+      
+    }
+    input{
+      width: 100%;
+      border: 0;
+      padding: 20px 30px;
+      font-size: 13px;
+      color: #7d7d7d;
+      font-weight: 500;
+      height: 50px;
+      
+      box-shadow: none;
+      margin: 0;
+      border-radius: 0;
+    } 
+  }
+}
+
+
+/*============ PAEG ABOUT US ==============*/
+.about-us{ 
+  
+  .about-title{
+    font-size:171%;
+    font-style: italic;
+    font-weight: bold;
+     margin-bottom: 20px;
+  }
+
+  .name-member{
+    font-size:116.67%;
+    font-weight: bold;
+  }
+
+  .job-member{
+    margin:7px 0 5px;
+    font-style: italic;
+
+    &:before,
+    &:after{
+      content: "---";
+      margin:0 5px;
+    }
+  }
+
+  .social-member{
+    list-style: none;
+
+    .social-icon{
+      display: inline-block;
+      margin:0 3px;
+
+      a{
+        display: inline-block;
+        color:#fff;
+        font-size: 16px;
+        width:30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        border-radius: 50%;
+
+        span{ display: none;
+        }
+
+        &:hover{background-color: $background1!important; }
+      }
+
+      &.rss{
+        a{ background-color: #f8bc2e; }
+      }
+
+      &.facebook{
+        a{background-color: #39599f; }
+      }
+
+      &.twitter{
+        a{background-color: #45b0e3;}
+      }
+
+      &.google{
+        a{ background-color: #1872bf;}
+      }
+    }
+  }
+  .our-team-content{padding: 0 30px;}
+  .des-member.des-client{
+    max-width: 950px;
+    margin: 0 auto;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .member-info{
+    text-align: center;
+    padding-top:15px;
+  }
+
+  .client-say-content{
+      text-align: center;
+  }
+
+  .about-us-center{
+    text-align: center;
+
+    .content-description{
+      padding-top: 25px;
+      clear: both;
+      margin-bottom: 30px;
+    }
+  }
+
+  .client-logo-content{
+    border-bottom: 1px dashed #e7e7e7;
+    border-top: 1px dashed #e7e7e7;
+    padding-bottom: 10px;
+    text-align: center;
+
+    .about-title{
+      background: #fff none repeat scroll 0 0;
+      display: inline-block;
+      margin: 0;
+      padding: 0 10px;
+      position: relative;
+      text-align: center;
+      top: -19px;
+    }
+  }
+
+  .owl2-controls{
+    .owl2-nav{
+      div{
+        color:#fff;
+        border_radius: 50%;
+        position: absolute;
+        top:29%;
+        overflow: visible; display: inline-block; width: 34px; height: 34px; text-indent: -9999px;; margin: 0 3px; background-color: #A6A6A8; border-radius: 50%; -webkit-border-radius: 50%;
+        &:hover{
+          background-color: $background1;
+        }
+
+        &.owl2-next{
+          right:-19px;
+        }
+
+        &.owl2-prev{
+          left:-19px;
+        }
+
+        &:before{
+          width: 100%;
+          height:100%;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          background-color: #a6a6a7;
+          line-height: 32px;
+          top: 1px;
+        }
+
+        &:hover{
+
+          &:before{
+            background-color: $background1;         }
+
+        }
+      }
+    }
+  }
+
+  .client-logo-slider{
+    padding:0 25px;
+	img{width:auto; display: inline-block;}
+  }
+
+  .about-image-slider{
+    max-width: 570px;
+    margin: 0 auto;
+
+    .owl2-controls .owl2-nav div{
+      top:50%;
+      margin-top:-15px;
+      border:none!important;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      overflow: hidden;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+
+      &:before{
+        border-radius: 0;
+        -webkit-border-radius:0;
+        background-color: transparent;
+        color: #c8c8c8; 
+      }
+
+      &.owl2-next{
+        right:10px;
+      }
+
+      &.owl2-prev{
+        left:10px;
+      }
+
+      &:hover{
+        border-color: $background1;
+
+        &:before{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+.skills-value {
+      padding-top: 52px;
+      .label-skill{font-weight: bold;}
+}
+ 
+
+  .about-us-content .description-about{
+    padding:20px 0;
+  }
+
+  .content-faq{
+    position: relative;
+    top:-15px;
+
+    .panel{
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      border-bottom: 1px solid #e7e7e7;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      margin:0;
+
+      .panel-title{
+        font-size: 100%;
+        font-weight: bold;
+        a{
+          display: block;
+          padding: side-values(15px 0 15px 25px);
+          position: relative;
+
+          &:after{
+            transform: rotate(135deg);
+           
+            content:"";
+            width: 4px;
+            height:4px;
+            position: absolute;
+            #{$left}:6px;
+            top:50%;
+            margin-top: 6px;
+            background-color: $background1;
+          }
+
+          &:before{
+            background-color: $background1;
+            content: "-";
+            width: 16px;
+            height:16px;
+            display: inline-block;
+            position: absolute;
+            #{$left}:0px;
+            top:50%;
+            margin-top:-8px;
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            color: #fff;
+            text-align: center;
+            line-height: 16px;
+          }
+
+          &.collapsed{
+            &:after{
+              background-color: #737373;
+            }
+
+            &:before{
+              background-color: #737373;
+              content: "?";
+            }
+          }
+        }
+      }
+
+      .panel-body{
+        padding: 0 0 13px;
+      }
+    }
+  }
+	.owl2-theme .owl2-controls .owl2-nav{
+		> div:before{display: inline-block; text-indent: 0; width: 100%;height: 100%;position: absolute; left: 0px; top: 1px; color: #fff;font-size: 18px;line-height: 32px;text-align: center;border-radius: 50%; -webkit-border-radius: 50%;}
+		> div.owl2-prev:before{content: "\f104"; font-family: FontAwesome;}
+		> div.owl2-next:before{content: "\f105"; font-family: FontAwesome;}
+		
+	} 
+}
+
+.about-demo-1{
+  .about-image,
+  .about-info{
+    margin-bottom: 20px;
+  }
+
+     .what-client-say{
+       margin-bottom: 60px;
+     }
+
+     .line-hori{
+       text-align: center;position: relative;z-index: 3;
+       > span{    background: white;display: inline-block;position: relative;z-index: 10;padding: 0 20px;}
+       &:before{position: absolute;content: "";border-bottom: 1px dashed #ccc;top: 50%;left: 0; height: 1px;width: 100%;z-index: 3;}
+     }
+  
+}
+
+
+/*============ PAGE COMMING SOON  ==============*/
+.page-comingsoon{
+    background: url("#{$imgPath}/bg-comingsoon.jpg") no-repeat center center;
+    text-align: center;
+    min-height: 600px
+}
+
+/*INFOMATION*/
+
+.module-content{
+    background: #fff;border: 1px solid #ddd; padding: 0 20px;
+    .list-box{
+        li{
+            position: relative;
+            padding-#{$left}: 15px; 
+           &:before { position: absolute;display: block;top: 16px; background: #999; content: "";width: 6px; height: 6px; border-radius: 100%; #{$left}: 0;} 
+        }
+    }
+}
+.panel-default>.panel-heading{background: #fff;}
+.title-under{
+    position: relative;
+    margin-bottom: 50px;
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 4px;
+        width: 68px;
+        background: $background;
+        bottom: -10px;
+    }
+}
+.owl2-carousel .owl2-item img {
+    transform-style: initial!important;
+}
+.title-under.text-center:after {
+    left: 50%;
+    margin-left: -34px;
+}
+.media-box-link--arrow .fa-arrow-right{    @include if-rtl {transform: rotate(180deg);}}
+.media-box-link--arrow .icon{font-size: 30px;}
+.media-box-link--figure .icon{font-size: 55px;}
+.media-box-link {
+  display: table-row;
+  width: 100%;
+  height: 100%;
+  background-color: $background;
+  cursor: pointer;
+  color: #fff;
+ @include transition(all 0.3s ease-in-out);
+}
+.media-box-link--content p{ color: #fff; }
+.media-box-link h4 {
+  color: #fff;
+  @include transition(all 0.3s ease-in-out);
+}
+.media-box-link .icon {
+  @include transition(all 0.3s ease-in-out);
+  font-family: FontAwesome;
+}
+.media-box-link--figure,
+.media-box-link--content,
+.media-box-link--arrow {
+  display: table-cell;
+  padding: 6% 0;
+  vertical-align: middle;
+}
+.media-box-link--figure {
+  width: 23%;
+}
+.media-box-link--content {
+  padding-right: 5%;
+  width: 67%;
+}
+.media-box-link--arrow {
+  width: 10%;
+  vertical-align: middle;
+}
+.media-box-link:hover {
+  background-color: #f5f5f5;
+  color: #777777;
+}
+.media-box-link:hover h4 {
+  color: #333333;
+}
+.media-box-link:hover .icon {
+  color: $background;
+}
+.page_warranity{
+    color: #777;
+    .title-under{color: #333;}
+    .icon.icon-error{font-size: 30px;vertical-align: middle;}
+    .media-icon--content .color-dark.font18{color: #333;font-size: 500;}
+}
+.color {
+    color:  $background;
+}
+.title-decimal {
+    font-size: 20px;
+    @media (min-width: 1200px) {
+        font-size: 30px;
+    }
+
+    position: relative;
+    padding: side-values(4px 0 9px 69px);
+    &:before {
+        content: attr(data-content);
+        display: table-cell;
+        vertical-align: middle;
+        position: absolute;
+        top: 0px;
+        line-height: 1.45em;
+        background: $background;
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        text-align: center;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        #{$left}: 0;
+    }
+}
+.decimal-list {
+    padding: 0;
+    margin: 10px 0 0 0;
+    list-style-type: none;
+    counter-reset: myCounter;
+}
+.decimal-list li {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    padding: side-values(0 0 0 18px);
+    margin-bottom: 7px;
+    text-indent: 0;
+    position: relative;
+    &:before {
+        content: counter(myCounter);
+        counter-increment: myCounter;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        color: $background;
+        font-weight: 500;
+        #{$left}: 0;
+    }
+}

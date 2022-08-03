@@ -1,0 +1,28 @@
+//bootstrap-breakpoints.sass
+//https://gist.github.com/webinfinita/11407836#file-bootstrap-breakpoints-sass
+
+@mixin breakpoint($point){
+  
+  @if ($point == lg){
+    @media (min-width: 1200px){ @content }
+  }
+  @else if ($point == md){
+    @media (min-width: 992px) and (max-width: 1199px){ @content }
+  }
+  
+  @else if ($point == sm){
+    @media (min-width: 768px) and (max-width: 991px){ @content }
+  }
+
+  @else if ($point == xs){
+    @media (max-width: 767px){ @content }
+  }
+
+  @else if ($point == xxs){
+    @media  (max-width: 480px){ @content }
+  }
+
+  @else if ($point == xxxs){
+	@media (max-width: 767px) and (min-width: 481px){ @content }
+  }
+}

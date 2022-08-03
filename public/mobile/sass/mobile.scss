@@ -1,0 +1,48 @@
+/*******************************************
+***          SO Framework: Sass          ***
+*******************************************/
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+$dir : ltr;
+$linkColor: #ff5561;
+$imagePath     : '../image/theme/';
+
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+//Sub pages
+@import 'theme/slidemenu';
+@import 'theme/typo';
+@import 'theme/opencart';
+@import 'theme/module';
+@import 'theme/blog';
+@import 'theme/garenal';
+@import 'theme/bonus_page';
+@import 'theme/productlist';
+@import 'theme/productdetail';
+
+//Display Show Layout Header & Footer
+@import 'theme/header';
+@import 'theme/footer';
+
+//Display Show Layout Home 1
+@import 'layout/layout1';
+@import 'layout/layout2';
+@import 'layout/layout3';
+

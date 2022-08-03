@@ -1,0 +1,22 @@
+.so-onepagecheckout {
+  background: #f5f5f5;
+  padding: 20px 20px 0 20px;
+  overflow: hidden; }
+  .so-onepagecheckout .col-left {
+    padding: 0; }
+  .so-onepagecheckout .col-right {
+    padding-right: 0; }
+  .so-onepagecheckout .panel {
+    border-radius: 0;
+    padding: 10px;
+    display: inline-block;
+    width: 100%; }
+  .so-onepagecheckout .panel-default .panel-heading {
+    background: #5f6874;
+    color: white;
+    border-radius: 0; }
+  .so-onepagecheckout .no-padding {
+    padding: 0; }
+  .so-onepagecheckout .checkout-shipping-methods,
+  .so-onepagecheckout .checkout-payment-methods {
+    padding: 10px; }

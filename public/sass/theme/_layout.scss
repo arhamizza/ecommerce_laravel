@@ -1,0 +1,38 @@
+/* 	+----------------------------------------------------+
+		TABLE OF CONTENTS
+	+----------------------------------------------------+
+
+	[1]		Header Wrapper
+	[2]		Content Wrapper
+	[3]		Footer Wrapper
+	
+*/
+
+/* ************************************************************************************************
+STRUCTURE
+************************************************************************************************ */
+//Non-responsive Bootstrap
+@media  (max-width: 1024px) {.no-res{width: 1190px; }}
+.wrapper-boxed,.wrapper-iframed,.wrapper-rounded  {max-width: 1200px;margin: 0 auto;background: #fff;box-shadow: 0 0 10px rgba(0,0,0,.2);
+	header.navbar-compact{width:auto;}
+}
+.wrapper-iframed{margin: 20px auto;}
+.wrapper-rounded{margin: 20px auto; border-radius:10px;overflow:hidden;}
+#wrapper{overflow: hidden;}
+
+@media  (min-width: 1360px){
+.container-full{clear: both; margin-left: -10%;margin-right: -10%;}
+}
+@media  (min-width: 1600px){
+.container-full{clear: both;margin-left: -40%;margin-right: -40%;}
+}
+
+/**************************************************************
+	  Header Wrapper
+**************************************************************/
+
+/**************************************************************
+	  Content Wrapper
+**************************************************************/
+
+#content {margin-bottom: 30px; @include clearfix();}

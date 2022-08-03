@@ -1,0 +1,680 @@
+/* 	+----------------------------------------------------+
+		TABLE OF CONTENTS
+	+----------------------------------------------------+
+
+	[1]		Page Faq
+	[2]		Page About us
+	[3]		Page Contact
+	[4]		page 404 
+	
+*/
+#map-canvas{height:600px;}
+
+body.layout-1 .container.banners-demo-w{
+  max-width: 1170px; width: 100%;
+}
+
+//---------------Page FQA -------------------------
+ul.yt-accordion{margin: 0;padding:0; list-style: none;}
+ul.yt-accordion li.accordion-group { margin-bottom: 1px;
+     h3.accordion-heading{margin: 0; cursor: pointer;background-color: #f4f4f4; position: relative;z-index: 2;
+          span{padding: 10px;font-size: 16px; display: block; margin-#{$left}: 40px; line-height: 24px;}
+          .fa{
+                margin: 0px;
+               font-family: verdana;
+               font-size: 17px;
+               width: 40px;
+              
+               background: #A0A0A0;
+               color: white;
+               text-align: center;
+               line-height: 40px;
+               vertical-align: top;
+			position: absolute; z-index: 5; top:0;bottom: 0;
+          }
+     }
+
+     .accordion-inner {border: 1px solid #f4f4f4;  padding: 10px 15px;background: #E6E6E3;}
+}
+ul.yt-accordion li.accordion-group h3.accordion-heading .fa-plus-square:before{content: "+";}
+ul.yt-accordion li.accordion-group h3.accordion-heading.active .fa-plus-square:before {content: "-";}
+ul.yt-accordion li.accordion-group h3.accordion-heading:hover {color: white;background: #8E8E8E;}
+ul.yt-accordion li.accordion-group h3.accordion-heading:hover .fa{background: #666;}
+
+/*============ PAGE ABOUT US 1==============*/
+.item-article{
+  h2{
+    margin: 0;
+  }
+}
+.title-about-us{
+  background: url("#{$base-url-theme}icon/bg-title-about.png")repeat-x left 12px;
+  margin-bottom:17px;
+}
+
+
+.title-about-us h2 {
+  background: #fff;
+  display: inline-block;
+  font-size: 22px;
+  padding: side-values(0 25px 6px 0);
+  font-weight: 300;
+  color: #333;
+}
+
+.welcome-about-us {
+  .image-about-us {
+    float: $left;
+    width: 270px;
+    padding-top: 6px;
+  }
+   img:hover{
+      opacity: 0.7;
+    }
+  .des-about-us {
+    margin-#{$left}: 300px;
+    line-height: 18px;
+  }
+}
+
+.our-member {
+  clear: both;
+  padding-top: 30px;
+   img:hover{
+      opacity: 0.7;
+    }
+  .title-about-us {
+  background: url("#{$base-url-theme}icon/bg-title-about.png")repeat-x $left 12px;
+    margin-bottom: 17px;
+    text-align: center;
+
+    h2 {
+      padding: 0 15px 6px 15px;
+      font-size: 22px;
+      font-weight: 300;
+      color: #333;
+    }
+  }
+
+  .short-des {
+    text-align: center;
+    color: #909090;
+    margin-bottom: 35px;
+  }
+
+  .overflow-owl-slider {
+    padding-top: 50px;
+  }
+
+  .respl-item {
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+    .item-inner{
+      padding: 20px;
+      display: inline-block;
+    }
+    .w-image-box {
+      float: $left;
+      overflow: hidden;
+    }
+
+    .info-member {
+      text-align: $left;
+      margin-#{$left}: 185px;
+      .cl-name{
+        margin-top: 0;
+      }
+      ul{@extend ul.blank}
+      li{
+        float: $left;
+        .fa{
+          width: 29px;
+          height: 29px;
+          border: 1px solid #999;
+          line-height: 27px;
+          text-align: center;
+          color: #999;
+          border-radius: 50%;
+          margin-#{$right}: 5px;
+          display: inline-block;
+          &:hover{
+            color: $background1;
+            border-color: $background1;
+          }
+        }
+        .fa-f:before{
+           content: "\f09a";
+           font-family: FontAwesome;
+          }
+        .fa-t:before{
+           content: "\f099";
+           font-family: FontAwesome;
+          }
+        .fa-s:before{
+           content: "\f17e";
+           font-family: FontAwesome;
+          }
+        .fa-g:before{
+           content: "\f0d5";
+           font-family: FontAwesome;
+        }
+      }
+      .cl-name > a {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #444;
+        &:hover{
+          color:$background1;
+        }
+      }
+
+      .cl-job {
+        padding: 5px 0px;
+        text-transform: uppercase;
+      }
+
+      .cl-des {
+        color: #909090;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.why-list { @extend ul.blank;
+  li {
+    position: relative;
+    padding-#{$left}: 29px;
+
+    &:before {
+      content: "";
+      width: 14px;
+      height: 12px;
+      display: inline-block;
+      position: absolute;
+      #{$left}: 0px;
+      top: 10px;
+      background-repeat: no-repeat;
+      background-position: top $left;
+      background-image: url("#{$base-url-theme}icon/icon-whylist.png");
+    }
+
+    a {
+      display: block;
+      padding: 5px 0 7px;
+      background-image: url("#{$base-url-theme}icon/border-bottom-bs.png") repeat-x left bottom;
+    }
+
+    &:last-child > a {
+      background: none;
+    }
+  }
+}
+
+.happy-about-us {
+    direction: ltr;
+  clear: both;
+  padding-top: 10px;
+  .happy-ab {
+    border: 1px solid #e9e9e9;
+    padding: 33px 8px 20px;
+
+    .title-happy-about {
+      background: #fff;
+      display: inline-block;
+      #{$left}: 20px;
+      padding: 5px 10px;
+      position: absolute;
+      top: -5px;
+
+      h2 {
+        font-size: 20px;
+        position: relative;
+        top: -2px;
+        color: #444; margin: 0;
+      }
+    }
+
+    .ct-why {
+      padding: 0 10px 0 25px;
+      position: relative;
+        @include if-rtl {direction: rtl;}
+      .client-say {
+        font-size: 107.69%;
+        color: #909090;
+        margin-bottom: 10px;
+      }
+
+      .client-info-about {
+        color: #000;
+
+        .name {
+          font-size: 18px;
+          color: $linkColor;
+        }
+      }
+    }
+  }
+  .owl2-controls {
+    background: #fff;
+    padding: 0 5px;
+    position: absolute;
+    #{$right}: 2px;
+    top: -47px;
+  }
+
+  .owl2-controls .owl2-prev,
+  .owl2-controls .owl2-next {
+    border: none;
+    display: inline-block;
+    width: 26px ;
+    height: 26px ;
+    background-position: left top;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-color: transparent ;
+    top: 0px;
+    margin: 0 3px;
+    position: relative;
+  }
+
+  .owl2-controls .owl2-prev {
+    background-image: url("#{$base-url-theme}icon/btn-prev-hp.png");
+    margin-right: 3px;
+    right: 0px ;
+    left: inherit ;
+  }
+
+  .owl2-controls .owl2-nav {
+    width: 68px;
+    display: inline-block;
+    height: 26px;
+    background: #fff;
+  }
+
+  .owl2-controls .owl2-next {
+   background-image: url("#{$base-url-theme}icon/btn-next-hp.png");
+    right: 0px ;
+  }
+
+  .item > div:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 12px;
+    left: 0px;
+    top: 6px;
+  }
+
+  .owl2-dots {
+    display: none ;
+  }
+}
+
+/*====*/
+//---------------Page About us -------------------------
+.about-us{ 
+  
+  .about-title{
+    font-size:171%;
+    font-style: italic;
+    font-weight: bold;
+     margin-bottom: 20px;
+  }
+
+  .name-member{
+    font-size:116.67%;
+    font-weight: bold;
+  }
+
+  .job-member{
+    margin:7px 0 5px;
+    font-style: italic;
+
+    &:before,
+    &:after{
+      content: "---";
+      margin:0 5px;
+    }
+  }
+
+  .social-member{
+    list-style: none;
+
+    .social-icon{
+      display: inline-block;
+      margin:0 3px;
+
+      a{
+        display: inline-block;
+        color:#fff;
+        font-size: 16px;
+        width:30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        border-radius: 50%;
+
+        span{ display: none;
+        }
+
+        &:hover{background-color: $background; }
+      }
+
+      &.rss{
+        a{ background-color: #f8bc2e; }
+      }
+
+      &.facebook{
+        a{background-color: #39599f; }
+      }
+
+      &.twitter{
+        a{background-color: #45b0e3;}
+      }
+
+      &.google{
+        a{ background-color: #1872bf;}
+      }
+    }
+  }
+
+  .des-member.des-client{
+    max-width: 950px;
+    margin: 0 auto;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .member-info{
+    text-align: center;
+    padding-top:15px;
+  }
+
+  .client-say-content{
+    text-align: center;
+    .client-say-slider{
+      padding-top:15px;
+
+      .owl2-dots{
+        position: absolute;
+        left:0;
+        top:-23px;
+        width: 100%;
+
+        span{
+          width: 16px;
+          height:16px;
+          background-color: #d9d9d9;
+          border:none;
+          margin:0 2px;
+          opacity: 1; display: block;border-radius: 50%; -webkit-border-radius: 50%;
+        }
+
+        .owl2-dot{display: inline-block;
+          &.active{
+            span{
+              background-color: #929292;
+            }
+          }
+
+          span:hover{
+            background-color: #929292;
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .about-us-center{
+    text-align: center;
+
+    .content-description{
+      padding-top: 25px;
+      clear: both;
+      margin-bottom: 30px;
+    }
+  }
+
+  .client-logo-content{
+    border-bottom: 1px dashed #e7e7e7;
+    border-top: 1px dashed #e7e7e7;
+    padding-bottom: 10px;
+    text-align: center;
+
+    .about-title{
+      background: #fff none repeat scroll 0 0;
+      display: inline-block;
+      margin: 0;
+      padding: 0 10px;
+      position: relative;
+      text-align: center;
+      top: -19px;
+    }
+  }
+
+  .owl2-controls{
+    .owl2-nav{
+      div{
+        color:#fff;
+        border_radius: 50%;
+        position: absolute;
+        top:29%;
+        overflow: visible; display: inline-block; width: 34px; height: 34px; text-indent: -9999px;; margin: 0 3px; background-color: #A6A6A8; border-radius: 50%; -webkit-border-radius: 50%;
+        &:hover{
+          background-color: $background;
+        }
+
+        &.owl2-next{
+          right:-19px;
+        }
+
+        &.owl2-prev{
+          left:-19px;
+        }
+
+        &:before{
+          width: 100%;
+          height:100%;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          background-color: #a6a6a7;
+          line-height: 32px;
+          top: 1px;
+        }
+
+        &:hover{
+
+          &:before{
+            background-color: $background;         }
+
+        }
+      }
+    }
+  }
+
+  .client-logo-slider{
+    padding:0 25px;
+	img{width:auto; display: inline-block;}
+  }
+
+  .about-image-slider{
+    max-width: 570px;
+    margin: 0 auto;
+
+    .owl2-controls .owl2-nav div{
+      top:50%;
+      margin-top:-15px;
+      border:none;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      overflow: hidden;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+
+      &:before{
+        border-radius: 0;
+        -webkit-border-radius:0;
+        background-color: transparent;
+        color: #c8c8c8; 
+      }
+
+      &.owl2-next{
+        right:10px;
+      }
+
+      &.owl2-prev{
+        left:10px;
+      }
+
+      &:hover{
+        border-color: $background;
+
+        &:before{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+.skills-value {
+      padding-top: 52px;
+      .label-skill{font-weight: bold;}
+}
+ 
+
+  .about-us-content .description-about{
+    padding:20px 0;
+  }
+
+  .content-faq{
+    position: relative;
+    top:-15px;
+
+    .panel{
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      border-bottom: 1px solid #e7e7e7;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      margin:0;
+
+      .panel-title{
+        font-size: 100%;
+        font-weight: bold;
+        a{
+          display: block;
+          padding: side-values(15px 0 15px 25px);
+          position: relative;
+
+          &:after{
+            transform: rotate(135deg);
+           
+            content:"";
+            width: 4px;
+            height:4px;
+            position: absolute;
+            #{$left}:6px;
+            top:50%;
+            margin-top: 6px;
+            background-color: $background;
+          }
+
+          &:before{
+            background-color: $background;
+            content: "-";
+            width: 16px;
+            height:16px;
+            display: inline-block;
+            position: absolute;
+            #{$left}:0px;
+            top:50%;
+            margin-top:-8px;
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            color: #fff;
+            text-align: center;
+            line-height: 16px;
+          }
+
+          &.collapsed{
+            &:after{
+              background-color: #737373;
+            }
+
+            &:before{
+              background-color: #737373;
+              content: "?";
+            }
+          }
+        }
+      }
+
+      .panel-body{
+        padding: 0 0 13px;
+      }
+    }
+  }
+	.owl2-theme .owl2-controls .owl2-nav{
+		> div:before{display: inline-block; text-indent: 0; width: 100%;height: 100%;position: absolute; left: 0px; top: 1px; color: #fff;font-size: 18px;line-height: 32px;text-align: center;border-radius: 50%; -webkit-border-radius: 50%;}
+		> div.owl2-prev:before{content: "\f104"; font-family: FontAwesome;}
+		> div.owl2-next:before{content: "\f105"; font-family: FontAwesome;}
+		
+	} 
+}
+
+.about-demo-1{
+  .about-image,
+  .about-info{
+    margin-bottom: 40px;
+  }
+
+     .what-client-say{
+       margin-bottom: 60px;
+     }
+
+     .line-hori{
+       text-align: center;position: relative;z-index: 3;
+       > span{    background: white;display: inline-block;position: relative;z-index: 10;padding: 0 20px;}
+       &:before{position: absolute;content: "";border-bottom: 1px dashed #ccc;top: 50%;left: 0; height: 1px;width: 100%;z-index: 3;}
+     }
+  
+}
+
+.about-demo-2{
+  .member .member-image{ text-align: center; }
+  .our-team{
+    margin-bottom: 60px;
+  }
+}
+
+.about-demo-3{
+  .about-image,
+  .about-info{
+    margin-bottom: 30px;
+  }
+
+}
+
+//---------------Page Contact us -------------------------
+.info-contact{
+    .name-store h3{ padding: 7px 0px; margin-top: 10px;}
+    .icon{float: $left; padding-#{$right}: 15px;
+        .fa{font-size: 20px;}
+    }
+    .comment{line-height: 24px;}
+}
+.contact-form{
+    legend{border-bottom: 0;}
+    
+}
+
+//---------------Page 404 -------------------------
+

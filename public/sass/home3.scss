@@ -1,0 +1,52 @@
+/*******************************************
+*	Theme Name: eMarket
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+@import 'theme/system';
+@import 'theme/typo';
+@import 'theme/sitemap';
+@import 'theme/login';
+@import 'theme/mainmenu';
+// @import 'theme/layout';
+@import 'theme/module';
+@import 'theme/blog';
+@import 'theme/garenal';
+@import 'theme/bonus_page';
+@import 'theme/productlist';
+@import 'theme/productdetail';
+
+//Display Show Layout Header
+@import 'header/header';
+
+//Display Show Layout Footer
+@import 'footer/footer';
+
+//Display Show Layout Home 3
+@import 'layout/layout3';
+

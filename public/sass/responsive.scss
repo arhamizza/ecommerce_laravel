@@ -1,0 +1,45 @@
+/*******************************************
+***          SO Framework: Sass          ***
+*******************************************/
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+// ----------------------------------------
+/*   1.Large devices Desktops     ( Devices ≥1200px)
+ *   2.Medium devices Desktops    (992px ≥ Devices ≥ 1199px)
+ *   3.Small devices Tablets      (991px ≥ Devices ≥ 768px)
+ *   4.Extra small devices Phones ( Devices < 767px)
+ */
+
+//Extra small devices Phones
+@import "responsive/responsive-479px-max";
+@import "responsive/responsive-767px-max";
+
+//Small devices Tablets 
+@import "responsive/responsive-768px-991px";
+
+//Medium devices Desktops
+@import "responsive/responsive-992px-1199px";
+
+//Large devices Desktops
+@import "responsive/responsive-1200px-min";  
+

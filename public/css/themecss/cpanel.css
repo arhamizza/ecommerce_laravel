@@ -1,0 +1,162 @@
+
+#sp-cpanel>h2,
+#sp-cpanel_btn {
+    text-align: center;
+    overflow: hidden
+}
+#sp-cpanel {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+    left: -100%;
+    position: fixed;
+    top: 120px;
+    padding: 20px;
+    width: 240px;
+    z-index: 1100;
+}
+#sp-cpanel>h2 {
+    margin: -20px -20px 0;
+    background: #444;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase
+}
+#sp-cpanel_settings {
+    margin: 20px 0 0;
+    font-size: 12px
+}
+#sp-cpanel_settings label {
+    font-weight: 600;
+    color: #333
+}
+#sp-cpanel_settings select {
+    background: #eee;
+    border-color: #ccc #eee #eee #ccc;
+    box-shadow: none;
+    height: 30px;
+    border-radius: 3px
+}
+.panel-subtitle {
+    font-size: 11px;
+    display: block;
+    color: #999;
+    font-weight: 400
+}
+.group-schemes {
+    width: 100%;
+    display: block
+}
+.group-schemes .item_scheme {
+    border: 3px solid #E3E3E3;
+    display: inline-block;
+    margin: 0 6px 0 0;
+    cursor: pointer
+}
+.group-schemes .item_scheme.selected {
+    border-color: #777
+}
+.group-schemes .item_scheme>span {
+    width: 22px;
+    height: 22px;
+    display: block;
+    border: 1px solid #fff
+}
+.reset-group {
+    background: #eee;
+    border-top: 1px solid #DCDCDC;
+    margin: 0 -20px -20px;
+    padding: 10px 20px
+}
+.reset-group .btn {
+    font-size: 13px;
+    color: #fff;
+    background: #F47252;
+    border: none;
+    padding: 7px 12px;
+    width: 42%;
+    border-radius: 3px!important
+}
+.reset-group .btn:after {
+    content: "";
+    display: block
+}
+.reset-group .btn-success {
+    background: #666; margin-right:20px;
+}
+#sp-cpanel_btn,
+.reset-group .btn:hover {
+    background: #333
+}
+#sp-cpanel_btn {
+    position: fixed;
+    width: 42px;
+    height: 40px;
+    left: 0;
+    top: 260px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 90;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15)
+}
+#sp-cpanel_btn i {
+    font-size: 20px;
+    color: #fff
+}
+.sp-cpanel-title {
+    margin: -20px -20px 0;
+    background: #ccc;
+    padding: 5px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    line-height: 26px
+}
+.sp-cpanel-close {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    margin: -5px;
+    cursor: pointer;
+    float: right
+}
+.sp-cpanel-close .fa {
+    font-size: 16px
+}
+.sp-cpanel-close:hover {
+    color: #fff;
+    background: #777
+}
+.label-sm {
+    font-size: 10px;
+    color: #999;
+    margin: 5px 0;
+    line-height: 16px
+}
+.group-pattern {
+    margin: 0 -3px
+}
+.img-pattern {
+    width: 25px;
+    display: inline-block;
+    margin: 3px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.img-pattern.selected {
+    border: 2px solid #777
+}
+
+
+textarea.get-css {
+    height: 525px;
+    width: 100%;
+    resize: none;
+    cursor: text;
+}
+.banner-top{background: #6D47D9;} 
+.banner-top .alert {margin: 0;background: none;border:none; color: #dacdff;font-size: 14px; padding: 15px;}
+.banner-top  button.close{color: white; opacity: 0.8;}
+.banner-top  button.close:hover{color: white;}

@@ -1,0 +1,105 @@
+.icons-social{
+   a{
+      display: inline-block;
+      margin-right: 5px;
+      color: #f82e56;
+   }
+   .fa {font-size: 20px;line-height: 40px; vertical-align: top;}
+   
+   @include icons-social('facebook',#3b5998,$white,'circled');
+   @include icons-social('twitter',#00aced,$white,'circled');
+   @include icons-social('google-plus',#dd4b39,$white,'circled');
+   @include icons-social('linkedin',#007bb5,$white,'circled');
+   @include icons-social('instagram',#125688,$white,'circled');
+   @include icons-social('youtube',#b00,$white,'circled');
+}
+
+
+.page-header{
+	font-size: 18px;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: bold;
+	border: none;
+	padding-bottom: 0;
+}
+.divider {clear: both;height: 40px;}
+.alert{border-radius: 0;margin: 10px 0 0;
+	.fa {font-size: 20px;vertical-align: middle;margin-#{right}:10px;}
+}
+.tab-content {
+    padding: 15px 15px 10px;margin-bottom: 20px;z-index: 2;border: 1px solid #ddd;border-top: 0px;
+}
+
+.simple-ul{margin: 0 0 15px 0; padding: 0; list-style: none;
+	li{position: relative;padding-left: 15px;margin-bottom: 5px;
+		&:before{    position: absolute;top: 0;left: 0;display: block;content:"\f105";font-family: $FontAwesome; font-size: 14px;}
+		ul {   margin: 10px 0 10px 0;padding: 0;list-style: none;
+			li:before{content: "\f111"; font-size: 7px;top:7px;}
+		} 
+	}
+}
+.decimal-list { margin: 0px 0 15px 20px;padding: 0;list-style: decimal outside;
+	li{padding-left: 0;margin-bottom: 5px;text-indent: 0;}
+}
+
+blockquote {font-size: 12px;}
+.well{border-radius: 0;}
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/*
+.common-home{
+	.default-nav .owl2-nav{
+		div{
+			width: 28px;
+		    height: 28px;
+		    display: inline-block;
+		    top: -34px;
+		    cursor: pointer;
+		    &.owl2-prev{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -1111px;
+		    	&:hover{background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -1063px transparent;}
+			}
+		    &.owl2-next{ background: url("#{$imgPath}icon/icon_general.png") no-repeat  -20px -1015px; 
+		    	&:hover{ background: url("#{$imgPath}icon/icon_general.png") -20px -967px transparent; }
+			}
+		}
+		
+	}
+	.h3-nav .owl2-nav{
+		div{
+			width: 28px;
+		    height: 28px;
+		    display: inline-block;
+		    top: -34px;
+		    cursor: pointer;
+		    &.owl2-prev{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -647px;
+		    	&:hover{background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -586px transparent;}
+			}
+		    &.owl2-next{ background: url("#{$imgPath}icon/icon_general.png") no-repeat  -20px -403px; 
+		    	&:hover{ background: url("#{$imgPath}icon/icon_general.png") -20px -342px transparent; }
+			}
+		}
+		
+	}
+	.owl2-nav{
+		div{
+		    width: 41px;
+		    height: 41px;
+		    display: inline-block;
+		    top: 50%;
+		    margin-top: -20px;
+		    cursor: pointer;
+		    transition: inherit;
+		    &.owl2-prev{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -525px; 
+		    	&:hover{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -464px;}
+			}
+		    &.owl2-next{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -281px; 
+		    	&:hover{ background: url("#{$imgPath}icon/icon_general.png") no-repeat -20px -220px; }
+			}
+		    &:before{ display: none; }
+		}
+	}
+}*/

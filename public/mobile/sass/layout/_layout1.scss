@@ -1,0 +1,202 @@
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] MODULE DEFAULT
+    [2] BLOCK SEARCH
+    [3] SOCIAL FOOTER
+	
+==============================================*/
+#wrapper{width:100%;height: 100%;background: white;}
+#content{margin: 10px 0; overflow: hidden;  }
+
+.mobile-home #content{margin:0; clear: both;}
+.mobile-home .typeheader-1.bar-navhome{ box-shadow: none; }
+
+
+/************************************************************************************************
+    MODULE HOME SLIDER  
+*************************************************************************************************/
+.sohomepage-slider{
+	margin: 0 0 10px;
+	.owl2-controls{
+		.owl2-dots{ position: absolute; bottom: 25px; width: 100%;  line-height: 100%; #{$left}: 10px; #{$right}: auto;
+		.owl2-dot{ display: inline-block; float: $left;width:auto;height: auto;border-radius: 0;margin: 0; background: none;
+		    span{ width: 5px; height:5px; background-color: #7d7d7d; border:none; margin:0 2px; opacity: 1; 
+			   display: block;border-radius: 50%; -webkit-border-radius: 50%; @include transition(all .2s ease 0s);
+			}
+			&.active span{ background-color: $background; width: 20px; border-radius: 4px; }
+			}
+		}
+	}
+	
+}
+.no-margin{ margin: 0; }
+/************************************************************************************************
+    SHORT CODE CONTENT SLIDER BRAND
+*************************************************************************************************/
+
+/************************************************************************************************
+    BLOCK FEATURED CATE
+*************************************************************************************************/
+.container{ padding: 0 10px;}
+
+.loading-placeholder {
+  background:  url("#{$imagePath}ajax-loader.gif") no-repeat center center white;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.module .block-categories{ 
+    .cate-content{      
+	    padding-bottom: 5px;
+        .cate { 
+			display: inline-block;
+		    vertical-align: top;
+		    width: 150px;
+            .inner{ box-shadow: 0px 2px 3px 0px rgba(100, 100, 100, 0.3);  text-align: center; margin-bottom: 5px; }
+            a.title-cate { color:#222; font-weight: 700; font-size: 16px; text-transform: uppercase; line-height: 52px; @include transition(all .3s ease 0s); display: block; }
+            &:hover{
+                img{ opacity: 0.7; visibility: visible; }
+                a.title-cate{
+                    background: #222; color: #fff;
+                }
+            }
+        }
+    }
+}
+.panel .panel-group .panel .panel-heading .head a:before{ color: #333; }
+.form-control{ font-size: 12px; }
+/*HTML BANNER 1*/
+.mobile-bn3-h1,
+.mobile-bn1-h1{ padding: 0 10px; margin-bottom: 10px;
+	.banner21{
+	    display: inline-block;
+	    float: $left;
+	    width: 50%;
+	    padding: 0 5px;
+	}
+}
+.mobile-bn3-h1{ margin: 10px 0 10px; }
+.mobile-bn2-h1{ margin: 0 0 5px; }
+
+/*DEAL SLIDER*/
+.mobile-brand{
+	margin: 0;
+	overflow: hidden;
+}
+.module.mobile_deals{
+	margin: 0 0 10px;
+	overflow: hidden;
+}
+/*EXTRA SLIDER*/
+
+/*FOOTER*/
+.footer-content{
+	overflow: hidden;
+}
+
+
+/*NABAR*/
+.bar-tab .tab-item .icon ~ .tab-label{
+	font-size: 10px;
+	text-transform: uppercase;
+	line-height: 100%;
+	margin-top: 2px;
+     white-space: nowrap
+}
+.item-cart{
+	position: relative;
+	.btn-shopping-cart{
+	    position: absolute;
+	    top: 0;
+	    #{$right}: 30%;
+	    z-index: 99;
+	    .total-shopping-cart{
+    	    background: $background;
+		    width: 15px;
+		    height: 15px;
+		    display: inline-block;
+		    text-align: center;
+		    border-radius: 100%;
+		    font-size: 10px;
+		    line-height: 15px;
+		    color: #fff;
+	    }
+	}
+}
+
+.block-mobile{
+    padding: 10px 0 15px ;
+    overflow: hidden;
+    margin-bottom: 0;
+    .info {
+	    float: $left;
+	    width: 33.33%;
+	    .fa{
+		    font-size: 28px;
+		    color: $background;
+		    float: $left;
+		}
+		.info-content {
+		    position: relative;
+    		top: -5px;
+		    padding-#{$left}: 38px;
+		}
+		.info-content span {
+		    font-size: 10px;
+		    color: #222;
+		    text-transform: uppercase;
+		    font-weight: 600;
+		    line-height: 100%;
+		}
+		p {
+		    text-transform: capitalize;
+		    margin-bottom: 3px;
+		    font-size: 10px;
+		    line-height: 100%;
+		}
+	}
+}
+.title-heading{
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #222;
+}
+.panel-search{
+	.input-group-btn{ background: $background; padding: 0 5px;
+		.btn-link{ color: #fff; }
+	}
+	.input-group input{ border-radius: 0; }
+}
+.form-searchs{ overflow: hidden; }
+@media (max-width: 320px){
+	.block-mobile .info .info-content span {
+	    font-size: 9px;
+	}
+	.block-mobile .info p {
+	    font-size: 9px;
+	}
+	.block-mobile .info .info-content {
+	    padding-#{$left}: 33px;
+		white-space: nowrap;
+	}
+}
+
+
+.total-shopping-cart{
+	.items_cart2,
+	.items_cart1{display: none;}
+}
+
+.checkout-checkout{
+	fieldset {
+	    padding: 0;
+	    margin: 0;
+	    border: none;
+	}
+}

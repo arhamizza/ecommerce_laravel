@@ -1,0 +1,115 @@
+.bar-navhome{padding: 7px 10px;top:0;
+    .input-group{background: #f2f2f2; border-radius: 3px; padding: 0 10px;
+        .btn-link{color:$gray;line-height: inherit;font-size: 13px;}
+        .form-control {border: none;font-size: 13px; height: auto; background:transparent; margin:4px 0;}
+    }
+    
+    
+}
+.bar-static{position:static;}
+.navbar-menu{
+    .toggle-panel{
+        background: $gray-dark;
+        border-radius: 3px;
+        color:$linkColor;
+        padding: 4px 6px;
+        display: inline-block;
+        .icon-bar{
+            height: 2px;
+            width: 16px;
+            margin: 3px 0px;
+            background: $background;
+            display: block;
+            &:first-child{ width: 12px; }
+            &:last-child{ width: 14px; }
+        }
+    }
+}
+
+/*============HEADER V1 ==================*/
+.typeheader-0{
+    border: none!important;
+  
+    &.bar-navhome{ height: auto;
+        .navbar-logo{
+            padding: 0;
+            img{max-height: 32px;}
+        }
+        .navbar-search{
+            position: relative;
+            top: 2px;
+            #search{padding: 0; width: 100%;}
+            .input-group .form-control{ 
+                margin: 0; 
+                line-height: 25px;
+                font-size: 11px;
+                color: #9c9c9c;
+            }
+            .input-group-btn{ position: absolute; text-align: center; width: 30px; #{$right}: 5px;  }
+        }
+    }
+    
+    .header-menu-page .menu-mobile1 li{ 
+        a{
+            font-size: 12px;
+            color: #222;
+            &:hover{
+                color: $linkColor;
+            }
+        }
+    }
+}
+/*============HEADER V2 ==================*/
+.typeheader-1{
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    background: $background;
+    border: none;
+    .navbar-menu .toggle-panel{ background: #fff; }
+}
+
+
+/*============HEADER V3 ==================*/
+.typeheader-2{ box-shadow: none;
+	&.bar-navhome{height:auto;}
+    &.bar-nav{ box-shadow: none; }
+    .navbar-menu .toggle-panel{ background: #e3e3e3; }
+    .navbar-menu .toggle-panel .icon-bar{ background: #222; }
+    .navbar-bar{ text-align: center; }
+    .navbar-menu{ float: $left; }
+    .navbar-logo{ text-align: center; display: inline-block; margin: 0; max-width: 82px }
+    .navbar-search{
+        display: block;
+        overflow: hidden;
+        margin-top: 8px;
+        border-top: 1px solid #e8e8e8;
+        #search{
+            padding: 0;
+            background: #fff;
+			border-radius: 0;
+            .form-control{
+                padding:  0;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+    .header-link{
+        display: inline-block;
+        overflow: hidden;
+        margin: 0 10px 0 0;
+    }
+    .header-cart{
+        float: $right;
+        margin: 0 8px 0 10px;
+    }
+    .header-wishlist{ float: $left; font-size: 18px; }
+    .header-cart a {
+        text-indent: -9999px;
+        display: inline-block;
+        width: 17px;
+        height: 19px;
+        background: url("#{$imagePath}icon/icon-cart2.png") no-repeat center center;
+    }
+}

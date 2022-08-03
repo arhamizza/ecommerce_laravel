@@ -1,0 +1,445 @@
+/*******************************************************************
+******                SO Framework: Sass Menu                 ******
+********************************************************************/
+//** simple and lightweight mixin library for Sass **//
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **//
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **//
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**//
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/*============ MODULE MEGAMENU HORIZONTAL  ==================*/
+
+
+.container-megamenu ul.megamenu li{
+    .sub-menu{
+        z-index: 998;
+        .content{
+            box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 0;
+        }
+    }
+   
+} 
+        
+/*---mega menu horizontal level 1--*/
+.container-megamenu.horizontal{
+    ul.megamenu{
+        > li{
+            float: $left;
+            margin-#{$right}: 30px;
+            > a{
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: #222;
+                display: block;
+                position: relative;
+                padding: 15px 0;
+                line-height: 100%;
+                height: auto;
+                strong{
+                    font-weight: 600;
+                }
+            }
+            
+        }
+    }        
+    
+    ul.megamenu > li.active > a,
+    ul.megamenu > li.active_menu > a{
+        color: $linkColor;
+    }
+}
+
+.container-megamenu.horizontal{
+    ul.megamenu li .sub-menu .content .static-menu .menu ul ul li{ 
+        //line-height: 30px; 
+    }
+    .title-feature,
+    ul.megamenu .title-submenu,
+    ul.megamenu li .sub-menu .content .static-menu a.main-menu,
+    ul.megamenu .subcategory  a.title-submenu{ line-height: 100%; text-transform: uppercase; font-weight: bold; 
+        padding-bottom: 0; margin-bottom: 5x; 
+    }
+   
+
+    ul.megamenu li .sub-menu .content a,
+    ul.megamenu li .sub-menu .content .html a.subcategory_item{ line-height: 30px;   color: #464646; display: block;
+        &:hover{ color: $linkColor; }
+    }
+    ul.megamenu > li > a  img{ position: absolute; top: -8px; #{$right}: 0px;  height: auto;}
+
+   
+
+    /*-------- SUB MENU HORIZONTAL ----------*/
+    ul.megamenu .sub-menu .content > .border{
+        border: none;
+        padding-top: 0;
+    }
+   /* ul.megamenu li .sub-menu .content .static-menu .menu ul ul,
+    ul.megamenu .title-submenu{
+        padding: 0;
+    }
+    ul.megamenu li .sub-menu .content .static-menu .menu ul ul li::before,
+    ul.megamenu li .sub-menu .content .hover-menu a::before{
+        display: none;
+    }*/
+
+    ul.megamenu li .sub-menu .content{
+        img{
+            &:hover{
+                @include opacity(0.8);
+            }
+        } 
+        .item-banner{
+            .img-banner-w{
+                margin: 0 -15px;
+            }
+            .img-banner{
+                width: 50%;
+                padding: 0 15px;
+                float: $left;
+            }
+        }  
+    } 
+
+    
+    // MENU FEATURES
+    
+   
+    
+}
+/*============ MODULE MEGAMENU VERTICAL  ==================*/
+.container-megamenu{
+	.container{width: 100%; padding: 0;}
+}
+.container-megamenu.vertical{
+    z-index: 990;
+    .megamenuToogle-wrapper{
+        background-color: transparent;
+    }
+    #menuHeading{
+        margin: 0;
+        .megamenuToogle-pattern{  
+            position: relative;          
+            .container{ width: 100%;     
+                @include border-top-radius(3px);
+                color: #fff;
+                font-weight: 700;        
+                @include rem(font-size, 16px);
+                line-height: 40px;
+                padding: side-values(0px 0px 0px 20px);
+                margin: 0;
+                position: relative;
+                text-transform: uppercase;
+                display: block;   
+                > div{
+                    float: $left;   
+                    padding-top: 11px;
+                    margin: side-values(0px 9px 0 0);
+                    > span{
+                        box-shadow: none;
+                    }
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+                
+            }                      
+        }
+    }
+    .vertical-wrapper{
+        .megamenu-pattern{
+            position: relative;
+            z-index: 1;
+        }
+        @media (min-width: 992px){
+        ul.megamenu{
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);  
+            background-color: #fff;
+            @include border-bottom-radius(3px);
+            > li{                
+                cursor: pointer;
+                padding: side-values(0 15px 0 15px);             
+                border: none;
+                margin: 0;               
+                position: relative;
+                &.id6-item{
+                    display: none;
+                }
+                > a{                                   
+                    color: #666;
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding: side-values(14px 0 14px 35px);
+                    line-height: 100%;
+                    position: relative;
+                    text-transform: capitalize;
+                    &:hover{
+                        color: $linkColor;
+                    }
+                  
+                    b{
+                        display: none;
+                    }
+                    img{
+                        height: auto;
+                        #{$left}: 0px;
+                        margin: 0;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                }
+                &.with-sub-menu{
+                    > a:before{
+                        font-family: $FontAwesome;
+                        display: inline-block;
+                        @include if-ltr{             
+                            content: "\f105"; 
+                        }  
+                        @include if-rtl {
+                            content: "\f104"; 
+                        }  
+                        font-size: 16px;
+                        position: absolute;
+                        #{$right}: 0px;
+                        top: 15px;
+                    }
+                    &:hover{
+                        > a{
+                            color: $linkColor;
+                        }
+                    }
+                }
+                &.active,
+                &:hover{
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);                        
+                    > a{   
+                                                                                 
+                    }
+                   
+                }
+                
+                
+            }
+
+            .loadmore{
+                padding: side-values(16px 15px 20px 50px);
+                line-height: 100%;
+                i{
+                    #{$left}: 14px;
+                    top: 16px;
+                    position: absolute;
+                    font-size: 14px;
+                    color: $linkColor;
+                }
+                .more-view{
+                    color: $linkColor;
+                    font-size: 14px;
+                }
+             
+            } 
+        }
+        }
+    }
+}
+
+
+.container-megamenu.vertical {    
+    ul.megamenu > li > a strong{
+        font-weight: 400;
+    }
+    .vertical-wrapper{
+        border: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        ul.megamenu .sub-menu .content .img-banner img{ width: 100%; }
+
+        ul.megamenu > li > a img{height: auto; margin: 0;margin-#{$right}: 10px;}
+
+
+        /*---------------- SUB MENU VERTICAL -----------------*/
+        ul.megamenu .sub-menu .content > .border{
+            padding: 0;
+            border: none;
+        }
+        ul.megamenu .sub-menu .content > .row{
+            padding-top: 5px;
+        }
+        ul.megamenu > li > .sub-menu .content{
+            padding: 30px;
+            @include if-ltr {box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);}
+            @include if-rtl {box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.1);}
+            
+            .static-menu .menu {
+                > ul{ 
+                    > li{
+                        margin-bottom: 15px;
+                    }
+                    
+                    li a.main-menu{
+                        color: #222;
+                        @include rem(font-size,14px);
+                        margin: 0 0 0px;
+                        display: block;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        border: none; 
+                    }
+                    ul{
+                        padding: 0;
+                        li{padding:  0; 
+                            
+                            display: inline;
+                            a{
+                                @include rem(font-size,14px);
+                                font-weight: 400;
+                                //color: #777;
+                                display: block;
+                                line-height: 28px;
+                            }
+                            &:before{
+                                display: none;
+                            }
+                            &:hover{
+                               a{ color: $linkColor; } 
+                            }
+                        }
+                    }
+                }
+            }
+            .link:hover{
+                img{
+                    opacity: 0.8;
+                }
+            }
+            .img-vbanner{
+                a:hover{
+                    img{
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            // type subcategory
+            ul.subcategory{
+                .title-submenu{
+                    font-weight: 700;
+                    color: #222;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    padding: side-values(0 0 3px 0);
+                }
+                .menu{
+                    ul{
+                        li{
+                            line-height: 100%;
+                            display: inline;
+                            a{                         
+                                font-size: 14px;
+                                line-height: 28px;
+                                &:hover{
+                                    //color: $linkColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        ul.megamenu {
+            
+            
+            .item-vertical.css-menu{
+                
+                .content{
+                    padding: 0;
+                    .menu ul{
+                        margin: 10px 0;
+                        padding: 0;
+                         li{
+                            padding: 0 ;
+                            position: relative;  
+                    
+
+                            &:last-child{border: none;}
+                            > a{ line-height: 30px; font-size: 14px; display: inline-block; width: 100%; padding: 0 20px;}
+                            b{
+                                float: $right;
+                                line-height: 27px;
+                                font-size: 16px;
+                                margin: 0 20px;
+                                position: absolute;
+                                top: 0;
+                                #{$right}:0;
+                                &:before{
+                                    @include if-rtl {
+                                        content: "\f104"; 
+                                    } 
+                                }                               
+                            }
+                            &:hover{ > a{color: $linkColor;}} 
+                            
+                            ul{
+                                width: 250px;
+                                padding: 10px 0;
+                                top: 0;
+                                margin: 0;                         
+                                &:before, &:after{display: none;}
+                                #{$left}: 100%;
+                                li{
+                                   
+                                    &:last-child{border: none;}
+                                    > a{
+                                        font-weight: normal;
+                                        line-height: 30px;
+                                        
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            li .sub-menu{
+                @media (min-width: 992px) {
+                    @include if-rtl {
+                        left: auto;
+                        right: 100%;
+                    }
+                }
+          
+                
+                
+            }
+
+           
+        } 
+       
+    }
+}
+
+

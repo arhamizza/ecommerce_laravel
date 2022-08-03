@@ -1,0 +1,85 @@
+
+/*============PANEL CATEGORY ==================*/
+.panel {border: none; font-size: 14px;
+    .content{background: #e4e4e4 ;width: auto;margin: 0;}
+    .panel-group{background: transparent;color: #999;}
+    .panel-group .panel {background: transparent;border-radius: 0; box-shadow: none; margin: 0; border-bottom: 1px solid #d2d2d2 ;
+        .panel-heading{background: transparent;border-radius: 0; position: relative;z-index: 2;
+            
+            .head {
+                display: block;
+                position: absolute;
+                top: 5px;
+                z-index: 10;
+                line-height: 20px;
+                #{$right}: 10px;
+                text-align: center;
+                a:before {
+                    content: "\e82e";
+                    display: inline-block;
+                    font-family: $FontRatchicons;
+                    width:30px; height: 30px; line-height: 30px;
+                }
+                
+            }
+        }
+    }
+    
+    .panel-collapse ul{padding: 0 15px;margin-bottom: 15px;
+        li{padding: 3px 10px;
+            &:before{content: "-";}
+            a{color: #666;}
+        }
+    }
+    .bot-inner{
+        a{color: #666;}
+    }
+}
+
+.panel-logo{margin: 15px 0; padding: 0 30px;}
+.panel-search{
+    .input-group{background: #ddd; margin: 20px; 
+        input{border: none;font-size: 13px;}
+    }
+}
+.panel-left__bottom{ margin-bottom: 15px;
+    .fa {font-size: 16px;}
+    .bot-inner{font-size: 13px;}
+    .panel-left__language,
+    .panel-left__currency{padding: 0; margin-top: 20px;
+        h4{font-size: 13px;font-weight: normal; margin: 10px 0 0;}
+    }
+    .btn-group .btn-link{font-size: 12px; padding: 2px 5px;border: 1px solid #999; }
+    .select .btn-link{border-color: $background;}
+}
+
+.popover{
+    &.bottom{width:220px;bottom: 55px;top: auto; margin-top: 0; #{$right}: 0;#{$left}: auto;
+        &:before{border-bottom: 0;border-top: 15px solid rgba(247, 247, 247, .98); top: auto;bottom: -15px; #{$left}: 80%;}
+    }
+}
+
+.fancy-collapse-panel .panel-default > .panel-heading {padding: 0;}
+
+.side-menu{
+	.languages-block .dropdown-menu{
+		#{$left}: 0;
+	    #{$right}: auto;
+	}
+	.currencies-block .dropdown-menu{
+		#{$left}: auto;
+	    #{$right}: 0;
+	}
+	.dropdown-menu{
+	    transition: all 0.2s ease-out;
+	    border-radius: 0;
+	    min-width: 120px;
+	    padding: 0;
+	    border: 1px solid rgba(0,0,0,.15);
+	    -webkit-background-clip: padding-box;
+	    background-clip: padding-box;
+	    .btn-block{
+	    	font-size: 12px; margin: 0;
+	    }
+	}
+}

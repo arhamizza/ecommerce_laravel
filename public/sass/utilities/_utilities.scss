@@ -1,0 +1,1361 @@
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Button
+    [3] Minxin Triangle
+    [4] Minxin LABEL PRODUCT
+    [5] Minxin Scrollbars
+    [6] Minxin Dev Custom
+  
+==============================================*/
+
+
+
+.no-margin{margin: 0 !important;}
+
+//===== Minxin Link =======
+
+@mixin link(){
+	color: $linkColor;text-decoration: none;
+	&:hover{color: lighten($linkColor, 10%);}
+}
+@mixin linkGrayDark(){
+	color: $gray-dark;
+	&:hover{color: $linkColor;}
+}
+
+@mixin linkGray(){
+	color: $gray;
+	&:hover{color: $linkColor;}
+}
+@mixin linkGraylighter(){
+	color: $input-color-placeholder ;
+	&:hover{color: $linkColor;}
+}
+@mixin linkGrayLight(){
+	color: $base-border-color;
+	&:hover{color: $linkColor;}
+}
+@mixin linkWhite(){
+	color: $white;
+	&:hover{color: $linkColor;}
+}
+@mixin linkTitle(){
+	color: $textColor2; // color #222;
+	&:hover{color: $linkColor;}
+}
+//====== Minxin Buton =======
+@mixin buttonGrayDark(){
+	padding: 9px 20px; background: $gray-darker;color: #fff;   border-radius: 3px;border: none;
+	&:hover{background: $background; border-color: $linkColor;color: #fff; }
+}
+
+@mixin buttonGray(){
+	padding: 9px 20px; background: $gray;color: #fff;  border-radius: 3px;border: none;
+	&:hover{background: $background; border-color: $linkColor;color: #fff; }
+}
+
+@mixin buttonGraylighter(){
+	padding: 9px 20px;background: $gray-lighter;color: #333;  border-radius: 3px;border: none;
+	&:hover{background: $background; border-color: $linkColor;color: #fff; }
+	
+}
+@mixin buttonGraylight(){
+	@include buttonGray(); 
+	background: $input-color-placeholder; 
+	&:hover{background: $background;}
+}
+
+@mixin buttonColor(){
+	@include buttonGray();
+	background: $background; border-color: $background;
+	&:hover{background: $gray;border-color: $gray;}
+}
+@mixin bgbutton(){
+	background: -moz-linear-gradient(top, #474747 0%, #212121 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#474747), color-stop(100%,#212121));
+    background: -webkit-linear-gradient(top, #474747 0%,#212121 100%);
+    background: -o-linear-gradient(top, #474747 0%,#212121 100%);
+    background: -ms-linear-gradient(top, #474747 0%,#212121 100%);
+    background: linear-gradient(to bottom, #474747 0%,#212121 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#474747', endColorstr='#212121',GradientType=0 );
+}
+@mixin buttonColorLighten($opacity){
+	@include buttonGray();
+	background: $background; border: none;
+	&:hover{background: lighten($background, $opacity);}
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+//======   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  30%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin imageFade($opacity:0.8){
+	img{transition: 0.3s all ease-in-out ;}
+    .img-responsive:hover{opacity: $opacity;}
+}
+
+//====== Minxin Triangle  =======
+// Size helper mixin
+// ---
+// @param [number] $width: width
+// @param [number] $height ($width): height
+// ---
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// [Private] 
+// Position helper mixin
+// Article about it: http://hugogiraudel.com/2013/08/05/offsets-sass-mixin/
+// ---
+// @param [string] $position: position type
+// @param [list] $args: list of offsets and values
+// ---
+@mixin _position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i{
+		@if $i + 1 <= length($args){
+			@if type-of( nth($args, $i + 1) )== number {
+				#{$o}: nth($args, $i + 1);
+			}
+			
+		 }
+      
+    }
+  }
+  position: $position;
+}
+
+// Absolute positioning helper mixin
+// Article about it: http://hugogiraudel.com/2013/08/05/offsets-sass-mixin/
+// ---
+// @param [list] $args: list of offsets and values
+// ---
+@mixin absolute($args) {
+  @include _position(absolute, $args);
+}
+
+@mixin triangle($direction, $position, $color: currentColor, $size: 1em) {
+  // Make sure the direction is valid
+  @if not index(top right bottom left, $direction) {
+    @warn "Direction must be one of top, right, bottom or left.";
+  }
+
+  @else {
+    @include absolute($position); // Position
+    @include size(0); // Size
+    content: '';
+    z-index: 2;
+
+    border-#{$direction}: $size * 1 solid $color;
+    $perpendicular-borders: $size solid transparent;
+    
+    @if $direction == top or $direction == bottom {
+      border-left:   $perpendicular-borders;
+      border-right:  $perpendicular-borders;
+    }
+
+    @else if $direction == right or $direction == left {
+      border-bottom: $perpendicular-borders;
+      border-top:    $perpendicular-borders;
+    }
+  }
+}
+
+
+
+//====== Minxin Buton Social =======
+@mixin icons-social($name,$color,$textColor,$type){
+	
+	@if($type != circled ){
+		&.fa-#{$name}{color:$color}
+	}@else{
+		.icon-circled {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			line-height: 40px;
+			border: 1px solid $background;
+			color:$background;
+			vertical-align: top;
+			text-align: center;
+		}
+		.icon-color.fa-#{$name}{
+			background:$color;border-color: $color; color: $textColor;
+		}
+	}
+	
+	a:hover{
+		
+		@if($type != circled ){
+			&.fa-#{$name}{color:$color}
+		}@else{
+			.icon-circled{background:$background;color:$textColor;}
+			.icon-color.fa-#{$name}{
+				background:lighten($color,10%);
+			}
+		}
+			
+	}
+}
+
+//====== Minxin Buton Social =======
+.marginbottom__3x{margin-bottom: 30px;}
+
+//====== Minxin owl controls =======
+@mixin owl-controls($background,$type){
+	.owl2-nav .owl2-prev,
+	.owl2-nav .owl2-next{
+		width: 20px;height: 27px; border: 1px solid #ddd;background-image: url('#{$base-url-theme}icons/ico-slider.png'); background-repeat: no-repeat;
+		background-color: #fff; display: inline-block; text-indent: -999em; position: absolute;  transition: all 0.2s ease-in-out 0s; top:calc(50% - 13px);
+		&:hover{background-color: $background; background-position: 0px 0; border-color: $linkColor;}
+	}
+	.owl2-nav .owl2-prev{
+		background-position: -31px 0;
+		&:hover{background-position: 0px 0;}
+	}		
+	.owl2-nav .owl2-next{
+		background-position: -60px 0;
+		&:hover{ background-position: -90px 0;}
+	}
+
+	@if($type == default ){
+		.owl2-nav .owl2-prev{
+			@include if-ltr {#{left}: 0px;}
+			@include if-rtl { #{left}: 0px;}
+		}		
+		.owl2-nav .owl2-next{
+			@include if-ltr {#{right}: 0px;}
+			@include if-rtl { #{right}: 0px;}
+		}
+		
+	}@else if($type == listing_tabs ){
+		.owl2-nav .owl2-prev{
+			@include if-ltr {#{$right}: 25px; #{$left}: auto;}
+			@include if-rtl { #{$right}: 0px;#{$left}: auto;}
+		}		
+		.owl2-nav .owl2-next{
+			@include if-ltr {#{$right}: 0px;}
+			@include if-rtl { #{$right}: 25px;}
+		}
+
+		
+	}
+	
+}
+
+//====== Minxin Loader Logo =======
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1);
+  }
+}
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1);
+    transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1);
+  }
+}
+
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1);
+  }
+}
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1);
+    transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1);
+  }
+}
+
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0,-100%,0);
+  }
+}
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+  }
+}
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0,800px,0);
+  }
+}
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0,800px,0);
+    transform: translate3d(0,800px,0);
+  }
+}
+
+/*Dev Custom */
+@mixin opacity($var){
+   -webkit-opacity: $var;
+   -moz-opacity: $var;
+  -ms-opacity:$var;
+   -o-opacity: $var;
+  opacity:$var;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+   border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -moz-box-shadow: $shadow; 
+  -webkit-box-shadow: $shadow; 
+          box-shadow: $shadow;
+}
+@mixin transition($transition) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+}
+
+@mixin effect-block-show() {
+  visibility: visible;
+  @include opacity(1);
+  @include transition(all 0.2s ease-in-out 0s);
+  
+}
+@mixin effect-block-hide() {
+  visibility: hidden;
+  @include opacity(0);
+  @include transition(all 0.2s ease-in-out 0s);  
+}
+// owl2-nav layout 1 - etrostore
+@mixin owl2-nav-style($size,$fontsize,$bgcolor){	
+        .owl2-prev,
+        .owl2-next{       
+            background-color: $bgcolor;
+            border: none;
+            @include border-radius(0px);
+            width: $size;
+			height: $size;
+			line-height: $size;
+			text-align: center;
+			float: $left;
+			text-indent: -9999px;
+			overflow: hidden;
+			cursor: pointer;
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            z-index: 99;
+			&:before{
+				color: #fff;
+				font-family: $FontAwesome;
+				display: block;
+				text-indent: 0 !important;
+				width: 100%;
+				height: 100%;
+				font-size: $fontsize;
+			}
+			&.owl2-next{		
+				#{$right}: 0;		
+				&:before{
+				  @include if-ltr{             
+				  	content: "\f054"; 
+				  }  
+				  @include if-rtl {
+				    content: "\f053"; 
+				  }  
+				}
+			}
+			&.owl2-prev{	
+				#{$left}: 0;			
+				&:before{
+				  @include if-ltr{             
+				  	content: "\f053"; 
+				  }  
+				  @include if-rtl {
+				    content: "\f054"; 
+				  }  
+				}
+			}
+			&:hover{
+				//border-color: $linkColor;
+				background-color: $background;
+				&:before{
+				  color: #fff;
+				}
+			} 
+        }
+}
+
+// owl2-dots style - emarket
+@mixin owl2-dot-style($width,$height,$bg){
+	position: absolute;
+	top: 5px;
+	text-align: $right;
+	#{$right}: 0;
+
+	min-width: 80px;
+	.owl2-dot{
+		width: $width;
+		height: $height;
+		border-radius: $height;
+		background-color: $bg;
+		margin: 0 5px;
+		display: inline-block;
+		vertical-align: top;
+		cursor: pointer;
+		@include transition(all 0.2s ease-in-out 0s);  
+		span{
+			display: none;
+		}
+		&:hover{
+			background-color: $background;
+		}
+		&.active{
+				width: $width + 22px;
+				background-color: $background;
+			
+		}
+	}
+}
+
+
+// owl2-nav layout 1 - emarket
+@mixin owl2-nav-style1($size,$fontsize : 14px,$color1,$color2){	
+	position: absolute;
+	top: 0;
+	#{$right}: 0;
+        .owl2-prev,
+        .owl2-next{       
+            background-color: transparent;
+            border: 2px solid $color1;
+            @include border-radius(50%);
+            width: $size;
+			height: $size;
+			line-height: $size - 4px;
+			text-align: center;
+			float: $left;
+			text-indent: -9999px;
+			overflow: hidden;
+			cursor: pointer;
+            opacity: 1;
+            z-index: 99;
+            font-size: $fontsize;
+
+			&:before{
+				color: $color1;
+				font-family: $FontAwesome;
+				display: block;
+				text-indent: 0 !important;
+				width: 100%;
+				height: 100%;
+				font-size: $fontsize;
+			}
+			&.owl2-next{	
+				margin-#{$left}: 5px;	
+				&:before{
+				  @include if-ltr{             
+				  	content: "\f0da"; 
+				  }  
+				  @include if-rtl {
+				    content: "\f0d9"; 
+				  }  
+				}
+			}
+			&.owl2-prev{					
+				&:before{
+				  @include if-ltr{             
+				  	content: "\f0d9"; 
+				  }  
+				  @include if-rtl {
+				    content: "\f0da"; 
+				  }  
+				}
+			}
+			&:hover{
+				border-color: $color2;
+				&:before{
+				  color: $color2;
+				}
+			} 
+        }
+}
+
+// owl2-nav layout 2 - emarket
+@mixin owl2-nav-style2($size,$fontsize,$color){
+	position: absolute;
+	top: 0;
+	#{$right}: 0;
+	z-index: 99;
+	> div{
+		width: $size;
+	  height: $size;
+	  line-height: $size;
+	  text-align: center;
+	  @include border-radius(0);
+	  text-indent: -9999px;
+	  overflow: hidden;
+	  cursor: pointer;
+	  background-color: transparent;
+	  position: relative;
+	  display: inline-block;
+	  border: none;
+	  #{$right}: auto;
+	  #{$right}: auto;
+	  float: none;
+	  &:before{
+	    color: $color;
+	    font-weight: 400;
+	    font-family: $FontAwesome;
+	    position: absolute;
+	    top: -2px;
+	    #{$left}: 0;
+	    display: inline-block;
+	    text-indent: 0;
+	    width: 100%;
+	    height: 100%;
+	    font-size: $fontsize;
+	    @include transition(all 0.2s ease-in-out 0s);
+	  }
+	  &.owl2-next{
+	  	//#{$right}: -30px;
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f105"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f104"; 
+	      }  
+	    }
+	  }
+	  &.owl2-prev{
+	  	//#{$left}: -30px;
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f104"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f105"; 
+	      }  
+	    }
+	  }
+	  &:hover{
+	    background-color: transparent;
+	    &:before{
+	      color: $linkColor;
+	    }
+	  } 
+	}
+	  
+}
+// owl2-nav layout 4 - emarket
+@mixin owl2-nav-style4($w,$h,$fontsize){
+	.owl2-prev,
+    .owl2-next{
+		width: $w;
+	  height: $h;
+	  line-height: $h;
+	  text-align: center;
+	  text-indent: -9999px;
+	  overflow: hidden;
+	  cursor: pointer;
+	  background-color: rgba(255,255,255,0.7);
+	  position: absolute;
+	  top: 50%;
+	  margin: 0;
+	  margin-top: -($h/2);
+	  display: inline-block;
+	  border: 1px solid #dedfe3;
+	  float: none;
+	  border-radius: 0;
+	  z-index: 99;
+	  opacity: 1;
+
+	  &:before{
+	  	opacity: 1;
+	    color: #505b61;
+	    font-weight: 400;
+	    font-family: $FontAwesome;
+	    position: absolute;
+	    top: -2px;
+	    #{$left}: 0;
+	    display: inline-block;
+	    text-indent: 0;
+	    width: 100%;
+	    height: 100%;
+	    font-size: $fontsize;
+	    @include transition(all 0.2s ease-in-out 0s);
+	  }
+	  &.owl2-next{
+	  	#{$right}: -1px;
+	  	#{$left}: auto;
+	  	border-top-#{$left}-radius: 3px;
+	  	border-bottom-#{$left}-radius: 3px;
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f105"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f104"; 
+	      }  
+	    }
+	  }
+	  &.owl2-prev{
+	  	#{$left}: -1px;
+	  	#{$right}: auto;
+	  	border-top-#{$right}-radius: 3px;
+	  	border-bottom-#{$right}-radius: 3px;
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f104"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f105"; 
+	      }  
+	    }
+	  }
+	  &:hover{
+	  	background-color: #fff;
+	    &:before{
+	      color: #222222;
+	    }
+	  } 
+	}
+	  
+}
+// owl2-nav layout 5 - emarket
+@mixin owl2-nav-style5($w,$h,$fontsize){
+	position: absolute;
+	top: 10px;
+	#{$right}: 10px;
+	.owl2-prev,
+    .owl2-next{
+		width: $w;
+	  height: $h;
+	  line-height: $h;
+	  text-align: center;
+	  text-indent: -9999px;
+	  overflow: hidden;
+	  cursor: pointer;
+	  background-color: #fff;
+	  position: relative;
+	  display: inline-block;
+	  border: 1px solid #e5e5e5;
+	  float: none;
+	  border-radius: 0;
+	  z-index: 99;
+	  opacity: 1;
+
+	  &:before{
+	  	opacity: 1;
+	    color: #888;
+	    font-weight: 400;
+	    font-family: $FontAwesome;
+	    position: absolute;
+	    top: -2px;
+	    @media screen and(-webkit-min-device-pixel-ratio:0) {
+	    	top: 0;
+	    }
+	    #{$left}: 0;
+	    display: inline-block;
+	    text-indent: 0;
+	    width: 100%;
+	    height: 100%;
+	    font-size: $fontsize;	   
+	  }
+	  &.owl2-next{
+	  	border-#{$left}: none;
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f105"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f104"; 
+	      }  
+	    }
+	  }
+	  &.owl2-prev{
+	    &:before{
+	      @include if-ltr{             
+	      	content: "\f104"; 
+	      }  
+	      @include if-rtl {
+	        content: "\f105"; 
+	      }  
+	    }
+	  }
+	  &:hover{
+	  	background-color: $background;
+	  	border-color: $linkColor;
+	    &:before{
+	      color: #fff;
+	    }
+	  } 
+	}
+	  
+}
+
+// owl2-nav layout 6 - emarket
+@mixin owl2-nav-style6($size,$fontsize : 14px,$borderc,$color){	
+	position: absolute;
+	top: 0;
+	#{$right}: 0;
+        .owl2-prev,
+        .owl2-next{       
+            background-color: #fff;
+            border: 1px solid $borderc;
+            @include border-radius(3px);
+            width: $size;
+			height: $size;
+			line-height: $size - 2px;
+			text-align: center;
+			float: $left;
+			text-indent: -9999px;
+			overflow: hidden;
+			cursor: pointer;
+            opacity: 1;
+            z-index: 99;
+            font-size: $fontsize;
+            margin: 0;
+			&:before{
+				color: $color;
+				font-family: $FontAwesome;
+				display: block;
+				text-indent: 0 !important;
+				width: 100%;
+				height: 100%;
+				font-size: $fontsize;
+				font-weight: 400;
+			}
+			&.owl2-next{	
+				margin-#{$left}: 5px;	
+				&:before{
+				  @include if-ltr{             
+			      	content: "\f105"; 
+			      }  
+			      @include if-rtl {
+			        content: "\f104"; 
+			      }   
+				}  
+			}
+			&.owl2-prev{					
+				&:before{
+				  @include if-ltr{             
+			      	content: "\f104"; 
+			      }  
+			      @include if-rtl {
+			        content: "\f105"; 
+			      }   
+				}
+			}
+			&:hover{
+				
+				&:before{
+				  color: $background;
+				}
+			} 
+        }
+}
+
+// owl2-nav layout 7 - emarket
+@mixin owl2-nav-style7($size,$fontsize : 18px){	
+	position: absolute;
+	top: 0;
+	#{$right}: 0;
+        .owl2-prev,
+        .owl2-next{       
+            background-color: #fff;
+            border: 1px solid #ebebeb;
+            @include border-radius(3px);
+            width: $size;
+			height: $size;
+			line-height: $size - 4px;
+			@media screen and (-webkit-min-device-pixel-ratio:0){
+				line-height: $size - 2px;
+			}
+			text-align: center;
+			float: $left;
+			text-indent: -9999px;
+			overflow: hidden;
+			cursor: pointer;
+            opacity: 1;
+            z-index: 99;
+            font-size: $fontsize;
+            margin: 0;
+			&:before{
+				color: #999;
+				font-family: $FontAwesome;
+				display: block;
+				text-indent: 0 !important;
+				width: 100%;
+				height: 100%;
+				font-size: $fontsize;
+				font-weight: 400;
+			}
+			&.owl2-next{	
+				margin-#{$left}: 5px;	
+				&:before{
+				  @include if-ltr{             
+			      	content: "\f105"; 
+			      }  
+			      @include if-rtl {
+			        content: "\f104"; 
+			      }   
+				}  
+			}
+			&.owl2-prev{					
+				&:before{
+				  @include if-ltr{             
+			      	content: "\f104"; 
+			      }  
+			      @include if-rtl {
+			        content: "\f105"; 
+			      }   
+				}
+			}
+			&:hover{
+				background-color: #c9c9c9;
+				border-color: #c9c9c9;
+				&:before{
+				  color: #fff;
+				}
+			} 
+        }
+}
+
+
+// hover link effect - destino
+@mixin link-hover-effect($line-height, $top){	
+	a{
+		line-height: $line-height;
+        display: inline-block;
+        position: relative;
+        @include transition(all 0.4s ease-in-out 0s);
+        &:before{
+           background-color: $background;	
+            border-radius: 50%;
+            content: "";
+            height: 4px;
+            #{$left}: 0;
+            position: absolute;
+            top: $top;
+            width: 4px;
+            @include effect-block-hide();
+        }
+        
+      }
+      a:hover{
+    		padding-#{$left}: 10px;
+    		&:before{
+        		@include effect-block-show();
+        	}            	
+      }
+}
+// style owl arrow block layout4
+@mixin button-owl-style4($size,$fontsize,$bg){
+  width: $size;
+  height: $size;
+  line-height: $size;
+  text-align: center;
+  @include border-radius(100%);
+  //position: relative;
+  text-indent: -9999px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: $bg;
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+  border: none;
+  &:before{
+    color: $linkColor;
+    font-family: $FontAwesome;
+    position: absolute;
+    top: 0px;
+    #{$left}: 0;
+    display: inline-block;
+    text-indent: 0;
+    width: 100%;
+    height: 100%;
+    font-size: $fontsize;
+  }
+  &.owl2-next{
+ 	@media (min-width: 1200px) {
+ 		#{$right}: -70px;
+ 	}
+  	#{$right}: 0;
+  	#{$left}: auto;
+  	z-index: 3;
+    &:before{
+      @include if-ltr{             
+      	content: "\f054"; 
+      }  
+      @include if-rtl {
+        content: "\f053"; 
+      }  
+    }
+  }
+  &.owl2-prev{
+  	@media (min-width: 1200px) {
+ 		#{$left}: -70px;
+ 	}
+  	#{$left}: 0;
+  	z-index: 3;
+  	#{$right}: auto;
+    &:before{
+      @include if-ltr{             
+      	content: "\f053"; 
+      }  
+      @include if-rtl {
+        content: "\f054"; 
+      }  
+    }
+  }
+  &:hover{
+    background-color: $background;
+    border: none;
+    &:before{
+      color: #fff;
+    }
+  } 
+}
+// style owl arrow block sidebar
+@mixin button-owl-style2($fontsize,$color){	      
+      .owl2-prev,
+      .owl2-next{
+      	@include opacity(1);
+        background-color: transparent;
+        float: $left;
+        margin-#{$left}: 15px;
+        margin-#{$right}: 0 !important;
+        &:before{
+          font-family: $FontAwesome;
+          font-size: $fontsize;
+          color: $color;
+        }
+        &:hover{
+          background-color: transparent;
+          &:before{
+            color: $linkColor;
+          }    
+        }
+        i{
+        	display: none;
+        }
+      }
+      .owl2-prev{
+        margin-right: 15px; 
+        &:before{
+		  @include if-ltr{             
+		  	content: "\f053"; 
+		  }  
+		  @include if-rtl {
+		    content: "\f054"; 
+		  }  
+		}     
+      }
+      .owl2-next{
+        &:before{
+		  @include if-ltr{             
+		  	content: "\f054"; 
+		  }  
+		  @include if-rtl {
+		    content: "\f053"; 
+		  }  
+		}        
+      }     
+    
+}
+
+
+
+
+
+/*====================================================*/
+@mixin button-group(){font-size: 0;
+	.wishlist,.compare{
+		opacity: 0;z-index: 1;font-size: 12px;margin: 0 4px;
+		@include transition(all 0.1s ease-in-out 0s);
+	}
+	.wishlist{
+		@include transform(translateX(40px));
+	}
+	.compare{
+		@include transform(translateX(-40px));
+		
+	}
+}
+@mixin button-group-hover(){
+	.wishlist,.compare{
+		@include transform(translateX(0px));
+		opacity: 1;
+		@include transition(all 0.3s ease-in-out 0s);
+	}
+	
+	.addToCart{background: $background; color: #fff; border-color: $linkColor;}
+}
+@mixin title-underline($size){
+    h3.modtitle{font-size: 16px; border-bottom: $size solid #e6e6e6;margin: 0 0 30px;padding: 9px 0; text-transform: uppercase; font-weight: bold; position: relative;
+        &:after{content:" "; width: 125px; height: $size; background: $background; display: block; position: absolute; bottom: 0;margin-bottom: -$size; }  
+    }
+    
+}
+@mixin owl2-controls(){
+	position: absolute;
+	top: 0;
+	#{$right}: 0;
+	width: 100%;
+	z-index: 45;
+	.owl2-nav {
+		div.owl2-prev{
+			content: "\f104";
+			top: 7px;
+			@include if-ltr {#{$left}: auto; #{$right}: 37px;}
+			@include if-rtl {#{$left}: auto; #{$right}: 7px;}
+		}
+		div.owl2-next{
+			content: "\f105";
+			top: 7px;
+			@include if-ltr {#{$left}: auto; #{$right}: 7px;}
+			@include if-rtl {#{$left}: auto; #{$right}: 37px;}
+		}
+		div.owl2-prev, div.owl2-next{
+			height: 25px;
+			width: 25px;
+			font-family: $FontAwesome;
+			border-radius: 25px;
+			background: #fff;
+			opacity: 1;
+			border: 1px solid #a0a0a0;
+			color: #a0a0a0;
+			font-size: 0;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			&:before{
+				font-size: 17px;
+				line-height: 22px;
+				text-align: center;
+				
+			}
+			&:hover{
+				border-color: $linkColor;
+				color: $linkColor;
+			}
+		}
+	}
+}
+
+
+
+.lib-list-item-product2{
+		border: none;
+		.image-dev{
+			
+			.list-button-dev{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 10;
+				transform: translate3d(-50%,-50%,0);
+				-moz-transform: translate3d(-50%,-50%,0);
+				-webkit-transform: translate3d(-50%,-50%,0);
+				-ms-transform: translate3d(-50%,-50%,0);
+				li{
+					display: inline-block;
+					float: left;
+					height: 40px;
+					width: 40px;
+					background: #fff;
+					position: relative;
+					border-width: 0 1px 0 0;
+					border-style: solid;
+					border-color: #ddd;
+					opacity: 0;
+					transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+					&:nth-child(1){
+						transform: translateX(40px);
+						-moz-transform: translateX(40px);
+						-webkit-transform: translateX(40px);
+						-ms-transform: translateX(40px);
+						z-index: 1;
+						transition-delay: 0s;
+					}
+					&:nth-child(2){
+						transition-delay: 0.2s;
+						z-index: 2;
+					}
+					&:nth-child(3){
+						transition-delay: 0.2s;
+						z-index: 2;
+					}
+					&:nth-child(4){
+						transform: translateX(-40px);
+						-moz-transform: translateX(-40px);
+						-webkit-transform: translateX(-40px);
+						-ms-transform: translateX(-40px);
+						z-index: 1;
+						transition-delay: 0s;
+					}
+					&:first-child{border-left: 1px solid #ddd;}
+					
+					a, button{
+						background: none;
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						line-height: 40px;
+						text-align: center;
+						box-shadow: none;
+						border: none;
+						color: $gray;
+						width: 40px;
+						padding: 0;
+					}
+					&:hover{
+						
+						background: $background;
+						a, button{
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+		.caption-dev{
+			text-align: center;
+			padding: 0 15px;
+			.rating-dev{
+				margin: 5px 0;
+				.fa-stack-2x{
+					font-size: 11px;
+				}
+			}
+			.title-dev{
+				color: #444;
+				font-size: 13px;
+				
+			}
+			.price-dev{
+				.price.product-price{font-size: 16px;}
+				.price-new{font-size: 16px;}
+				.price-old{font-size: 12px}
+			}
+			.add-cart-dev{
+				background: #fff;
+				border: 1px solid #ddd;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: #999;
+				font-weight: bold;
+				box-shadow: none;
+				border-radius: 0;
+				padding: 6px 20px;
+				margin: 0 0 30px;
+				@include transition(all 0.2s ease-in-out);
+
+			}
+		}
+}
+
+.lib-list-item-product-over2{
+	
+	.image-dev{
+		
+		.list-button-dev{
+			li{
+				
+				opacity: 1;
+				transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+				&:nth-child(1){
+					transform: translateX(0);
+					-moz-transform: translateX(0);
+					-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+					transition-delay: 0.2s;
+				}
+				&:nth-child(2){
+					transition-delay: 0s;
+				}
+				&:nth-child(3){
+					transition-delay: 0s;
+				}
+				&:nth-child(4){
+					transform: translateX(0);
+					-moz-transform: translateX(0);
+					-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+					transition-delay: 0.2s;
+				}
+			}
+		}
+	}
+	
+} 
+
+/*EFECT PRODUCT NUMBER*/
+.lib-two-img{
+	position: relative;
+	display: block;
+	.img-1{
+	opacity: 1;
+		position: relative;
+        //@include transform(rotateY(0deg));
+		transition: all 0.5s ease-in-out;
+	}
+	.img-2{
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		opacity: 0;
+		//width: 100%;
+		display: block;
+        //@include transform(rotateY(90deg));
+		transition: all 0.5s ease-in-out;
+		#{$left}: 50%;
+		transform: translateX(-50%);
+		@include if-rtl {
+            transform: translateX(50%);
+        }
+	}
+}
+
+.lib-two-img-over{
+	.img-1{
+		opacity: 0;
+        transform-style: inherit;
+        //@include transform(rotateY(90deg));
+		transition: all 0.5s ease-in-out;
+	}
+	.img-2{
+		opacity: 1;
+        transform-style: inherit;
+		//@include transform(rotateY(0deg));
+		transition: all 0.5s ease-in-out;
+	}
+}
+
+/*EFFECT SLIDERHOME*/
+
+@keyframes myeffect-slideshow {
+    0%   {
+	opacity: 0;
+	transform: translateY(-300px);
+	-webkit-transform: translateY(-300px);
+	-moz-transform: translateY(-300px);
+	-ms-transform: translateY(-300px);
+	-o-transform: translateY(-300px);
+    }
+    100% {
+	opacity: 1;
+	transform: translateY(0);
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+    }
+    
+    
+}
+@-webkit-keyframes myeffect-slideshow {
+    0%   {
+	opacity: 0;
+	transform: translateY(-300px);
+	-webkit-transform: translateY(-300px);
+	-moz-transform: translateY(-300px);
+	-ms-transform: translateY(-300px);
+	-o-transform: translateY(-300px);
+    }
+    100% {
+	opacity: 1;
+	transform: translateY(0);
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+    }
+}
+    
+    
+@-moz-keyframes myeffect-slideshow {
+    0%   {
+	opacity: 0;
+	transform: translateY(-300px);
+	-webkit-transform: translateY(-300px);
+	-moz-transform: translateY(-300px);
+	-ms-transform: translateY(-300px);
+	-o-transform: translateY(-300px);
+    }
+    100% {
+	opacity: 1;
+	transform: translateY(0);
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+    }
+}

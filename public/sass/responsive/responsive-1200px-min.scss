@@ -1,0 +1,27 @@
+@include breakpoint(lg){
+	.container{
+		width:1200px;
+		overflow: visible;
+		padding-#{$left}: 15px;
+		padding-#{$right}: 15px;
+	}
+	.layout-1,
+	.layout-2{
+		.container{
+			padding-#{$left}: 0;
+			padding-#{$right}: 0;
+		}
+	}
+}
+@media (min-width: 1200px) and (max-width: 1649px){
+	#content .so-groups-sticky{
+		width: 40px;
+	}
+	.products-list .product-grid .product-item-container .left-block .button-group{
+		bottom: 5px;
+	}
+}
+
+
+
+

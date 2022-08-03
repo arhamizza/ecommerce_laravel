@@ -1,0 +1,102 @@
+#sosearchpro{
+	width: 100%;
+}
+#sosearchpro .autosearch-input {
+    height: 42px;
+    line-height: 20px;
+    padding: 0 10px;
+	border: 1px solid #e5e5e5;
+	box-shadow: none;
+	background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+#sosearchpro .button-search{
+	border:none;
+}
+#sosearchpro .select_category{
+	position:relative;
+	display: table-cell;
+	vertical-align: top;
+	border:1px solid #e5e5e5;
+	border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+	background: white;
+}
+#sosearchpro .select_category select{
+	height: 40px;
+	width: 100%;
+    line-height: 100%;
+    padding: 0 5px;
+	border: none;
+	float: left;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+#sosearchpro .dropdown-menu li > a:hover{
+	background: transparent;
+}
+#sosearchpro .icon-select::after {
+	content: "\f107";
+	color: black;
+	font-family: "FontAwesome";
+	right: 0px;
+	top: 0px;
+	position: absolute;
+	pointer-events: none;
+	background: white;
+	line-height: 36px;
+	width: 30px;
+	height: 100%;
+	text-align: center;
+}
+
+@media (max-width: 479px) {
+	#sosearchpro .media-body {
+		padding: 0px 15px;
+	}
+	#sosearchpro{
+		width: 100%;
+	}
+	#sosearchpro .select_category select {
+		width: auto;
+	}
+	#sosearchpro .dropdown-menu{
+		left: 0px !important;
+	}
+}
+#sosearchpro .dropdown-menu .media{
+	margin:0px;
+	border-bottom: 1px solid #e5e5e5;
+}
+#sosearchpro .dropdown-menu {
+	padding:0px;
+	max-height: 300px;
+    overflow-y: scroll;
+}
+#sosearchpro .dropdown-menu .media:hover{
+	background-color:#e5e5e5;
+}
+#sosearchpro .dropdown-menu .media-left{
+	float:left;
+	padding: 5px;	
+}
+#sosearchpro .dropdown-menu .media-body{
+	padding: 10px;
+}
+#sosearchpro .dropdown-menu .media-body a{
+	float:left;
+} 
+#sosearchpro .dropdown-menu .media-body .box-price{
+	float: right;
+	width:100%;
+} 
+#sosearchpro .dropdown-menu .media-body .box-price span{
+	padding-right:10px;
+	float:left;
+} 

@@ -1,0 +1,113 @@
+// BOOTSTRAP VARIABLES
+
+//** Background color for `<body>`.
+$body-bg:                          #fff;
+//** Global text color on `<body>`.
+$textBody           : #777;
+$textColor          : #222222;
+//** Global textual link color.
+$linkColor:                        $linkColor;
+//** Link hover color set via `darken()` function.
+$linkColorHover:      darken($linkColor, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline;
+$font-family-base:                 'FontAwesome';
+$FontAwesome:                 'FontAwesome';
+$FontRatchicons:                 'Ratchicons';
+//** Images Path
+$imagePath			: $imagePath;
+$imgPath            : '../../images/';
+//== Typography
+
+$font-size-base:          13px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.928; // 27/13
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~27px
+
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit;
+$headings-font-weight:    500;
+$headings-line-height:    1.1;
+$headings-color:          #333333;
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+$white :                  #fff !default;
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            8px !default;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  5px !default;
+
+//** Default background color used for all tables.
+$table-bg:                      transparent !default;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #f9f9f9 !default;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f5f5f5 !default;
+$table-bg-active:               $table-bg-hover !default;
+
+//** Border color for table and cell borders.
+$table-border-color:            #ddd !default;
+$base-border-color:             #ddd !default;
+$input-color-placeholder:        #999;
+$input-border:                   #ccc;
+// END BOOTSTRAP VARIABLES
+
+
+// THEMES VARIABLES
+$background2         :#ffd741;
+$background			: $linkColor;
+$background1		: $linkColor;
+$border-color       : #e8e8e8;
+$border-color2      : #ebebeb;
+$border-home        : #e1e1e1;
+
+$FontAwesome		    : 'FontAwesome';
+$background_hover2      : #333;
+$background_header1     :#f6f6f6;
+$background_header5      : #394673;
+$label-sale             : #fe5454;
+$label-new             : #237cdf;
+// default space between content block
+$content-top-margin:               75px;
+
+//product
+$price-old:                        #fa6b6b;
+$rating-color:                     #ffaf47;
+$rating-empty-color:               #d2d2d2;
+
+//Pre-Loader 
+$preloader_tx: #ccc;
+
+// END THEMES VARIABLES

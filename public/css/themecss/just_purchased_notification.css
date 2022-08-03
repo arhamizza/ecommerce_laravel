@@ -1,0 +1,52 @@
+.alert-jpn {
+	border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.alert-jpn > [data-notify="dismiss"] {
+	/*top: 0px !important;
+	right: 4px !important;*/
+	opacity: 0.6;
+}
+
+.alert-jpn > [data-notify="icon"] {
+	float: left;
+	margin-right:15px;
+	width:68px;
+	border: 1px solid #DDD; 
+}
+
+.alert-jpn > [data-notify="title"] {
+	display: block;
+	font-size: 12px;
+	line-height:17px;
+	padding-top:5px;
+}
+
+.alert-jpn > [data-notify="message"] {
+	display: block;
+	overflow:hidden;
+	padding-right:15px;
+}
+
+.alert-jpn > .progress {
+	height: 3px;
+	margin-top: 3px;
+	margin-bottom: 0px;
+}
+
+.alert-jpn.alert-custom {
+	background: #f1f2f0;
+	border-color: #DDD;
+	color: #666;
+	
+}
+
+@media (min-width: 1600px) {
+	.alert-jpn.alert-custom {
+		width:260px; 
+	}
+}

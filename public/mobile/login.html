@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Basic page needs
+	============================================ -->
+	<title>eMarket - Multipurpose Responsive HTML5 Template</title>
+	<meta charset="utf-8">
+  <meta name="keywords" content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
+<meta name="description" content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
+    <meta name="author" content="Magentech">
+    <meta name="robots" content="index, follow" />
+   
+	<!-- Mobile specific metas
+	============================================ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<!-- Favicon
+	============================================ -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" type="image/png" href="ico/favicon-16x16.png"/>
+	
+	<!-- Google web fonts
+	============================================ -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+    <!-- Libs CSS
+	============================================ -->
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+	<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="js/ratchet/ratchet.css" rel="stylesheet">
+	
+	<!-- Theme CSS
+	============================================ -->
+	<link href="css/mobile.css" rel="stylesheet">
+	
+
+</head>
+
+<body class="ltr mobilelayout-0">
+	<!-- Begin Main wrapper -->
+    <div id="wrapper" >
+		
+		<!-- Begin Bar Tab -->
+		<nav class="bar bar-tab">
+			<a class="tab-item " href="index.html" data-transition="slide-in">
+				<span class="icon icon-home"></span>
+				<span class="tab-label">Home</span>
+			</a>
+			<a class="tab-item" href="#" data-transition="slide-in">
+				<span class="icon icon-search"></span>
+				<span class="tab-label">Search</span>
+			</a>
+			<a class="tab-item item-cart" href="checkout.html" data-transition="slide-in">
+				<span class="icon icon-download"></span>
+				<div id="cart" class="btn-shopping-cart">
+					<span class="total-shopping-cart cart-total-full">
+						 <span class="items_cart">0 </span>			</span>
+				</div>
+				
+				<span class="tab-label">View Cart</span>
+			</a>
+			<a class="tab-item" href="login.html" data-transition="slide-in">
+				<span class="icon icon-person"></span>
+				<span class="tab-label">My Account</span>
+			</a>
+			<a class="tab-item tab-item--more tooltip-popovers" href="#popover">
+				<span class="icon icon-more"></span>
+				<span class="tab-label">More</span>
+			</a>
+		</nav>
+		<div id="popover" class="popover fade bottom in right">
+			
+			<ul class="table-view">
+				<li class="table-view-cell"><a class="tab-item" href="index.html"> Home </a></li>
+				<li class="table-view-cell"><a class="tab-item" href="home2.html"> Home 2 </a></li>
+				<li class="table-view-cell"><a class="tab-item" href="home3.html"> Home 3 </a></li>
+			</ul>
+		</div>
+		<!-- //End Bar Tab -->
+		
+		<!-- Begin Bar Nav -->
+		<header class="bar bar-nav ">
+			<a class="btn btn-link btn-nav pull-left" href="#" onclick="history.go(-1); return false;">
+				<span class="icon icon-left-nav"></span>
+			</a>
+			<a class="btn btn-link btn-nav pull-right toggle-panel" href="#panel-menu">
+				<span class="icon icon-bars"></span>
+			</a>
+			<h1 class="title">Login</h1>
+		</header>
+		<!-- //End Bar Nav -->
+		
+		<div class="content">
+			<!-- //Begin Main Content -->
+			<div class="container page-sitemap">
+				<div class="row">
+					<div id="content" class="col-xs-12">
+						<div class="tab-account">
+							<div class="icon-custom"></div>
+							<ul class="nav nav-tabs segmented-control">
+								<li class="active"><a class="platform-switch control-item active" data-toggle="tab" href="#home" aria-expanded="true">Login</a> </li>
+								<li class=""><a class="platform-switch control-item active" data-toggle="tab" href="#menu1" aria-expanded="false">Registed</a></li>
+							</ul>
+
+							<div class="tab-content">
+								<div id="home" class="tab-pane form-login fade active in">
+
+
+									<div class="well col-sm-12">
+
+										<h2 class="hidden">Returning Customer</h2>
+										<p class="hidden"><strong>I am a returning customer</strong>
+										</p>
+										<form action="index.html" method="post" enctype="multipart/form-data">
+											<div class="form-group form-user">
+												<label class="control-label font-ct" for="input-email">E-Mail Address</label>
+												<input type="text" name="email" value="" placeholder="E-Mail Address" id="input-email" class="form-control">
+											</div>
+											<div class="form-group form-pw">
+												<label class="control-label font-ct" for="input-password">Password</label>
+												<input type="password" name="password" value="" placeholder="Password" id="input-password" class="form-control">
+												<a href="#">Forgotten Password</a>
+											</div>
+
+											<input type="submit" value="Login" class="btn btn-primary pull-left">
+
+										</form>
+										
+										<div class="social_login icons-social">
+											<div class="list-inline">
+												<a title="Facebook" href="http://www.facebook.com/MagenTech" target="_blank"> 
+													<span class="fa fa-facebook icon-flat icon-color"></span> 
+												</a>
+											
+												<a title="Twitter" href="https://twitter.com/magentech" target="_blank"> 
+													<span class="fa fa-twitter icon-flat icon-color"></span> 
+												</a>
+										
+												<a title="Google+" href="https://plus.google.com/u/0/+Smartaddons" target="_blank"> 
+													<span class="fa fa-google-plus icon-flat icon-color"></span>
+												</a>
+												
+												<a title="Pinterest" href="#" target="_blank"> 
+													<span class="fa fa-linkedin icon-flat icon-color"></span>
+												</a>
+												
+												
+											</div>
+										</div>
+										
+
+									</div>
+
+								</div>
+								<div id="menu1" class="tab-pane fade in">
+									<div class="well col-sm-12">
+										<h2 class="hidden">New Customer</h2>
+										<p><strong class="font-ct">Register Account</strong>
+										</p>
+										<p style="margin-bottom: 2em;">By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
+										<a href="register.html" class="btn btn-sn">Continue</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<aside class="col-xs-12 content-aside right_column">
+						<div class="module">
+							<h3 class="modtitle"><span>Account</span></h3>
+							<div class="module-content custom-border">
+								<ul class="list-box">
+									<li><a href="#">Login</a> / <a href="#">Register</a>
+									</li>
+									<li><a href="#">Forgotten Password</a>
+									</li>
+									<li><a href="#">My Account</a>
+									</li>
+									<li><a href="#">Address Book</a>
+									</li>
+									<li><a href="#">Wish List</a>
+									</li>
+									<li><a href="#">Order History</a>
+									</li>
+									<li><a href="#">Downloads</a>
+									</li>
+									<li><a href="#">Recurring payments</a>
+									</li>
+									<li><a href="#">Reward Points</a>
+									</li>
+									<li><a href="#">Returns</a>
+									</li>
+									<li><a href="#">Transactions</a>
+									</li>
+									<li><a href="#">Newsletter</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+			<!-- //End Main Content -->
+			
+			<!-- //Begin Footer Content -->
+			<div class="container footer-content">
+				<div class="footernav-top">
+					<div class="need-help">
+						<p>Need Help</p>
+						<div class="nh-contact">
+							<a href="tel:12345678"><i class="fa fa-phone"></i>12345678</a> <a class="need-help-padding" href="mailto:Support@revo.com" target="_top"><i class="fa fa-envelope-o"></i> Email Us</a> </div>
+					</div>
+				</div>
+
+				<div class="footernav-social">
+					<p><a href="javascript:void(0);">FIND US ON</a>
+					</p>
+					<ul class="list-inline">
+						<li>
+							<a href="https://www.facebook.com/MagenTech/" target="_blank"> <i class="fa fa-facebook social-icon"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/magentech" target="_blank"> <i class="fa fa-twitter social-icon"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://plus.google.com/+Magentech-responsive-magento-theme" target="_blank"> <i class="fa fa-google-plus social-icon"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="footernav-midde">
+					<ul class="footer-link-list row">
+						<li class="col-xs-6"><a href="about-us.html"> About us </a></li>
+						<li class="col-xs-6"><a href="sitemap.html"> Sitemap </a></li>
+						<li class="col-xs-6"><a href="blog-detail.html"> Blog Detail </a></li>
+						<li class="col-xs-6"><a href="category.html"> Category  </a></li>
+						
+						<li class="col-xs-6"><a href="blogs.html"> Blog </a></li>
+						<li class="col-xs-6"><a href="product.html"> Product </a></li>
+						<li class="col-xs-6"><a href="login.html"> Login </a></li>
+						<li class="col-xs-6"><a href="checkout.html"> Checkout </a></li>
+						<li class="col-xs-6"><a href="register.html"> Register </a></li>
+						<li class="col-xs-6"><a href="contact.html"> Contact </a></li>
+											
+					</ul>
+				</div>
+
+				<div class="footernav-bottom">
+					<div class="text-center">
+						<p class="nomargin"><img alt="Footer Image" class="form-group" src="../image/demo/payment/payment_method_mob.png">
+						</p>
+						Copyright © 2017 by Market. All Rights Reserved.
+					</div>
+				</div>
+			</div>
+			<!-- //End Footer Content -->
+		</div>
+
+    </div>
+	
+	<div id="panel-menu" class="side-menu panel panel-left">
+		<div class="content">
+			<div class="panel-left__top clearfix text-center">
+				<div class="panel-logo">
+					<a href="index.html"><img src="../image/demo-mobile/logo.png" title="Your Store" alt="Your Store"></a>
+				</div>
+				<div class="panel-search">
+					<div id="search" class="input-group">
+						<input type="text" name="search" value="" placeholder="Search" class="form-control input-lg">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default btn-link"><i class="fa fa-search"></i></button>
+						  </span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="panel-left__midde">
+				<div class="panel-group" id="panel-category" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Jewelry</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category1" aria-expanded="true"></a></span>
+						</div>
+						<div id="panel-category1" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Necklaces</a>
+								</li>
+								<li>
+									<a href="#">Pearl Jewelry</a>
+								</li>
+								<li>
+									<a href="#">Slider 925</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Womens</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category2" aria-expanded="true"></a></span>
+						</div>
+						<div id="panel-category2" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">necklaces</a>
+								</li>
+								<li>
+									<a href="#">Pearl mens</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Fashion</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category3" aria-expanded="true"></a></span>
+						</div>
+
+						<div id="panel-category3" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Gadgets &amp; Auto Parts</a>
+								</li>
+								<li>
+									<a href="#">More Car Accessories</a>
+								</li>
+								<li>
+									<a href="#">Alarms</a>
+								</li>
+								<li>
+									<a href="#">Printers</a>
+								</li>
+								<li>
+									<a href="#">Scanners</a>
+								</li>
+								<li>
+									<a href="#">Speakers</a>
+								</li>
+								<li>
+									<a href="#">Web Cameras</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Shop Collection</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category4" aria-expanded="true"></a></span>
+
+						</div>
+
+						<div id="panel-category4" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Hanet magente</a>
+								</li>
+								<li>
+									<a href="#">Knage unget</a>
+								</li>
+								<li>
+									<a href="#">Latenge mange</a>
+								</li>
+								<li>
+									<a href="#">Punge nenune</a>
+								</li>
+								<li>
+									<a href="#">Qunge genga</a>
+								</li>
+								<li>
+									<a href="#">Tange manue</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Electronics </a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category5" aria-expanded="true"></a></span>
+
+						</div>
+
+						<div id="panel-category5" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Angene mafin</a>
+								</li>
+								<li>
+									<a href="#">Body Chains</a>
+								</li>
+								<li>
+									<a href="#">DIY Beads</a>
+								</li>
+								<li>
+									<a href="#">Egante mangetes</a>
+								</li>
+								<li>
+									<a href="#">Necklaces</a>
+								</li>
+								<li>
+									<a href="#">Rengae manges</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Sports 2</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category6" aria-expanded="true"></a></span>
+
+						</div>
+
+						<div id="panel-category6" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Accessories</a>
+								</li>
+								<li>
+									<a href="#">Boys News</a>
+								</li>
+								<li>
+									<a href="#">Computers</a>
+								</li>
+								<li>
+									<a href="#">Electronics</a>
+								</li>
+								<li>
+									<a href="#">Fashion</a>
+								</li>
+								<li>
+									<a href="#">Girls New</a>
+								</li>
+								<li>
+									<a href="#">Men</a>
+								</li>
+								<li>
+									<a href="#">Mobiles</a>
+								</li>
+								<li>
+									<a href="#">Sports</a>
+								</li>
+								<li>
+									<a href="#">Women</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+							<a href="#">Sports</a>
+							<span class="head"><a class="pull-right accordion-toggle" data-toggle="collapse" data-parent="#panel-category" href="#panel-category7" aria-expanded="true"></a></span>
+
+						</div>
+
+						<div id="panel-category7" class="panel-collapse collapse " role="tabpanel">
+							<ul>
+								<li>
+									<a href="#">Camping &amp; Hiking</a>
+								</li>
+								<li>
+									<a href="#">Cusen mariot</a>
+								</li>
+								<li>
+									<a href="#">Denta magela</a>
+								</li>
+								<li>
+									<a href="#">Engite nanet</a>
+								</li>
+								<li>
+									<a href="#">Theid cupensg</a>
+								</li>
+								<li>
+									<a href="#">Verture agoent</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="panel-left__bottom clearfix text-center">
+				<div class="col-xs-6">
+					<i class="fa fa-check-square-o" aria-hidden="true"></i>
+					<div class="bot-inner">
+						<a href="compare.html">Compare</a>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<i class="fa fa-heart" aria-hidden="true"></i>
+					<div class="bot-inner">
+						<a href="wishlist.html">Wish List</a>
+					</div>
+				</div>
+
+				<div class="col-xs-6 panel-left__language">
+					<div class="btn-group languages-block">
+						<form action="#" method="post" enctype="multipart/form-data" id="form-language">
+							<div class="btn-group">
+								<button class="btn-link dropdown-toggle" data-toggle="dropdown">
+									<img src="../image/demo/flags/gb.png" alt="English" title="English">
+									<span class="hidden-xs">English</span>
+									<i class="fa fa-angle-down"></i>
+								</button>
+
+								<ul class="dropdown-menu">
+									<li>
+										<button class="btn-block language-select" type="button" name="en-gb"><img src="../image/demo/flags/gb.png" alt="English" title="English"> English</button>
+									</li>
+									<li>
+										<button class="btn-block language-select" type="button" name="ar"><img src="../image/demo/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</button>
+									</li>
+								</ul>
+							</div>
+							<input type="hidden" name="code" value="">
+							<input type="hidden" name="redirect" value="#">
+						</form>
+					</div>
+					<h4>Language</h4>
+				</div>
+				<div class="col-xs-6 panel-left__currency">
+					<div class="btn-group currencies-block">
+						<form action="#" method="post" enctype="multipart/form-data" id="form-currency">
+							<div class="btn-group">
+								<button class="btn-link dropdown-toggle" data-toggle="dropdown">
+									$ USD
+									<i class="fa fa-angle-down"></i>
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										<button class="currency-select btn-block" type="button" name="EUR">€ Euro</button>
+									</li>
+									<li>
+										<button class="currency-select btn-block" type="button" name="USD">$ USD</button>
+									</li>
+								</ul>
+							</div>
+							<input type="hidden" name="code" value="">
+							<input type="hidden" name="redirect" value="index.html">
+						</form>
+					</div>
+
+					<h4>Currency</h4>
+
+				</div>
+			</div>
+		</div>
+	</div>
+  
+<!-- Include Libs & Plugins
+============================================ -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/ratchet/ratchet.js"></script>
+
+<!-- Theme files
+============================================ -->
+
+</body>
+</html>		

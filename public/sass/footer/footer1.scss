@@ -1,0 +1,340 @@
+
+//** simple and lightweight mixin library for Sass **//
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **//
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'utilities/rem';
+
+//** Variables for responsive design in bootstrap with sass **//
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'utilities/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**//
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'utilities/directional';
+
+//Mixins utilities
+@import 'utilities/theme_variables';
+@import 'utilities/utilities';
+
+/* ================================================================================ */
+
+/*.footer-container{
+	margin-top: 40px;
+}*/
+.typefooter-1{
+	margin-top: 0px;
+
+	/* GENERAL */
+	.module .modtitle{
+       	color: $gray-dark;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;   
+        position: relative;
+        padding-bottom: 10px;
+        &:after{
+        	position: absolute;
+        	content: "";
+        	width: 60px;
+        	height: 2px;
+        	#{$left}: 0;
+        	bottom: 0;
+        }        
+	}
+	.box-footer{	
+		margin-top: 3px;	
+		.modcontent{
+			ul li{
+		          a{
+		            border: 0 none;		            
+		            font-size: 14px;
+		            padding: 0;		    
+		            font-weight: 400; 
+		            line-height: 30px;  
+		            position: relative;
+		            padding-#{$left}: 20px;
+		            display: block;
+		            &:before{
+		            	font-family: 'FontAwesome';
+		            	content: "\f192";
+		            	font-size: 8px;
+		            	position: absolute;
+		            	top: 0px;
+		            	#{$left}: 0;
+		            }
+		          }		    
+			}
+		}
+	}
+
+
+	.footer-top{
+		background-color: #232f3e;
+		padding: 37px 0;
+		.ftop{
+			margin: 0 auto;
+			float: none;
+			padding: 0;
+		}
+	}
+	.footer-middle{
+		padding-top: 55px;
+		
+	}
+	.newsletter-footer1{
+	    .newsletter{
+	      background-color: transparent;
+	      .title-block{     
+	      	position: relative;
+	      	color: #fff;
+	      	float: $left;
+	      	width: 40%;
+	      	padding-#{$left}: 70px;
+	      	margin-top: 17px;
+	      	&:before{
+	      		position: absolute;
+	      		font-family: 'FontAwesome';
+	      		content: "\f1d9";
+	      		font-size: 40px;
+	      		position: absolute;
+	      		top: 5px ;
+	      		#{$left}: 0;
+	      	} 
+	        .page-heading{	         
+	          @include rem(font-size,22px);
+	          line-height: 20px;	
+	          font-weight: 700;
+	          text-transform: capitalize;   
+	        }
+	        .promotext{
+	          font-size: 14px;
+	        }
+	      }
+	      .block_content{
+	      	float: $left;
+	      	width: 60%;
+	        form.signup{
+	          display: block;
+	          margin-top: 11px;
+	          padding-#{$left}: 45px;
+	          .form-group{
+	            position: relative; display: block;
+	            .input-box{
+	              background-color: #fff;  
+	              vertical-align: top;
+	              padding-#{$right}: 120px;
+	              border-radius: 4px;
+	            }
+	            .subcribe{
+	              position: absolute;
+	              top: 0;
+	              #{$right}: 0;
+	            }
+
+	            #txtemail{
+	              height: 50px;
+	              line-height: 50px;
+	              width: 100%;
+	              box-shadow: none;
+	              padding: side-values(0 0 0 20px);
+	              border: none;           
+	              background-color: #fff;	 
+	              &::-moz-placeholder {
+	                      color: #999;
+	                        opacity: 1; 
+	                    }
+	                    &:-ms-input-placeholder { color: #999; } 
+	                    &::-webkit-input-placeholder  { color: #999; } 
+	                      &:focus{
+	                          z-index: 0;
+	                      }
+	            }
+	          }
+
+	          .subcribe button{           
+	            border: 0 none;
+	            color: #fff;
+	            font-weight: 700;
+	            font-size: 16px;
+	            height: 50px;
+	            line-height: 50px;
+	            padding: 0 25px;    
+	            text-transform: capitalize;
+	            border-bottom-#{$right}-radius: 3px;
+     			border-top-#{$right}-radius: 3px;
+	            &:hover{
+	              color: #fff;
+	            }
+	          }
+	        }
+	      }
+	    }
+	}
+
+	.socials{
+		float: $right;
+		margin-top: 25px;
+		li{
+			position: relative;
+			display: inline-block;
+			padding-#{$left}: 15px;
+			margin-#{$left}: 15px;
+			&:first-child{
+				&:before{
+					display: none;
+				}
+			}
+			&:before{
+				background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+			    content: "";
+			    height: 10px;
+			    position: absolute;
+			    #{$left}: 0;
+			    top: 8px;
+			    width: 1px;
+			}
+			a{
+				color: #fff;
+			    font-size: 14px;
+			    text-transform: capitalize;
+			    i{
+			    	display: inline-block;
+				    font-size: 16px;
+				    margin-#{$right}: 8px;
+			    }
+			}
+			
+		}
+	}
+	.infos-footer{
+		ul{
+			margin-top: 20px;
+			li{
+				background: url(#{$imgPath}icon/icon-contact.png) no-repeat $left top;  
+			    font-size: 14px;
+			    line-height: 20px;
+			    list-style: outside none none;
+			    padding: side-values(10px 10px 10px 40px);
+			    text-transform: capitalize;
+			    a{
+				    color: #666;
+				    font-size: 14px;
+				    transition: all 0.3s ease 0s;
+			    }
+			    &.adres {
+				    background-position: $left 14px;
+				}
+				&.phone {
+				    background-position: $left -55px;
+				}
+				&.mail {
+				    background-position: $left -100px;
+				}
+				&.time {
+				    background-position: $left -144px;
+				}
+			}
+		}
+	}
+
+	.so-instagram-gallery .instagram-items-inner{
+		.instagram-item{
+			float: $left;
+		    margin-bottom: 10px;
+		    padding: 0 5px;
+		    position: relative;
+		    width: 25%;
+			&.first-item{
+				width: 50%;
+			}
+			.img_users a{
+				border: none;
+				&:hover{
+		          img{
+		            opacity: 0.8;
+		          }
+		        }
+				img{
+					width: 100%;
+				}
+			} 
+
+		}
+	}
+	
+	.footer-links{
+		border-top: 1px solid #ebebeb;
+	    padding: 46px 5% 15px 5%;
+	    margin-top: 10px;
+	    text-align: center;
+	    li{
+	    	display: inline-block;
+		    margin-bottom: 10px;
+		    position: relative;
+		    vertical-align: top;
+		    padding: 0 15px;
+		    line-height: 100%;
+		    &:before{
+		    	background: #666 none repeat scroll 0 0;
+			    content: "";
+			    height: 10px;
+			    position: absolute;
+			    #{$right}: 0;
+			    top: 2px;
+			    width: 1px;
+		    }
+		    &:last-child{
+		    	&:before{
+		    		display: none;
+		    	}
+		    }
+	    }
+	}
+
+
+	/* FOOTER BOTTOM */
+	
+	.footer-bottom{
+		background-color: #232f3e;
+		margin-top: 45px;
+		padding: 15px 0;
+		color: #fff;
+	    .copyright{
+	    	text-align: center;
+	    }
+
+	 
+
+	}
+}
+
+
+@media (min-width: 1200px) and (max-width: 1649px){
+	.typefooter-1{
+		.socials li a span{
+			display: none;
+		}
+		.newsletter-footer1 .newsletter .block_content{
+			width: 55%;
+		}
+		.newsletter-footer1 .newsletter .title-block{
+			width: 45%;
+		}
+		.footer-top .ftop{
+			.col-lg-8{
+				width: 75%;
+			}
+			.col-lg-4{
+				width: 25%;
+			}
+		}
+		.footer-links{
+			padding-left: 0;
+			padding-right: 0;
+			margin-top: 30px;
+		}
+	} 
+}

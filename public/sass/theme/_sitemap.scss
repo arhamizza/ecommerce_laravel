@@ -1,0 +1,42 @@
+.simple-list {
+	margin:0;
+	padding:0;
+	list-style-type:none
+	
+
+}
+.bold-list>li>a {
+	font-weight:700;
+	text-transform:uppercase;
+	
+}
+.simple-list ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	position:relative;
+	
+}
+.simple-list li {
+	margin:0;
+	padding:0 0 8px;
+}
+.simple-list .checkbox{padding-left:0}
+.simple-list .checkbox input[type=checkbox]{margin-right:10px}
+.simple-list .icon {
+	margin-#{$right}:9px
+}
+.arrow-list li {
+	padding-#{$left}:12px;
+	position:relative;
+	a{ @include linkGray(); }
+}
+.arrow-list li:before {
+	margin-#{$right}:10px;
+	font-size: 14px;
+	display:inline-block;
+	font-family: $FontAwesome;
+	
+	@include if-ltr {content: "\f105";}
+	@include if-rtl { content: "\f104";}
+}
