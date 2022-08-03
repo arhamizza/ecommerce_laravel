@@ -120,7 +120,7 @@
                                 <ul class="dropdown-menu " style="display: none;">                      
                                     <li><a href="register.html">Register</a>
                                     </li>
-                                    <li><a href="login.html">Login</a>
+                                    <li><a href="/login">Login</a>
                                     </li>
                                 </ul>
                             </li>
@@ -128,7 +128,7 @@
                             </li>
                             <li class="checkout hidden-sm hidden-xs"><a href="checkout.html" class="btn-link" title="Checkout "><span ><i class="fa fa-check-square-o"></i>Checkout </span></a>
                             </li>
-                            <li class="hidden-xs"><a href="login.html"><i class="fa fa-lock"></i>Login</a>
+                            <li class="hidden-xs"><a href="/login"><i class="fa fa-lock"></i>Login</a>
                             </li>
                         </ul>                    
                     </div>
