@@ -17,7 +17,7 @@ class CreateCartTable extends Migration
             $table->increments('id');
             $table->mediumText('nama');
             $table->integer('id_produk')->unsigned();
-            $table->integer('id_user')->unsigned();
+            $table->integer('id_profile')->unsigned();
             $table->integer('ukuran')->unsigned();
             $table->integer('jumlah')->unsigned();
             $table->integer('berat')->unsigned();
@@ -26,7 +26,7 @@ class CreateCartTable extends Migration
 
             
             $table->foreign('id_produk')->references('id')->on('produk')->onDelete('cascade');
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_profile')->references('id')->on('profile')->onDelete('cascade');
         });
     }
 

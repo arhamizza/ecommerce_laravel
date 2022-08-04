@@ -1,6 +1,6 @@
 
 @extends('layout.core')
-@section('title', 'Dashboard')
+@section('title', 'Login')
 @section('contents')
 	<!-- Main Container  -->
 	<div class="main-container container">
