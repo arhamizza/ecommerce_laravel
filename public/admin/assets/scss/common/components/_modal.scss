@@ -1,0 +1,18 @@
+.modal {
+  .modal-dialog {
+    .modal-header {
+      .close {
+        margin: 0;
+        padding: 0;
+        color: $body-color;
+      }
+    }
+  }
+}
+
+.rtl {
+  .modal-footer {
+    // Easily place margin between footer elements
+    > :not(:last-child) { margin-left: .25rem; }
+  }
+}
