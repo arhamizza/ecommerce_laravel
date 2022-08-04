@@ -143,7 +143,7 @@
                                         <!-- <i class="fa fa-heart"></i> --> Wish List (0)
                                     </a>
                                 </li>
-                                <li class="checkout hidden-sm hidden-xs"><a href="/core" class="btn-link"
+                                <li class="checkout hidden-sm hidden-xs"><a href="/admin" class="btn-link"
                                         title="Checkout "><span><i class="fa fa-check-square-o"></i>Checkout
                                         </span></a>
                                 </li>

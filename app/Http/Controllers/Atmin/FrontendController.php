@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Atmin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class FrontendController extends Controller
 {
     public function index()
     {
-        return "hello";
+        return view('atmin.index');
     }
 }
