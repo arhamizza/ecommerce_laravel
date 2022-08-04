@@ -15,7 +15,7 @@ class CreateProdukTable extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_user')->unsigned();
+            $table->integer('id_profile')->unsigned();
             $table->integer('id_kategori')->unsigned();
             $table->integer('id_brand')->unsigned();
             $table->integer('ukuran')->unsigned();
@@ -29,7 +29,7 @@ class CreateProdukTable extends Migration
             $table->string('slug',40)->nullable();
             $table->string('name',100)->nullable();
 
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_profile')->references('id')->on('profile')->onDelete('cascade');
             $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
             $table->foreign('id_brand')->references('id')->on('brand')->onDelete('cascade');
             $table->timestamps();

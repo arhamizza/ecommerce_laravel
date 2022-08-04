@@ -16,22 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('id_province')->unsigned();
-            $table->integer('id_city')->unsigned();
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();           
             $table->string('password');
-            $table->string('photo');
-            $table->mediumText('alamat');
-            $table->longText('alamat_lengkap');
-            $table->string('kode_pos');
-            $table->mediumText('negara');
-            $table->integer('nomor_hp')->unsigned();
-            $table->longText('note');
-
+            $table->tinyInteger('role_as')->default('0'); //Add in UserTable before timestamps
+            $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('id_province')->references('id')->on('provinces')->onDelete('cascade');
-            $table->foreign('id_city')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 
