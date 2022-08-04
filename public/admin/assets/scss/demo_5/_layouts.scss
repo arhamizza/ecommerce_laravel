@@ -1,0 +1,183 @@
+//RTL layout
+.rtl {
+  direction: rtl;
+  text-align: right;
+  .main-wrapper {
+    .horizontal-menu {
+      .navbar {
+        .navbar-content {
+          .navbar-brand {
+            margin-right: 0;
+            margin-left: $navbar-padding-x;
+            direction: ltr;
+          }
+          .search-form {
+            margin-right: 0;
+          }
+          .navbar-nav {
+            margin-left: 0;
+            margin-right: auto;
+            padding-right: 0;
+            .nav-item {
+              &.dropdown {
+                .dropdown-menu {
+                  right: auto;
+                  left: -20px;
+                  @media(max-width: 991px) {
+                    left: 20px
+                  }
+                  &::before {
+                    right: auto;
+                    left: 28px;
+                  }
+                }
+              }
+              &.nav-profile {
+                .dropdown-menu {
+                  .dropdown-body {
+                    .profile-nav {
+                      .nav-item {
+                        .nav-link {
+                          svg {
+                            margin-right: 0;
+                            margin-left: 20px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &.nav-messages {
+                .dropdown-menu {
+                  .dropdown-body {
+                    .dropdown-item {
+                      .content {
+                        margin-left: 0;
+                        margin-right: 15px;
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+              &.nav-notifications {
+                .dropdown-menu {
+                  .dropdown-body {
+                    .dropdown-item {
+                      .content {
+                        margin-left: 0;
+                        margin-right: 15px;
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .bottom-navbar {
+        .page-navigation {
+          padding-right: 0;
+          > .nav-item {
+    
+            &:first-child {
+              @include media-breakpoint-up(lg) {
+                >.nav-link {
+                  padding-left: 10px;
+                  padding-right: 0;
+                }
+              }
+            }
+    
+            &:last-child {
+              border-right: none;
+              @include media-breakpoint-up(lg) {
+                >.nav-link {
+                  padding-right: 10px;
+                  padding-left: 0;
+                }
+              }
+            }
+            
+            > .nav-link {
+              .link-icon {
+                margin-right: 0;
+                margin-left: 10px;
+              }
+              .link-arrow {
+                margin-left: 0;
+                margin-right: 5px;
+              }
+            }
+
+            .submenu {
+              .category-heading {
+                text-align: right;
+              }
+              ul {
+                li {
+                  position: relative;
+                  a {
+                    text-align: right;
+                    padding-left: 0;
+                    padding-right: 20px;
+                    &::before {
+                      display: none;
+                    }
+                    &::after {
+                      position: absolute;
+                      content: "";
+                      width: 6px;
+                      height: 2px;
+                      border-radius: 100%;
+                      background: theme-color(secondary);
+                      top: 12px;
+                      right: 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            &.mega-menu {
+              .submenu {
+                ul {
+                  padding-right: 0;
+                }
+              }
+            }
+
+            &:not(.mega-menu) {
+              .submenu {
+                left: initial;
+              }
+            }
+          }
+        }
+      }
+    }
+    .page-wrapper {
+      .page-content {
+        .main-content {
+          p {
+            direction: ltr;
+          }
+          .highlight {
+            pre {
+              direction: ltr
+            }
+          }
+        }
+        .content-nav-wrapper {
+          right: auto;
+          left: 0;
+          border-left: 0;
+          border-right: 1px solid $border-color;
+        }
+      }
+    }
+  }
+}
