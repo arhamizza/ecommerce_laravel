@@ -1,6 +1,6 @@
 
 @extends('layout.core')
-@section('title', 'Dashboard')
+@section('title', 'Login')
 @section('contents')
 	<!-- Main Container  -->
 	<div class="main-container container">
@@ -9,11 +9,11 @@
 			<li><a href="#">Account</a></li>
 			<li><a href="#">Login</a></li>
 		</ul>
-		
+
 		<div class="row">
 			<div id="content" class="col-sm-12">
 				<div class="page-login">
-				
+
 					<div class="account-border">
 						<div class="row">
 							<div class="col-sm-6 new-customer">
@@ -25,7 +25,7 @@
 									<a href="#" class="btn btn-default pull-right">Continue</a>
 								</div>
 							</div>
-							
+
 							<form action="#" method="post" enctype="multipart/form-data">
 								<div class="col-sm-6 customer-login">
 									<div class="well">
@@ -48,7 +48,7 @@
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>

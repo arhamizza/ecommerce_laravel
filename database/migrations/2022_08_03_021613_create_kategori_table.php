@@ -15,9 +15,14 @@ class CreateKategoriTable extends Migration
     {
         Schema::create('kategori', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('nama')->nullable();
-            $table->string('photo',100)->nullable();
-            $table->string('slug',40)->nullable();
+            $table->mediumText('nama');
+            $table->string('slug');
+            $table->longText('description');
+            $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('popular')->default('0');
+            $table->string('meta_title');
+            $table->string('meta_descrip');
+            $table->string('meta_keyword');
             $table->timestamps();
         });
     }
