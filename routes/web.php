@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvincesController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () { return view('login3'); });
-Route::get('/login2', function () { return view('login3'); });
 
 Auth::routes();
 
@@ -39,3 +39,14 @@ Route::get('pro', [ProvincesController::class,'pro']);
 Route::get('dashboard', 'Atmin\FrontendController@index');
 Route::get('kategori', 'Atmin\KategoriController@index');
 Route::get('tambah-kategori', 'Atmin\KategoriController@tambah');
+
+
+
+ route::middleware(['auth','isAdmin'])->group(function (){
+
+    Route::get('/dashboard', function () {
+        return view('atmin.index');
+     });
+ });
+
+ Route::post('insert-kategori','Atmin\KategoriController@insert');
