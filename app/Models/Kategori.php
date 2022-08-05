@@ -16,6 +16,7 @@ protected $fillable = [
     'description',
     'status',
     'popular',
+    'image',
     'meta_title',
     'meta_descrip',
     'meta_keywords',
