@@ -61,8 +61,8 @@
 <body class="common-home res layout-4">
 
     <div id="wrapper" class="wrapper-fluid banners-effect-10">
-
-
+        
+        <h1>coba</h1>
         <!-- Header Container  -->
         <header id="header" class=" typeheader-4">
             <div class="banner-top hidden-compact">
