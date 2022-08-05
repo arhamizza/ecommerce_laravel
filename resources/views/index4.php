@@ -118,7 +118,7 @@
                                 <a href="#" title="My Account " class="btn-xs dropdown-toggle" data-toggle="dropdown"> <span>My Account </span>  <span class="fa fa-caret-down"></span>
                                 </a>
                                 <ul class="dropdown-menu " style="display: none;">                      
-                                    <li><a href="register.html">Register</a>
+                                    <li><a href="/register">Register</a>
                                     </li>
                                     <li><a href="/login">Login</a>
                                     </li>

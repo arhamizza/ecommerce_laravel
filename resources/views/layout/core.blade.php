@@ -86,7 +86,7 @@
                             <ul class="top-link list-inline lang-curr">
                                 <li class="currency">
                                     <div class="btn-group currencies-block">
-                                        <form action="index.php" method="post" enctype="multipart/form-data"
+                                        <form action="/index" method="post" enctype="multipart/form-data"
                                             id="currency">
                                             <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                                                 <span class="icon icon-credit "></span> $ US Dollar <span
@@ -102,7 +102,7 @@
                                 </li>
                                 <li class="language">
                                     <div class="btn-group languages-block ">
-                                        <form action="index.php" method="post" enctype="multipart/form-data"
+                                        <form action="/index" method="post" enctype="multipart/form-data"
                                             id="bt-language">
                                             <a class="btn-link dropdown-toggle" data-toggle="dropdown">
                                                 <img src="image/catalog/flags/gb.png" alt="English" title="English">
@@ -110,10 +110,10 @@
                                                 <span class="fa fa-angle-down"></span>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="index.php"><img class="image_flag"
+                                                <li><a href="/index"><img class="image_flag"
                                                             src="image/catalog/flags/gb.png" alt="English"
                                                             title="English" /> English </a></li>
-                                                <li> <a href="index.php"> <img class="image_flag"
+                                                <li> <a href="/index"> <img class="image_flag"
                                                             src="image/catalog/flags/ar.png" alt="Arabic"
                                                             title="Arabic" /> Arabic </a> </li>
                                             </ul>
@@ -126,28 +126,47 @@
                         </div>
                         <div class="header-top-right collapsed-block col-lg-6 col-md-8 col-sm-6 col-xs-5">
                             <ul class="top-link list-inline">
-                                <li class="account" id="my_account">
-                                    <a href="#" title="My Account " class="btn-xs dropdown-toggle"
-                                        data-toggle="dropdown"> <span>My Account </span> <span
-                                            class="fa fa-caret-down"></span>
-                                    </a>
-                                    <ul class="dropdown-menu " style="display: none;">
-                                        <li><a href="register.html">Register</a>
-                                        </li>
-                                        <li><a href="/login">Login</a>
-                                        </li>
-                                    </ul>
+                            @guest
+                            @if (Route::has('login'))
+                                <li class="hidden-xs">
+                                    <a href="{{ route('login') }}">
+                                    <i class="fa fa-lock"></i>{{ __('Login') }}</a>
                                 </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                            <li class="hidden-xs">
+                                    <a href="{{ route('register') }}">
+                                    <i class="fa fa-lock"></i>{{ __('register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                                 <li class="wishlist hidden-sm hidden-xs"><a href="#" id="wishlist-total"
                                         class="top-link-wishlist" title="Wish List (0) ">
                                         <!-- <i class="fa fa-heart"></i> --> Wish List (0)
                                     </a>
                                 </li>
-                                <li class="checkout hidden-sm hidden-xs"><a href="/admin" class="btn-link"
+                                <li class="checkout hidden-sm hidden-xs"><a href="{{url ('dashboard')}}" class="btn-link"
                                         title="Checkout "><span><i class="fa fa-check-square-o"></i>Checkout
                                         </span></a>
-                                </li>
-                                <li class="hidden-xs"><a href="/login"><i class="fa fa-lock"></i>Login</a>
                                 </li>
                             </ul>
                         </div>
@@ -163,7 +182,7 @@
                     <div class="row">
                         <!-- Logo -->
                         <div class="navbar-logo col-lg-2 col-md-3 col-sm-12 col-xs-12">
-                            <div class="logo"><a href="index.php"><img src="image/catalog/logo4.png"
+                            <div class="logo"><a href="/index"><img src="image/catalog/logo4.png"
                                         title="Your Store" alt="Your Store" /></a></div>
                         </div>
                         <!-- //end Logo -->
@@ -173,7 +192,7 @@
                                 <div class="icon-search hidden-lg hidden-md hidden-sm"><i class="fa fa-search"></i>
                                 </div>
                                 <div id="sosearchpro" class="sosearchpro-wrapper so-search ">
-                                    <form method="GET" action="index.php">
+                                    <form method="GET" action="/index">
                                         <div id="search0" class="search input-group form-group">
                                             <div class="select_category filter_type  icon-select hidden-sm hidden-xs">
                                                 <select class="no-border" name="category_id">
@@ -998,12 +1017,12 @@
                                                     <ul class="megamenu" data-transition="slide"
                                                         data-animationtime="250">
                                                         <li class="home hover">
-                                                            <a href="index.php">Home <b class="caret"></b></a>
+                                                            <a href="/index">Home <b class="caret"></b></a>
                                                             <div class="sub-menu" style="width:100%;">
                                                                 <div class="content">
                                                                     <div class="row">
                                                                         <div class="col-md-4">
-                                                                            <a href="index.php" class="image-link">
+                                                                            <a href="/index" class="image-link">
                                                                                 <span class="thumbnail">
                                                                                     <img class="img-responsive img-border"
                                                                                         src="image/catalog/menu/home-1.jpg"
@@ -1055,7 +1074,7 @@
 
                                                                         </div>
                                                                         <div class="col-md-4">
-                                                                            <a href="html_width_RTL/index.php"
+                                                                            <a href="html_width_RTL//index"
                                                                                 class="image-link">
                                                                                 <span class="thumbnail">
                                                                                     <img class="img-responsive img-border"
