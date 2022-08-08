@@ -10,6 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ url('insert-kategori') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="">Nama</label>
                                 <input type="text" class="form-control" name="nama" value=""
@@ -25,13 +26,17 @@
                                 <input type="text" class="form-control" name="description" value=""
                                     placeholder="Masukkan Description">
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="">Status</label>
-                                <input type="checkbox" name="status">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="status">
+                                    Status
+                                </label>
                             </div>
-                            <div class="form-group">
-                                <label for="">Popular</label>
-                                <input type="radio" class="form-check-input" name="status">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="popular">
+                                    Popular
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="">Meta Title</label>
@@ -40,13 +45,25 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Meta keywords</label>
-                                <input type="text" class="form-control" name="meta_keywords" value=""
+                                <input type="text" class="form-control" name="meta_keyword" value=""
                                     placeholder="Masukkan Meta keywords">
                             </div>
                             <div class="form-group">
                                 <label for="">Meta Description</label>
-                                <input type="text" class="form-control" name="meta_description" value=""
+                                <input type="text" class="form-control" name="meta_descrip" value=""
                                     placeholder="Masukkan Meta Description">
+                            </div>
+
+                            <div class="form-group">
+                                <label>File upload</label>
+                                <input type="file" name="image" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled=""
+                                        placeholder="Upload Gambar">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                    </span>
+                                </div>
                             </div>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

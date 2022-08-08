@@ -25,7 +25,7 @@ class KategoriController extends Controller
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('admin/assets/uploads/kategori'.$filename);
+            $file->move('admin/assets/uploads/kategori',$filename);
             $kategori->image = $filename;
         }
 
@@ -35,9 +35,9 @@ class KategoriController extends Controller
         $kategori->status = $request->input('status') == TRUE ? '1':'0';
         $kategori->popular = $request->input('popular') == TRUE ? '1':'0';
         $kategori->meta_title = $request->input('meta_title');
-        $kategori->meta_keywords = $request->input('meta_keywords');
+        $kategori->meta_keyword = $request->input('meta_keyword');
         $kategori->meta_descrip = $request->input('meta_descrip');
         $kategori->save();
-        return redirect('/dashboard')->width('status',"Kategori Berhasil Ditambahkan!");
+        return redirect('/dashboard')->with('status',"Kategori Berhasil Ditambahkan!");
     }
 }

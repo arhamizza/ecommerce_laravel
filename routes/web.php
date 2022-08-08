@@ -36,17 +36,18 @@ Route::get('pro', [ProvincesController::class,'pro']);
 // Route::get('/atmin', function () {
 //     return view('atmin/index');
 // });
-Route::get('dashboard', 'Atmin\FrontendController@index');
-Route::get('kategori', 'Atmin\KategoriController@index');
-Route::get('tambah-kategori', 'Atmin\KategoriController@tambah');
 
 
 
  route::middleware(['auth','isAdmin'])->group(function (){
+
+    Route::get('kategori', 'Atmin\KategoriController@index');
+    Route::get('tambah-kategori', 'Atmin\KategoriController@tambah');
+    Route::post('insert-kategori','Atmin\KategoriController@insert');
 
     Route::get('/dashboard', function () {
         return view('atmin.index');
      });
  });
 
- Route::post('insert-kategori','Atmin\KategoriController@insert');
+

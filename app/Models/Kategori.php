@@ -19,7 +19,7 @@ protected $fillable = [
     'image',
     'meta_title',
     'meta_descrip',
-    'meta_keywords',
+    'meta_keyword',
 ];
 
 }

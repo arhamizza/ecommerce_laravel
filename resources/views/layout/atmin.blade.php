@@ -23,7 +23,6 @@
   <!-- End layout styles -->
   <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
 
-
 </head>
 
 <body class="sidebar-dark">
@@ -60,11 +59,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/apps/calendar.html" class="nav-link">
+            <a href="{{url ('tambah-kategori')}}" class="nav-link">
               <i class="link-icon" data-feather="calendar"></i>
               <span class="link-title">Calendar</span>
             </a>
           </li>
+
           <li class="nav-item nav-category">Components</li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
@@ -671,6 +671,8 @@
   <script src="admin/assets/js/dashboard.js"></script>
   <script src="admin/assets/js/datepicker.js"></script>
   <!-- end custom js for this page -->
+<script src="admin/assets/js/file-upload.js"></script>
+
+
 </body>
-<h1>Arham adalah</h1>
 </html>
