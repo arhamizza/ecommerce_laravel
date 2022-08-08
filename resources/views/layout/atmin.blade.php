@@ -9,19 +9,20 @@
 
   <title>@yield('title')</title>
   <!-- core:css -->
-  <link rel="stylesheet" href="admin/assets/vendors/core/core.css">
+
+  <link href="{{ asset('atmin/assets/vendors/core/core.css') }}" rel="stylesheet">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="{{ asset('atmin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
   <!-- end plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="admin/assets/fonts/feather-font/css/iconfont.css">
-  <link rel="stylesheet" href="admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="{{ asset('atmin/assets/fonts/feather-font/css/iconfont.css') }}">
+  <link rel="stylesheet" href="{{ asset('atmin/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="admin/assets/css/demo_1/style.css">
+  <link rel="stylesheet" href="{{ asset('atmin/assets/css/demo_1/style.css') }}">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+  <link rel="shortcut icon" href="{{ asset('atmin/assets/images/favicon.png') }}" />
 
 </head>
 
@@ -352,11 +353,11 @@
         <div class="theme-wrapper">
           <h6 class="text-muted mb-2">Light Theme:</h6>
           <a class="theme-item active" href="../demo_1/dashboard-one.html">
-            <img src="admin/assets/images/screenshots/light.jpg" alt="light theme">
+            <img src="{{ asset('atmin/assets/images/screenshots/light.jpg') }}" alt="light theme">
           </a>
           <h6 class="text-muted mb-2">Dark Theme:</h6>
           <a class="theme-item" href="../demo_2/dashboard-one.html">
-            <img src="admin/assets/images/screenshots/dark.jpg" alt="light theme">
+            <img src="{{ asset('atmin/assets/images/screenshots/dark.jpg') }}" alt="light theme">
           </a>
         </div>
       </div>
@@ -659,25 +660,25 @@
   </div>
 
   <!-- core:js -->
-  <script src="admin/assets/vendors/core/core.js"></script>
+  <script src="{{ asset('atmin/assets/vendors/core/core.js') }}"></script>
   <!-- endinject -->
   <!-- plugin js for this page -->
-  <script src="admin/assets/vendors/chartjs/Chart.min.js"></script>
-  <script src="admin/assets/vendors/jquery.flot/jquery.flot.js"></script>
-  <script src="admin/assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
-  <script src="admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <script src="admin/assets/vendors/apexcharts/apexcharts.min.js"></script>
-  <script src="admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="{{ asset('atmin/assets/vendors/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('atmin/assets/vendors/jquery.flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset('atmin/assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset('atmin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('atmin/assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('atmin/assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
   <!-- end plugin js for this page -->
   <!-- inject:js -->
-  <script src="admin/assets/vendors/feather-icons/feather.min.js"></script>
-  <script src="admin/assets/js/template.js"></script>
+  <script src="{{ asset('atmin/assets/vendors/feather-icons/feather.min.js') }}"></script>
+  <script src="{{ asset('atmin/assets/js/template.js') }}"></script>
   <!-- endinject -->
   <!-- custom js for this page -->
-  <script src="admin/assets/js/dashboard.js"></script>
-  <script src="admin/assets/js/datepicker.js"></script>
+  <script src="{{ asset('atmin/assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('atmin/assets/js/datepicker.js') }}"></script>
   <!-- end custom js for this page -->
-<script src="admin/assets/js/file-upload.js"></script>
+<script src="{{ asset('atmin/assets/js/file-upload.js') }}"></script>
 
 
 </body>

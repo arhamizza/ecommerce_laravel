@@ -57,7 +57,7 @@
                                 </div>
 
                                 @if ($kategori->image)
-                                    <img src="{{ asset('admin/assets/uploads/kategori/'.$kategori->image) }}" alt="Kategori Image">
+                                    <img src="{{ asset('atmin/assets/uploads/kategori/'.$kategori->image) }}" alt="Kategori Image">
                                 @endif
 
                                 <div class="form-group">

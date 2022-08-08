@@ -23,7 +23,7 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->description }}</td>
                             <td>
-                                <img src="{{ asset('admin/assets/uploads/kategori/' . $item->image) }}" alt="Image here">
+                                <img src="{{ asset('atmin/assets/uploads/kategori/' . $item->image) }}" alt="Image here">
                             </td>
                             <td>
                                 <a href="{{ url('edit-prod/'.$item->id)}}" class="btn btn-primary">Edit</a>
