@@ -52,6 +52,12 @@
             </a>
           </li>
           <li class="nav-item nav-category">web apps</li>
+          <li class="nav-item {{ Request::is('tambah-products') ? 'active': ''}}">
+            <a href="{{url ('products')}}" class="nav-link">
+              <i class="link-icon" data-feather="message-square"></i>
+              <span class="link-title">Products</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{url ('kategori')}}" class="nav-link">
               <i class="link-icon" data-feather="message-square"></i>
@@ -61,7 +67,7 @@
           <li class="nav-item">
             <a href="{{url ('tambah-kategori')}}" class="nav-link">
               <i class="link-icon" data-feather="calendar"></i>
-              <span class="link-title">Calendar</span>
+              <span class="link-title">Tambah Kategori</span>
             </a>
           </li>
 

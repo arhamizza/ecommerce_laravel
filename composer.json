@@ -12,6 +12,10 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+<<<<<<< HEAD
+=======
+        "league/flysystem": "~1.1.9",
+>>>>>>> fc3580dfeef12ef272d3db2c1b7360b004a12f49
         "league/flysystem-aws-s3-v3": "~1.0"
     },
     "require-dev": {
