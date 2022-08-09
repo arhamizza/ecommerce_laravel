@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProvincesSeeder::class,
             CitiesSeeder::class,
+            UserSeeder::class,
+            KategoriSeeder::class,
         ]);
     }
 }
