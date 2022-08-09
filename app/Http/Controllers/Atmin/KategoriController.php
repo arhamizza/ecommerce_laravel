@@ -27,7 +27,7 @@ class KategoriController extends Controller
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
-            $file->move('admin/assets/uploads/kategori', $filename);
+            $file->move('atmin/assets/uploads/kategori', $filename);
             $kategori->image = $filename;
         }
 
@@ -54,7 +54,7 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
         if ($request->hasFile('image'))
         {
-            $path = 'admin/assets/uploads/kategori/'.$kategori->image;
+            $path = 'atmin/assets/uploads/kategori/'.$kategori->image;
             if (File::exists($path))
              {
                 File::delete($path);
@@ -62,7 +62,7 @@ class KategoriController extends Controller
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
-            $file->move('admin/assets/uploads/kategori', $filename);
+            $file->move('atmin/assets/uploads/kategori', $filename);
             $kategori->image = $filename;
         }
         $kategori->nama = $request->input('nama');
@@ -74,7 +74,7 @@ class KategoriController extends Controller
         $kategori->meta_keyword = $request->input('meta_keyword');
         $kategori->meta_descrip = $request->input('meta_descrip');
         $kategori->update();
-        return redirect('dashboard')->with('status',"Kategori telah di update!");
+        return redirect('kategori')->with('status',"Kategori telah di update!");
     }
 
     public function destroy($id)
@@ -82,7 +82,7 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
         if ($kategori->image)
          {
-            $path = 'admin/assets/uploads/kategori/'.$kategori->image;
+            $path = 'atmin/assets/uploads/kategori/'.$kategori->image;
             if (File::exists($path))
              {
                 File::delete($path);

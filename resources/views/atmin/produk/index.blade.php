@@ -1,5 +1,5 @@
 @extends('layout.atmin')
-@section('title', 'Kategori')
+@section('title', 'produk')
 @section('contents')
     <div class="card">
         <div class="card-header">
@@ -10,24 +10,26 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Kategori</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Selling Price</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $item)
+                    @foreach ($produk as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
+                            <td>{{ $item->kategori->nama }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->selling_price }}</td>
                             <td>
-                                <img src="{{ asset('admin/assets/uploads/kategori/' . $item->image) }}" alt="Image here">
+                                <img src="{{ asset('atmin/assets/uploads/produk/' . $item->image) }}" alt="Image here">
                             </td>
                             <td>
-                                <a href="{{ url('edit-prod/'.$item->id)}}" class="btn btn-primary">Edit</a>
-                                <button class="btn btn-primary">Delete</button>
+                                <a href="{{ url('edit-produk/'.$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('hapus-produk/'.$item->id)}}" class="btn btn-primary">Delete</a href="">
                             </td>
                         </tr>
                     @endforeach

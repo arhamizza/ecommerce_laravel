@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvincesController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
-use App\Http\Controllers\Atmin\ProductController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\Atmin\produkController;
+use App\Http\Controllers\produksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +49,7 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('kategori', 'Atmin\KategoriController@index');
     Route::get('tambah-kategori', 'Atmin\KategoriController@tambah');
     Route::post('insert-kategori', 'Atmin\KategoriController@insert');
-    Route::get('edit-prod/{id}', [KategoriController::class, 'edit']);
+    Route::get('edit-kategori/{id}', [KategoriController::class, 'edit']);
     Route::put('update-kategori/{id}', [KategoriController::class, 'update']);
     Route::get('hapus-kategori/{id}', [KategoriController::class, 'destroy']);
 
@@ -59,5 +59,11 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     });
 });
 
-    Route::get('products', [ProductController::class, 'index']);
-    Route::get('tambah-product', [ProductController::class, 'add']);
+    Route::get('produk', [produkController::class, 'index']);
+    Route::get('tambah-produk', [produkController::class, 'add']);
+    Route::post('insert-produk', [produkController::class, 'insert']);
+    Route::get('edit-produk/{id}', [produkController::class, 'edit']);
+    Route::put('update-produk/{id}', [produkController::class, 'update']);
+    Route::get('hapus-produk/{id}', [produkController::class, 'destroy']);
+
+    

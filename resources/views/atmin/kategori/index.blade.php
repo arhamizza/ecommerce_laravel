@@ -26,7 +26,7 @@
                                 <img src="{{ asset('atmin/assets/uploads/kategori/' . $item->image) }}" alt="Image here">
                             </td>
                             <td>
-                                <a href="{{ url('edit-prod/'.$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('edit-kategori/'.$item->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="{{ url('hapus-kategori/'.$item->id)}}" class="btn btn-primary">Delete</a href="">
                             </td>
                         </tr>

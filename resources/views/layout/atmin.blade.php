@@ -53,10 +53,16 @@
             </a>
           </li>
           <li class="nav-item nav-category">web apps</li>
-          <li class="nav-item {{ Request::is('tambah-products') ? 'active': ''}}">
-            <a href="{{url ('products')}}" class="nav-link">
+          <li class="nav-item ">
+            <a href="{{url ('produk')}}" class="nav-link">
               <i class="link-icon" data-feather="message-square"></i>
-              <span class="link-title">Products</span>
+              <span class="link-title">Produk</span>
+            </a>
+          </li>
+          <li class="nav-item {{ Request::is('tambah-produk') ? 'active': ''}}">
+            <a href="{{url ('tambah-produk')}}" class="nav-link">
+              <i class="link-icon" data-feather="calendar"></i>
+              <span class="link-title">Tambah Produk</span>
             </a>
           </li>
           <li class="nav-item">

@@ -9,74 +9,76 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ url('insert-produk') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('update-produk/'.$produk->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
+                        @method('PUT')
                         <div class="col-md-12 mb-3">
-                            <select class="form-select" name="cate_id">
-                                <option value>pilih kategori</option>
-                                @foreach($kategori as $item)
-                                <option value="{{ $item->id}}" class="bold">{{$item->nama}}</option>
-                                @endforeach
+                        <label for="">Kategori</label>
+                            <select class="form-select">
+                                <option value="" class="bold">{{ $produk->kategori->nama}}</option>
                             </select>
 
                         </div>
                         <div class="form-group">
                             <label for="">Nama</label>
-                            <input type="text" class="form-control" name="nama" value="" placeholder="Masukkan Nama">
+                            <input type="text" class="form-control" name="nama" value="{{ $produk->nama}}">
                         </div>
                         <div class="form-group">
                             <label for="">Slug</label>
-                            <input type="text" class="form-control" name="slug" value="" placeholder="Masukkan Slug">
+                            <input type="text" class="form-control" name="slug" value="{{ $produk->slug}}" placeholder="Masukkan Slug">
                         </div>
                         <div class="form-group">
                             <label for="">Small Description</label>
-                            <textarea type="text" class="form-control" name="small_description" value="" placeholder="Masukkan Deskripsi"></textarea>
+                            <textarea type="text" class="form-control" name="small_description" value="" placeholder="Masukkan Deskripsi">{{ $produk->small_description}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Description</label>
-                            <input type="text" class="form-control" name="description" value="" placeholder="Masukkan Description">
+                            <textarea type="text" class="form-control" name="description" value="" placeholder="Masukkan Deskripsi">{{ $produk->description}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Original Price</label>
-                            <input type="number" class="form-control" name="original_price" value="" placeholder="Masukkan Harga Asli">
+                            <input type="number" class="form-control" name="original_price" value="{{ $produk->original_price}}"" placeholder=" Masukkan Harga Asli">
                         </div>
                         <div class="form-group">
                             <label for="">Selling Price</label>
-                            <input type="number" class="form-control" name="selling_price" value="" placeholder="Masukkan Harga Jual">
+                            <input type="number" class="form-control" name="selling_price" value="{{ $produk->selling_price}}"" placeholder=" Masukkan Harga Jual">
                         </div>
                         <div class="form-group">
                             <label for="">Tax</label>
-                            <input type="number" class="form-control" name="tax" value="" placeholder="Masukkan Pajak">
+                            <input type="number" class="form-control" name="tax" value="{{ $produk->tax}}"" placeholder=" Masukkan Pajak">
                         </div>
                         <div class="form-group">
                             <label for="">Quantity</label>
-                            <input type="number" class="form-control" name="qty" value="" placeholder="Masukkan Jumlah Produk">
+                            <input type="number" class="form-control" name="qty" value="{{ $produk->qty}}" placeholder=" Masukkan Jumlah Produk">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="status">
+                                <input type="checkbox" {{ $produk->status == "1" ? 'checked':'' }} class="form-check-input" name="status">
                                 Status
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="trending">
-                                trending
+                                <input type="checkbox" {{ $produk->trending == "1" ? 'checked':'' }} class="form-check-input" name="trending">
+                                Trending
                             </label>
                         </div>
                         <div class="form-group">
                             <label for="">Meta Title</label>
-                            <input type="text" class="form-control" name="meta_title" value="" placeholder="Masukkan Meta Title">
+                            <input type="text" value="{{ $produk->meta_title }}" class="form-control" name="meta_title" placeholder="Masukkan Meta Title">
                         </div>
                         <div class="form-group">
                             <label for="">Meta keywords</label>
-                            <input type="text" class="form-control" name="meta_keyword" value="" placeholder="Masukkan Meta keywords">
+                            <textarea type="text"  class="form-control" name="meta_keyword" placeholder="Masukkan Meta keywords"> {{ $produk->meta_keyword }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Meta Description</label>
-                            <input type="text" class="form-control" name="meta_description" value="" placeholder="Masukkan Meta Description">
+                            <textarea type="text"  class="form-control" name="meta_description" placeholder="Masukkan Meta Deskripsi">{{ $produk->meta_description }}</textarea>
                         </div>
+
+                        @if ($produk->image)
+                        <img src="{{ asset('atmin/assets/uploads/produk/'.$produk->image) }}" alt="Produk Image">
+                        @endif
 
                         <div class="form-group">
                             <label>File upload</label>

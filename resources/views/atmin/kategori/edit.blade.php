@@ -25,8 +25,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Description</label>
-                                    <textarea type="text" class="form-control" {{ $kategori->description }} name="description"
-                                        placeholder="Masukkan Description"></textarea>
+                                    <textarea type="text" class="form-control"  name="description"
+                                        placeholder="Masukkan Description">{{ $kategori->description }}</textarea>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
@@ -47,13 +47,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Meta keywords</label>
-                                    <textarea type="text" {{ $kategori->meta_keyword }} class="form-control" name="meta_keyword"
-                                        placeholder="Masukkan Meta keywords"></textarea>
+                                    <textarea type="text"  class="form-control" name="meta_keyword"
+                                        placeholder="Masukkan Meta keywords">{{ $kategori->meta_keyword }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Meta Description</label>
-                                    <textarea type="text" {{ $kategori->meta_descrip }} class="form-control" name="meta_descrip"
-                                        placeholder="Masukkan Meta Deskripsi"></textarea>
+                                    <textarea type="text"  class="form-control" name="meta_descrip"
+                                        placeholder="Masukkan Meta Deskripsi">{{ $kategori->meta_descrip }}</textarea>
                                 </div>
 
                                 @if ($kategori->image)

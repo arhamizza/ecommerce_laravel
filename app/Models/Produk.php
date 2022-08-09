@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Produk extends Model
 {
     use HasFactory;
     protected $table = 'products';
     protected $fillable = [
         'cate_id',
         'name',
+        'slug',
         'small_description',
         'description',
         'original_price',
@@ -25,4 +26,9 @@ class Product extends Model
         'meta_keywords',
         'meta_description'
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'cate_id','id');
+    }
 }
