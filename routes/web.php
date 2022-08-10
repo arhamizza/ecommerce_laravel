@@ -5,6 +5,7 @@ use App\Http\Controllers\ProvincesController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
 use App\Http\Controllers\Atmin\produkController;
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\produksController;
 
 /*
@@ -18,9 +19,8 @@ use App\Http\Controllers\produksController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [FrontendController::class, 'index']);
+
 
 Route::get('/login', function () {
     return view('login3');
