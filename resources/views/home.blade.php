@@ -20,4 +20,12 @@
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if (session('status'))
+    <script>
+        swal("Gagal!", "{{ session('status') }}", "error");
+    </script>
+@endif
+
 @endsection

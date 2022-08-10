@@ -686,6 +686,13 @@
   <!-- end custom js for this page -->
 <script src="{{ asset('atmin/assets/js/file-upload.js') }}"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if (session('status'))
+    <script>
+        swal("Berhasil!", "{{ session('status') }}", "success");
+    </script>
+@endif
+
 
 </body>
 </html>
