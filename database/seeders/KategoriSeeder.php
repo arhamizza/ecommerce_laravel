@@ -279,6 +279,7 @@ class KategoriSeeder extends Seeder
                 'slug' => $value['slug'],
                 'description' => $value['description'],
                 'status' => $value['status'],
+                'popular' => $value['popular'],
                 'image' => $value['image'],
                 'meta_title' => $value['meta_title'],
                 'meta_descrip' => $value['meta_descrip'],

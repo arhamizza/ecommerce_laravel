@@ -181,7 +181,7 @@
         					<div class="col-sm-12">
         						<div class="banners">
         							<div>
-        								<a  href="#"><img src="image/catalog/demo/category/img-cate.jpg" alt="img cate"><br></a>
+        								<a  href="#"><img src="{{ asset('atmin/assets/uploads/kategori/' . $kategori->image) }}" width="1370px" height="300px" alt="img cate"><br></a>
         							</div>
         						</div>
         					
@@ -244,8 +244,8 @@
                                 <div class="left-block">
                                     <div class="product-image-container second_img">
                                         <a href="product.html" target="_self" title="{{ $prod->nama }}">
-                                            <img src="{{ $prod->image }}" class="img-1 img-responsive" alt="image">
-                                            <img src="{{ $prod->image }}" class="img-2 img-responsive" alt="image">
+                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-1 img-responsive" alt="image">
+											<img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-2 img-responsive" alt="image">
                                         </a>
                                     </div>
                                     <div class="box-label"> <span class="label-product label-sale"> -16% </span></div>

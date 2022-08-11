@@ -26,7 +26,7 @@ class FrontendController extends Controller
     {
         if (Kategori::where('slug', $slug)->exists()) {
             $kategori = Kategori::where('slug', $slug)->first();
-            $produk = Produk::where('cate_id', $kategori->id)->where('status', '0')->get();
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
             return view('frontend.produk.index', compact('kategori','produk'));
         } else {
             return redirect('/')->where('status',"Slug doesnot exists");
