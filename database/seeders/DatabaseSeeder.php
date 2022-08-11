@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             UserSeeder::class,
             KategoriSeeder::class,
+            ProdukSeeder::class,
         ]);
     }
 }
