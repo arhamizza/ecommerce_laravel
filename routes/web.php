@@ -20,6 +20,7 @@ use App\Http\Controllers\produksController;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 
 
 Route::get('/login', function () {
@@ -52,6 +53,7 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit-kategori/{id}', [KategoriController::class, 'edit']);
     Route::put('update-kategori/{id}', [KategoriController::class, 'update']);
     Route::get('hapus-kategori/{id}', [KategoriController::class, 'destroy']);
+    
 
 
     Route::get('/dashboard', function () {

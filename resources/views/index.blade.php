@@ -430,14 +430,14 @@
                             @foreach ($top_collection as $kat)
                                 <div class="content-box">
                                     <div class="image-cat">
-                                        <a href="#" title="Smartphone" target="_self">
+                                        <a href="{{ url('view-category/' . $kat->slug) }}" title="{{ $kat->nama }}" target="_self">
                                             <img src="{{ asset('atmin/assets/uploads/kategori/' . $kat->image) }}" width="308px"
-                                            height="230px" title="Smartphone"
-                                                alt="Smartphone" />
+                                            height="230px" title="{{ $kat->nama }}"
+                                                alt="{{ $kat->nama }}" />
                                         </a>
                                     </div>
                                     <div class="cat-title">
-                                        <a href="#" title="Smartphone " target="_self">{{ $kat->nama }}</a>
+                                        <a href="#" title="{{ $kat->nama }} " target="_self">{{ $kat->nama }}</a>
                                     </div>
                                 </div>
                             @endforeach
