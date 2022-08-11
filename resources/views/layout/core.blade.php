@@ -47,6 +47,8 @@
     <link id="color_scheme" href="{{ asset('css/home4.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
+    
+
     <!-- Google web fonts
     ============================================ -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
@@ -1800,10 +1802,24 @@
     <script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/cpanel.js') }}"></script>
+		
+	<!-- Theme files
+	============================================ -->
+	
+	
+	<script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/themejs/application.js') }}"></script>
 
-
-
-
+	<script type="text/javascript"><!--
+	// Check if Cookie exists
+		if($.cookie('display')){
+			view = $.cookie('display');
+		}else{
+			view = 'grid';
+		}
+		if(view) display(view);
+	//--></script> 
 </body>
 
 </html>

@@ -237,8 +237,9 @@
                     </div>
                     <!-- //end Filters -->
         			<!--changed listings-->
+                    @foreach ($produk as $prod)
                     <div class="products-list row nopadding-xs so-filter-gird">
-					@foreach ($produk as $prod)
+
         				<div class="product-layout col-lg-15 col-md-4 col-sm-6 col-xs-12">
                             <div class="product-item-container">
                                 <div class="left-block">
