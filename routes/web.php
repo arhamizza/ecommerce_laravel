@@ -21,6 +21,7 @@ use App\Http\Controllers\produksController;
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
+Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
 
 Route::get('/login', function () {
@@ -47,20 +48,15 @@ Route::get('pro', [ProvincesController::class, 'pro']);
 
 route::middleware(['auth', 'isAdmin'])->group(function () {
 
+    //kategori admin
     Route::get('kategori', 'Atmin\KategoriController@index');
     Route::get('tambah-kategori', 'Atmin\KategoriController@tambah');
     Route::post('insert-kategori', 'Atmin\KategoriController@insert');
     Route::get('edit-kategori/{id}', [KategoriController::class, 'edit']);
     Route::put('update-kategori/{id}', [KategoriController::class, 'update']);
     Route::get('hapus-kategori/{id}', [KategoriController::class, 'destroy']);
-    
 
-
-    Route::get('/dashboard', function () {
-        return view('atmin.index');
-    });
-});
-
+    // produk admin
     Route::get('produk', [produkController::class, 'index']);
     Route::get('tambah-produk', [produkController::class, 'add']);
     Route::post('insert-produk', [produkController::class, 'insert']);
@@ -68,4 +64,13 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-produk/{id}', [produkController::class, 'update']);
     Route::get('hapus-produk/{id}', [produkController::class, 'destroy']);
 
-    
+
+
+    Route::get('/dashboard', function () {
+        return view('atmin.index');
+    });
+});
+
+
+
+

@@ -33,4 +33,22 @@ class FrontendController extends Controller
         }
 
     }
+
+    public function productview($cate_slug, $prod_slug)
+    {
+        if (Kategori::where('slug', $cate_slug)->exists()) 
+        {
+            if (Produk::where('slug', $prod_slug)->exists()) 
+            {
+                $produk = Produk::where('slug', $prod_slug)->first();
+                return view ('frontend.produk.view', compact('produk'));
+            }
+            else {
+                return redirect('/')->with('status',"The link was broken" );
+            }
+        } 
+        else {
+            return redirect('/')->with('status',"No Such category found" );
+        }
+    }
 }

@@ -1,5 +1,5 @@
 @extends('layout.core')
-@section('title', 'produk')
+@section('title', 'kategori')
 @section('contents')
 	<!-- Main Container  -->
 	<div class="main-container container">
@@ -244,7 +244,7 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container second_img">
-                                        <a href="product.html" target="_self" title="{{ $prod->nama }}">
+                                        <a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" target="_self" title="{{ $prod->nama }}">
                                             <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-1 img-responsive" alt="image">
 											<img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-2 img-responsive" alt="image">
                                         </a>
@@ -271,7 +271,7 @@
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                                         </div>
-                                        <h4><a href="product.html" title="{{ $prod->nama }}" target="_self">{{ $prod->nama }}</a></h4>
+                                        <h4><a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" title="{{ $prod->nama }}" target="_self">{{ $prod->nama }}</a></h4>
                                         <div class="price"> <span class="price-new">$46.00</span>
                                             <span class="price-old">$55.00</span>
                                         </div>
