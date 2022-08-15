@@ -29,13 +29,11 @@
 <body class="sidebar-dark">
   <div class="main-wrapper">
 
-
-
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar">
       <div class="sidebar-header">
         <a href="{{url ('dashboard')}}" class="sidebar-brand">
-          Noble<span>UI</span>
+          Ruang<span>BIT</span>
         </a>
         <div class="sidebar-toggler not-active">
           <span></span>

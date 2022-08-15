@@ -9,20 +9,11 @@
                     <div class="top-tags">
                         <ul>
                             <li>
-                                <h2>Go Quickly to:</h2>
+                                <h2>Kategori Paling Dikunjungi:</h2>
                             </li>
-                            <li><a href="#">Fashions,</a></li>
-                            <li><a href="#">Electronic,</a></li>
-                            <li><a href="#">Furniture,</a></li>
-                            <li><a href="#">Accessories,</a></li>
-                            <li><a href="#">Shoes,</a></li>
-                            <li><a href="#">Smartphone,</a></li>
-                            <li><a href="#">Cellphone,</a></li>
-                            <li><a href="#">Cameras,</a></li>
-                            <li><a href="#">Latops,</a></li>
-                            <li><a href="#">Tablets,</a></li>
-                            <li><a href="#">Makeup,</a></li>
-                            <li><a href="#">iPhone</a></li>
+                            @foreach ($top_collection as $kat)
+                            <li><a href="{{ url('view-category/' . $kat->slug) }}">{{ $kat->nama }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="module sohomepage-slider ">

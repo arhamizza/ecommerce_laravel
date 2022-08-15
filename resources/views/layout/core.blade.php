@@ -47,7 +47,7 @@
     <link id="color_scheme" href="{{ asset('css/home4.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
 
-    
+
 
     <!-- Google web fonts
     ============================================ -->
@@ -183,7 +183,7 @@
                     <div class="row">
                         <!-- Logo -->
                         <div class="navbar-logo col-lg-2 col-md-3 col-sm-12 col-xs-12">
-                            <div class="logo"><a href="/index"><img src="image/catalog/logo4.png"
+                            <div class="logo"><a href="/"><img src="image/catalog/logo4.png"
                                         title="Your Store" alt="Your Store" /></a></div>
                         </div>
                         <!-- //end Logo -->
@@ -1802,11 +1802,11 @@
     <script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/cpanel.js') }}"></script>
-		
+
 	<!-- Theme files
 	============================================ -->
-	
-	
+
+
 	<script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/themejs/application.js') }}"></script>
@@ -1819,7 +1819,7 @@
 			view = 'grid';
 		}
 		if(view) display(view);
-	//--></script> 
+	//--></script>
 </body>
 
 </html>
