@@ -11,6 +11,20 @@
 		<div class="row">
 			<!--Left Part Start -->
 			<aside class="col-sm-4 col-md-3 content-aside" id="column-left">
+				<div class="module category-style">
+                	<h3 class="modtitle">Categories</h3>
+                	<div class="modcontent">
+                		<div class="box-category">
+                			<ul id="cat_accordion" class="list-group">
+                            @foreach ($category as $kat)
+                            <li class=""><a href="{{ url('view-category/' . $kat->slug) }}" class="cutom-parent">{{ $kat->nama }}</a>  <span class="dcjq-icon"></span></li>
+                            @endforeach
+                			</ul>
+                		</div>
+                		
+                		
+                	</div>
+                </div>
             	<div class="module product-simple">
                     <h3 class="modtitle">
                         <span>Latest products</span>

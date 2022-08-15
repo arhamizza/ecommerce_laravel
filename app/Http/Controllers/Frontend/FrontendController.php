@@ -24,10 +24,13 @@ class FrontendController extends Controller
 
     public function viewcategory($slug)
     {
+
         if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
             $kategori = Kategori::where('slug', $slug)->first();
             $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
-            return view('frontend.kategori.index', compact('kategori','produk'));
+            return view('frontend.kategori.index', compact('kategori','produk','category'));
+            
         } else {
             return redirect('/')->where('status',"Slug doesnot exists");
         }
