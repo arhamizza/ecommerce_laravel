@@ -1,7 +1,6 @@
 @extends('layout.core')
 @section('title', 'produk')
 @section('contents')
-
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="breadcrumb">
@@ -22,13 +21,12 @@
 
                                 <div class="large-image  vertical">
                                     <img itemprop="image" class="product-image-zoom"
-                                        src="{{ asset('atmin/assets/uploads/produk/' . $produk->image) }} "
-                                        data-zoom-image="{{ asset('atmin/assets/uploads/produk/' . $produk->image) }}"
+                                        src="{{ asset('atmin/assets/uploads/produk/'.$produk->image) }}"
+                                        data-zoom-image="{{ asset('atmin/assets/uploads/produk/'.$produk->image) }}"
                                         title="{{ $produk->nama }}" alt="{{ $produk->nama }}">
                                 </div>
                                 <a class="thumb-video pull-left" href="https://www.youtube.com/watch?v=HhabgvIIXik"><i
                                         class="fa fa-youtube-play"></i></a>
-
                             </div>
 
                             <div class="content-product-right col-md-6 col-sm-12 col-xs-12">
@@ -122,27 +120,16 @@
                                         </ul>
                                     </div>
 
-                                    
                                     <div class="form-group box-info-product">
                                         <div class="option quantity">
                                             <div class="input-group quantity-control"
                                                 style="-webkit-user-select: none;">
                                                 <label for="Quantity">Qty</label>
-
-                                                <button class="input-group-text decrement-btn">−</button>
                                                 <input class="form-control qty-input text-center" type="text"
                                                     name="quantity" value="1">
+                                                <button class="input-group-text decrement-btn">−</button>
                                                 <button class="input-group-text increment-btn">+</button>
-                                                
                                             </div>
-                                            <!-- <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-											<label>Qty</label>
-											<input class="form-control qty-input" type="text" name="quantity"
-											value="1">
-											<input type="hidden" name="product_id" value="50">
-											<span class="input-group-addon product_quantity_down decrement-btn">−</span>
-											<span class="input-group-addon product_quantity_up increment-btn">+</span>
-										    </div> -->
                                         </div>
                                         <div class="cart">
                                             <input type="button" data-toggle="tooltip" title=""
@@ -1148,38 +1135,4 @@
 
     </div>
     <!-- //Main Container -->
-@endsection
-
-@section('scripts')
-
-
-    <script>
-        $(document).ready(function() {
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-
-                var inc_value = $('.qty-input').val();
-                var value = parseInt(inc_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 10)
-                {
-                    value++;
-                    $('.qty-input').val(value);
-                }
-            });
-
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-
-                var dec_value = $('.qty-input').val();
-                var value = parseInt(dec_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1)
-                {
-                    value--;
-                    $('.qty-input').val(value);
-                }
-            });
-        });
-    </script>
 @endsection

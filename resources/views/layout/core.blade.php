@@ -1839,12 +1839,12 @@
             $('.decrement-btn').click(function(e) {
                 e.preventDefault();
 
-                var inc_value = $('.qty-input').val();
-                var value = parseInt(inc_value, 10);
+                var dec_value = $('.qty-input').val();
+                var value = parseInt(dec_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value < 10)
+                if (value > 1)
                 {
-                    value++;
+                    value--;
                     $('.qty-input').val(value);
                 }
             });
