@@ -1,6 +1,7 @@
 @extends('layout.core')
 @section('title', 'produk')
 @section('contents')
+
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="breadcrumb">
@@ -121,19 +122,27 @@
                                         </ul>
                                     </div>
 
-
-
+                                    
                                     <div class="form-group box-info-product">
                                         <div class="option quantity">
                                             <div class="input-group quantity-control"
                                                 style="-webkit-user-select: none;">
                                                 <label for="Quantity">Qty</label>
-                                                <input class="form-control qty-input text-center" type="text"
-                                                    name="quantity" value="1">
 
                                                 <button class="input-group-text decrement-btn">−</button>
+                                                <input class="form-control qty-input text-center" type="text"
+                                                    name="quantity" value="1">
                                                 <button class="input-group-text increment-btn">+</button>
+                                                
                                             </div>
+                                            <!-- <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
+											<label>Qty</label>
+											<input class="form-control qty-input" type="text" name="quantity"
+											value="1">
+											<input type="hidden" name="product_id" value="50">
+											<span class="input-group-addon product_quantity_down decrement-btn">−</span>
+											<span class="input-group-addon product_quantity_up increment-btn">+</span>
+										    </div> -->
                                         </div>
                                         <div class="cart">
                                             <input type="button" data-toggle="tooltip" title=""
@@ -1142,6 +1151,8 @@
 @endsection
 
 @section('scripts')
+
+
     <script>
         $(document).ready(function() {
             $('.increment-btn').click(function(e) {
@@ -1160,14 +1171,15 @@
             $('.decrement-btn').click(function(e) {
                 e.preventDefault();
 
-                var inc_value = $('.qty-input').val();
-                var value = parseInt(inc_value, 10);
+                var dec_value = $('.qty-input').val();
+                var value = parseInt(dec_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value < 10)
+                if (value > 1)
                 {
-                    value++;
+                    value--;
                     $('.qty-input').val(value);
                 }
             });
         });
     </script>
+@endsection
