@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
 use App\Http\Controllers\Atmin\produkController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\CartController;
+
 use App\Http\Controllers\produksController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +47,12 @@ Route::get('pro', [ProvincesController::class, 'pro']);
 //     return view('atmin/index');
 // });
 
+Route::post('add-to-cart',[CartController::class, 'addProduct']);
+Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
 
+Route::middleware(['auth'])->group(function (){
+    Route::get('cart',[CartController::class, 'viewcart']);
+});
 
 route::middleware(['auth', 'isAdmin'])->group(function () {
 

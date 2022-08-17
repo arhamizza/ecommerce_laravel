@@ -13,6 +13,7 @@
         content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
     <meta name="author" content="Magentech">
     <meta name="robots" content="index, follow" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Mobile specific metas
     ============================================ -->
@@ -62,7 +63,7 @@
 
 <body class="common-home res layout-4">
 
-    <div id="wrapper" class="wrapper-fluid banners-effect-10">
+    <div id="wrapper" class="wrapper-fluid banners-effect-10 product_data">
 
         <!-- Header Container  -->
         <header id="header" class=" typeheader-4">
@@ -127,46 +128,50 @@
                         </div>
                         <div class="header-top-right collapsed-block col-lg-6 col-md-8 col-sm-6 col-xs-5">
                             <ul class="top-link list-inline">
-                            @guest
-                            @if (Route::has('login'))
-                                <li class="hidden-xs">
-                                    <a href="{{ route('login') }}">
-                                    <i class="fa fa-lock"></i>{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                                @guest
+                                    @if (Route::has('login'))
+                                        <li class="hidden-xs">
+                                            <a href="{{ route('login') }}">
+                                                <i class="fa fa-lock"></i>{{ __('Login') }}</a>
+                                        </li>
+                                    @endif
 
-                            @if (Route::has('register'))
-                            <li class="hidden-xs">
-                                    <a href="{{ route('register') }}">
-                                    <i class="fa fa-lock"></i>{{ __('register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                    @if (Route::has('register'))
+                                        <li class="hidden-xs">
+                                            <a href="{{ route('register') }}">
+                                                <i class="fa fa-lock"></i>{{ __('register') }}</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }}
+                                        </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                                {{ __('Logout') }}
+                                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                @endguest
                                 <li class="wishlist hidden-sm hidden-xs"><a href="#" id="wishlist-total"
                                         class="top-link-wishlist" title="Wish List (0) ">
                                         <!-- <i class="fa fa-heart"></i> --> Wish List (0)
                                     </a>
                                 </li>
-                                <li class="checkout hidden-sm hidden-xs"><a href="{{url ('dashboard')}}" class="btn-link"
-                                        title="Checkout "><span><i class="fa fa-check-square-o"></i>Checkout
+                                <li class="checkout hidden-sm hidden-xs"><a href="{{ url('dashboard') }}"
+                                        class="btn-link" title="Checkout "><span><i
+                                                class="fa fa-check-square-o"></i>Checkout
                                         </span></a>
                                 </li>
                             </ul>
@@ -230,17 +235,17 @@
                         <!-- //end Search -->
                         <div class="middle3 col-lg-3 col-md-3">
                             <!--cart-->
-                            <div class="shopping_cart">
+                            <div class="shopping_cart" >
                                 <div id="cart" class="btn-shopping-cart">
 
-                                    <a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle"
+                                    <a href={{url('cart')}} data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle"
                                         data-toggle="dropdown" aria-expanded="true">
                                         <div class="shopcart">
                                             <span class="icon-c">
                                                 <i class="fa fa-shopping-bag"></i>
                                             </span>
-                                            <div class="shopcart-inner">
-                                                <p class="text-shopping-cart">
+                                            <div class="shopcart-inner" >
+                                                <p class="text-shopping-cart" >
                                                     My cart
                                                 </p>
 
@@ -327,9 +332,8 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <p class="text-right"> <a class="btn view-cart" href="cart.html"><i
-                                                            class="fa fa-shopping-cart"></i>View
-                                                        Cart</a>&nbsp;&nbsp;&nbsp; <a
+                                                <p class="text-right"> <a class="btn view-cart" href="{{url('cart')}}"><i
+                                                            class="fa fa-shopping-cart"></i>Lihat Keranjang</a>&nbsp;&nbsp;&nbsp; <a
                                                         class="btn btn-mega checkout-cart" href="checkout.html"><i
                                                             class="fa fa-share"></i>Checkout</a>
                                                 </p>
@@ -1755,11 +1759,11 @@
                 <div class="modal-body">
                     <textarea id="getCSSTextarea" class="get-css" readonly=""><?php $fileCssName = !empty($themeCssName) ? $themeCssName : 'theme.css';
                     echo '/********************************************
-                    ';
+                                                            ';
                     echo '*  Color Scheme: ' . $fileCssName;
                     echo '
-                    ********************************************/
-                    ';
+                                                            ********************************************/
+                                                            ';
                     echo file_get_contents('css/' . $fileCssName);
                     ?>
             </textarea>
@@ -1803,50 +1807,110 @@
     <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/cpanel.js') }}"></script>
 
-	<!-- Theme files
-	============================================ -->
+    <!-- Theme files
+ ============================================ -->
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+        <script>
+            swal("Berhasil!", "{{ session('status') }}", "success");
+        </script>
+    @endif
+    <script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/themejs/application.js') }}"></script>
 
-	<script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/themejs/application.js') }}"></script>
+    <script type="text/javascript">
+        <!--
+        // Check if Cookie exists
+        if ($.cookie('display')) {
+            view = $.cookie('display');
+        } else {
+            view = 'grid';
+        }
+        if (view) display(view);
+        //
+        -->
+    </script>
 
-	<script type="text/javascript"><!--
-	// Check if Cookie exists
-		if($.cookie('display')){
-			view = $.cookie('display');
-		}else{
-			view = 'grid';
-		}
-		if(view) display(view);
-	//--></script>
+    <script>
+        $('.addToCartBtn').click(function(e) {
+            e.preventDefault();
 
-<script>
+            var product_id = $(this).closest('.product_data').find('.prod_id').val();
+            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: "POST",
+                url: "/add-to-cart",
+                data: {
+                    'product_id': product_id,
+                    'product_qty': product_qty,
+                },
+                success: function(response) {
+                    swal(response.status);
+                }
+            });
+
+        });
+
         $(document).ready(function() {
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
 
-                var inc_value = $('.qty-input').val();
+                var inc_value = $(this).closest('.product_data').find('.qty-input').val();
+                // var inc_value = $('.qty-input').val();
                 var value = parseInt(inc_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value < 10)
-                {
+                if (value < 10) {
                     value++;
-                    $('.qty-input').val(value);
+                    // $('.qty-input').val(value);
+                    $(this).closest('.product_data').find('.qty-input').val(value);
                 }
             });
 
             $('.decrement-btn').click(function(e) {
                 e.preventDefault();
 
-                var dec_value = $('.qty-input').val();
+                // var dec_value = $('.qty-input').val();
+                var dec_value = $(this).closest('.product_data').find('.qty-input').val();
                 var value = parseInt(dec_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value > 1)
-                {
+                if (value > 1) {
                     value--;
-                    $('.qty-input').val(value);
+                    // $('.qty-input').val(value);
+                    $(this).closest('.product_data').find('.qty-input').val(value);
                 }
+            });
+
+            $('.delete-cart-item').click(function (e) {
+                e.preventDefault();
+
+                $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var prod_id = $(this).closest('.product_data').find('.prod_id').val();
+                $.ajax({
+                    type: "POST",
+                    url: "delete-cart-item",
+                    data: {
+                        'prod_id':prod_id,
+                    },
+                    success: function (response) {
+                        setTimeout(() => window.location.reload(), 1000);
+                        // window.location.reload();
+                        swal("Berhasil!",response.status,"success");
+                    }
+                });
             });
         });
     </script>
