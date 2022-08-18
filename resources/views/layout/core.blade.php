@@ -235,17 +235,18 @@
                         <!-- //end Search -->
                         <div class="middle3 col-lg-3 col-md-3">
                             <!--cart-->
-                            <div class="shopping_cart" >
+                            <div class="shopping_cart">
                                 <div id="cart" class="btn-shopping-cart">
 
-                                    <a href={{url('cart')}} data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle"
-                                        data-toggle="dropdown" aria-expanded="true">
+                                    <a href={{ url('cart') }} data-loading-text="Loading... "
+                                        class="btn-group top_cart dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="true">
                                         <div class="shopcart">
                                             <span class="icon-c">
                                                 <i class="fa fa-shopping-bag"></i>
                                             </span>
-                                            <div class="shopcart-inner" >
-                                                <p class="text-shopping-cart" >
+                                            <div class="shopcart-inner">
+                                                <p class="text-shopping-cart">
                                                     My cart
                                                 </p>
 
@@ -332,8 +333,10 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <p class="text-right"> <a class="btn view-cart" href="{{url('cart')}}"><i
-                                                            class="fa fa-shopping-cart"></i>Lihat Keranjang</a>&nbsp;&nbsp;&nbsp; <a
+                                                <p class="text-right"> <a class="btn view-cart"
+                                                        href="{{ url('cart') }}"><i
+                                                            class="fa fa-shopping-cart"></i>Lihat
+                                                        Keranjang</a>&nbsp;&nbsp;&nbsp; <a
                                                         class="btn btn-mega checkout-cart" href="checkout.html"><i
                                                             class="fa fa-share"></i>Checkout</a>
                                                 </p>
@@ -1759,11 +1762,11 @@
                 <div class="modal-body">
                     <textarea id="getCSSTextarea" class="get-css" readonly=""><?php $fileCssName = !empty($themeCssName) ? $themeCssName : 'theme.css';
                     echo '/********************************************
-                                                            ';
+                                                                                ';
                     echo '*  Color Scheme: ' . $fileCssName;
                     echo '
-                                                            ********************************************/
-                                                            ';
+                                                                                ********************************************/
+                                                                                ';
                     echo file_get_contents('css/' . $fileCssName);
                     ?>
             </textarea>
@@ -1862,7 +1865,7 @@
 
         $(document).ready(function() {
 
-            
+
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
 
@@ -1880,6 +1883,13 @@
             $('.decrement-btn').click(function(e) {
                 e.preventDefault();
 
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
                 // var dec_value = $('.qty-input').val();
                 var dec_value = $(this).closest('.product_data').find('.qty-input').val();
                 var value = parseInt(dec_value, 10);
@@ -1891,12 +1901,12 @@
                 }
             });
 
-            $('.delete-cart-item').click(function (e) {
+            $('.delete-cart-item').click(function(e) {
                 e.preventDefault();
 
                 $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
 
@@ -1905,12 +1915,40 @@
                     type: "POST",
                     url: "delete-cart-item",
                     data: {
-                        'prod_id':prod_id,
+                        'prod_id': prod_id,
                     },
-                    success: function (response) {
+                    success: function(response) {
                         setTimeout(() => window.location.reload(), 1000);
                         // window.location.reload();
-                        swal("Berhasil!",response.status,"success");
+                        swal("Berhasil!", response.status, "success");
+                    }
+                });
+            });
+
+            $('.changeQuantity').click(function(e) {
+                e.preventDefault();
+
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var prod_id = $(this).closest('.product_data').find('.prod_id').val();
+                var qty = $(this).closest('.product_data').find('.qty-input').val();
+                data = {
+                    'prod_id': prod_id,
+                    'prod_qty': qty,
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "update-cart",
+                    data: data,
+                    success: function(response) {
+                        setTimeout(() => window.location.reload(), 1000);
+                        swal("Berhasil!", response.status, "success");
                     }
                 });
             });
