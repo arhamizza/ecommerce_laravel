@@ -8,7 +8,7 @@
             <li><a href="{{ url('cart') }}">Keranjang</a></li>
         </ul>
 
-        <div class="row">
+        <div class="row ">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
                 <h2 class="title">Shopping Cart</h2>
@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                             @foreach ($cartitems as $item)
-                                <tr>
+                                <tr class=" product_data">
                                     <td class="text-center"><a href="product.html"><img width="90px"
                                                 src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}"
                                                 alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop"

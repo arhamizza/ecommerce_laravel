@@ -1861,6 +1861,8 @@
         });
 
         $(document).ready(function() {
+
+            
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
 

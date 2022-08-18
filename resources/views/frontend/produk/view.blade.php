@@ -1,7 +1,7 @@
 @extends('layout.core')
 @section('title', 'Produk')
 @section('contents')
-    <!-- Main Container  -->
+    <!-- Main Container  -->     
     <div class="main-container container">
         <ul class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
@@ -9,14 +9,14 @@
             <li><a href="#">{{ $produk->nama }}</a></li>
         </ul>
 
-        <div class="row">
+        <div class="row  product_data">
 
             <!--Middle Part Start-->
             <div id="content" class="col-md-9 col-sm-8">
 
                 <div class="product-view">
                     <div class="left-content-product">
-                        <div class="row">
+                        <div class="row ">
                             <div class="content-product-left col-md-6 col-sm-12 col-xs-12">
 
                                 <div class="large-image  vertical">
