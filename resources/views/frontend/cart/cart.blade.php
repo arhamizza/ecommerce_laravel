@@ -35,7 +35,7 @@
                                                 src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}"
                                                 alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop"
                                                 class="img-thumbnail" /></a></td>
-                                    <td class="text-left"><a href="{{url('view-category/' .$item->products->kategori->nama. '/' .$item->products->slug) }}">{{ $item->products->nama }}</a><br />
+                                    <td class="text-left"><a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}">{{ $item->products->nama }}</a><br />
                                     </td>
                                     <td class="text-left" width="200px">
                                         <div class="input-group btn-block quantity">
