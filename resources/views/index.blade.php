@@ -332,7 +332,7 @@
                                                                     <div class="box-label">
                                                                         <span class="label label-sale">-13%</span>
                                                                     </div>
-                                                                    <a href="#" target="_self" title="product">
+                                                                    <a href="{{url('view-category/' .$prod->kategori->slug. '/' .$prod->slug) }}" target="_self" title="product">
                                                                         <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" width="270px"
                                                                         height="270px"
                                                                             alt="Ground round enim"
