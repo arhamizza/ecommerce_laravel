@@ -5,9 +5,9 @@
 		<ul class="breadcrumb">
 			<li><a href="#"><i class="fa fa-home"></i></a></li>
 			<li><a href="#">Checkout</a></li>
-			
+
 		</ul>
-		
+
 		<div class="row">
 			<!--Middle Part Start-->
 			<div id="content" class="col-sm-12">
@@ -114,7 +114,7 @@
 								  <option value="15">Azerbaijan</option>
 								  <option value="16">Bahamas</option>
 								  <option value="17">Bahrain</option>
-								  
+
 								</select>
 							  </div>
 							  <div class="form-group required">
@@ -131,7 +131,7 @@
 								  <option value="3520">Blaenau Gwent</option>
 								  <option value="3521">Bridgend</option>
 								  <option value="3522">Bristol</option>
-								  
+
 								</select>
 							  </div>
 							  <div class="checkbox">
@@ -163,7 +163,7 @@
 										<input type="radio" name="Flat Shipping Rate">
 										Flat Shipping Rate - $7.50</label>
 									</div>
-									
+
 								</div>
 							</div>
 							<div class="col-sm-6  checkout-payment-methods">
@@ -176,7 +176,7 @@
 									  <label>
 										<input type="radio" checked="checked" name="Cash On Delivery">Cash On Delivery</label>
 									</div>
-									
+
 									<div class="radio">
 									  <label>
 										<input type="radio" name="Paypal">Paypal</label>
@@ -184,13 +184,13 @@
 								</div>
 							</div>
 						</div>
-						
-						
-							
+
+
+
 						</div>
-					
-					
-					
+
+
+
 					<div class="col-sm-12">
 					  <div class="panel panel-default">
 						<div class="panel-heading">
@@ -204,7 +204,7 @@
 							  <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-coupon" value="Apply Coupon">
 							  </span></div>
 							</div>
-							
+
 							<div class="col-sm-6">
 							<div class="input-group">
 							  <input type="text" class="form-control" id="input-voucher" placeholder="Enter your gift voucher code here" value="" name="voucher">
@@ -215,7 +215,7 @@
 						  </div>
 					  </div>
 					</div>
-					
+
 					<div class="col-sm-12">
 					  <div class="panel panel-default">
 						<div class="panel-heading">
@@ -234,18 +234,22 @@
 								  </tr>
 								</thead>
                                 @foreach ($cartitem as $item)
+                                @php
+                                $total = 0;
+                                $totalcheck = 0;
+                                @endphp
+
 								<tbody>
 								  <tr>
-									<td class="text-center"><a href="product.html"><img width="60px" src="image/catalog/demo/product/funiture/10.jpg" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
-									<td class="text-left"><a href="product.html">{{$item->products->nama}}</a></td>
-									<td class="text-left"><div class="input-group btn-block" style="min-width: 100px;">
-										<input type="text" name="quantity" value="{{$item->prod_qty}}" size="1" class="form-control">
-										<span class="input-group-btn">
-										<button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-										<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""><i class="fa fa-times-circle"></i></button>
-										</span></div></td>
+									<td class="text-center"><a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}"><img width="60px" src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}" alt="{{$item->products->nama}}" title="{{$item->products->nama}}" class="img-thumbnail"></a></td>
+									<td class="text-left"><a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}">{{$item->products->nama}}</a></td>
+                                    <td class="text-center">{{$item->prod_qty}}</td>
 									<td class="text-right">{{$item->products->selling_price}}</td>
-									<td class="text-right">$114.35</td>
+                                    @php
+                                    $total = $item->products->selling_price * $item->prod_qty;
+                                    $totalcheck += $item->products->selling_price * $item->prod_qty;
+                                    @endphp
+									<td class="text-right">{{$total}}</td>
 								  </tr>
 								</tbody>
                                 @endforeach
@@ -268,7 +272,7 @@
 								  </tr>
 								  <tr>
 									<td class="text-right" colspan="4"><strong>Total:</strong></td>
-									<td class="text-right">$121.85</td>
+									<td class="text-right">{{$totalcheck}}</td>
 								  </tr>
 								</tfoot>
 							  </table>
@@ -300,7 +304,7 @@
 			  </div>
 			</div>
 			<!--Middle Part End -->
-			
+
 		</div>
 	</div>
 	<!-- //Main Container -->

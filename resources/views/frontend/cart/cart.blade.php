@@ -70,7 +70,7 @@
                                     <td class="text-right">
                                         <strong>Sub-Total:</strong>
                                     </td>
-                                    <td class="text-right">{{$totalcheck}}</td>
+                                    <td class="text-right">Rp. {{$totalcheck}}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-right">
@@ -102,8 +102,8 @@
                 </div>
 
                 <div class="buttons">
-                    <div class="pull-left"><a href="index.html" class="btn btn-primary">Continue Shopping</a></div>
-                    <div class="pull-right"><a href="checkout.html" class="btn btn-primary">Checkout</a></div>
+                    <div class="pull-left"><a href="{{url('/')}}" class="btn btn-primary">Continue Shopping</a></div>
+                    <div class="pull-right"><a href="{{url('checkout')}}" class="btn btn-primary">Checkout</a></div>
                 </div>
             </div>
             <!--Middle Part End -->
