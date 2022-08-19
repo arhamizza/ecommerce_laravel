@@ -5,7 +5,7 @@
     <div class="main-container container">
         <ul class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">{{ $produk->kategori->nama }}</a></li>
+            <li><a href="{{url('view-category/' .$produk->kategori->slug) }}">{{ $produk->kategori->nama }}</a></li>
             <li><a href="#">{{ $produk->nama }}</a></li>
         </ul>
 
@@ -538,7 +538,7 @@
                                     <div class="left-block">
                                         <div class="product-image-container second_img">
                                             <a href="product.html" target="_self" title="Pastrami bacon">
-                                                <img src="image/catalog/demo/product/320/1.jpg"
+                                                <img src="{{ asset('atmin/assets/uploads/produk/'.$produk->image) }}"
                                                     class="img-1 img-responsive" alt="Pastrami bacon">
                                                 <img src="image/catalog/demo/product/320/10.jpg"
                                                     class="img-2 img-responsive" alt="Pastrami bacon">
