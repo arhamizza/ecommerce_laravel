@@ -78,6 +78,15 @@
 									<label for="input-payment-postcode" class="control-label">Post Code</label>
 									<input type="text" class="form-control" id="input-payment-postcode" placeholder="Post Code" value="{{ Auth::user()->post_code}}" name="postcode">
 								</div>
+                                <div class="form-group required">
+                                    <label for="input-payment-provinsi" class="control-label">Provinsi</label>
+                                    <select class="form-control" id="provinsi" name="provinsi">
+                                    <option value="">Pilih Provinsi...</option>
+                                      @foreach ($provinces as $provinsi)
+                                      <option value={{$provinsi->id}}>{{$provinsi->name}}</option>
+                                      @endforeach
+                                    </select>
+                                  </div>
 								<div class="form-group required">
 								<label for="input-payment-kabupaten" class="control-label">Kabupaten / Kota</label>
 								<select class="form-control" id="kabupaten" name="kabupaten">
