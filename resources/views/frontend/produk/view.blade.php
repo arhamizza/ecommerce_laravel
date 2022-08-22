@@ -1,7 +1,7 @@
 @extends('layout.core')
 @section('title', 'Produk')
 @section('contents')
-    <!-- Main Container  -->     
+    <!-- Main Container  -->
     <div class="main-container container">
         <ul class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
@@ -65,8 +65,16 @@
                                         <span class="price-new" itemprop="price">{{ $produk->selling_price }}</span>
                                         <span class="price-old">{{ $produk->original_price }}</span>
                                     </div>
-                                    <div class="stock"><span>Availability:</span> <span class="status-stock">In
-                                            Stock</span></div>
+
+                                    @if ($produk->qty > 0)
+                                        <label class="badge bg-success">In asdasdasd Stock</label>
+                                    @else
+                                        <label class="badge bg-danger">Out of Stock</label>
+                                    @endif
+
+                                    <div class="stock"><span>Availability:</span>
+                                        <span class="status-stock">In Stock</span>
+                                    </div>
                                 </div>
 
                                 <div class="product-box-desc">
@@ -126,9 +134,9 @@
                                                 style="-webkit-user-select: none;">
                                                 <input type="hidden" value="{{$produk->id}}" class="prod_id">
                                                 <label for="Quantity">Qty</label>
+                                                <button class="input-group-text decrement-btn">−</button>
                                                 <input class="form-control qty-input text-center" type="text"
                                                     name="quantity" value="1">
-                                                <button class="input-group-text decrement-btn">−</button>
                                                 <button class="input-group-text increment-btn">+</button>
                                             </div>
                                         </div>

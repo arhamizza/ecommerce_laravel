@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProvincesController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
 use App\Http\Controllers\Atmin\produkController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
-
+use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\produksController;
+use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
 
 /*
@@ -36,7 +36,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('pro', [ProvincesController::class, 'pro']);
+Route::get('/form',[IndoRegionController::class, 'form'])->name('form');
 
 
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
