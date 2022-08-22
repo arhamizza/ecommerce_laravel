@@ -41,6 +41,7 @@
                                         <div class="input-group btn-block quantity">
                                             <span class="input-group-text">
                                             <input type="hidden" class="prod_id" value="{{$item->prod_id}}">
+                                            @if ($item->products->qty >= $item->prod_qty)
                                             <label for ="quantity"></label>
                                             <button class="input-group-text changeQuantity decrement-btn">−</button>
                                             <input class="form-control qty-input text-center" type="text"
@@ -49,12 +50,17 @@
                                             <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger delete-cart-item" onClick=""><i class="fa fa-times-circle"></i></button>
                                             </span>
                                         </div>
-                                    </td>
-                                    <td class="text-right">Rp. {{$item->products->selling_price}}</td>
                                     @php
                                     $total = $item->products->selling_price * $item->prod_qty;
                                     $totalcheck += $item->products->selling_price * $item->prod_qty;
                                     @endphp
+                                    @else
+                                        <h6>Out of Stock</h6>
+                                    @endif
+
+                                    </td>
+                                    <td class="text-right">Rp. {{$item->products->selling_price}}</td>
+
                                     <td class="text-right">Rp. {{$total}}</td>
                                 </tr>
                         </tbody>
