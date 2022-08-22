@@ -1865,7 +1865,6 @@
 
         $(document).ready(function() {
 
-
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
 
@@ -1953,6 +1952,73 @@
                 });
             });
         });
+
+        $(function(){
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('#provinsi').on('change', function(){
+                let id_provinsi = $('#provinsi').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "getkabupaten",
+                    data: {'id_provinsi' : id_provinsi},
+                    cache : false,
+                    success: function (msg) {
+                        $('#kabupaten').html(msg);
+                        $('#kecamatan').html('');
+                        $('#desa').html('');
+                    },
+                    error: function (data) {
+                        console.log('error:',data)
+                      },
+                });
+            })
+
+            $('#kabupaten').on('change', function(){
+                let id_kabupaten = $('#kabupaten').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "getkecamatan",
+                    data: {'id_kabupaten' : id_kabupaten},
+                    cache : false,
+                    success: function (msg) {
+                        $('#kecamatan').html(msg);
+                        $('#desa').html('');
+
+                    },
+                    error: function (data) {
+                        console.log('error:',data)
+                      },
+                });
+            })
+
+            $('#kecamatan').on('change', function(){
+                let id_kecamatan = $('#kecamatan').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "getdesa",
+                    data: {'id_kecamatan' : id_kecamatan},
+                    cache : false,
+                    success: function (msg) {
+                        $('#desa').html(msg);
+
+                    },
+                    error: function (data) {
+                        console.log('error:',data)
+                      },
+                });
+            })
+
+        })
+
     </script>
 </body>
 
