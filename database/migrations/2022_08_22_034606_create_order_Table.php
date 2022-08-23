@@ -20,13 +20,13 @@ class CreateOrderTable extends Migration
             $table->string('lname');
             $table->string('email');
             $table->integer('telephone');
-            $table->integer('fax');
-            $table->string('company');
             $table->string('address1');
             $table->string('address2');
-            $table->string('city');
             $table->integer('postcode');
-            $table->string('region');
+            $table->string('provinsi');
+            $table->string('kota');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable();
             $table->string('tracking_no');

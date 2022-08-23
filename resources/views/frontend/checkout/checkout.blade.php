@@ -61,9 +61,9 @@
 									<label for="input-payment-telephone" class="control-label">Telephone</label>
 									<input type="text" class="form-control" id="input-payment-telephone" placeholder="Telephone" value="{{ Auth::user()->telephone}}" name="telephone">
 								</div>
-								<div class="form-group">
-									<label for="input-payment-fax" class="control-label">Fax</label>
-									<input type="text" class="form-control" id="input-payment-fax" placeholder="Fax" value="{{ Auth::user()->fax}}" name="fax">
+								<div class="form-group required">
+									<label for="input-payment-postcode" class="control-label">Alamat</label>
+									<input type="text" class="form-control" id="input-payment-postcode" placeholder="address1" value="{{ Auth::user()->address1}}" name="address1">
 								</div>
 							</fieldset>
 						</div>
@@ -78,6 +78,10 @@
 									<label for="input-payment-postcode" class="control-label">Post Code</label>
 									<input type="text" class="form-control" id="input-payment-postcode" placeholder="Post Code" value="{{ Auth::user()->post_code}}" name="postcode">
 								</div>
+								<div class="form-group required">
+									<label for="input-payment-postcode" class="control-label">Alamat lengkap</label>
+									<input type="text" class="form-control" id="input-payment-postcode" placeholder="address1" value="{{ Auth::user()->address2}}" name="address2">
+								</div>
                                 <div class="form-group required">
                                     <label for="input-payment-provinsi" class="control-label">Provinsi</label>
                                     <select class="form-control" id="provinsi" name="provinsi">
@@ -89,7 +93,7 @@
                                   </div>
 								<div class="form-group required">
 								<label for="input-payment-kabupaten" class="control-label">Kabupaten / Kota</label>
-								<select class="form-control" id="kabupaten" name="kabupaten">
+								<select class="form-control" id="kabupaten" name="kota">
 
                                   {{-- @foreach ($regencies as $kota)
                                   <option value={{$kota->id}}>{{$kota->name}}</option>
@@ -107,7 +111,7 @@
 							  </div>
                               <div class="form-group required">
 								<label for="input-payment-desa" class="control-label">Kelurahan / Desa</label>
-								<select class="form-control" id="desa" name="desa">
+								<select class="form-control" id="desa" name="kelurahan">
 
                                   {{-- @foreach ($villages as $desa)
                                   <option value={{$desa->id}}>{{$desa->name}}</option>

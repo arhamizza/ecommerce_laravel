@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             KategoriSeeder::class,
             UserSeeder::class,
             ProdukSeeder::class,
+            IndoRegionSeeder::class,
         ]);
     }
 }

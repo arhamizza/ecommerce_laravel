@@ -18,16 +18,15 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('first_name')->nullable();  
             $table->string('last_name')->nullable();  
-            $table->string('telephone')->nullable();  
-            $table->string('fax')->nullable();  
-            $table->string('company')->nullable();  
-            $table->string('address1')->nullable();  
+            $table->string('email')->unique(); 
+            $table->integer('telephone')->nullable();  
+            $table->string('address1')->nullable(); 
             $table->string('address2')->nullable();  
-            $table->string('city')->nullable();  
-            $table->string('post_code')->nullable();  
-            $table->string('country')->nullable();  
-            $table->string('region')->nullable();  
-            $table->string('email')->unique();
+            $table->integer('postcode')->nullable();  
+            $table->string('provinsi')->nullable();  
+            $table->string('kota')->nullable();  
+            $table->string('kecamatan')->nullable();  
+            $table->string('kelurahan')->nullable();  
             $table->timestamp('email_verified_at')->nullable();           
             $table->string('password');
             $table->tinyInteger('role_as')->default('0'); //Add in UserTable before timestamps

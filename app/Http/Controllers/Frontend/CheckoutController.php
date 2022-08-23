@@ -45,13 +45,13 @@ class CheckoutController extends Controller
         $order->lname = $request->input('lname');
         $order->email = $request->input('email');
         $order->telephone = $request->input('telephone');
-        $order->fax = $request->input('fax');
-        $order->company = $request->input('company');
         $order->address1 = $request->input('address1');
         $order->address2 = $request->input('address2');
-        $order->city = $request->input('city');
         $order->postcode = $request->input('postcode');
-        $order->region = $request->input('region');
+        $order->provinsi = $request->input('provinsi');
+        $order->kota = $request->input('kota');
+        $order->kecamatan = $request->input('kecamatan');
+        $order->kelurahan = $request->input('kelurahan');
         $order->tracking_no = 'arham'.rand(1111,9999);
         $order->save();
 
@@ -77,13 +77,13 @@ class CheckoutController extends Controller
             $user->first_name = $request->input('fname');
             $user->last_name = $request->input('lname');
             $user->telephone = $request->input('telephone');
-            $user->fax = $request->input('fax');
-            $user->company = $request->input('company');
             $user->address1 = $request->input('address1');
             $user->address2 = $request->input('address2');
-            $user->city = $request->input('city');
-            $user->post_code = $request->input('postcode');
-            $user->region = $request->input('region');
+            $user->postcode = $request->input('postcode');
+            $user->provinsi = $request->input('provinsi');
+            $user->kota = $request->input('kota');
+            $user->kecamatan = $request->input('kecamatan');
+            $user->kelurahan = $request->input('kelurahan');
             $user->update();
     
         }
