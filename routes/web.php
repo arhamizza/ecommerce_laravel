@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Atmin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\IndoRegionController;
-use App\Http\Controllers\produksController;
 use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
 
@@ -89,6 +89,8 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/view-order/{id}',[OrderController::class, 'view']);
     Route::get('order-history',[OrderController::class, 'orderhistory']);
     Route::put('update-order/{id}',[OrderController::class, 'updateorder']);
+    Route::get('users',[DashboardController::class, 'users']);
+    Route::get('view-users/{id}',[DashboardController::class, 'viewuser']);
 
     Route::get('/dashboard', function () {
         return view('atmin.index');
