@@ -41,10 +41,13 @@ class FrontendController extends Controller
     {
         if (Kategori::where('slug', $cate_slug)->exists()) 
         {
+            $kategori = Kategori::where('slug', $cate_slug)->first();
+            $produk2 = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
             if (Produk::where('slug', $prod_slug)->exists()) 
             {
                 $produk = Produk::where('slug', $prod_slug)->first();
-                return view ('frontend.produk.view', compact('produk'));
+                return view ('frontend.produk.view', compact('produk','kategori','produk2'));
+                // var_dump($produk);
             }
             else {
                 return redirect('/')->with('status',"The link was broken" );

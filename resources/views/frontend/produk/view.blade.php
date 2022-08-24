@@ -498,15 +498,15 @@
                 <h3 class="modtitle">Related Products </h3>
 
                 <div class="releate-products yt-content-slider products-list" data-rtl="no" data-loop="yes" data-autoplay="no" data-autoheight="no" data-autowidth="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="5" data-items_column1="3" data-items_column2="3" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-hoverpause="yes">
-
+                @foreach ($produk2 as $prod)
                     <div class="item">
                         <div class="item-inner product-layout transition product-grid">
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container second_img">
-                                        <a href="product.html" target="_self" title="Pastrami bacon">
-                                            <img src="{{ asset('atmin/assets/uploads/produk/'.$produk->image) }}" class="img-1 img-responsive" alt="Pastrami bacon">
-                                            <img src="image/catalog/demo/product/320/10.jpg" class="img-2 img-responsive" alt="Pastrami bacon">
+                                        <a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" target="_self" title="{{$prod->nama}}">
+                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-1 img-responsive" alt="{{$prod->nama}}">
+                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-2 img-responsive" alt="{{$prod->nama}}">
                                         </a>
                                     </div>
 
@@ -533,14 +533,14 @@
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                                         </div>
-                                        <h4><a href="product.html" title="Pastrami bacon" target="_self">Pastrami
-                                                bacon</a></h4>
-                                        <div class="price">$42.00</div>
+                                        <h4><a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" title="Pastrami bacon" target="_self">{{$prod->nama}}</a></h4>
+                                        <div class="price">{{$prod->selling_price}}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                @endforeach
                 </div>
             </div>
 
