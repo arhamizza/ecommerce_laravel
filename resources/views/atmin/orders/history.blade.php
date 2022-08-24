@@ -3,7 +3,7 @@
 @section('contents')
     <div class="card">
         <div class="card-header">
-            <h3>Riwayat Pembelian
+            <h3 class="text-center">Riwayat Pembelian
                 <a href="{{'orders'}}" class="btn btn-warning float-right">Pembelian</a>
             </h3>
 

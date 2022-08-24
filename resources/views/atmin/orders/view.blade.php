@@ -7,7 +7,7 @@
         <div class="table-responsive form-group">
             <div class="card">
                 <div class="card-header">
-                    <h4>Detail Pembelian</h4>
+                    <h4 class="text-center">Detail Pembelian</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">

@@ -3,8 +3,8 @@
 @section('contents')
     <div class="card">
         <div class="card-header">
-            <h3>Pembelian
-                <a href="{{'order-history'}}" class="btn btn-warning float-right">History</a>
+            <h3 class="text-center">Pembelian
+                <a href="{{'order-history'}}" class="btn btn-secondary float-right">History</a>
             </h3>
 
         <div class="row">
