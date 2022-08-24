@@ -71,8 +71,20 @@
           </li>
           <li class="nav-item">
             <a href="{{url ('tambah-kategori')}}" class="nav-link">
-              <i class="link-icon" data-feather="calendar"></i>
+              <i class="link-icon" data-feather="folder-plus"></i>
               <span class="link-title">Tambah Kategori</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url ('orders')}}" class="nav-link">
+              <i class="link-icon" data-feather="archive"></i>
+              <span class="link-title">List Order</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url ('users')}}" class="nav-link">
+              <i class="link-icon" data-feather="user"></i>
+              <span class="link-title">Users</span>
             </a>
           </li>
 

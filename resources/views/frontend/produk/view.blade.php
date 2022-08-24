@@ -54,8 +54,8 @@
 
                             <div class="product-label form-group">
                                 <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
-                                    <span class="price-new" itemprop="price">{{ $produk->selling_price }}</span>
-                                    <span class="price-old">{{ $produk->original_price }}</span>
+                                    <span class="price-new" itemprop="price">{{ number_format($produk->selling_price) }}</span>
+                                    <span class="price-old">{{ number_format($produk->original_price) }}</span>
                                 </div>
 
                                 @if ($produk->qty > 0)
@@ -534,7 +534,7 @@
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                                         </div>
                                         <h4><a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" title="Pastrami bacon" target="_self">{{$prod->nama}}</a></h4>
-                                        <div class="price">{{$prod->selling_price}}</div>
+                                        <div class="price">{{number_format($prod->selling_price)}}</div>
                                     </div>
                                 </div>
                             </div>

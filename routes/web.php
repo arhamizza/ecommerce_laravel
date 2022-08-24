@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
+use App\Http\Controllers\Atmin\OrderController;
 use App\Http\Controllers\Atmin\produkController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
@@ -82,7 +83,10 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-produk/{id}', [produkController::class, 'update']);
     Route::get('hapus-produk/{id}', [produkController::class, 'destroy']);
 
-
+    // order admin
+    Route::get('users',[FrontendController::class, 'users']);
+    Route::get('orders',[OrderController::class, 'index']);
+    Route::get('admin/view-order/{id}',[OrderController::class, 'view']);
 
     Route::get('/dashboard', function () {
         return view('atmin.index');

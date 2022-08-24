@@ -50,7 +50,7 @@
                                     <tr>
                                         <td style="text-align:center">{{$item->products->nama}}</td>
                                         <td style="text-align:center">{{$item->qty}}</td>
-                                        <td style="text-align:center">{{$item->price}}</td>
+                                        <td style="text-align:center">{{number_format($item->price)}}</td>
                                         <td class="text-center">
                                             <img src="{{asset('atmin/assets/uploads/produk/'.$item->products->image)}}" width="90px" alt="{{$item->products->name}}" class="img-thumbnail">
 
@@ -60,7 +60,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <h4>Total transaksi : <span class="float-end">{{$orders->total_price}}</span></h4>
+                            <h4>Total transaksi : <span class="float-end">{{number_format($orders->total_price)}}</span></h4>
                         </div>
                     </div>
                 </div>

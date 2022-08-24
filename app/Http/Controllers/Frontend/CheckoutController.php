@@ -60,7 +60,7 @@ class CheckoutController extends Controller
             $total += $prod->products->selling_price * $prod->prod_qty;
         }
         $order->total_price = $total;
-        $order->tracking_no = 'arham'.rand(1111,9999);
+        $order->tracking_no = '#ruangbit'.rand(1111,9999);
         $order->save();
 
         // $order->id;
