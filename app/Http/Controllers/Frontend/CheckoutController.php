@@ -24,9 +24,9 @@ class CheckoutController extends Controller
         $districts = District::all();
         $villages = Village::all();
         $old_cartitem = Cart::where('user_id', Auth::id())->get();
-        foreach ($old_cartitem as $item ) 
+        foreach ($old_cartitem as $item )
         {
-            if (!Produk::where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists()) 
+            if (!Produk::where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists())
             {
                 $removeItem = Cart::where('user_id', Auth::id())->where('prod_id',$item->prod_id)->first();
                 $removeItem->delete();
@@ -52,10 +52,18 @@ class CheckoutController extends Controller
         $order->kota = $request->input('kota');
         $order->kecamatan = $request->input('kecamatan');
         $order->kelurahan = $request->input('kelurahan');
+        // Menghitung total price
+        $total = 0;
+        $cartitems_total = Cart::where('user_id', Auth::id())->get();
+        foreach ($cartitems_total as $prod)
+        {
+            $total += $prod->products->selling_price * $prod->prod_qty;
+        }
+        $order->total_price = $total;
         $order->tracking_no = 'arham'.rand(1111,9999);
         $order->save();
 
-        $order->id;
+        // $order->id;
 
         $cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($cartitems as $item )
@@ -85,7 +93,7 @@ class CheckoutController extends Controller
             $user->kecamatan = $request->input('kecamatan');
             $user->kelurahan = $request->input('kelurahan');
             $user->update();
-    
+
         }
 
         $cartitem = Cart::where('user_id', Auth::id())->get();
@@ -126,4 +134,6 @@ class CheckoutController extends Controller
         }
         echo $option;
     }
+
+
 }

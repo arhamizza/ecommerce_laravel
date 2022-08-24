@@ -43,6 +43,7 @@
     <link href="{{ asset('css/themecss/so-listing-tabs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themecss/so-newletter-popup.css') }}" rel="stylesheet">
 
+
     <link href="{{ asset('css/footer/footer4.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header/header4.css') }}" rel="stylesheet">
     <link id="color_scheme" href="{{ asset('css/home4.css') }}" rel="stylesheet">
@@ -151,6 +152,7 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{url('my-orders')}}">Pembelian</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -1450,6 +1452,7 @@
 
 
         <!-- Footer Container -->
+        <br>
         <footer class="footer-container typefooter-4">
             <!-- Footer Top Container -->
             <section class="footer-top">

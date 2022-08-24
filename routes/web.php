@@ -7,6 +7,7 @@ use App\Http\Controllers\Atmin\produkController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\produksController;
 use AzisHapidin\IndoRegion\IndoRegion;
@@ -59,6 +60,8 @@ Route::middleware(['auth'])->group(function (){
     Route::post('getkabupaten',[CheckoutController::class, 'getkabupaten']);
     Route::post('getkecamatan',[CheckoutController::class, 'getkecamatan']);
     Route::post('getdesa',[CheckoutController::class, 'getdesa']);
+    Route::get('my-orders',[UserController::class, 'index']);
+    Route::get('view-order/{id}',[UserController::class, 'view']);
 });
 
 route::middleware(['auth', 'isAdmin'])->group(function () {

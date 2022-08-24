@@ -2,12 +2,15 @@
 @section('title', 'Cart')
 @section('contents')
 
+
+
+
     <div class="main-container container">
         <ul class="breadcrumb">
             <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{ url('cart') }}">Keranjang</a></li>
         </ul>
-
+        @if ($cartitems->count() > 0)
         <div class="row ">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
@@ -114,5 +117,13 @@
             </div>
             <!--Middle Part End -->
         </div>
+        @else
+        <div class="card-body text-center">
+            <h2>Your <i class="fa fa-shopping-cart"></i> Cart is Empty!</h2>
+            <a href="{{url ('/')}}" class = "btn btn-primary w-100 float-end">Continue Shopping</a>
+        </div>
     </div>
+
+
+    @endif
 @endsection
