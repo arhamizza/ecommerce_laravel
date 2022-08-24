@@ -44,14 +44,14 @@
       <div class="sidebar-body">
         <ul class="nav">
           <li class="nav-item nav-category">Main</li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is('dashboard') ? 'active': ''}}">
             <a href="{{url ('dashboard')}}" class="nav-link">
               <i class="link-icon" data-feather="box"></i>
               <span class="link-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item nav-category">web apps</li>
-          <li class="nav-item ">
+          <li class="nav-item {{ Request::is('produk') ? 'active': ''}} ">
             <a href="{{url ('produk')}}" class="nav-link">
               <i class="link-icon" data-feather="message-square"></i>
               <span class="link-title">Produk</span>
@@ -63,25 +63,25 @@
               <span class="link-title">Tambah Produk</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is('kategori') ? 'active': ''}}">
             <a href="{{url ('kategori')}}" class="nav-link">
               <i class="link-icon" data-feather="message-square"></i>
               <span class="link-title">Kategori</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is('tambah-kategori') ? 'active': ''}}">
             <a href="{{url ('tambah-kategori')}}" class="nav-link">
               <i class="link-icon" data-feather="folder-plus"></i>
               <span class="link-title">Tambah Kategori</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is('orders') ? 'active': ''}}">
             <a href="{{url ('orders')}}" class="nav-link">
               <i class="link-icon" data-feather="archive"></i>
               <span class="link-title">List Order</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request::is('users') ? 'active': ''}}">
             <a href="{{url ('users')}}" class="nav-link">
               <i class="link-icon" data-feather="user"></i>
               <span class="link-title">Users</span>

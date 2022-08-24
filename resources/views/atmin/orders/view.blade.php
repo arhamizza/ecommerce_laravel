@@ -1,12 +1,8 @@
-@extends('layout.core')
+@extends('layout.atmin')
 @section('title', 'Detail Orders')
 @section('contents')
 
 <div class="main-container container">
-    <ul class="breadcrumb">
-        <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
-        <li><a href="{{ url('my-orders') }}">Detail Pembelian</a></li>
-    </ul>
     <div class="row">
         <div class="table-responsive form-group">
             <div class="card">
@@ -16,23 +12,28 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="">First Name</label>
+                            <label for=""><b>First Name</b></label>
                             <div class="border p-2">{{$orders->fname}}</div>
-                            <label for="">Last Name</label>
+                            <br>
+                            <label for=""><b>Last Name</b></label>
                             <div class="border p-2">{{$orders->lname}}</div>
-                            <label for="">Email</label>
+                            <br>
+                            <label for=""><b>Email</b></label>
                             <div class="border p-2">{{$orders->email}}</div>
-                            <label for="">No. Hp</label>
+                            <br>
+                            <label for=""><b>No. Hp</b></label>
                             <div class="border p-2">{{$orders->telephone}}</div>
-                            <label for="">Shipping Address</label>
+                            <br>
+                            <label for=""><b>Shipping Address</b></label>
                             <div class="border p-2">
                                 {{$orders->address1}},
                                 {{$orders->provinsi}},
                                 {{$orders->kota}},
                                 {{$orders->kecamatan}},
-                                {{$orders->kelurahan}},
+                                {{$orders->kelurahan}}
                             </div>
-                            <label for="">Kode Pos</label>
+                            <br>
+                            <label for=""><b>Kode Pos</b></label>
                             <div class="border p-2">{{$orders->postcode}}</div>
 
                         </div>
@@ -51,7 +52,7 @@
                                         <td style="text-align:center">{{$item->qty}}</td>
                                         <td style="text-align:center">{{number_format($item->price)}}</td>
                                         <td class="text-center">
-                                            <img src="{{asset('atmin/assets/uploads/produk/'.$item->products->image)}}" width="90px" alt="{{$item->products->name}}" class="img-thumbnail">
+                                            <img src="{{asset('atmin/assets/uploads/produk/'.$item->products->image)}}" width="150px" alt="{{$item->products->name}}">
 
                                         </td>
 
@@ -59,7 +60,24 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <h4>Total transaksi : <span class="float-end">{{number_format($orders->total_price)}}</span></h4>
+                            <br>
+                            <h6>Total transaksi : <span class="float-right">Rp {{number_format($orders->total_price)}}</span></h6>
+                            <br>
+                            <div class="dropdown">
+                                <label for=""><h6>Order Status :</h6></label>
+                                <form action="{{url('update-order/'.$orders->id)}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <select class="form-control mb-3" name="order_status">
+                                            <option {{$orders->status == '0'? 'selected':''}}  value="0">Pending</option>
+                                            <option {{$orders->status == '1'? 'selected':''}}  value="1">Complete</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary float-right">Update</button>
+                                    </div>
+                                </form>
+								</div>
+                            </div>
                         </div>
                     </div>
                 </div>

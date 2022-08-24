@@ -87,6 +87,8 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('users',[FrontendController::class, 'users']);
     Route::get('orders',[OrderController::class, 'index']);
     Route::get('admin/view-order/{id}',[OrderController::class, 'view']);
+    Route::get('order-history',[OrderController::class, 'orderhistory']);
+    Route::put('update-order/{id}',[OrderController::class, 'updateorder']);
 
     Route::get('/dashboard', function () {
         return view('atmin.index');
