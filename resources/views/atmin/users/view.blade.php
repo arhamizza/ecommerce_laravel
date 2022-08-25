@@ -39,19 +39,19 @@
                         </div>
                         <div class="col-md-4 mt-3">
                             <label for=""><b>Provinsi</b></label>
-                            <div class="p-2 border">{{$users->provinsi}}</div>
+                            <div class="p-2 border">{{$users->village->district->regency->province->name}}</div>
                         </div>
                         <div class="col-md-4 mt-3">
                             <label for=""><b>Kota</b></label>
-                            <div class="p-2 border">{{$users->kota}}</div>
+                            <div class="p-2 border">{{$users->village->district->regency->name}}</div>
                         </div>
                         <div class="col-md-4 mt-3">
                             <label for=""><b>Kecamatan</b></label>
-                            <div class="p-2 border">{{$users->kecamatan}}</div>
+                            <div class="p-2 border">{{$users->village->district->name}}</div>
                         </div>
                         <div class="col-md-4 mt-3">
                             <label for=""><b>Kelurahan</b></label>
-                            <div class="p-2 border">{{$users->kelurahan}}</div>
+                            <div class="p-2 border">{{$users->village->name}}</div>
                         </div>
                     </div>
                 </div>

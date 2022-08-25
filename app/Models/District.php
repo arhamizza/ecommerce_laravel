@@ -27,6 +27,10 @@ class District extends Model
      * @var string
      */
     protected $table = 'districts';
+    protected $fillable = [
+        'regency_id',
+        'name',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

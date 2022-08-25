@@ -27,10 +27,10 @@
                             <label for=""><b>Shipping Address</b></label>
                             <div class="border p-2">
                                 {{$orders->address1}},
-                                {{$orders->provinsi}},
-                                {{$orders->kota}},
-                                {{$orders->kecamatan}},
-                                {{$orders->kelurahan}}
+                                {{$orders->village->district->regency->province->name}},
+                                {{$orders->village->district->regency->name}},
+                                {{$orders->village->district->name}},
+                                {{$orders->village->name}},
                             </div>
                             <br>
                             <label for=""><b>Kode Pos</b></label>
@@ -38,7 +38,7 @@
 
                         </div>
                         <div class="col-md-6">
-                            <table class="table table-bordered" >
+                            <table class="table table-bordered">
                                 <thead>
                                     <th>Name</th>
                                     <th>Quantity</th>
@@ -64,19 +64,20 @@
                             <h6>Total transaksi : <span class="float-right">Rp {{number_format($orders->total_price)}}</span></h6>
                             <br>
                             <div class="dropdown">
-                                <label for=""><h6>Order Status :</h6></label>
+                                <label for="">
+                                    <h6>Order Status :</h6>
+                                </label>
                                 <form action="{{url('update-order/'.$orders->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
                                         <select class="form-control mb-3" name="order_status">
-                                            <option {{$orders->status == '0'? 'selected':''}}  value="0">Pending</option>
-                                            <option {{$orders->status == '1'? 'selected':''}}  value="1">Complete</option>
+                                            <option {{$orders->status == '0'? 'selected':''}} value="0">Pending</option>
+                                            <option {{$orders->status == '1'? 'selected':''}} value="1">Complete</option>
                                         </select>
                                         <button type="submit" class="btn btn-primary float-right">Update</button>
                                     </div>
                                 </form>
-								</div>
                             </div>
                         </div>
                     </div>

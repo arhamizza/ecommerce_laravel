@@ -27,6 +27,10 @@ class Village extends Model
      */
     protected $table = 'villages';
 
+    protected $fillable = [
+        'district_id',
+        'name',
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -45,4 +49,6 @@ class Village extends Model
     {
         return $this->belongsTo(District::class);
     }
+
+
 }

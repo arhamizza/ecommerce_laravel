@@ -1,5 +1,5 @@
 @extends('layout.atmin')
-@section('title', 'produk')
+@section('title', 'List Order')
 @section('contents')
     <div class="card">
         <div class="card-header">

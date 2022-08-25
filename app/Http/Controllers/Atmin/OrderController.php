@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Atmin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
-{
+{ 
     public function index()
     {
         $orders = Order::where('status','0')->get();

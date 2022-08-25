@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Models\OrderItem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Regency;
+use App\Models\Village;
 class Order extends Model
 {
     use HasFactory;
@@ -35,4 +37,8 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    public function village()
+    {
+        return $this->belongsTo(Village::class, 'kelurahan','id');
+    }
 }
