@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\IndoRegionController;
 use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -53,6 +54,8 @@ Route::get('/form',[IndoRegionController::class, 'form'])->name('form');
 Route::post('add-to-cart',[CartController::class, 'addProduct']);
 Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
 Route::post('update-cart',[CartController::class,'updatecart']);
+Route::post('add-to-wishlist',[WishlistController::class,'add']);
+Route::post('delete-wishlist-item',[WishlistController::class,'deleteitem']);
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewcart']);
@@ -61,8 +64,13 @@ Route::middleware(['auth'])->group(function (){
     Route::post('getkabupaten',[CheckoutController::class, 'getkabupaten']);
     Route::post('getkecamatan',[CheckoutController::class, 'getkecamatan']);
     Route::post('getdesa',[CheckoutController::class, 'getdesa']);
+
     Route::get('my-orders',[UserController::class, 'index']);
     Route::get('view-order/{id}',[UserController::class, 'view']);
+
+    Route::get('wishlist',[WishlistController::class,'index']);
+
+
 });
 
 route::middleware(['auth', 'isAdmin'])->group(function () {

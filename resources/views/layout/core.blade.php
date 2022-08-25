@@ -166,7 +166,7 @@
                                         </div>
                                     </li>
                                 @endguest
-                                <li class="wishlist hidden-sm hidden-xs"><a href="#" id="wishlist-total"
+                                <li class="wishlist hidden-sm hidden-xs"><a href="{{url('wishlist')}}" id="wishlist-total"
                                         class="top-link-wishlist" title="Wish List (0) ">
                                         <!-- <i class="fa fa-heart"></i> --> Wish List (0)
                                     </a>
@@ -1866,6 +1866,30 @@
 
         });
 
+        $('.addToWishlist').click(function (e) {
+            e.preventDefault();
+
+            var product_id = $(this).closest('.product_data').find('.prod_id').val();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: "POST",
+                url: "/add-to-wishlist",
+                data: {
+                    'product_id': product_id,
+                },
+                success: function(response) {
+                    swal(response.status);
+                }
+            });
+
+        });
+
         $(document).ready(function() {
 
             $('.increment-btn').click(function(e) {
@@ -1916,6 +1940,30 @@
                 $.ajax({
                     type: "POST",
                     url: "delete-cart-item",
+                    data: {
+                        'prod_id': prod_id,
+                    },
+                    success: function(response) {
+                        setTimeout(() => window.location.reload(), 1000);
+                        // window.location.reload();
+                        swal("Berhasil!", response.status, "success");
+                    }
+                });
+            });
+
+            $('.remove-wishlist-item').click(function (e) {
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var prod_id = $(this).closest('.product_data').find('.prod_id').val();
+                $.ajax({
+                    type: "POST",
+                    url: "delete-wishlist-item",
                     data: {
                         'prod_id': prod_id,
                     },

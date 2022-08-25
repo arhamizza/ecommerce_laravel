@@ -10,12 +10,13 @@
             <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{ url('cart') }}">Keranjang</a></li>
         </ul>
-        @if ($cartitems->count() > 0)
+
         <div class="row ">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
                 <h2 class="title">Keranjang</h2>
                 <div class="table-responsive form-group">
+                    @if ($cartitems->count() > 0)
                     <table class="table table-bordered">
 
                         <thead>
@@ -23,8 +24,9 @@
                                 <td class="text-center">Image</td>
                                 <td class="text-left">Product Name</td>
                                 <td class="text-left">Quantity</td>
-                                <td class="text-right">Unit Price</td>
-                                <td class="text-right">Total</td>
+                                <td class="text-left">Unit Price</td>
+                                <td class="text-left">Total</td>
+                                <td class="text-left">Action</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +42,7 @@
                                                 class="img-thumbnail" /></a></td>
                                     <td class="text-left"><a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}">{{ $item->products->nama }}</a><br />
                                     </td>
-                                    <td class="text-left" width="200px">
+                                    <td class="text-center" width="200px">
                                         <div class="input-group btn-block quantity">
                                             <span class="input-group-text">
                                             <input type="hidden" class="prod_id" value="{{$item->prod_id}}">
@@ -50,7 +52,7 @@
                                             <input class="form-control qty-input text-center" type="text"
                                             name="quantity" value="{{$item->prod_qty}}">
                                             <button class="input-group-text changeQuantity increment-btn">+</button>
-                                            <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger delete-cart-item" onClick=""><i class="fa fa-times-circle"></i></button>
+
                                             </span>
                                         </div>
                                     @php
@@ -62,9 +64,10 @@
                                     @endif
 
                                     </td>
-                                    <td class="text-right">Rp. {{$item->products->selling_price}}</td>
+                                    <td class="text-left">Rp. {{$item->products->selling_price}}</td>
 
-                                    <td class="text-right">Rp. {{$total}}</td>
+                                    <td class="text-left">Rp. {{$total}}</td>
+                                    <td class="text-center"><button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger delete-cart-item "><i class="fa fa-times-circle"></i></button></td>
                                 </tr>
                         </tbody>
                         @endforeach

@@ -13,6 +13,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -23,6 +24,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->telephone }}</td>
+                            <td>{{ $item->role_as == '0'?'User':'Admin'}}</td>
                             <td>
                                 <a href="{{ url('view-users/'.$item->id)}}" class="btn btn-primary">View</a>
                             </td>

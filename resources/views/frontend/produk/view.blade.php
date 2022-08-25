@@ -131,11 +131,7 @@
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="wishlist">
-                                                <a class="icon" data-toggle="tooltip" title="" onclick="wishlist.add('50');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i>
-                                                </a>
-                                            </li>
-                                            <li class="compare">
-                                                <a class="icon" data-toggle="tooltip" title="" onclick="compare.add('50');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i>
+                                                <a class="icon" data-toggle="tooltip" title="" data-original-title="Add to Wish List"><i class="fa fa-heart addToWishlist"></i>
                                                 </a>
                                             </li>
                                         </ul>
