@@ -71,12 +71,6 @@
             <div class="banner-top hidden-compact">
                 <div class="container">
                     <div class="row text-center">
-                        <div class="alert alert-info alert-dismissible fade in" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">×</span></button>
-                            We are using php file for implement our <strong>'Demo Options' </strong> tool in left of our
-                            demo. in our package, there are no php files
-                        </div>
                     </div>
                 </div>
             </div>
@@ -166,12 +160,13 @@
                                         </div>
                                     </li>
                                 @endguest
-                                <li class="wishlist hidden-sm hidden-xs"><a href="{{url('wishlist')}}" id="wishlist-total"
-                                        class="top-link-wishlist" title="Wish List (0) ">
-                                        <!-- <i class="fa fa-heart"></i> --> Wish List (0)
+                                <li class="wishlist hidden-sm hidden-xs">
+                                    <a href="{{url('wishlist')}}" id="wishlist-total"
+                                        class="top-link-wishlist" title="Wish List"> Wish List
+                                        <span class="badge badge-pill wishlist-count">0</span>
                                     </a>
                                 </li>
-                                <li class="checkout hidden-sm hidden-xs"><a href="{{ url('dashboard') }}"
+                                <li class="checkout hidden-sm hidden-xs"><a href="{{ url('checkout') }}"
                                         class="btn-link" title="Checkout "><span><i
                                                 class="fa fa-check-square-o"></i>Checkout
                                         </span></a>
@@ -253,7 +248,7 @@
                                                 </p>
 
                                                 <span class="total-shopping-cart cart-total-full">
-                                                    <span class="items_cart">02</span><span class="items_cart2">
+                                                    <span class="items_cart cart-count">0</span><span class="items_cart2">
                                                         item(s)</span><span class="items_carts"> - $162.00 </span>
                                                 </span>
                                             </div>
@@ -1840,6 +1835,26 @@
     </script>
 
     <script>
+
+        function loadcart(){
+            $.ajax({
+                method: "GET",
+                url: "/load-cart-data",
+                success: function (response) {
+                    $('.cart-count').html(response.count);
+                }
+            });
+        }
+        function loadwishlist(){
+            $.ajax({
+                method: "GET",
+                url: "/load-wishlist-data",
+                success: function (response) {
+                    $('.wishlist-count').html(response.count);
+                }
+            });
+        }
+
         $('.addToCartBtn').click(function(e) {
             e.preventDefault();
 
@@ -1861,6 +1876,7 @@
                 },
                 success: function(response) {
                     swal(response.status);
+                    loadcart();
                 }
             });
 
@@ -1885,12 +1901,15 @@
                 },
                 success: function(response) {
                     swal(response.status);
+                    loadwishlist();
                 }
             });
 
         });
 
         $(document).ready(function() {
+            loadcart();
+            loadwishlist();
 
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
