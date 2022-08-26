@@ -135,5 +135,40 @@ class CheckoutController extends Controller
         echo $option;
     }
 
+    public function razorpaycheck(Request $request)
+    {
+        $cartitems = Cart::where('user_id',Auth::id())->get();
+        $total_price = 0;
+        foreach($cartitems as $item)
+        {
+            $total_price += $item->products->selling_price * $item->prod_qty;
+        }
 
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
+        $telephone = $request->input('telephone');
+        $address1 = $request->input('address1');
+        $postcode = $request->input('postcode');
+        $address2 = $request->input('address2');
+        $provinsi = $request->input('provinsi');
+        $kabupaten = $request->input('kabupaten');
+        $kecamatan = $request->input('kecamatan');
+        $kelurahan = $request->input('kelurahan');
+
+        return response()->json([
+            'firstname'=>$firstname,
+            'lastname'=>$lastname,
+            'email'=>$email,
+            'telephone'=>$telephone,
+            'address1'=>$address1,
+            'postcode'=>$postcode,
+            'address2'=>$address2,
+            'provinsi'=>$provinsi,
+            'kabupaten'=>$kabupaten,
+            'kecamatan'=>$kecamatan,
+            'kelurahan'=>$kelurahan,
+            'total_price'=> $total_price
+        ]);
+    }
 }

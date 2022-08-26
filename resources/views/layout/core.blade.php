@@ -2089,6 +2089,175 @@
 
         })
 
+        $(document).ready(function () {
+            $('.razorpay_btn').click(function (e) {
+                e.preventDefault();
+
+                var firstname = $('.firstname').val();
+                var lastname = $('.lastname').val();
+                var email = $('.email').val();
+                var telephone = $('.telephone').val();
+                var address1 = $('.address1').val();
+                var postcode = $('.postcode').val();
+                var address2 = $('.address2').val();
+                var provinsi = $('.provinsi').val();
+                var kabupaten = $('.kabupaten').val();
+                var kecamatan = $('.kecamatan').val();
+                var kelurahan = $('.kelurahan').val();
+
+                if (!firstname)
+                {
+                    fname_error = "First Name is required";
+                    $('#fname_error').html('');
+                    $('#fname_error').html(fname_error);
+                }
+                else{
+                    fname_error = "";
+                    $('#fname_error').html('');
+                }
+
+                if (!lastname)
+                {
+                    lastname_error = "Last Name is required";
+                    $('#lastname_error').html('');
+                    $('#lastname_error').html(lastname_error);
+                }
+                else{
+                    lastname_error = "";
+                    $('#lastname_error').html('');
+                }
+
+                if (!email)
+                {
+                    email_error = "Email is required";
+                    $('#email_error').html('');
+                    $('#email_error').html(email_error);
+                }
+                else{
+                    email_error = "";
+                    $('#email_error').html('');
+                }
+
+                if (!telephone)
+                {
+                    telephone_error = "Telephone is required";
+                    $('#telephone_error').html('');
+                    $('#telephone_error').html(telephone_error);
+                }
+                else{
+                    telephone_error = "";
+                    $('#telephone_error').html('');
+                }
+
+                if (!address1)
+                {
+                    address1_error = "Address is required";
+                    $('#address1_error').html('');
+                    $('#address1_error').html(address1_error);
+                }
+                else{
+                    address1_error = "";
+                    $('#address1_error').html('');
+                }
+
+                if (!postcode)
+                {
+                    postcode_error = "Kode pos is required";
+                    $('#postcode_error').html('');
+                    $('#postcode_error').html(postcode_error);
+                }
+                else{
+                    postcode_error = "";
+                    $('#postcode_error').html('');
+                }
+
+                if (!address2)
+                {
+                    address2_error = "Address is required";
+                    $('#address2_error').html('');
+                    $('#address2_error').html(address2_error);
+                }
+                else{
+                    address2_error = "";
+                    $('#address2_error').html('');
+                }
+
+                if (!provinsi)
+                {
+                    provinsi_error = "Provinsi is required";
+                    $('#provinsi_error').html('');
+                    $('#provinsi_error').html(provinsi_error);
+                }
+                else{
+                    provinsi_error = "";
+                    $('#provinsi_error').html('');
+                }
+
+                if (!kabupaten)
+                {
+                    kabupaten_error = "Kabupaten is required";
+                    $('#kabupaten_error').html('');
+                    $('#kabupaten_error').html(kabupaten_error);
+                }
+                else{
+                    kabupaten_error = "";
+                    $('#kabupaten_error').html('');
+                }
+
+                if (!kecamatan)
+                {
+                    kecamatan_error = "Kecamatan is required";
+                    $('#kecamatan_error').html('');
+                    $('#kecamatan_error').html(kecamatan_error);
+                }
+                else{
+                    kecamatan_error = "";
+                    $('#kecamatan_error').html('');
+                }
+
+                if (!kelurahan)
+                {
+                    kelurahan_error = "Kelurahan is required";
+                    $('#kelurahan_error').html('');
+                    $('#kelurahan_error').html(kelurahan_error);
+                }
+                else{
+                    kelurahan_error = "";
+                    $('#kelurahan_error').html('');
+                }
+
+                if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error != '' || address1_error != '' || postcode_error != '' || address2_error != '' || provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' || kelurahan_error != '' )
+                {
+                    return false;
+                }
+                else
+                {
+                    var data = {
+                        'firstname':firstname,
+                        'lastname':lastname,
+                        'email':email,
+                        'telephone':telephone,
+                        'address1':address1,
+                        'postcode':postcode,
+                        'address2':address2,
+                        'provinsi':provinsi,
+                        'kabupaten':kabupaten,
+                        'kecamatan':kecamatan,
+                        'kelurahan':kelurahan
+                    }
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/proceed-to-pay",
+                        data: data,
+                        success: function (response) {
+                            alert(response.total_price)
+                        }
+                    });
+                }
+            });
+        });
+
     </script>
 </body>
 
