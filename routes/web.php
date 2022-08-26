@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\IndoRegionController;
+use App\Http\Controllers\Frontend\RatingController;
 use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
 
@@ -37,8 +38,9 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/form',[IndoRegionController::class, 'form'])->name('form');
 
 
@@ -51,6 +53,8 @@ Route::get('/form',[IndoRegionController::class, 'form'])->name('form');
 //     return view('atmin/index');
 // });
 
+Route::get('load-cart-data',[CartController::class, 'cartcount']);
+Route::get('load-wishlist-data',[WishlistController::class, 'wishlistcount']);
 Route::post('add-to-cart',[CartController::class, 'addProduct']);
 Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
 Route::post('update-cart',[CartController::class,'updatecart']);
@@ -69,6 +73,10 @@ Route::middleware(['auth'])->group(function (){
     Route::get('view-order/{id}',[UserController::class, 'view']);
 
     Route::get('wishlist',[WishlistController::class,'index']);
+
+    Route::post('add-rating',[RatingController::class, 'add']);
+
+    Route::post('proceed-to-pay',[CheckoutController::class,'razorpaycheck']);
 
 
 });
