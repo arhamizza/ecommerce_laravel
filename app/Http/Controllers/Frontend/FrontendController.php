@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Produk;
+use App\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -46,8 +48,18 @@ class FrontendController extends Controller
             if (Produk::where('slug', $prod_slug)->exists()) 
             {
                 $produk = Produk::where('slug', $prod_slug)->first();
-                return view ('frontend.produk.view', compact('produk','kategori','produk2'));
-                // var_dump($produk);
+                $rating = Rating::where('prod_id', $produk->id)->get();
+                $rating_sum = Rating::where('prod_id', $produk->id)->sum('stars_rated');;
+                $user_rating = Rating::where('prod_id', $produk->id)->where('user_id', Auth::id())->first();
+                if ($rating->count() > 0) {
+                    $rating_value = $rating_sum/$rating->count();
+                } else {
+                    $rating_value = 0;
+                }
+                
+                
+                // var_dump($rating);
+                return view ('frontend.produk.view', compact('produk','kategori','produk2','rating','rating_value','user_rating'));
             }
             else {
                 return redirect('/')->with('status',"The link was broken" );

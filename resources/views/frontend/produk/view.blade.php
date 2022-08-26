@@ -36,21 +36,26 @@
                             </div>
                             <!-- Review ---->
                             <div class="box-review form-group">
+                                @php $ratenum = number_format($rating_value)
+                                @endphp
                                 <div class="ratings">
                                     <div class="rating-box">
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                        @for ($i =1; $i<= $ratenum; $i++) <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                            @endfor
+                                            @for ($j =$ratenum+1; $j<= 5; $j++) <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                @endfor
                                     </div>
                                 </div>
-
-                                <a class="reviews_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a>
-                                |
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a
+                                @if($rating->count() > 0)
+                                <a class="reviews_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">{{$rating->count() }} reviews</a>
+                                @else
+                                No Ratings
+                                @endif
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"> Write a
                                     review</a>
                             </div>
+
+
 
                             <div class="product-label form-group">
                                 <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
@@ -405,54 +410,72 @@
 
                         </div>
                         <div id="tab-review" class="tab-pane fade">
-                            <form>
+                            <form action="{{url('/add-rating') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $produk->id }}">
                                 <div id="review">
                                     <table class="table table-striped table-bordered">
                                         <tbody>
+                                            @foreach ($rating as $rat)
                                             <tr>
-                                                <td style="width: 50%;"><strong>Super Administrator</strong></td>
-                                                <td class="text-right">29/07/2015</td>
+                                                <td style="width: 40%;"><strong>Akun User = {{ $rat->User->name }} </strong></td>
+                                                <td style="width: 40%;"><strong>Nama User = {{ $rat->User->first_name }} {{ $rat->User->last_name }} </strong></td>
+                                                <td class="text-right">{{ $rat->created_at }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    <p>Best this product opencart</p>
-                                                    <div class="ratings">
-                                                        <div class="rating-box">
-                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                        </div>
-                                                    </div>
+                                                    <p>{{ $rat->review }}</p>
+
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                    @for ($i =1; $i<= $rat->stars_rated; $i++) <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                                        @endfor
+                                                                        @for ($j =$rat->stars_rated+1; $j<= 5; $j++) <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                            @endfor
+                                                                </div>
+                                                            </div>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="text-right"></div>
                                 </div>
-                                <h2 id="review-title">Write a review</h2>
+                                <h2 id="review-title">Write a review </h2>
                                 <div class="contacts-form">
                                     <div class="form-group"> <span class="icon icon-user"></span>
-                                        <input type="text" name="name" class="form-control" value="Your Name" onblur="if (this.value == '') {this.value = 'Your Name';}" onfocus="if(this.value == 'Your Name') {this.value = '';}">
+                                        @if(is_null(Auth::user()))
+                                        <h2><label class="label label-danger">Login dulu</label></h2>
+                                        @else
+                                        <h3><span class="label label-warning">Nama User = {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></h3>
+                                        @endif
+
                                     </div>
                                     <div class="form-group"> <span class="icon icon-bubbles-2"></span>
-                                        <textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
+                                        <textarea class="form-control" id="review" name="review" rows="3"></textarea>
                                     </div>
-                                    <span style="font-size: 11px;"><span class="text-danger">Note:</span> HTML is not
-                                        translated!</span>
 
-                                    <div class="form-group">
-                                        <b>Rating</b> <span>Bad</span>&nbsp;
-                                        <input type="radio" name="rating" value="1"> &nbsp;
-                                        <input type="radio" name="rating" value="2"> &nbsp;
-                                        <input type="radio" name="rating" value="3"> &nbsp;
-                                        <input type="radio" name="rating" value="4"> &nbsp;
-                                        <input type="radio" name="rating" value="5"> &nbsp;<span>Good</span>
+                                    <div class="rating-css">
+                                        <div class="star-icon">
+                                            @if($user_rating)
+                                            @for ($i =1; $i<= $user_rating->stars_rated; $i++)
 
+                                                <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
+                                                <label for="rating{{$i}}" class="fa fa-star"></label>
+                                                @endfor
+                                                @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++) <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
+                                                    <label for="rating{{$j}}" class="fa fa-star"></label>
+                                                    @endfor
+
+                                                    @else
+                                                    <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                                    <label for="rating1" class="fa fa-star"></label>
+                                                    @endif
+                                        </div>
                                     </div>
-                                    <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
+
                                 </div>
+                                <button type="submit" class="btn btn-primary">Continue</button>
                             </form>
                         </div>
                         <div id="tab-4" class="tab-pane fade">
@@ -494,15 +517,15 @@
                 <h3 class="modtitle">Related Products </h3>
 
                 <div class="releate-products yt-content-slider products-list" data-rtl="no" data-loop="yes" data-autoplay="no" data-autoheight="no" data-autowidth="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="5" data-items_column1="3" data-items_column2="3" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-hoverpause="yes">
-                @foreach ($produk2 as $prod)
+                    @foreach ($produk2 as $prod)
                     <div class="item">
                         <div class="item-inner product-layout transition product-grid">
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container second_img">
                                         <a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" target="_self" title="{{$prod->nama}}">
-                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-1 img-responsive" alt="{{$prod->nama}}">
-                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" class="img-2 img-responsive" alt="{{$prod->nama}}">
+                                            <img src="{{ asset('atmin/assets/uploads/produk/' .$prod->image) }}" class="img-1 img-responsive" alt="{{$prod->nama}}">
+                                            <img src="{{ asset('atmin/assets/uploads/produk/' .$prod->image) }}" class="img-2 img-responsive" alt="{{$prod->nama}}">
                                         </a>
                                     </div>
 
@@ -536,7 +559,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
                 </div>
             </div>
 
