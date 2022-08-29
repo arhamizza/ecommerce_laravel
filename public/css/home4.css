@@ -271,7 +271,7 @@
   cursor: pointer;
   background-color: #777;
   width: 45px;
-  bottom: 20px;
+  bottom: 100px;
   right: 10px;
   min-height: 42px;
   overflow: hidden;
@@ -8429,4 +8429,16 @@ footer .copyright a {
   transform: scale(0.8);
   transition: 0.3s ease;
 }
+
+
 /* End of Star Rating */
+
+.whatsapp-chat {
+  cursor: pointer;
+  bottom: 10px;
+  left: 10px;
+  min-height: 42px;
+  overflow: hidden;
+  z-index: 40;
+  position: fixed;
+}

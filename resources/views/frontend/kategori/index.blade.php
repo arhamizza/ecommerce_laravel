@@ -207,7 +207,7 @@
                         <div class="row">
                             <div class="col-md-5 col-sm-3 col-xs-12 view-mode">
 
-                                    <div class="list-view">
+                                    <div class="list-view"> 
                                         <button class="btn btn-default grid active" data-view="grid" data-toggle="tooltip"  data-original-title="Grid"><i class="fa fa-th"></i></button>
                                         <button class="btn btn-default list" data-view="list" data-toggle="tooltip" data-original-title="List"><i class="fa fa-th-list"></i></button>
                                     </div>

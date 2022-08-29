@@ -16,6 +16,18 @@
                             @endforeach
                         </ul>
                     </div>
+
+                    <div class="search-bar">
+                                                <form method="POST" action="{{ route('searchproduct') }}">
+                                                    @csrf
+                                                    
+                                                <input class="form-control" id="search_product" type="search" value="" size="50" required placeholder="Search Products" name="product_name">
+                                                <span class="input-group-btn">
+                                                    <button type="submit" class="button-search btn btn-primary"><i class="fa fa-search"></i></button>
+                                                </span>
+                                                </form>
+                                            </div>
+                                            
                     <div class="module sohomepage-slider ">
                         <div class="yt-content-slider" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4"
                             data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1"

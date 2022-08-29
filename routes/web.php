@@ -31,10 +31,10 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
+Route::get('product-list', [FrontendController::class, 'productlistAjax']);
+Route::post('searchproduct', [FrontendController::class, 'searchProduct'])->name('searchproduct');
 
-Route::get('/login', function () {
-    return view('login3');
-});
+
 
 Auth::routes();
 

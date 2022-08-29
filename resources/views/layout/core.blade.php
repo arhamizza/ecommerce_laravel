@@ -7,10 +7,8 @@
     ============================================ -->
     <title>@yield('title')</title>
     <meta charset="utf-8">
-    <meta name="keywords"
-        content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
-    <meta name="description"
-        content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
+    <meta name="keywords" content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
+    <meta name="description" content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
     <meta name="author" content="Magentech">
     <meta name="robots" content="index, follow" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,6 +25,8 @@
 
     <!-- Libs CSS
     ============================================ -->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('js/datetimepicker/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
@@ -67,1380 +67,17 @@
     <div id="wrapper" class="wrapper-fluid banners-effect-10 product_data">
 
         <!-- Header Container  -->
-        <header id="header" class=" typeheader-4">
-            <div class="banner-top hidden-compact">
-                <div class="container">
-                    <div class="row text-center">
-                    </div>
-                </div>
-            </div>
 
-            <!-- Header Top -->
-            <div class="header-top hidden-compact">
-                <div class="container">
-                    <div class="row">
-                        <div class="header-top-left col-lg-6 col-md-4 col-sm-6 col-xs-7">
-                            <ul class="top-link list-inline lang-curr">
-                                <li class="currency">
-                                    <div class="btn-group currencies-block">
-                                        <form action="/index" method="post" enctype="multipart/form-data"
-                                            id="currency">
-                                            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                                <span class="icon icon-credit "></span> $ US Dollar <span
-                                                    class="fa fa-angle-down"></span>
-                                            </a>
-                                            <ul class="dropdown-menu btn-xs">
-                                                <li> <a href="#">(€)&nbsp;Euro</a></li>
-                                                <li> <a href="#">(£)&nbsp;Pounds </a></li>
-                                                <li> <a href="#">($)&nbsp;US Dollar </a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </li>
-                                <li class="language">
-                                    <div class="btn-group languages-block ">
-                                        <form action="/index" method="post" enctype="multipart/form-data"
-                                            id="bt-language">
-                                            <a class="btn-link dropdown-toggle" data-toggle="dropdown">
-                                                <img src="image/catalog/flags/gb.png" alt="English" title="English">
-                                                <span class="">English</span>
-                                                <span class="fa fa-angle-down"></span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/index"><img class="image_flag"
-                                                            src="image/catalog/flags/gb.png" alt="English"
-                                                            title="English" /> English </a></li>
-                                                <li> <a href="/index"> <img class="image_flag"
-                                                            src="image/catalog/flags/ar.png" alt="Arabic"
-                                                            title="Arabic" /> Arabic </a> </li>
-                                            </ul>
-                                        </form>
-                                    </div>
-
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="header-top-right collapsed-block col-lg-6 col-md-8 col-sm-6 col-xs-5">
-                            <ul class="top-link list-inline">
-                                @guest
-                                    @if (Route::has('login'))
-                                        <li class="hidden-xs">
-                                            <a href="{{ route('login') }}">
-                                                <i class="fa fa-lock"></i>{{ __('Login') }}</a>
-                                        </li>
-                                    @endif
-
-                                    @if (Route::has('register'))
-                                        <li class="hidden-xs">
-                                            <a href="{{ route('register') }}">
-                                                <i class="fa fa-lock"></i>{{ __('register') }}</a>
-                                        </li>
-                                    @endif
-                                @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
-                                            role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{url('my-orders')}}">Pembelian</a>
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                @endguest
-                                <li class="wishlist hidden-sm hidden-xs">
-                                    <a href="{{url('wishlist')}}" id="wishlist-total"
-                                        class="top-link-wishlist" title="Wish List"> Wish List
-                                        <span class="badge badge-pill wishlist-count">0</span>
-                                    </a>
-                                </li>
-                                <li class="checkout hidden-sm hidden-xs"><a href="{{ url('checkout') }}"
-                                        class="btn-link" title="Checkout "><span><i
-                                                class="fa fa-check-square-o"></i>Checkout
-                                        </span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- //Header Top -->
-
-            <!-- Header center -->
-            <div class="header-middle">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo -->
-                        <div class="navbar-logo col-lg-2 col-md-3 col-sm-12 col-xs-12">
-                            <div class="logo"><a href="/"><img src="image/catalog/logo4.png"
-                                        title="Your Store" alt="Your Store" /></a></div>
-                        </div>
-                        <!-- //end Logo -->
-                        <!-- Search -->
-                        <div class="middle2 col-lg-7 col-md-6">
-                            <div class="search-header-w">
-                                <div class="icon-search hidden-lg hidden-md hidden-sm"><i class="fa fa-search"></i>
-                                </div>
-                                <div id="sosearchpro" class="sosearchpro-wrapper so-search ">
-                                    <form method="GET" action="/index">
-                                        <div id="search0" class="search input-group form-group">
-                                            <div class="select_category filter_type  icon-select hidden-sm hidden-xs">
-                                                <select class="no-border" name="category_id">
-                                                    <option value="0">All Categories</option>
-                                                    <option value="78">Apparel</option>
-                                                    <option value="77">Cables &amp; Connectors</option>
-                                                    <option value="82">Cameras &amp; Photo</option>
-                                                    <option value="80">Flashlights &amp; Lamps</option>
-                                                    <option value="81">Mobile Accessories</option>
-                                                    <option value="79">Video Games</option>
-                                                    <option value="20">Jewelry &amp; Watches</option>
-                                                    <option value="76">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Earings
-                                                    </option>
-                                                    <option value="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wedding
-                                                        Rings</option>
-                                                    <option value="27">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Men
-                                                        Watches</option>
-                                                </select>
-                                            </div>
-
-                                            <input class="autosearch-input form-control" type="text"
-                                                value="" size="50" autocomplete="off"
-                                                placeholder="Keyword here..." name="search">
-                                            <span class="input-group-btn">
-                                                <button type="submit" class="button-search btn btn-primary"
-                                                    name="submit_search"><i class="fa fa-search"></i></button>
-                                            </span>
-                                        </div>
-                                        <input type="hidden" name="route" value="product/search" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- //end Search -->
-                        <div class="middle3 col-lg-3 col-md-3">
-                            <!--cart-->
-                            <div class="shopping_cart">
-                                <div id="cart" class="btn-shopping-cart">
-
-                                    <a href={{ url('cart') }} data-loading-text="Loading... "
-                                        class="btn-group top_cart dropdown-toggle" data-toggle="dropdown"
-                                        aria-expanded="true">
-                                        <div class="shopcart">
-                                            <span class="icon-c">
-                                                <i class="fa fa-shopping-bag"></i>
-                                            </span>
-                                            <div class="shopcart-inner">
-                                                <p class="text-shopping-cart">
-                                                    My cart
-                                                </p>
-
-                                                <span class="total-shopping-cart cart-total-full">
-                                                    <span class="items_cart cart-count">0</span><span class="items_cart2">
-                                                        item(s)</span><span class="items_carts"> - $162.00 </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <ul class="dropdown-menu pull-right shoppingcart-box" role="menu">
-                                        <li>
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center" style="width:70px">
-                                                            <a href="product.html">
-                                                                <img src="image/catalog/demo/product/80/1.jpg"
-                                                                    style="width:70px" alt="Yutculpa ullamcon"
-                                                                    title="Yutculpa ullamco" class="preview">
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-left"> <a class="cart_product_name"
-                                                                href="product.html">Yutculpa ullamco</a>
-                                                        </td>
-                                                        <td class="text-center">x1</td>
-                                                        <td class="text-center">$80.00</td>
-                                                        <td class="text-right">
-                                                            <a href="product.html" class="fa fa-edit"></a>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <a onclick="cart.remove('2');"
-                                                                class="fa fa-times fa-delete"></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center" style="width:70px">
-                                                            <a href="product.html">
-                                                                <img src="image/catalog/demo/product/80/2.jpg"
-                                                                    style="width:70px" alt="Xancetta bresao"
-                                                                    title="Xancetta bresao" class="preview">
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-left"> <a class="cart_product_name"
-                                                                href="product.html">Xancetta bresao</a>
-                                                        </td>
-                                                        <td class="text-center">x1</td>
-                                                        <td class="text-center">$60.00</td>
-                                                        <td class="text-right">
-                                                            <a href="product.html" class="fa fa-edit"></a>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <a onclick="cart.remove('1');"
-                                                                class="fa fa-times fa-delete"></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <table class="table table-bordered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-left"><strong>Sub-Total</strong>
-                                                            </td>
-                                                            <td class="text-right">$140.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left"><strong>Eco Tax (-2.00)</strong>
-                                                            </td>
-                                                            <td class="text-right">$2.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left"><strong>VAT (20%)</strong>
-                                                            </td>
-                                                            <td class="text-right">$20.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-left"><strong>Total</strong>
-                                                            </td>
-                                                            <td class="text-right">$162.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <p class="text-right"> <a class="btn view-cart"
-                                                        href="{{ url('cart') }}"><i
-                                                            class="fa fa-shopping-cart"></i>Lihat
-                                                        Keranjang</a>&nbsp;&nbsp;&nbsp; <a
-                                                        class="btn btn-mega checkout-cart" href="checkout.html"><i
-                                                            class="fa fa-share"></i>Checkout</a>
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <!--//cart-->
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- //Header center -->
-
-            <!-- Header Bottom -->
-            <div class="header-bottom hidden-compact">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="bottom1 menu-vertical col-lg-2 col-md-3">
-                            <!-- Secondary menu -->
-                            <div class="responsive so-megamenu  megamenu-style-dev">
-                                <div class="so-vertical-menu ">
-                                    <nav class="navbar-default">
-
-                                        <div class="container-megamenu vertical">
-                                            <div id="menuHeading">
-                                                <div class="megamenuToogle-wrapper">
-                                                    <div class="megamenuToogle-pattern">
-                                                        <div class="container">
-                                                            <div>
-                                                                <span></span>
-                                                                <span></span>
-                                                                <span></span>
-                                                            </div>
-                                                            All Categories
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="navbar-header">
-                                                <button type="button" id="show-verticalmenu" data-toggle="collapse"
-                                                    class="navbar-toggle">
-                                                    <i class="fa fa-bars"></i>
-                                                    <span> All Categories </span>
-                                                </button>
-                                            </div>
-                                            <div class="vertical-wrapper">
-                                                <span id="remove-verticalmenu" class="fa fa-times"></span>
-                                                <div class="megamenu-pattern">
-                                                    <div class="container-mega">
-                                                        <ul class="megamenu">
-                                                            <li class="item-vertical  with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico10.png"
-                                                                        alt="icon">
-                                                                    <span>Gifts & Toys</span>
-                                                                    <b class="caret"></b>
-                                                                </a>
-                                                                <div class="sub-menu" data-subwidth="60">
-                                                                    <div class="content">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Apparel</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Accessories
-                                                                                                                for
-                                                                                                                Tablet
-                                                                                                                PC</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Accessories
-                                                                                                                for i
-                                                                                                                Pad</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Accessories
-                                                                                                                for
-                                                                                                                iPhone</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Bags,
-                                                                                                                Holiday
-                                                                                                                Supplies</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Car
-                                                                                                                Alarms
-                                                                                                                and
-                                                                                                                Security</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Car
-                                                                                                                Audio
-                                                                                                                &amp;
-                                                                                                                Speakers</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Cables
-                                                                                                        &amp;
-                                                                                                        Connectors</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Cameras
-                                                                                                                &amp;
-                                                                                                                Photo</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Electronics</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Outdoor
-                                                                                                                &amp;
-                                                                                                                Traveling</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Camping
-                                                                                                        &amp; Hiking</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Earings</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Shaving
-                                                                                                                &amp;
-                                                                                                                Hair
-                                                                                                                Removal</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Salon
-                                                                                                                &amp;
-                                                                                                                Spa
-                                                                                                                Equipment</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Smartphone
-                                                                                                        &amp;
-                                                                                                        Tablets</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Sports
-                                                                                                                &amp;
-                                                                                                                Outdoors</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Bath
-                                                                                                                &amp;
-                                                                                                                Body</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Gadgets
-                                                                                                                &amp;
-                                                                                                                Auto
-                                                                                                                Parts</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Bags,
-                                                                                                        Holiday
-                                                                                                        Supplies</a>
-                                                                                                    <ul>
-                                                                                                        <li><a href="#"
-                                                                                                                onclick="window.location = '18_46';">Battereries
-                                                                                                                &amp;
-                                                                                                                Chargers</a>
-                                                                                                        </li>
-                                                                                                        <li><a href="#"
-                                                                                                                onclick="window.location = '24_64';">Bath
-                                                                                                                &amp;
-                                                                                                                Body</a>
-                                                                                                        </li>
-                                                                                                        <li><a href="#"
-                                                                                                                onclick="window.location = '18_45';">Headphones,
-                                                                                                                Headsets</a>
-                                                                                                        </li>
-                                                                                                        <li><a href="#"
-                                                                                                                onclick="window.location = '18_30';">Home
-                                                                                                                Audio</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-
-                                                                    <img src="image/catalog/menu/icons/ico1.png"
-                                                                        alt="icon">
-                                                                    <span>Fashion & Accessories</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical  style1 with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <span class="label"></span>
-                                                                    <img src="image/catalog/menu/icons/ico9.png"
-                                                                        alt="icon">
-                                                                    <span>Electronic</span>
-                                                                    <b class="caret"></b>
-                                                                </a>
-                                                                <div class="sub-menu" data-subwidth="40">
-                                                                    <div class="content">
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li><a href="#"
-                                                                                                        class="main-menu">Smartphone</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Esdipiscing</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Scanners</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Apple</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Dell</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Scanners</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li><a href="#"
-                                                                                                        class="main-menu">Electronics</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Asdipiscing</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Diam
-                                                                                                                sit</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Labore
-                                                                                                                et</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Monitors</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="row banner">
-                                                                                    <a href="#">
-                                                                                        <img src="image/catalog/menu/megabanner/vbanner1.jpg"
-                                                                                            alt="banner1">
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico7.png"
-                                                                        alt="icon">
-                                                                    <span>Health &amp; Beauty</span>
-                                                                    <b class="caret"></b>
-                                                                </a>
-                                                                <div class="sub-menu" data-subwidth="60">
-                                                                    <div class="content">
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Car
-                                                                                                        Alarms and
-                                                                                                        Security</a>
-                                                                                                    <ul>
-                                                                                                        <li><a
-                                                                                                                href="#">Car
-                                                                                                                Audio
-                                                                                                                &amp;
-                                                                                                                Speakers</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Gadgets
-                                                                                                                &amp;
-                                                                                                                Auto
-                                                                                                                Parts</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Gadgets
-                                                                                                                &amp;
-                                                                                                                Auto
-                                                                                                                Parts</a>
-                                                                                                        </li>
-                                                                                                        <li><a
-                                                                                                                href="#">Headphones,
-                                                                                                                Headsets</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="24"
-                                                                                                        onclick="window.location = '24';"
-                                                                                                        class="main-menu">Health
-                                                                                                        &amp; Beauty</a>
-                                                                                                    <ul>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Home
-                                                                                                                Audio</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Helicopters
-                                                                                                                &amp;
-                                                                                                                Parts</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Outdoor
-                                                                                                                &amp;
-                                                                                                                Traveling</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Toys
-                                                                                                                &amp;
-                                                                                                                Hobbies</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Electronics</a>
-                                                                                                    <ul>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Earings</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Salon
-                                                                                                                &amp;
-                                                                                                                Spa
-                                                                                                                Equipment</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Shaving
-                                                                                                                &amp;
-                                                                                                                Hair
-                                                                                                                Removal</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Smartphone
-                                                                                                                &amp;
-                                                                                                                Tablets</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Sports
-                                                                                                        &amp;
-                                                                                                        Outdoors</a>
-                                                                                                    <ul>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Flashlights
-                                                                                                                &amp;
-                                                                                                                Lamps</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Fragrances</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Fishing</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">FPV
-                                                                                                                System
-                                                                                                                &amp;
-                                                                                                                Parts</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4 static-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">More
-                                                                                                        Car
-                                                                                                        Accessories</a>
-                                                                                                    <ul>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Lighter
-                                                                                                                &amp;
-                                                                                                                Cigar
-                                                                                                                Supplies</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Mp3
-                                                                                                                Players
-                                                                                                                &amp;
-                                                                                                                Accessories</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Men
-                                                                                                                Watches</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Mobile
-                                                                                                                Accessories</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Gadgets
-                                                                                                        &amp; Auto
-                                                                                                        Parts</a>
-                                                                                                    <ul>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Gift
-                                                                                                                &amp;
-                                                                                                                Lifestyle
-                                                                                                                Gadgets</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Gift
-                                                                                                                for
-                                                                                                                Man</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Gift
-                                                                                                                for
-                                                                                                                Woman</a>
-                                                                                                        </li>
-                                                                                                        <li>
-                                                                                                            <a
-                                                                                                                href="#">Gift
-                                                                                                                for
-                                                                                                                Woman</a>
-                                                                                                        </li>
-                                                                                                    </ul>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical css-menu with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-
-                                                                    <img src="image/catalog/menu/icons/ico6.png"
-                                                                        alt="icon">
-                                                                    <span>Smartphone &amp; Tablets</span>
-                                                                    <b class="caret"></b>
-                                                                </a>
-                                                                <div class="sub-menu" data-subwidth="20">
-                                                                    <div class="content">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12 hover-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Headphones,
-                                                                                                        Headsets</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Home
-                                                                                                        Audio</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Health
-                                                                                                        &amp; Beauty</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Helicopters
-                                                                                                        &amp; Parts</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#"
-                                                                                                        class="main-menu">Helicopters
-                                                                                                        &amp; Parts</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico5.png"
-                                                                        alt="icon">
-                                                                    <span>Health & Beauty</span>
-
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico4.png"
-                                                                        alt="icon">
-                                                                    <span>Bathroom</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico3.png"
-                                                                        alt="icon">
-                                                                    <span>Metallurgy</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico2.png"
-                                                                        alt="icon">
-                                                                    <span>Bedroom</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical">
-                                                                <p class="close-menu"></p>
-
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico1.png"
-                                                                        alt="icon">
-                                                                    <span>Health &amp; Beauty</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical" style="display: none;">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico11.png"
-                                                                        alt="icon">
-                                                                    <span>Toys &amp; Hobbies </span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical" style="display: none;">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico12.png"
-                                                                        alt="icon">
-                                                                    <span>Jewelry &amp; Watches</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical" style="display: none;">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico9.png"
-                                                                        alt="icon">
-                                                                    <span>Home &amp; Lights</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="item-vertical" style="display: none;">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix">
-                                                                    <img src="image/catalog/menu/icons/ico6.png"
-                                                                        alt="icon">
-                                                                    <span>Metallurgy</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="loadmore">
-                                                                <i class="fa fa-plus-square-o"></i>
-                                                                <span class="more-view">More Categories</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                </div>
-                            </div>
-                            <!-- // end Secondary menu -->
-                        </div>
-                        <!-- Main menu -->
-                        <div class="main-menu col-lg-10 col-md-9">
-                            <div class="responsive so-megamenu megamenu-style-dev">
-                                <nav class="navbar-default">
-                                    <div class=" container-megamenu  horizontal open ">
-                                        <div class="navbar-header">
-                                            <button type="button" id="show-megamenu" data-toggle="collapse"
-                                                class="navbar-toggle">
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-                                        </div>
-
-                                        <div class="megamenu-wrapper">
-                                            <span id="remove-megamenu" class="fa fa-times"></span>
-                                            <div class="megamenu-pattern">
-                                                <div class="container-mega">
-                                                    <ul class="megamenu" data-transition="slide"
-                                                        data-animationtime="250">
-                                                        <li class="home hover">
-                                                            <a href="/index">Home <b class="caret"></b></a>
-                                                            <div class="sub-menu" style="width:100%;">
-                                                                <div class="content">
-                                                                    <div class="row">
-                                                                        <div class="col-md-4">
-                                                                            <a href="/index" class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/home-1.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">Home page -
-                                                                                    (Default)</h3>
-                                                                            </a>
-
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <a href="index2.php" class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/home-2.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">Home page -
-                                                                                    Layout 2</h3>
-                                                                            </a>
-
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <a href="index3.php" class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/home-3.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">Home page -
-                                                                                    Layout 3</h3>
-                                                                            </a>
-
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <a href="index4.php" class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/home-4.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">Home page -
-                                                                                    Layout 4</h3>
-                                                                            </a>
-
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <a href="html_width_RTL//index"
-                                                                                class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/rtl.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">RTL Layout</h3>
-                                                                            </a>
-
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <a href="mobile/index.html"
-                                                                                class="image-link">
-                                                                                <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border"
-                                                                                        src="image/catalog/menu/mobile.jpg"
-                                                                                        alt="">
-
-                                                                                </span>
-                                                                                <h3 class="figcaption">Mobile Layout
-                                                                                </h3>
-                                                                            </a>
-
-                                                                        </div>
-
-                                                                        <!-- <div class="col-md-15">
-                                                                        <a href="#" class="image-link">
-                                                                            <span class="thumbnail">
-                                                                                <img class="img-responsive img-border" src="image/demo/feature/comming-soon.png" alt="">
-
-                                                                            </span>
-                                                                            <h3 class="figcaption">Comming soon</h3>
-                                                                        </a>
-
-                                                                    </div> -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="with-sub-menu hover">
-                                                            <p class="close-menu"></p>
-                                                            <a href="#" class="clearfix">
-                                                                <strong>Features</strong>
-                                                                <img class="label-hot"
-                                                                    src="image/catalog/menu/new-icon.png"
-                                                                    alt="icon items">
-                                                                <b class="caret"></b>
-                                                            </a>
-                                                            <div class="sub-menu" style="width: 100%; right: auto;">
-                                                                <div class="content">
-                                                                    <div class="row">
-                                                                        <div class="col-md-3">
-                                                                            <div class="column">
-                                                                                <a href="#"
-                                                                                    class="title-submenu">Listing
-                                                                                    pages</a>
-                                                                                <div>
-                                                                                    <ul class="row-list">
-                                                                                        <li><a href="category.html">Category
-                                                                                                Page 1 </a></li>
-                                                                                        <li><a href="category-v2.html">Category
-                                                                                                Page 2</a></li>
-                                                                                        <li><a href="category-v3.html">Category
-                                                                                                Page 3</a></li>
-                                                                                    </ul>
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <div class="column">
-                                                                                <a href="#"
-                                                                                    class="title-submenu">Product
-                                                                                    pages</a>
-                                                                                <div>
-                                                                                    <ul class="row-list">
-                                                                                        <li><a href="product.html">Product
-                                                                                                page 1</a></li>
-                                                                                        <li><a href="product-v2.html">Product
-                                                                                                page 2</a></li>
-                                                                                        <!-- <li><a href="product-v3.html">Image size - small</a></li> -->
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <div class="column">
-                                                                                <a href="#"
-                                                                                    class="title-submenu">Shopping
-                                                                                    pages</a>
-                                                                                <div>
-                                                                                    <ul class="row-list">
-                                                                                        <li><a href="cart.html">Shopping
-                                                                                                Cart Page</a></li>
-                                                                                        <li><a href="checkout.html">Checkout
-                                                                                                Page</a></li>
-                                                                                        <li><a href="compare.html">Compare
-                                                                                                Page</a></li>
-                                                                                        <li><a href="wishlist.html">Wishlist
-                                                                                                Page</a></li>
-
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <div class="column">
-                                                                                <a href="#"
-                                                                                    class="title-submenu">My Account
-                                                                                    pages</a>
-                                                                                <div>
-                                                                                    <ul class="row-list">
-                                                                                        <li><a href="login.html">Login
-                                                                                                Page</a></li>
-                                                                                        <li><a href="register.html">Register
-                                                                                                Page</a></li>
-                                                                                        <li><a href="my-account.html">My
-                                                                                                Account</a></li>
-                                                                                        <li><a
-                                                                                                href="order-history.html">Order
-                                                                                                History</a></li>
-                                                                                        <li><a
-                                                                                                href="order-information.html">Order
-                                                                                                Information</a></li>
-                                                                                        <li><a href="return.html">Product
-                                                                                                Returns</a></li>
-                                                                                        <li><a
-                                                                                                href="gift-voucher.html">Gift
-                                                                                                Voucher</a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="with-sub-menu hover">
-                                                            <p class="close-menu"></p>
-                                                            <a href="#" class="clearfix">
-                                                                <strong>Pages</strong>
-                                                                <b class="caret"></b>
-                                                            </a>
-                                                            <div class="sub-menu" style="width: 40%; ">
-                                                                <div class="content">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <ul class="row-list">
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="faq.html">FAQ</a></li>
-
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="sitemap.html">Site
-                                                                                        Map</a></li>
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="contact.html">Contact
-                                                                                        us</a></li>
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="banner-effect.html">Banner
-                                                                                        Effect</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <ul class="row-list">
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="about-us.html">About Us
-                                                                                        1</a></li>
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="about-us-2.html">About Us
-                                                                                        2</a></li>
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="about-us-3.html">About Us
-                                                                                        3</a></li>
-                                                                                <li><a class="subcategory_item"
-                                                                                        href="about-us-4.html">About Us
-                                                                                        4</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="with-sub-menu hover">
-                                                            <p class="close-menu"></p>
-                                                            <a href="#" class="clearfix">
-                                                                <strong>Categories</strong>
-                                                                <img class="label-hot"
-                                                                    src="image/catalog/menu/hot-icon.png"
-                                                                    alt="icon items">
-
-                                                                <b class="caret"></b>
-                                                            </a>
-                                                            <div class="sub-menu" style="width: 100%; display: none;">
-                                                                <div class="content">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12">
-                                                                            <div class="row">
-                                                                                <div class="col-md-3 img img1">
-                                                                                    <a href="#"><img
-                                                                                            src="image/catalog/menu/megabanner/image-1.jpg"
-                                                                                            alt="banner1"></a>
-                                                                                </div>
-                                                                                <div class="col-md-3 img img2">
-                                                                                    <a href="#"><img
-                                                                                            src="image/catalog/menu/megabanner/image-2.jpg"
-                                                                                            alt="banner2"></a>
-                                                                                </div>
-                                                                                <div class="col-md-3 img img3">
-                                                                                    <a href="#"><img
-                                                                                            src="image/catalog/menu/megabanner/image-3.jpg"
-                                                                                            alt="banner3"></a>
-                                                                                </div>
-                                                                                <div class="col-md-3 img img4">
-                                                                                    <a href="#"><img
-                                                                                            src="image/catalog/menu/megabanner/image-4.jpg"
-                                                                                            alt="banner4"></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-3">
-                                                                            <a href="#"
-                                                                                class="title-submenu">Automotive</a>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12 hover-menu">
-                                                                                    <div class="menu">
-                                                                                        <ul>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Car
-                                                                                                    Alarms and
-                                                                                                    Security</a></li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Car
-                                                                                                    Audio &amp;
-                                                                                                    Speakers</a></li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Gadgets
-                                                                                                    &amp; Auto Parts</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">More
-                                                                                                    Car Accessories</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <a href="#"
-                                                                                class="title-submenu">Funitures</a>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12 hover-menu">
-                                                                                    <div class="menu">
-                                                                                        <ul>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Bathroom</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Bedroom</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Decor</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Living
-                                                                                                    room</a></li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <a href="#"
-                                                                                class="title-submenu">Jewelry &amp;
-                                                                                Watches</a>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12 hover-menu">
-                                                                                    <div class="menu">
-                                                                                        <ul>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Earings</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Wedding
-                                                                                                    Rings</a></li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Men
-                                                                                                    Watches</a></li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <a href="#"
-                                                                                class="title-submenu">Electronics</a>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12 hover-menu">
-                                                                                    <div class="menu">
-                                                                                        <ul>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Computer</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Smartphone</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Tablets</a>
-                                                                                            </li>
-                                                                                            <li><a href="#"
-                                                                                                    class="main-menu">Monitors</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li class="">
-                                                            <p class="close-menu"></p>
-                                                            <a href="#" class="clearfix">
-                                                                <strong>Accessories</strong>
-
-                                                            </a>
-
-                                                        </li>
-                                                        <li class="">
-                                                            <p class="close-menu"></p>
-                                                            <a href="blog-page.html" class="clearfix">
-                                                                <strong>Blog</strong>
-                                                                <span class="label"></span>
-                                                            </a>
-                                                        </li>
-
-
-                                                    </ul>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                        <!-- //end Main menu -->
-                    </div>
-                </div>
-
-            </div>
-
-        </header>
         <!-- //Header Container  -->
+        @include('layout.navbar', ['category' => App\Models\Kategori::all()]))
 
         @yield('contents')
+
+        <div class="whatsapp-chat">
+            <a href="https://wa.me/629673126762?text=Saya%20tertarik%20dengan%20produk%20yang%20Anda%20dijual" target="_blank">
+                <img src="{{asset('image/icon/logo-wa-whatsapp.png')}}" alt="whatsapp-logo" height="80px" width="80px">
+            </a>
+        </div>
         <!-- Main Container  -->
 
         <!-- //Main Container -->
@@ -1461,16 +98,13 @@
                             </div>
 
                             <div class="block_content">
-                                <form method="post" id="signup" name="signup"
-                                    class="form-group form-inline signup send-mail">
+                                <form method="post" id="signup" name="signup" class="form-group form-inline signup send-mail">
                                     <div class="form-group">
                                         <div class="input-box">
-                                            <input type="email" placeholder="Your email address..." value=""
-                                                class="form-control" id="txtemail" name="txtemail" size="55">
+                                            <input type="email" placeholder="Your email address..." value="" class="form-control" id="txtemail" name="txtemail" size="55">
                                         </div>
                                         <div class="subcribe">
-                                            <button class="btn btn-primary btn-default font-title" type="submit"
-                                                onclick="return subscribe_newsletter();" name="submit">
+                                            <button class="btn btn-primary btn-default font-title" type="submit" onclick="return subscribe_newsletter();" name="submit">
                                                 Subscribe
                                             </button>
                                         </div>
@@ -1603,22 +237,15 @@
                             <div class="socials-w module">
                                 <h3 class="modtitle">Follow Us:</h3>
                                 <ul class="socials">
-                                    <li class="facebook"><a class="_blank" href="https://www.facebook.com/MagenTech"
-                                            target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <li class="facebook"><a class="_blank" href="https://www.facebook.com/MagenTech" target="_blank"><i class="fa fa-facebook"></i></a>
                                     </li>
-                                    <li class="twitter"><a class="_blank" href="https://twitter.com/smartaddons"
-                                            target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <li class="twitter"><a class="_blank" href="https://twitter.com/smartaddons" target="_blank"><i class="fa fa-twitter"></i></a>
                                     </li>
-                                    <li class="google_plus"><a class="_blank"
-                                            href="https://plus.google.com/u/0/+Smartaddons/posts" target="_blank"><i
-                                                class="fa fa-google-plus"></i></a>
+                                    <li class="google_plus"><a class="_blank" href="https://plus.google.com/u/0/+Smartaddons/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
                                     </li>
-                                    <li class="pinterest"><a class="_blank"
-                                            href="https://www.pinterest.com/smartaddons/" target="_blank"><i
-                                                class="fa fa-pinterest"></i></a>
+                                    <li class="pinterest"><a class="_blank" href="https://www.pinterest.com/smartaddons/" target="_blank"><i class="fa fa-pinterest"></i></a>
                                     </li>
-                                    <li class="youtube"><a class="_blank" href="#" target="_blank"><i
-                                                class="fa fa-youtube-play"></i></a>
+                                    <li class="youtube"><a class="_blank" href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -1626,45 +253,20 @@
                     </div>
                     <div class="categories-footer">
                         <ul>
-                            <li> <a href="#" title="Tom Lee">Tom Lee</a> | <a href="#"
-                                    title="Honda SH">Honda SH</a> | <a href="#" title="Durex">Durex</a> | <a
-                                    href="#" title="Apple Pen">Apple Pen</a> | <a href="#"
-                                    title="Jacket Men">Jacket Men</a> | <a href="#" title="Kotex Style">Kotex
-                                    Style</a> | <a href="#" title="LG TV">LG TV</a> | <a href="#"
-                                    title="Dolce Gabbana">Dolce Gabbana</a> | <a href="#"
-                                    title="Onida TV">Onida TV</a> | <a href="#" title="Toshiba TV">Toshiba
-                                    TV</a> | <a href="#" title="Philips TV">Philips TV</a> | <a href="#"
-                                    title="Micromax TV">Micromax TV</a> | <a href="#" title="LED TV">LED TV</a>
-                                | <a href="#" title="LCD TV">LCD TV</a> | <a href="#"
-                                    title="Plasma TV">Plasma TV</a> | <a href="#" title="3D TV">3D TV</a> | <a
-                                    href="#" title="Smart TV">Smart TV</a>
+                            <li> <a href="#" title="Tom Lee">Tom Lee</a> | <a href="#" title="Honda SH">Honda SH</a> | <a href="#" title="Durex">Durex</a> | <a href="#" title="Apple Pen">Apple Pen</a> | <a href="#" title="Jacket Men">Jacket Men</a> | <a href="#" title="Kotex Style">Kotex
+                                    Style</a> | <a href="#" title="LG TV">LG TV</a> | <a href="#" title="Dolce Gabbana">Dolce Gabbana</a> | <a href="#" title="Onida TV">Onida TV</a> | <a href="#" title="Toshiba TV">Toshiba
+                                    TV</a> | <a href="#" title="Philips TV">Philips TV</a> | <a href="#" title="Micromax TV">Micromax TV</a> | <a href="#" title="LED TV">LED TV</a>
+                                | <a href="#" title="LCD TV">LCD TV</a> | <a href="#" title="Plasma TV">Plasma TV</a> | <a href="#" title="3D TV">3D TV</a> | <a href="#" title="Smart TV">Smart TV</a>
                             </li>
-                            <li> <a href="#" title="Samsung Mobile">Samsung Mobile</a> | <a href="#"
-                                    title="Asus Zenphone">Asus Zenphone</a> | <a href="#"
-                                    title="Sony Camera">Sony Camera</a> | <a href="#" title="Jacket Men">Jacket
-                                    Men</a> | <a href="#" title="Point shoot camera">Point shoot camera</a> | <a
-                                    href="#" title="Camera Lens">Camera Lens</a> | <a href="#"
-                                    title="Camera Tripod">Camera Tripod</a> | <a href="#"
-                                    title="Camera Bag">Camera Bag</a> | <a href="#" title="Apple Laptop">Apple
-                                    Laptop</a> | <a href="#" title="Acer Laptop">Acer Laptop</a> | <a
-                                    href="#" title="Samsung Laptop">Samsung Laptop</a> | <a href="#"
-                                    title="Lenovo Tablet">Lenovo Tablet</a> | <a href="#"
-                                    title="Sony Laptop">Sony Laptop</a> | <a href="#"
-                                    title="Accessories">Accessories</a> | <a href="#" title="Asus Laptop">Asus
+                            <li> <a href="#" title="Samsung Mobile">Samsung Mobile</a> | <a href="#" title="Asus Zenphone">Asus Zenphone</a> | <a href="#" title="Sony Camera">Sony Camera</a> | <a href="#" title="Jacket Men">Jacket
+                                    Men</a> | <a href="#" title="Point shoot camera">Point shoot camera</a> | <a href="#" title="Camera Lens">Camera Lens</a> | <a href="#" title="Camera Tripod">Camera Tripod</a> | <a href="#" title="Camera Bag">Camera Bag</a> | <a href="#" title="Apple Laptop">Apple
+                                    Laptop</a> | <a href="#" title="Acer Laptop">Acer Laptop</a> | <a href="#" title="Samsung Laptop">Samsung Laptop</a> | <a href="#" title="Lenovo Tablet">Lenovo Tablet</a> | <a href="#" title="Sony Laptop">Sony Laptop</a> | <a href="#" title="Accessories">Accessories</a> | <a href="#" title="Asus Laptop">Asus
                                     Laptop</a>
                             </li>
                             <li> <a href="#" title="Ipad">Ipad</a> | <a href="#" title="LG Tablet">LG
-                                    Tablet</a> | <a href="#" title="Accessories">Accessories</a> | <a
-                                    href="#" title="Notebook">Notebook</a> | <a href="#"
-                                    title="Sony TV">Sony TV</a> | <a href="#" title="Hat">Hat</a> | <a
-                                    href="#" title="LG TV">LG TV</a> | <a href="#"
-                                    title="Panasonic TV">Panasonic TV</a> | <a href="#" title="Onida TV">Onida
-                                    TV</a> | <a href="#" title="Tommy Hilfiger">Tommy Hilfiger</a> | <a
-                                    href="#" title="Xiaomi">Xiaomi</a> | <a href="#"
-                                    title="Dresses">Dresses</a> | <a href="#" title="Nokia 7610">Nokia 7610</a>
-                                | <a href="#" title="Honda SH">Honda SH</a> | <a href="#"
-                                    title="Kotex">Kotex</a> | <a href="#" title="3D TV">3D TV</a> | <a
-                                    href="#" title="Durex">Durex</a>
+                                    Tablet</a> | <a href="#" title="Accessories">Accessories</a> | <a href="#" title="Notebook">Notebook</a> | <a href="#" title="Sony TV">Sony TV</a> | <a href="#" title="Hat">Hat</a> | <a href="#" title="LG TV">LG TV</a> | <a href="#" title="Panasonic TV">Panasonic TV</a> | <a href="#" title="Onida TV">Onida
+                                    TV</a> | <a href="#" title="Tommy Hilfiger">Tommy Hilfiger</a> | <a href="#" title="Xiaomi">Xiaomi</a> | <a href="#" title="Dresses">Dresses</a> | <a href="#" title="Nokia 7610">Nokia 7610</a>
+                                | <a href="#" title="Honda SH">Honda SH</a> | <a href="#" title="Kotex">Kotex</a> | <a href="#" title="3D TV">3D TV</a> | <a href="#" title="Durex">Durex</a>
                             </li>
                         </ul>
                     </div>
@@ -1675,8 +277,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 copyright-w">
-                            <div class="copyright">eMarket © 2018 Demo Store. All Rights Reserved. Designed by <a
-                                    href="http://www.opencartworks.com/" target="_blank">OpenCartWorks.Com</a>
+                            <div class="copyright">eMarket © 2018 Demo Store. All Rights Reserved. Designed by <a href="http://www.opencartworks.com/" target="_blank">OpenCartWorks.Com</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 payment-w">
@@ -1702,8 +303,10 @@
 ============================================ -->
     <?php
     require_once 'scssphp/scss.inc.php';
+
     use Leafo\ScssPhp\Compiler;
     use Leafo\ScssPhp\Server;
+
     $themeCssName = '';
 
     if (isset($_COOKIE['customColorScheme'])) {
@@ -1742,31 +345,27 @@
         }
     }
     ?>
-    <link rel='stylesheet' property='stylesheet' href='css/themecss/cpanel.css' type='text/css'
-        media='all' />
-    <?php if(isset($ColorScheme)){?>
-    <link rel='stylesheet' property='stylesheet' href='css/<?php echo $themeCssName; ?>' type='text/css'
-        media='all' />
-    <?php }?>
+    <link rel='stylesheet' property='stylesheet' href='css/themecss/cpanel.css' type='text/css' media='all' />
+    <?php if (isset($ColorScheme)) { ?>
+        <link rel='stylesheet' property='stylesheet' href='css/<?php echo $themeCssName; ?>' type='text/css' media='all' />
+    <?php } ?>
 
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
-        aria-labelledby="myLargeModalLabel">
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title" id="myLargeModalLabel">Skin CSS</h4>
                 </div>
                 <div class="modal-body">
                     <textarea id="getCSSTextarea" class="get-css" readonly=""><?php $fileCssName = !empty($themeCssName) ? $themeCssName : 'theme.css';
-                    echo '/********************************************
+                                                                                echo '/********************************************
                                                                                 ';
-                    echo '*  Color Scheme: ' . $fileCssName;
-                    echo '
+                                                                                echo '*  Color Scheme: ' . $fileCssName;
+                                                                                echo '
                                                                                 ********************************************/
                                                                                 ';
-                    echo file_get_contents('css/' . $fileCssName);
-                    ?>
+                                                                                echo file_get_contents('css/' . $fileCssName);
+                                                                                ?>
             </textarea>
                 </div>
 
@@ -1777,7 +376,19 @@
     <!-- End Color Scheme
 ============================================ -->
 
-
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/630b23f737898912e9659c04/1gbhoconc';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 
     <!-- Include Libs & Plugins
@@ -1795,6 +406,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery-ui/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/modernizr/modernizr-2.6.2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/minicolors/jquery.miniColors.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
 
     <!-- Theme files
 ============================================ -->
@@ -1813,9 +425,9 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
-        <script>
-            swal("Berhasil!", "{{ session('status') }}", "success");
-        </script>
+    <script>
+        swal("Berhasil!", "{{ session('status') }}", "success");
+    </script>
     @endif
     <script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
@@ -1835,21 +447,21 @@
     </script>
 
     <script>
-
-        function loadcart(){
+        function loadcart() {
             $.ajax({
                 method: "GET",
                 url: "/load-cart-data",
-                success: function (response) {
+                success: function(response) {
                     $('.cart-count').html(response.count);
                 }
             });
         }
-        function loadwishlist(){
+
+        function loadwishlist() {
             $.ajax({
                 method: "GET",
                 url: "/load-wishlist-data",
-                success: function (response) {
+                success: function(response) {
                     $('.wishlist-count').html(response.count);
                 }
             });
@@ -1882,7 +494,7 @@
 
         });
 
-        $('.addToWishlist').click(function (e) {
+        $('.addToWishlist').click(function(e) {
             e.preventDefault();
 
             var product_id = $(this).closest('.product_data').find('.prod_id').val();
@@ -1911,7 +523,7 @@
             loadcart();
             loadwishlist();
 
-            $('.increment-btn').click(function(e) {
+            $(document).on('click', '.increment-btn', function(e) {
                 e.preventDefault();
 
                 var inc_value = $(this).closest('.product_data').find('.qty-input').val();
@@ -1925,7 +537,7 @@
                 }
             });
 
-            $('.decrement-btn').click(function(e) {
+            $(document).on('click', '.decrement-btn', function(e) {
                 e.preventDefault();
 
 
@@ -1946,14 +558,9 @@
                 }
             });
 
-            $('.delete-cart-item').click(function(e) {
+            // $('.delete-cart-item').click(function(e) {
+            $(document).on('click', '.delete-cart-item', function(e) {
                 e.preventDefault();
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
 
                 var prod_id = $(this).closest('.product_data').find('.prod_id').val();
                 $.ajax({
@@ -1963,14 +570,16 @@
                         'prod_id': prod_id,
                     },
                     success: function(response) {
-                        setTimeout(() => window.location.reload(), 1000);
+                        // setTimeout(() => window.location.reload(), 1000);
+                        $('.cartitems').load(location.href + " .cartitems");
+                        loadcart();
                         // window.location.reload();
                         swal("Berhasil!", response.status, "success");
                     }
                 });
             });
+            $(document).on('click', '.remove-wishlist-item', function(e) {
 
-            $('.remove-wishlist-item').click(function (e) {
                 e.preventDefault();
 
                 $.ajaxSetup({
@@ -1987,14 +596,17 @@
                         'prod_id': prod_id,
                     },
                     success: function(response) {
-                        setTimeout(() => window.location.reload(), 1000);
+                        // setTimeout(() => window.location.reload(), 1000);
+                        loadwishlist();
+                        $('.whishlistitems').load(location.href + " .whishlistitems");
                         // window.location.reload();
+
                         swal("Berhasil!", response.status, "success");
                     }
                 });
             });
 
-            $('.changeQuantity').click(function(e) {
+            $(document).on('click', '.changeQuantity', function(e) {
                 e.preventDefault();
 
 
@@ -2016,14 +628,14 @@
                     url: "update-cart",
                     data: data,
                     success: function(response) {
-                        setTimeout(() => window.location.reload(), 1000);
-                        swal("Berhasil!", response.status, "success");
+                        $('.whishlistitems').load(location.href + " .whishlistitems");
+                        $('.cartitems').load(location.href + " .cartitems");
                     }
                 });
             });
         });
 
-        $(function(){
+        $(function() {
 
             $.ajaxSetup({
                 headers: {
@@ -2031,66 +643,72 @@
                 }
             });
 
-            $('#provinsi').on('change', function(){
+            $('#provinsi').on('change', function() {
                 let id_provinsi = $('#provinsi').val();
 
                 $.ajax({
                     type: "POST",
                     url: "getkabupaten",
-                    data: {'id_provinsi' : id_provinsi},
-                    cache : false,
-                    success: function (msg) {
+                    data: {
+                        'id_provinsi': id_provinsi
+                    },
+                    cache: false,
+                    success: function(msg) {
                         $('#kabupaten').html(msg);
                         $('#kecamatan').html('');
                         $('#desa').html('');
                     },
-                    error: function (data) {
-                        console.log('error:',data)
-                      },
+                    error: function(data) {
+                        console.log('error:', data)
+                    },
                 });
             })
 
-            $('#kabupaten').on('change', function(){
+            $('#kabupaten').on('change', function() {
                 let id_kabupaten = $('#kabupaten').val();
 
                 $.ajax({
                     type: "POST",
                     url: "getkecamatan",
-                    data: {'id_kabupaten' : id_kabupaten},
-                    cache : false,
-                    success: function (msg) {
+                    data: {
+                        'id_kabupaten': id_kabupaten
+                    },
+                    cache: false,
+                    success: function(msg) {
                         $('#kecamatan').html(msg);
                         $('#desa').html('');
 
                     },
-                    error: function (data) {
-                        console.log('error:',data)
-                      },
+                    error: function(data) {
+                        console.log('error:', data)
+                    },
                 });
             })
 
-            $('#kecamatan').on('change', function(){
+            $('#kecamatan').on('change', function() {
                 let id_kecamatan = $('#kecamatan').val();
 
                 $.ajax({
                     type: "POST",
                     url: "getdesa",
-                    data: {'id_kecamatan' : id_kecamatan},
-                    cache : false,
-                    success: function (msg) {
+                    data: {
+                        'id_kecamatan': id_kecamatan
+                    },
+                    cache: false,
+                    success: function(msg) {
                         $('#desa').html(msg);
 
                     },
-                    error: function (data) {
-                        console.log('error:',data)
-                      },
+                    error: function(data) {
+                        console.log('error:', data)
+                    },
                 });
             })
 
         })
 
-        $(document).ready(function () {
-            $('.razorpay_btn').click(function (e) {
+        $(document).ready(function() {
+            $('.razorpay_btn').click(function(e) {
                 e.preventDefault();
 
                 var firstname = $('.firstname').val();
@@ -2105,159 +723,287 @@
                 var kecamatan = $('.kecamatan').val();
                 var kelurahan = $('.kelurahan').val();
 
-                if (!firstname)
-                {
+                if (!firstname) {
                     fname_error = "First Name is required";
                     $('#fname_error').html('');
                     $('#fname_error').html(fname_error);
-                }
-                else{
+                } else {
                     fname_error = "";
                     $('#fname_error').html('');
                 }
 
-                if (!lastname)
-                {
+                if (!lastname) {
                     lastname_error = "Last Name is required";
                     $('#lastname_error').html('');
                     $('#lastname_error').html(lastname_error);
-                }
-                else{
+                } else {
                     lastname_error = "";
                     $('#lastname_error').html('');
                 }
 
-                if (!email)
-                {
+                if (!email) {
                     email_error = "Email is required";
                     $('#email_error').html('');
                     $('#email_error').html(email_error);
-                }
-                else{
+                } else {
                     email_error = "";
                     $('#email_error').html('');
                 }
 
-                if (!telephone)
-                {
+                if (!telephone) {
                     telephone_error = "Telephone is required";
                     $('#telephone_error').html('');
                     $('#telephone_error').html(telephone_error);
-                }
-                else{
+                } else {
                     telephone_error = "";
                     $('#telephone_error').html('');
                 }
 
-                if (!address1)
-                {
+                if (!address1) {
                     address1_error = "Address is required";
                     $('#address1_error').html('');
                     $('#address1_error').html(address1_error);
-                }
-                else{
+                } else {
                     address1_error = "";
                     $('#address1_error').html('');
                 }
 
-                if (!postcode)
-                {
+                if (!postcode) {
                     postcode_error = "Kode pos is required";
                     $('#postcode_error').html('');
                     $('#postcode_error').html(postcode_error);
-                }
-                else{
+                } else {
                     postcode_error = "";
                     $('#postcode_error').html('');
                 }
 
-                if (!address2)
-                {
+                if (!address2) {
                     address2_error = "Address is required";
                     $('#address2_error').html('');
                     $('#address2_error').html(address2_error);
-                }
-                else{
+                } else {
                     address2_error = "";
                     $('#address2_error').html('');
                 }
 
-                if (!provinsi)
-                {
+                if (!provinsi) {
                     provinsi_error = "Provinsi is required";
                     $('#provinsi_error').html('');
                     $('#provinsi_error').html(provinsi_error);
-                }
-                else{
+                } else {
                     provinsi_error = "";
                     $('#provinsi_error').html('');
                 }
 
-                if (!kabupaten)
-                {
+                if (!kabupaten) {
                     kabupaten_error = "Kabupaten is required";
                     $('#kabupaten_error').html('');
                     $('#kabupaten_error').html(kabupaten_error);
-                }
-                else{
+                } else {
                     kabupaten_error = "";
                     $('#kabupaten_error').html('');
                 }
 
-                if (!kecamatan)
-                {
+                if (!kecamatan) {
                     kecamatan_error = "Kecamatan is required";
                     $('#kecamatan_error').html('');
                     $('#kecamatan_error').html(kecamatan_error);
-                }
-                else{
+                } else {
                     kecamatan_error = "";
                     $('#kecamatan_error').html('');
                 }
 
-                if (!kelurahan)
-                {
+                if (!kelurahan) {
                     kelurahan_error = "Kelurahan is required";
                     $('#kelurahan_error').html('');
                     $('#kelurahan_error').html(kelurahan_error);
-                }
-                else{
+                } else {
                     kelurahan_error = "";
                     $('#kelurahan_error').html('');
                 }
 
-                if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error != '' || address1_error != '' || postcode_error != '' || address2_error != '' || provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' || kelurahan_error != '' )
-                {
+                if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error != '' || address1_error != '' || postcode_error != '' || address2_error != '' || provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' || kelurahan_error != '') {
                     return false;
-                }
-                else
-                {
+                    
+                } else {
                     var data = {
-                        'firstname':firstname,
-                        'lastname':lastname,
-                        'email':email,
-                        'telephone':telephone,
-                        'address1':address1,
-                        'postcode':postcode,
-                        'address2':address2,
-                        'provinsi':provinsi,
-                        'kabupaten':kabupaten,
-                        'kecamatan':kecamatan,
-                        'kelurahan':kelurahan
+                        'firstname': firstname,
+                        'lastname': lastname,
+                        'email': email,
+                        'telephone': telephone,
+                        'address1': address1,
+                        'postcode': postcode,
+                        'address2': address2,
+                        'provinsi': provinsi,
+                        'kabupaten': kabupaten,
+                        'kecamatan': kecamatan,
+                        'kelurahan': kelurahan
                     }
 
                     $.ajax({
                         method: "POST",
                         url: "/proceed-to-pay",
                         data: data,
-                        success: function (response) {
-                            alert(response.total_price)
+                        success: function(response) {
+                            // alert(response.total_price)
+                            var options = {
+                                "key": "rzp_test_kWL5A7KzhPXRoc", // Enter the Key ID generated from the Dashboard
+                                "amount": 1*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                "currency": "IDR",
+                                "name": response.firstname+' '+response.lastname,
+                                "description": "Terima kasih telah berbelanja",
+                                "image": "https://example.com/your_logo",
+                                // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                                "handler": function(responsea) {
+                                    // alert(responsea.razorpay_payment_id);
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/place-order",
+                                        data: {
+                                            'fname':response.firstname,
+                                            'lname':response.lastname,
+                                            'email':response.email,
+                                            'telephone':response.telephone,
+                                            'address1':response.address1,
+                                            'address2':response.address2,
+                                            'postcode':response.postcode,
+                                            'provinsi':response.provinsi,
+                                            'kota':response.kabupaten,
+                                            'kecamatan':response.kecamatan,
+                                            'kelurahan':response.kelurahan,
+                                            'payment_mode':"Paid by RazorPay",
+                                            'payment_id':responsea.razorpay_payment_id,
+                                        },
+                                        success: function (responseb) {
+                                            // alert(responseb.status);
+                                            swal(responseb.status);
+                                            window.location.href = "/my-orders";
+                                        }
+                                    });
+                                },
+                                "prefill": {
+                                    "name": response.firstname+' '+response.lastname,
+                                    "email": response.email,
+                                    "contact": response.telephone
+                                },
+                                "theme": {
+                                    "color": "#3399cc"
+                                }
+                            };
+                            var rzp1 = new Razorpay(options);
+                                rzp1.open();
                         }
                     });
                 }
             });
         });
+    </script>
 
+    {{--- ========================= PayPal ============================
+         --}}
+    <script src="https://www.paypal.com/sdk/js?client-id=ATXhIG7NuXmmlsxZn_q1ptD1gaUNO-PkLttMv1rlBozAOwEUSzBwZhyjm_hzHYNne831-PVYaoqfnxCF"
+        data-sdk-integration-source="integrationbuilder"></script>
+    <script>
+        const paypalButtonsComponent = paypal.Buttons({
+            // optional styling for buttons
+            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+            style: {
+                color: "gold",
+                shape: "pill",
+                layout: "horizontal"
+            },
+
+            // set up the transaction
+            createOrder: (data, actions) => {
+                // pass in any options from the v2 orders create call:
+                // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                const createOrderPayload = {
+                    purchase_units: [{
+                        amount: {
+                            value: "100"
+                        }
+                    }]
+                };
+
+                return actions.order.create(createOrderPayload);
+            },
+
+            // finalize the transaction
+            onApprove: (data, actions) => {
+                const captureOrderHandler = (details) => {
+                    // const payerName = details.payer.name.given_name;
+                    // console.log('Transaction completed');
+
+                var firstname = $('.firstname').val();
+                var lastname = $('.lastname').val();
+                var email = $('.email').val();
+                var telephone = $('.telephone').val();
+                var address1 = $('.address1').val();
+                var postcode = $('.postcode').val();
+                var address2 = $('.address2').val();
+                var provinsi = $('.provinsi').val();
+                var kabupaten = $('.kabupaten').val();
+                var kecamatan = $('.kecamatan').val();
+                var kelurahan = $('.kelurahan').val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/place-order",
+                        data: {
+                        'fname':firstname,
+                        'lname':lastname,
+                        'email':email,
+                        'telephone':telephone,
+                        'address1':address1,
+                        'address2':address2,
+                        'postcode':postcode,
+                        'provinsi':provinsi,
+                        'kota':kabupaten,
+                        'kecamatan':kecamatan,
+                        'kelurahan':kelurahan,
+                        'payment_mode':"Paid by PayPal",
+                        'payment_id':details.id,
+                        },
+                        success: function (response) {
+                        // alert(responseb.status);
+                        swal(response.status);
+                        window.location.href = "/my-orders";
+                            }
+                    });
+                };
+
+                return actions.order.capture().then(captureOrderHandler);
+            },
+
+            // handle unrecoverable errors
+            onError: (err) => {
+                console.error('An error prevented the buyer from checking out with PayPal');
+            }
+        });
+
+        paypalButtonsComponent
+            .render("#paypal-button-container")
+            .catch((err) => {
+                console.error('PayPal Buttons failed to render');
+            });
+    </script>
+    <script>
+        var availableTags = [];
+            $.ajax({
+                type: "GET",
+                url: "/product-list", 
+                success: function (response) {
+                    console.log(response);
+                    startAutoComplete(response);
+                } 
+            });
+
+            function startAutoComplete(availableTags) 
+            {
+                $( "#search_product" ).autocomplete({
+                    source: availableTags
+                });
+        }
     </script>
 </body>
 

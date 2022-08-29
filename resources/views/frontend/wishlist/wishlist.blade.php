@@ -5,7 +5,7 @@
 
 
 
-    <div class="main-container container">
+    <div class="main-container container whishlistitems">
         <ul class="breadcrumb">
             <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
             <li><a href="{{ url('wishlist') }}">Wishlist</a></li>

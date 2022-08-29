@@ -13,9 +13,9 @@
 
         <div class="row ">
             <!--Middle Part Start-->
-            <div id="content" class="col-sm-12">
+            <div id="content" class="col-sm-12 cartitems">
                 <h2 class="title">Keranjang</h2>
-                <div class="table-responsive form-group">
+                <div class="table-responsive form-group ">
                     @if ($cartitems->count() > 0)
                     <table class="table table-bordered">
 
