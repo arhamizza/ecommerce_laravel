@@ -27,7 +27,7 @@
                                 <td style="text-align:center">{{$item->tracking_no}}</td>
                                 <td style="text-align:center">{{number_format($item->total_price)}}</td>
                                 <td style="text-align:center">{{$item->status == '0' ? 'Pending' : 'Completed'}}</td>
-                                <td>
+                                <td style="text-align:center">
                                     <a href="{{url('view-order/'.$item->id)}}" class="btn btn-primary" >View</a>
                                 </td>
 

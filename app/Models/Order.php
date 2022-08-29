@@ -27,6 +27,8 @@ class Order extends Model
         'kecamatan',
         'kelurahan',
         'total_price',
+        'payment_mode',
+        'payment_id',
         'status',
         'message',
         'tracking_no'

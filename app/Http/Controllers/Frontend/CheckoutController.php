@@ -52,6 +52,8 @@ class CheckoutController extends Controller
         $order->kota = $request->input('kota');
         $order->kecamatan = $request->input('kecamatan');
         $order->kelurahan = $request->input('kelurahan');
+        $order->payment_mode = $request->input('payment_mode');
+        $order->payment_id = $request->input('payment_id');
         // Menghitung total price
         $total = 0;
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
@@ -99,6 +101,10 @@ class CheckoutController extends Controller
         $cartitem = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitem);
 
+        if ($request->input('payment_mode') == "Paid by RazorPay" || $request->input('payment_mode') == "Paid by PayPal")
+        {
+            return response()->json(['status'=>"Order placed successfully"]);
+        }
         return redirect('/')->with('status','Order Sudah Berhasil');
     }
 

@@ -46,15 +46,15 @@
                                 <div class="panel-body">
                                     <fieldset id="account">
                                         <div class="form-group required">
-                                            <label for="input-payment-firstname" class="control-label firstname">First
+                                            <label for="input-payment-firstname" class="control-label">First
                                                 Name</label>
-                                            <input type="text" class="form-control firstname" id="input-payment-firstname"
+                                            <input type="text" class="form-control firstname" id="input-payment"
                                                 placeholder="First Name" value="{{ Auth::user()->first_name }}"
                                                 name="fname">
                                             <span id="fname_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-lastname" class="control-label lastname">Last
+                                            <label for="input-payment-lastname" class="control-label">Last
                                                 Name</label>
                                             <input type="text" class="form-control lastname" id="input-payment-lastname"
                                                 placeholder="Last Name" value="{{ Auth::user()->last_name }}"
@@ -62,14 +62,14 @@
                                             <span id="lastname_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-email" class="control-label email">E-Mail</label>
+                                            <label for="input-payment-email" class="control-label ">E-Mail</label>
                                             <input type="text" class="form-control email" id="input-payment-email"
                                                 placeholder="E-Mail" value="{{ Auth::user()->email }}" name="email">
                                             <span id="email_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
                                             <label for="input-payment-telephone"
-                                                class="control-label telephone">Telephone</label>
+                                                class="control-label ">Telephone</label>
                                             <input type="text" class="form-control telephone" id="input-payment-telephone"
                                                 placeholder="Telephone" value="{{ Auth::user()->telephone }}"
                                                 name="telephone">
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="form-group required">
                                             <label for="input-payment-postcode"
-                                                class="control-label address1">Alamat</label>
+                                                class="control-label">Alamat</label>
                                             <input type="text" class="form-control address1" id="input-payment-postcode"
                                                 placeholder="address1" value="{{ Auth::user()->address1 }}" name="address1">
                                             <span id="address1_error" class="text-danger"></span>
@@ -92,7 +92,7 @@
                                 <div class="panel-body">
                                     <fieldset id="address" class="required">
                                         <div class="form-group required">
-                                            <label for="input-payment-postcode" class="control-label postcode">Post
+                                            <label for="input-payment-postcode" class="control-label">Post
                                                 Code</label>
                                             <input type="text" class="form-control postcode" id="input-payment-postcode"
                                                 placeholder="Post Code" value="{{ Auth::user()->post_code }}"
@@ -100,7 +100,7 @@
                                             <span id="postcode_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-postcode" class="control-label address2">Alamat
+                                            <label for="input-payment-postcode" class="control-label">Alamat
                                                 lengkap</label>
                                             <input type="text" class="form-control address2" id="input-payment-postcode"
                                                 placeholder="address1" value="{{ Auth::user()->address2 }}"
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="form-group required">
                                             <label for="input-payment-provinsi"
-                                                class="control-label provinsi">Provinsi</label>
+                                                class="control-label ">Provinsi</label>
                                             <select class="form-control provinsi" id="provinsi" name="provinsi">
                                                 <option value="">Pilih Provinsi...</option>
                                                 @foreach ($provinces as $provinsi)
@@ -119,7 +119,7 @@
                                             <span id="provinsi_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-kabupaten" class="control-label kabupaten">Kabupaten
+                                            <label for="input-payment-kabupaten" class="control-label">Kabupaten
                                                 / Kota</label>
                                             <select class="form-control kabupaten" id="kabupaten" name="kota">
 
@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="form-group required">
                                             <label for="input-payment-kecamatan"
-                                                class="control-label kecamatan">Kecamatan</label>
+                                                class="control-label">Kecamatan</label>
                                             <select class="form-control kecamatan" id="kecamatan" name="kecamatan">
 
                                                 {{-- @foreach ($districts as $kecamatan)
@@ -141,7 +141,7 @@
                                             <span id="kecamatan_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-desa" class="control-label kelurahan">Kelurahan /
+                                            <label for="input-payment-desa" class="control-label">Kelurahan /
                                                 Desa</label>
                                             <select class="form-control kelurahan" id="desa" name="kelurahan">
 
@@ -346,10 +346,12 @@
                                                         href="#"><b>Terms &amp; Conditions</b></a></span> </label>
                                             <div class="buttons">
                                                 <div class="pull-right">
+                                                    <div id="paypal-button-container" class="razorpay_btn"></div>
+                                                    <input type="hidden" name="payment_mode" value="COD">
                                                     <button type="button" class="btn btn-primary w-100 razorpay_btn">Pay
                                                         with RazorPay</button>
-                                                    <button type="submit" class="btn btn-success w-100">Place
-                                                        Order</button>
+                                                    <button type="submit" class="btn btn-success w-100"> Bayar COD
+                                                        </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -365,4 +367,9 @@
         </div>
     </div>
     <!-- //Main Container -->
+@endsection
+
+@section('scripts')
+
+
 @endsection
