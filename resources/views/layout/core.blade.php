@@ -74,7 +74,7 @@
         @yield('contents')
 
         <div class="whatsapp-chat">
-            <a href="https://wa.me/629673126762?text=Saya%20tertarik%20dengan%20produk%20yang%20Anda%20dijual" target="_blank">
+            <a href="https://wa.me/6282234257824?text=Saya%20tertarik%20dengan%20produk%20yang%20Anda%20jual" target="_blank">
                 <img src="{{asset('image/icon/logo-wa-whatsapp.png')}}" alt="whatsapp-logo" height="80px" width="80px">
             </a>
         </div>
@@ -378,16 +378,16 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/630b23f737898912e9659c04/1gbhoconc';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/630c4d5f54f06e12d8917429/1gbk0sg7j';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
     <!--End of Tawk.to Script-->
 
 
@@ -824,7 +824,7 @@
 
                 if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error != '' || address1_error != '' || postcode_error != '' || address2_error != '' || provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' || kelurahan_error != '') {
                     return false;
-                    
+
                 } else {
                     var data = {
                         'firstname': firstname,
@@ -991,14 +991,14 @@
         var availableTags = [];
             $.ajax({
                 type: "GET",
-                url: "/product-list", 
+                url: "/product-list",
                 success: function (response) {
                     console.log(response);
                     startAutoComplete(response);
-                } 
+                }
             });
 
-            function startAutoComplete(availableTags) 
+            function startAutoComplete(availableTags)
             {
                 $( "#search_product" ).autocomplete({
                     source: availableTags
