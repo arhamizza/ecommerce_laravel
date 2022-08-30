@@ -13,9 +13,16 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $featured_products = Produk::where('trending', '1')->take(15)->get();
+        $top_produk = Produk::where(
+            'trending', '1')
+            ->where('qty','!=', '0')
+            ->inRandomOrder()
+            ->limit(5) // here is yours limit
+            ->get();
+        $featured_products = Produk::where('trending', '1')->where('qty','!=', '0')->take(15)->get();
         $top_collection = Kategori::where('popular', '1')->take(7)->get();
-        return view('index', compact('featured_products', 'top_collection'));
+        
+        return view('index', compact('featured_products', 'top_collection','top_produk'));
     }
 
     public function category()
@@ -28,9 +35,10 @@ class FrontendController extends Controller
     {
 
         if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
             $kategori = Kategori::where('slug', $slug)->first();
             $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
-            return view('frontend.kategori.index', compact('kategori', 'produk'));
+            return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
         } else {
             return redirect('/')->where('status', "Slug doesnot exists");
         }
@@ -64,10 +72,10 @@ class FrontendController extends Controller
     }
     public function productlistAjax()
     {
-        $produk = Produk::select('nama')->where('status','1')->get();
+        $produk = Produk::select('nama')->where('status', '1')->get();
         $data = [];
 
-        foreach ($produk as $item ) {
+        foreach ($produk as $item) {
             $data[] = $item['nama'];
         }
 
@@ -77,21 +85,15 @@ class FrontendController extends Controller
     public function searchProduct(Request $request)
     {
         $searched_product = $request->product_name;
-        if ($searched_product != "") 
-        {
-            $produk = Produk::where("nama","LIKE","%$searched_product%")->first();
-            if ($produk) 
-            {
-                return redirect("view-category/".$produk->kategori->slug. '/'.$produk->slug);
+        if ($searched_product != "") {
+            $produk = Produk::where("nama", "LIKE", "%$searched_product%")->first();
+            if ($produk) {
+                return redirect("view-category/" . $produk->kategori->slug . '/' . $produk->slug);
+            } else {
+                return redirect()->back()->with("status", "No products matched your search");
             }
-            else 
-            {
-            return redirect()->back()->with("status","No products matched your search");
-            }
-        }
-        else {
+        } else {
             return redirect()->back();
         }
     }
-
 }
