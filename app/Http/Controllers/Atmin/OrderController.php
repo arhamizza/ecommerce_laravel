@@ -11,7 +11,7 @@ use App\Models\Village;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
-{ 
+{
     public function index()
     {
         $orders = Order::where('status','0')->get();
@@ -36,5 +36,31 @@ class OrderController extends Controller
     {
         $orders = Order::where('status','1')->get();
         return view('atmin.orders.history', compact('orders'));
+    }
+
+    public function indexpenjual()
+    {
+        $orders = Order::where('status','0')->get();
+        return view('penjual.orders.index', compact('orders'));
+    }
+
+    public function viewpenjual($id)
+    {
+        $orders = Order::where('id', $id)->first();
+        return view('penjual.orders.view', compact('orders'));
+    }
+
+    public function updateorderpenjual(Request $request, $id)
+    {
+        $orders = Order::find($id);
+        $orders->status = $request->input('order_status');
+        $orders->update();
+        return redirect('orders')->with('status',"Update Order Berhasil!");
+    }
+
+    public function orderhistorypenjual()
+    {
+        $orders = Order::where('status','1')->get();
+        return view('penjual.orders.history', compact('orders'));
     }
 }

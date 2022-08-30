@@ -103,4 +103,97 @@ class produkController extends Controller
         return redirect('produk')->with('status',"Produk berhasil dihapus!");
     }
 
+    public function indexpenjual()
+    {
+        $produk = produk::all();
+        return view('penjual.produk.index', compact('produk'));
+    }
+
+    public function addpenjual()
+    {
+        $kategori = Kategori::all();
+        return view('penjual.produk.tambah',compact('kategori'));
+    }
+
+    public function insertpenjual(Request $request)
+    {
+        $produk = new produk();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('atmin/assets/uploads/produk', $filename);
+            $produk->image = $filename;
+        }
+        $produk->cate_id = $request->input('cate_id');
+        $produk->nama = $request->input('nama');
+        $produk->slug = $request->input('slug');
+        $produk->small_description = $request->input('small_description');
+        $produk->description = $request->input('description');
+        $produk->original_price = $request->input('original_price');
+        $produk->selling_price = $request->input('selling_price');
+        $produk->tax = $request->input('tax');
+        $produk->qty = $request->input('qty');
+        $produk->status = $request->input('status') == TRUE ? '1' : '0';
+        $produk->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $produk->meta_title = $request->input('meta_title');
+        $produk->meta_keyword = $request->input('meta_keyword');
+        $produk->meta_description = $request->input('meta_description');
+        $produk->save();
+        return redirect('/dashboard')->with('status', "produk Berhasil Ditambahkan!");
+    }
+
+    public function editpenjual($id)
+    {
+        $produk = produk::find($id);
+        return view('penjual.produk.edit', compact('produk'));
+    }
+
+    public function updatepenjual(Request $request, $id)
+    {
+        $produk = produk::find($id);
+        if ($request->hasFile('image'))
+        {
+            $path = 'atmin/assets/uploads/produk/'.$produk->image;
+            if (File::exists($path))
+             {
+                File::delete($path);
+            }
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('atmin/assets/uploads/produk', $filename);
+            $produk->image = $filename;
+        }
+        $produk->nama = $request->input('nama');
+        $produk->slug = $request->input('slug');
+        $produk->small_description = $request->input('small_description');
+        $produk->description = $request->input('description');
+        $produk->original_price = $request->input('original_price');
+        $produk->selling_price = $request->input('selling_price');
+        $produk->tax = $request->input('tax');
+        $produk->qty = $request->input('qty');
+        $produk->status = $request->input('status') == TRUE ? '1' : '0';
+        $produk->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $produk->meta_title = $request->input('meta_title');
+        $produk->meta_keyword = $request->input('meta_keyword');
+        $produk->meta_description = $request->input('meta_description');
+        $produk->save();
+        return redirect('produk')->with('status',"produk telah di update!");
+    }
+    public function destroypenjual($id)
+    {
+        $produk = produk::find($id);
+        if ($produk->image)
+         {
+            $path = 'atmin/assets/uploads/kategori/'.$produk->image;
+            if (File::exists($path))
+             {
+                File::delete($path);
+            }
+        }
+        $produk->delete();
+        return redirect('produk')->with('status',"Produk berhasil dihapus!");
+    }
+
 }

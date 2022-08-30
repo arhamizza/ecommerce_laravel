@@ -113,6 +113,29 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     });
 });
 
+route::middleware(['auth', 'isPenjual'])->group(function () {
+      // produk admin
+    Route::get('produk', [produkController::class, 'indexpenjual']);
+    Route::get('tambah-produk', [produkController::class, 'addpenjual']);
+    Route::post('insert-produk', [produkController::class, 'insertpenjual']);
+    Route::get('edit-produk/{id}', [produkController::class, 'editpenjual']);
+    Route::put('update-produk/{id}', [produkController::class, 'updatepenjual']);
+    Route::get('hapus-produk/{id}', [produkController::class, 'destroypenjual']);
+
+    // order admin
+    Route::get('users',[FrontendController::class, 'userspenjual']);
+    Route::get('orders',[OrderController::class, 'indexpenjual']);
+    Route::get('admin/view-order/{id}',[OrderController::class, 'viewpenjual']);
+    Route::get('order-history',[OrderController::class, 'orderhistorypenjual']);
+    Route::put('update-order/{id}',[OrderController::class, 'updateorderpenjual']);
+    Route::get('users',[DashboardController::class, 'userspenjual']);
+    Route::get('view-users/{id}',[DashboardController::class, 'viewuserpenjual']);
+
+    Route::get('/dashboard', function () {
+        return view('penjual.index');
+    });
+});
+
 
 
 

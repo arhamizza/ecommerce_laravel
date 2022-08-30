@@ -21,7 +21,7 @@ class FrontendController extends Controller
             ->get();
         $featured_products = Produk::where('trending', '1')->where('qty','!=', '0')->take(15)->get();
         $top_collection = Kategori::where('popular', '1')->take(7)->get();
-        
+
         return view('index', compact('featured_products', 'top_collection','top_produk'));
     }
 

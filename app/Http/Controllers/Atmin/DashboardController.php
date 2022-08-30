@@ -19,4 +19,15 @@ class DashboardController extends Controller
         $users = User::find($id);
         return view('atmin.users.view', compact('users'));
     }
+    public function userspenjual()
+    {
+        $users = User::all();
+        return view('atmin.users.index', compact('users'));
+    }
+
+    public function viewuserpenjual($id)
+    {
+        $users = User::find($id);
+        return view('atmin.users.view', compact('users'));
+    }
 }
