@@ -27,15 +27,15 @@
                                 <b>No Hp:</b> {{$orders->telephone}}
 								
 							<td style="width: 50%;" class="text-left"> 
-                                <b>Alamat:</b>{{$orders->address1}},
+                                <b>Alamat: </b>{{$orders->address1}},
 								<br>
-                                <b>provinsi:</b>{{$orders->provinsi}},
+                                <b>Provinsi: </b>{{$orders->village->district->regency->province->name}},
 								<br>
-                                <b>kota:</b>{{$orders->kota}},
+                                <b>Kota: </b>{{$orders->village->district->regency->name}}},
 								<br>
-                                <b>kecamatan:</b>{{$orders->kecamatan}},
+                                <b>Kecamatan: </b>{{$orders->village->district->name}},
 								<br>
-                                <b>kelurahan:</b>{{$orders->kelurahan}},
+                                <b>Kelurahan: </b>{{$orders->village->name}},
 						</tr>
 					</tbody>
 				</table>

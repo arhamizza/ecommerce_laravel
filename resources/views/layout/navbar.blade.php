@@ -51,8 +51,7 @@
                         </li>
                         @endguest
                         <li class="wishlist hidden-sm hidden-xs">
-                            <a href="{{ url('wishlist') }}" id="wishlist-total" class="top-link-wishlist"
-                                        title="Wish List"> Wish List
+                            <a href="{{ url('wishlist') }}" id="wishlist-total" class="top-link-wishlist" title="Wish List"> Wish List
                                 <span class="badge badge-pill wishlist-count">0</span>
 
                             </a>
@@ -103,8 +102,8 @@
                 <!-- //end Search -->
                 <div class="middle3 col-lg-3 col-md-3">
                     <!--cart-->
-                    <div class="shopping_cart">
-                        <div id="cart" class="btn-shopping-cart">
+                    <div class="shopping_cart " >
+                        <div id="cart" class="btn-shopping-cart ">
 
                             <a href={{ url('cart') }} data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <div class="shopcart">
@@ -119,51 +118,50 @@
                                         <span class="total-shopping-cart cart-total-full">
                                             <span class="items_cart cart-count">0</span>
                                             <span class="items_cart2">
-                                                item(s)</span><span class="items_carts"> - $162.00 </span>
+                                                item(s)</span>
                                         </span>
                                     </div>
                                 </div>
                             </a>
 
-                            <ul class="dropdown-menu pull-right shoppingcart-box" role="menu">
-                                <li>
-                                    <table class="table table-striped">
+                            <ul class="dropdown-menu pull-right shoppingcart-box " role="menu">
+                                <li class="c">
+                                    <table class="table table-striped ">
                                         <tbody>
-                                            <tr>
+                                            @php
+                                            $total = 0;
+                                            $totalcheck = 0;
+                                            @endphp
+                                            @foreach($cart as $item)
+                                            <tr class="product_data">
                                                 <td class="text-center" style="width:70px">
                                                     <a href="product.html">
-                                                        <img src="image/catalog/demo/product/80/1.jpg" style="width:70px" alt="Yutculpa ullamcon" title="Yutculpa ullamco" class="preview">
+                                                        <img src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}" style="width:100px" alt="{{ $item->products->nama }}" title="{{ $item->products->nama }}" class="preview">
                                                     </a>
                                                 </td>
-                                                <td class="text-left"> <a class="cart_product_name" href="product.html">Yutculpa ullamco</a>
+                                                @if ($item->products->qty >= $item->prod_qty)
+                                                <input type="hidden" class="prod_id" value="{{$item->prod_id}}">
+                                                <td class="text-left"> <a class="cart_product_name" href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}">{{ $item->products->nama }}</a>
                                                 </td>
-                                                <td class="text-center">x1</td>
-                                                <td class="text-center">$80.00</td>
+                                                @php
+                                                $total = $item->products->selling_price * $item->prod_qty;
+                                                $totalcheck += $item->products->selling_price * $item->prod_qty;
+                                                @endphp
+                                                @else
+                                                <h6>Out of Stock</h6>
+                                                @endif
+                                                <td class="text-center">x{{$item->prod_qty}}</td>
+                                                <td class="text-center">Rp {{ number_format($total)}}</td>
                                                 <td class="text-right">
                                                     <a href="product.html" class="fa fa-edit"></a>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
+                                                    <a onclick="cart.remove('2');" class="fa fa-times fa-delete delete-cart-item"></a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center" style="width:70px">
-                                                    <a href="product.html">
-                                                        <img src="image/catalog/demo/product/80/2.jpg" style="width:70px" alt="Xancetta bresao" title="Xancetta bresao" class="preview">
-                                                    </a>
-                                                </td>
-                                                <td class="text-left"> <a class="cart_product_name" href="product.html">Xancetta bresao</a>
-                                                </td>
-                                                <td class="text-center">x1</td>
-                                                <td class="text-center">$60.00</td>
-                                                <td class="text-right">
-                                                    <a href="product.html" class="fa fa-edit"></a>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
-                                                </td>
-                                            </tr>
+
                                         </tbody>
+                                        @endforeach
                                     </table>
                                 </li>
                                 <li>
@@ -171,29 +169,15 @@
                                         <table class="table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-left"><strong>Sub-Total</strong>
-                                                    </td>
-                                                    <td class="text-right">$140.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-left"><strong>Eco Tax (-2.00)</strong>
-                                                    </td>
-                                                    <td class="text-right">$2.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-left"><strong>VAT (20%)</strong>
-                                                    </td>
-                                                    <td class="text-right">$20.00</td>
-                                                </tr>
-                                                <tr>
                                                     <td class="text-left"><strong>Total</strong>
                                                     </td>
-                                                    <td class="text-right">$162.00</td>
+                                                    <td class="text-right">Rp {{ number_format($totalcheck)}}</td>
                                                 </tr>
                                             </tbody>
+
                                         </table>
                                         <p class="text-right"> <a class="btn view-cart" href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>Lihat
-                                                Keranjang</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a>
+                                                Keranjang</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="{{ url('checkout') }}"><i class="fa fa-share"></i>Checkout</a>
                                         </p>
                                     </div>
                                 </li>

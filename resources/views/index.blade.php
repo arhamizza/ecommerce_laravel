@@ -190,9 +190,7 @@
                                                         @if ($prod->qty > 0)
                                                             <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
                                                             @endif
-                                                            <button class="btn-button addToWishlist" type="button" title="Add to Wish List" onclick="wishlist.add('69');"><i class="fa fa-heart"></i><span>Add to Wish
-                                                                    List</span>
-                                                            </button>
+                                                            <button type="button" class="addToCart addToWishlist"><i class="fa fa fa-heart"></i> Add to Wish List</button>
                                                         </div>
 
                                                         <div class="form-group box-info-product">
