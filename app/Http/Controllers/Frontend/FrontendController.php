@@ -20,9 +20,11 @@ class FrontendController extends Controller
             ->limit(5) // here is yours limit
             ->get();
         $featured_products = Produk::where('trending', '1')->where('qty','!=', '0')->take(15)->get();
+        $products = Produk::where('trending', '0')->where('qty','!=', '0')->take(10)->get();
         $top_collection = Kategori::where('popular', '1')->take(7)->get();
+        $more_cate = Kategori::where('status', '1')->take(20)->get();
 
-        return view('index', compact('featured_products', 'top_collection','top_produk'));
+        return view('index', compact('featured_products', 'top_collection','top_produk','products','more_cate'));
     }
 
     public function category()
@@ -46,6 +48,7 @@ class FrontendController extends Controller
 
     public function productview($cate_slug, $prod_slug)
     {
+        $category = Kategori::where('status', '1')->get();
         if (Kategori::where('slug', $cate_slug)->exists()) {
             $kategori = Kategori::where('slug', $cate_slug)->first();
             $produk2 = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
@@ -62,7 +65,7 @@ class FrontendController extends Controller
 
 
                 // var_dump($rating);
-                return view('frontend.produk.view', compact('produk', 'kategori', 'produk2', 'rating', 'rating_value', 'user_rating'));
+                return view('frontend.produk.view', compact('produk', 'kategori', 'produk2', 'rating', 'rating_value', 'user_rating','category'));
             } else {
                 return redirect('/')->with('status', "The link was broken");
             }

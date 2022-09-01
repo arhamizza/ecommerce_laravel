@@ -71,9 +71,7 @@
                                 <label class="label label-danger">Out of Stock</label>
                                 @endif
 
-                                <div class="stock"><span>Availability:</span>
-                                    <span class="status-stock">In Stock</span>
-                                </div>
+
                             </div>
 
                             <div class="product-box-desc">
@@ -156,259 +154,35 @@
             </div>
 
             <!-- Product Tabs -->
+
+
             <div class="producttab ">
                 <div class="tabsslider horizontal-tabs  col-xs-12">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
                         <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Reviews (1)</a></li>
-                        <li class="item_nonactive"><a data-toggle="tab" href="#tab-4">Tags</a></li>
-                        <li class="item_nonactive"><a data-toggle="tab" href="#tab-5">Custom Tab</a></li>
+
                     </ul>
+                    <div class="col-md-12 happy-about-us">
+                        <div id="slider-happy-about-us" class="happy-ab">
+                            <div class="title-happy-about">
+                                <h2>Happy customer says</h2>
+                            </div>
+
+                            <div class="yt-content-slider sm_imageslider slider-happy-client" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1"  data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                                <div class="item">
+                                    <div class="ct-why">
+                                        <div class="client-say">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis neque eget nulla. Curabitur dictum consectetur metus nec dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis.</div>
+                                        <p class="client-info-about"><span class="name">- Mama Duo - </span>Social Media Strategist</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="tab-content col-xs-12">
                         <div id="tab-1" class="tab-pane fade active in">
                             <p>
                                 {{ $produk->description }} <br>
-                                <!-- <h3>
-             Features:</h3>
-            <p>
-             Unrivaled display performance</p>
-            <ul>
-             <li>
-              30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.</li>
-             <li>
-              Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.</li>
-             <li>
-              Wide-format design for simultaneous display of two full pages of text and graphics.</li>
-             <li>
-              Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks</li>
-             <li>
-              Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.</li>
-             <li>
-              Lightning-fast pixel response for full-motion digital video playback.</li>
-             <li>
-              Support for 16.7 million saturated colors, for use in all graphics-intensive applications.</li>
-            </ul>
-            <p>
-             Simple setup and operation</p>
-            <ul>
-             <li>
-              Single cable with elegant breakout for connection to DVI, USB and FireWire ports</li>
-             <li>
-              Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.</li>
-             <li>
-              Two FireWire 400 ports to support iSight and other desktop peripherals</li>
-            </ul>
-            <p>
-             Sleek, elegant design</p>
-            <ul>
-             <li>
-              Huge virtual workspace, very small footprint.</li>
-             <li>
-              Narrow Bezel design to minimize visual impact of using dual displays</li>
-             <li>
-              Unique hinge design for effortless adjustment</li>
-             <li>
-              Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)</li>
-            </ul>
-            <h3>
-             Technical specifications</h3>
-            <p>
-             <b>Screen size (diagonal viewable image size)</b></p>
-            <ul>
-             <li>
-              Apple Cinema HD Display: 30 inches (29.7-inch viewable)</li>
-            </ul>
-            <p>
-             <b>Screen type</b></p>
-            <ul>
-             <li>
-              Thin film transistor (TFT) active-matrix liquid crystal display (AMLCD)</li>
-            </ul> -->
-                                <!-- <p>
-             <b>Resolutions</b></p>
-            <ul>
-             <li>
-              2560 x 1600 pixels (optimum resolution)</li>
-             <li>
-              2048 x 1280</li>
-             <li>
-              1920 x 1200</li>
-             <li>
-              1280 x 800</li>
-             <li>
-              1024 x 640</li>
-            </ul>
-            <p>
-             <b>Display colors (maximum)</b></p>
-            <ul>
-             <li>
-              16.7 million</li>
-            </ul>
-            <p>
-             <b>Viewing angle (typical)</b></p>
-            <ul>
-             <li>
-              170° horizontal; 170° vertical</li>
-            </ul>
-            <p>
-             <b>Brightness (typical)</b></p>
-            <ul>
-             <li>
-              30-inch Cinema HD Display: 400 cd/m2</li>
-            </ul>
-            <p>
-             <b>Contrast ratio (typical)</b></p>
-            <ul>
-             <li>
-              700:1</li>
-            </ul>
-            <p>
-             <b>Response time (typical)</b></p>
-            <ul>
-             <li>
-              16 ms</li>
-            </ul>
-            <p>
-             <b>Pixel pitch</b></p>
-            <ul>
-             <li>
-              30-inch Cinema HD Display: 0.250 mm</li>
-            </ul>
-            <p>
-             <b>Screen treatment</b></p>
-            <ul>
-             <li>
-              Antiglare hardcoat</li>
-            </ul>
-            <p>
-             <b>User controls (hardware and software)</b></p>
-            <ul>
-             <li>
-              Display Power,</li>
-             <li>
-              System sleep, wake</li>
-             <li>
-              Brightness</li>
-             <li>
-              Monitor tilt</li>
-            </ul>
-            <p>
-             <b>Connectors and cables</b><br>
-             Cable</p>
-            <ul>
-             <li>
-              DVI (Digital Visual Interface)</li>
-             <li>
-              FireWire 400</li>
-             <li>
-              USB 2.0</li>
-             <li>
-              DC power (24 V)</li>
-            </ul>
-            <p>
-             Connectors</p>
-            <ul>
-             <li>
-              Two-port, self-powered USB 2.0 hub</li>
-             <li>
-              Two FireWire 400 ports</li>
-             <li>
-              Kensington security port</li>
-            </ul>
-            <p>
-             <b>VESA mount adapter</b><br>
-             Requires optional Cinema Display VESA Mount Adapter (M9649G/A)</p>
-            <ul>
-             <li>
-              Compatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions</li>
-            </ul>
-            <p>
-             <b>Electrical requirements</b></p>
-            <ul>
-             <li>
-              Input voltage: 100-240 VAC 50-60Hz</li>
-             <li>
-              Maximum power when operating: 150W</li>
-             <li>
-              Energy saver mode: 3W or less</li>
-            </ul>
-            <p>
-             <b>Environmental requirements</b></p>
-            <ul>
-             <li>
-              Operating temperature: 50° to 95° F (10° to 35° C)</li>
-             <li>
-              Storage temperature: -40° to 116° F (-40° to 47° C)</li>
-             <li>
-              Operating humidity: 20% to 80% noncondensing</li>
-             <li>
-              Maximum operating altitude: 10,000 feet</li>
-            </ul>
-            <p>
-             <b>Agency approvals</b></p>
-            <ul>
-             <li>
-              FCC Part 15 Class B</li>
-             <li>
-              EN55022 Class B</li>
-             <li>
-              EN55024</li>
-             <li>
-              VCCI Class B</li>
-             <li>
-              AS/NZS 3548 Class B</li>
-             <li>
-              CNS 13438 Class B</li>
-             <li>
-              ICES-003 Class B</li>
-             <li>
-              ISO 13406 part 2</li>
-             <li>
-              MPR II</li>
-             <li>
-              IEC 60950</li>
-             <li>
-              UL 60950</li>
-             <li>
-              CSA 60950</li>
-             <li>
-              EN60950</li>
-             <li>
-              ENERGY STAR</li>
-             <li>
-              TCO '03</li>
-            </ul>
-            <p>
-             <b>Size and weight</b><br>
-             30-inch Apple Cinema HD Display</p>
-            <ul>
-             <li>
-              Height: 21.3 inches (54.3 cm)</li>
-             <li>
-              Width: 27.2 inches (68.8 cm)</li>
-             <li>
-              Depth: 8.46 inches (21.5 cm)</li>
-             <li>
-              Weight: 27.5 pounds (12.5 kg)</li>
-            </ul>
-            <p>
-             <b>System Requirements</b></p>
-            <ul>
-             <li>
-              Mac Pro, all graphic options</li>
-             <li>
-              MacBook Pro</li>
-             <li>
-              Power Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better</li>
-             <li>
-              Power Mac G5 (PCI Express), all graphics options</li>
-             <li>
-              PowerBook G4 with dual-link DVI support</li>
-             <li>
-              Windows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup</li>
-            </ul> -->
-
-
                         </div>
                         <div id="tab-review" class="tab-pane fade">
                             <form action="{{url('/add-rating') }}" method="POST">
@@ -464,7 +238,7 @@
                                                 <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
                                                 <label for="rating{{$i}}" class="fa fa-star"></label>
                                                 @endfor
-                                                @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++) 
+                                                @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++)
                                                 <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
                                                     <label for="rating{{$j}}" class="fa fa-star"></label>
                                                     @endfor
@@ -572,7 +346,6 @@
                     @endforeach
                 </div>
             </div>
-
             <!-- end Related  Products-->
 
 
@@ -582,233 +355,23 @@
         <!--Middle Part End-->
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3 content-aside" id="column-left">
-            <div class="module category-style">
-                <h3 class="modtitle">Categories</h3>
-                <div class="modcontent">
-                    <div class="box-category">
-                        <ul id="cat_accordion" class="list-group">
-                            <li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone &
-                                    Tablets</a> <span class="button-view  fa fa-plus-square-o"></span>
-                                <ul style="display: block;">
-                                    <li><a href="category.html">Men's Watches</a></li>
-                                    <li><a href="category.html">Women's Watches</a></li>
-                                    <li><a href="category.html">Kids' Watches</a></li>
-                                    <li><a href="category.html">Accessories</a></li>
-                                </ul>
-                            </li>
-                            <li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a> <span class="button-view  fa fa-plus-square-o"></span>
-                                <ul style="display: none;">
-                                    <li><a href="category.html">Cycling</a></li>
-                                    <li><a href="category.html">Running</a></li>
-                                    <li><a href="category.html">Swimming</a></li>
-                                    <li><a href="category.html">Football</a></li>
-                                    <li><a href="category.html">Golf</a></li>
-                                    <li><a href="category.html">Windsurfing</a></li>
-                                </ul>
-                            </li>
-                            <li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a> <span class="button-view  fa fa-plus-square-o"></span>
-                                <ul style="display: none;">
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                </ul>
-                            </li>
-                            <li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a> <span class="button-view  fa fa-plus-square-o"></span>
-                                <ul style="display: none;">
-                                    <li><a href="category.html">Men's Watches</a></li>
-                                    <li><a href="category.html">Women's Watches</a></li>
-                                    <li><a href="category.html">Kids' Watches</a></li>
-                                    <li><a href="category.html">Accessories</a></li>
-                                </ul>
-                            </li>
-                            <li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a> <span class="button-view  fa fa-plus-square-o"></span>
-                                <ul style="display: none;">
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                    <li><a href="category.html">Sub Categories</a></li>
-                                </ul>
-                            </li>
-                            <li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a>
-                                <span class="dcjq-icon"></span>
-                            </li>
-                            <li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a>
-                                <span class="dcjq-icon"></span>
-                            </li>
-                            <li class=""><a href="category.html" class="cutom-parent">Sports</a> <span class="dcjq-icon"></span></li>
-                            <li class=""><a href="category.html" class="cutom-parent">Home &amp;
-                                    Garden</a><span class="dcjq-icon"></span></li>
-                            <li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a>
-                                <span class="dcjq-icon"></span>
-                            </li>
-                        </ul>
-                    </div>
+
+				<div class="module category-style">
+                	<h3 class="modtitle">Categories</h3>
+                	<div class="modcontent">
+                		<div class="box-category">
+                			<ul id="cat_accordion" class="list-group">
+                            @foreach ($category as $kat)
+                            <li class=""><a href="{{ url('view-category/' . $kat->slug) }}" class="cutom-parent">{{ $kat->nama }}</a>  <span class="dcjq-icon"></span></li>
+                            @endforeach
+                			</ul>
+                		</div>
 
 
+                	</div>
                 </div>
-            </div>
-            <div class="module product-simple">
-                <h3 class="modtitle">
-                    <span>Latest products</span>
-                </h3>
-                <div class="modcontent">
-                    <div class="extraslider">
-                        <!-- Begin extraslider-inner -->
-                        <div class="extraslider-inner">
-                            <div class="item ">
-                                <div class="product-layout item-inner style1 ">
-                                    <div class="item-image">
-                                        <div class="item-img-info">
-                                            <a href="#" target="_self" title="Mandouille short ">
-                                                <img src="image/catalog/demo/product/80/8.jpg" alt="Mandouille short">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <a href="#" target="_self" title="Mandouille short">Mandouille
-                                                short </a>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                        </div>
-                                        <div class="content_price price">
-                                            <span class="price-new product-price">$55.00 </span>&nbsp;&nbsp;
-
-                                            <span class="price-old">$76.00 </span>&nbsp;
-
-                                        </div>
-                                    </div>
-                                    <!-- End item-info -->
-                                    <!-- End item-wrap-inner -->
-                                </div>
-                                <!-- End item-wrap -->
-                                <div class="product-layout item-inner style1 ">
-                                    <div class="item-image">
-                                        <div class="item-img-info">
-                                            <a href="#" target="_self" title="Xancetta bresao ">
-                                                <img src="image/catalog/demo/product/80/7.jpg" alt="Xancetta bresao">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <a href="#" target="_self" title="Xancetta bresao">
-                                                Xancetta bresao
-                                            </a>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                        </div>
-                                        <div class="content_price price">
-                                            <span class="price-new product-price">$80.00 </span>&nbsp;&nbsp;
-
-                                            <span class="price-old">$89.00 </span>&nbsp;
 
 
-
-                                        </div>
-                                    </div>
-                                    <!-- End item-info -->
-                                    <!-- End item-wrap-inner -->
-                                </div>
-                                <!-- End item-wrap -->
-                                <div class="product-layout item-inner style1 ">
-                                    <div class="item-image">
-                                        <div class="item-img-info">
-                                            <a href="#" target="_self" title="Sausage cowbee ">
-                                                <img src="image/catalog/demo/product/80/6.jpg" alt="Sausage cowbee">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <a href="#" target="_self" title="Sausage cowbee">
-                                                Sausage cowbee
-                                            </a>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                        </div>
-
-                                        <div class="content_price price">
-                                            <span class="price product-price">
-                                                $66.00
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- End item-info -->
-                                    <!-- End item-wrap-inner -->
-                                </div>
-                                <!-- End item-wrap -->
-                                <div class="product-layout item-inner style1 ">
-                                    <div class="item-image">
-                                        <div class="item-img-info">
-                                            <a href="#" target="_self" title="Chicken swinesha ">
-                                                <img src="image/catalog/demo/product/80/5.jpg" alt="Chicken swinesha">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <a href="#" target="_self" title="Chicken swinesha">
-                                                Chicken swinesha
-                                            </a>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                        </div>
-                                        <div class="content_price price">
-                                            <span class="price-new product-price">$45.00 </span>&nbsp;&nbsp;
-
-                                            <span class="price-old">$56.00 </span>&nbsp;
-
-
-
-                                        </div>
-                                    </div>
-                                    <!-- End item-info -->
-                                    <!-- End item-wrap-inner -->
-                                </div>
-                                <!-- End item-wrap -->
-                            </div>
-                        </div>
-                        <!--End extraslider-inner -->
-                    </div>
-                </div>
-            </div>
-            <div class="module banner-left hidden-xs ">
-                <div class="banner-sidebar banners">
-                    <div>
-                        <a title="Banner Image" href="#">
-                            <img src="image/catalog/banners/banner-sidebar.jpg" alt="Banner Image">
-                        </a>
-                    </div>
-                </div>
-            </div>
         </aside>
         <!--Left Part End -->
     </div>

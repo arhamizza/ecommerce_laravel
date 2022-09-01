@@ -7,8 +7,10 @@
     ============================================ -->
     <title>@yield('title')</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
-    <meta name="description" content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
+    <meta name="keywords"
+        content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
+    <meta name="description"
+        content="eMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
     <meta name="author" content="Magentech">
     <meta name="robots" content="index, follow" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -69,13 +71,17 @@
         <!-- Header Container  -->
 
         <!-- //Header Container  -->
-        @include('layout.navbar', ['category' => App\Models\Kategori::all()], ['cart' => App\Models\Cart::where('user_id', Auth::id())->get()]))
+        @include('layout.navbar',
+            ['category' => App\Models\Kategori::all()],
+            ['cart' => App\Models\Cart::where('user_id', Auth::id())->get()])
 
         @yield('contents')
 
         <div class="whatsapp-chat">
-            <a href="https://wa.me/6282234257824?text=Saya%20tertarik%20dengan%20produk%20yang%20Anda%20jual" target="_blank">
-                <img src="{{asset('image/icon/logo-wa-whatsapp.png')}}" alt="whatsapp-logo" height="80px" width="80px">
+            <a href="https://wa.me/6282234257824?text=Saya%20tertarik%20dengan%20produk%20yang%20Anda%20jual"
+                target="_blank">
+                <img src="{{ asset('image/icon/logo-wa-whatsapp.png') }}" alt="whatsapp-logo" height="50px"
+                    width="50px">
             </a>
         </div>
         <!-- Main Container  -->
@@ -84,7 +90,7 @@
 
         <!-- Footer Container -->
         <br>
-        @include('layout.footer'))
+        @include('layout.footer')
 
 
         <!-- //end Footer Container -->
@@ -142,25 +148,26 @@
     ?>
     <link rel='stylesheet' property='stylesheet' href='css/themecss/cpanel.css' type='text/css' media='all' />
     <?php if (isset($ColorScheme)) { ?>
-        <link rel='stylesheet' property='stylesheet' href='css/<?php echo $themeCssName; ?>' type='text/css' media='all' />
+    <link rel='stylesheet' property='stylesheet' href='css/<?php echo $themeCssName; ?>' type='text/css' media='all' />
     <?php } ?>
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title" id="myLargeModalLabel">Skin CSS</h4>
                 </div>
                 <div class="modal-body">
                     <textarea id="getCSSTextarea" class="get-css" readonly=""><?php $fileCssName = !empty($themeCssName) ? $themeCssName : 'theme.css';
-                                                                                echo '/********************************************
-                                                                                ';
-                                                                                echo '*  Color Scheme: ' . $fileCssName;
-                                                                                echo '
-                                                                                ********************************************/
-                                                                                ';
-                                                                                echo file_get_contents('css/' . $fileCssName);
-                                                                                ?>
+                    echo '/********************************************
+                                                                                                    ';
+                    echo '*  Color Scheme: ' . $fileCssName;
+                    echo '
+                                                                                                    ********************************************/
+                                                                                                    ';
+                    echo file_get_contents('css/' . $fileCssName);
+                    ?>
             </textarea>
                 </div>
 
@@ -173,16 +180,18 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/630c4d5f54f06e12d8917429/1gbk0sg7j';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/630c4d5f54f06e12d8917429/1gbk0sg7j';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
         })();
-        </script>
+    </script>
     <!--End of Tawk.to Script-->
 
 
@@ -220,9 +229,9 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (session('status'))
-    <script>
-        swal("Berhasil!", "{{ session('status') }}", "success");
-    </script>
+        <script>
+            swal("Berhasil!", "{{ session('status') }}", "success");
+        </script>
     @endif
     <script type="text/javascript" src="{{ asset('js/themejs/so_megamenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/themejs/addtocart.js') }}"></script>
@@ -618,7 +627,10 @@
                     $('#kelurahan_error').html('');
                 }
 
-                if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error != '' || address1_error != '' || postcode_error != '' || address2_error != '' || provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' || kelurahan_error != '') {
+                if (fname_error != '' || lastname_error != '' || email_error != '' || telephone_error !=
+                    '' || address1_error != '' || postcode_error != '' || address2_error != '' ||
+                    provinsi_error != '' || kabupaten_error != '' || kecamatan_error != '' ||
+                    kelurahan_error != '') {
                     return false;
 
                 } else {
@@ -644,9 +656,10 @@
                             // alert(response.total_price)
                             var options = {
                                 "key": "rzp_test_kWL5A7KzhPXRoc", // Enter the Key ID generated from the Dashboard
-                                "amount": 1*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                "amount": 1 *
+                                100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                                 "currency": "IDR",
-                                "name": response.firstname+' '+response.lastname,
+                                "name": response.firstname + ' ' + response.lastname,
                                 "description": "Terima kasih telah berbelanja",
                                 "image": "https://example.com/your_logo",
                                 // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -656,29 +669,31 @@
                                         type: "POST",
                                         url: "/place-order",
                                         data: {
-                                            'fname':response.firstname,
-                                            'lname':response.lastname,
-                                            'email':response.email,
-                                            'telephone':response.telephone,
-                                            'address1':response.address1,
-                                            'address2':response.address2,
-                                            'postcode':response.postcode,
-                                            'provinsi':response.provinsi,
-                                            'kota':response.kabupaten,
-                                            'kecamatan':response.kecamatan,
-                                            'kelurahan':response.kelurahan,
-                                            'payment_mode':"Paid by RazorPay",
-                                            'payment_id':responsea.razorpay_payment_id,
+                                            'fname': response.firstname,
+                                            'lname': response.lastname,
+                                            'email': response.email,
+                                            'telephone': response.telephone,
+                                            'address1': response.address1,
+                                            'address2': response.address2,
+                                            'postcode': response.postcode,
+                                            'provinsi': response.provinsi,
+                                            'kota': response.kabupaten,
+                                            'kecamatan': response.kecamatan,
+                                            'kelurahan': response.kelurahan,
+                                            'payment_mode': "Paid by RazorPay",
+                                            'payment_id': responsea
+                                                .razorpay_payment_id,
                                         },
-                                        success: function (responseb) {
+                                        success: function(responseb) {
                                             // alert(responseb.status);
                                             swal(responseb.status);
-                                            window.location.href = "/my-orders";
+                                            window.location.href =
+                                                "/my-orders";
                                         }
                                     });
                                 },
                                 "prefill": {
-                                    "name": response.firstname+' '+response.lastname,
+                                    "name": response.firstname + ' ' + response.lastname,
                                     "email": response.email,
                                     "contact": response.telephone
                                 },
@@ -687,7 +702,7 @@
                                 }
                             };
                             var rzp1 = new Razorpay(options);
-                                rzp1.open();
+                            rzp1.open();
                         }
                     });
                 }
@@ -695,9 +710,9 @@
         });
     </script>
 
-    {{--- ========================= PayPal ============================
-         --}}
-    <script src="https://www.paypal.com/sdk/js?client-id=ATXhIG7NuXmmlsxZn_q1ptD1gaUNO-PkLttMv1rlBozAOwEUSzBwZhyjm_hzHYNne831-PVYaoqfnxCF"
+    {{-- - ========================= PayPal ============================ --}}
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ATXhIG7NuXmmlsxZn_q1ptD1gaUNO-PkLttMv1rlBozAOwEUSzBwZhyjm_hzHYNne831-PVYaoqfnxCF"
         data-sdk-integration-source="integrationbuilder"></script>
     <script>
         const paypalButtonsComponent = paypal.Buttons({
@@ -730,41 +745,41 @@
                     // const payerName = details.payer.name.given_name;
                     // console.log('Transaction completed');
 
-                var firstname = $('.firstname').val();
-                var lastname = $('.lastname').val();
-                var email = $('.email').val();
-                var telephone = $('.telephone').val();
-                var address1 = $('.address1').val();
-                var postcode = $('.postcode').val();
-                var address2 = $('.address2').val();
-                var provinsi = $('.provinsi').val();
-                var kabupaten = $('.kabupaten').val();
-                var kecamatan = $('.kecamatan').val();
-                var kelurahan = $('.kelurahan').val();
+                    var firstname = $('.firstname').val();
+                    var lastname = $('.lastname').val();
+                    var email = $('.email').val();
+                    var telephone = $('.telephone').val();
+                    var address1 = $('.address1').val();
+                    var postcode = $('.postcode').val();
+                    var address2 = $('.address2').val();
+                    var provinsi = $('.provinsi').val();
+                    var kabupaten = $('.kabupaten').val();
+                    var kecamatan = $('.kecamatan').val();
+                    var kelurahan = $('.kelurahan').val();
 
                     $.ajax({
                         type: "POST",
                         url: "/place-order",
                         data: {
-                        'fname':firstname,
-                        'lname':lastname,
-                        'email':email,
-                        'telephone':telephone,
-                        'address1':address1,
-                        'address2':address2,
-                        'postcode':postcode,
-                        'provinsi':provinsi,
-                        'kota':kabupaten,
-                        'kecamatan':kecamatan,
-                        'kelurahan':kelurahan,
-                        'payment_mode':"Paid by PayPal",
-                        'payment_id':details.id,
+                            'fname': firstname,
+                            'lname': lastname,
+                            'email': email,
+                            'telephone': telephone,
+                            'address1': address1,
+                            'address2': address2,
+                            'postcode': postcode,
+                            'provinsi': provinsi,
+                            'kota': kabupaten,
+                            'kecamatan': kecamatan,
+                            'kelurahan': kelurahan,
+                            'payment_mode': "Paid by PayPal",
+                            'payment_id': details.id,
                         },
-                        success: function (response) {
-                        // alert(responseb.status);
-                        swal(response.status);
-                        window.location.href = "/my-orders";
-                            }
+                        success: function(response) {
+                            // alert(responseb.status);
+                            swal(response.status);
+                            window.location.href = "/my-orders";
+                        }
                     });
                 };
 
@@ -785,20 +800,19 @@
     </script>
     <script>
         var availableTags = [];
-            $.ajax({
-                type: "GET",
-                url: "/product-list",
-                success: function (response) {
-                    console.log(response);
-                    startAutoComplete(response);
-                }
-            });
+        $.ajax({
+            type: "GET",
+            url: "/product-list",
+            success: function(response) {
+                console.log(response);
+                startAutoComplete(response);
+            }
+        });
 
-            function startAutoComplete(availableTags)
-            {
-                $( "#search_product" ).autocomplete({
-                    source: availableTags
-                });
+        function startAutoComplete(availableTags) {
+            $("#search_product").autocomplete({
+                source: availableTags
+            });
         }
     </script>
 </body>
