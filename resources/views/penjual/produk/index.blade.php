@@ -28,8 +28,8 @@
                                 <img src="{{ asset('atmin/assets/uploads/produk/' . $item->image) }}" alt="Image here">
                             </td>
                             <td>
-                                <a href="{{ url('edit-produk/'.$item->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{ url('hapus-produk/'.$item->id)}}" class="btn btn-primary">Delete</a href="">
+                                <a href="{{ url('edit-produk2/'.$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('hapus-produk2/'.$item->id)}}" class="btn btn-primary">Delete</a href="">
                             </td>
                         </tr>
                     @endforeach

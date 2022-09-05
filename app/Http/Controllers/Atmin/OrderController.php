@@ -55,7 +55,7 @@ class OrderController extends Controller
         $orders = Order::find($id);
         $orders->status = $request->input('order_status');
         $orders->update();
-        return redirect('orders')->with('status',"Update Order Berhasil!");
+        return redirect('orders2')->with('status',"Update Order Berhasil!");
     }
 
     public function orderhistorypenjual()

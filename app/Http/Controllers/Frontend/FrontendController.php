@@ -49,9 +49,10 @@ class FrontendController extends Controller
     public function productview($cate_slug, $prod_slug)
     {
         $category = Kategori::where('status', '1')->get();
+
         if (Kategori::where('slug', $cate_slug)->exists()) {
             $kategori = Kategori::where('slug', $cate_slug)->first();
-            $produk2 = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
+            $produk2 = Produk::where('cate_id', $kategori->id)->where('status', '1')->Paginate(5);
             if (Produk::where('slug', $prod_slug)->exists()) {
                 $produk = Produk::where('slug', $prod_slug)->first();
                 $rating = Rating::where('prod_id', $produk->id)->get();
@@ -64,7 +65,7 @@ class FrontendController extends Controller
                 }
 
 
-                // var_dump($rating);
+            
                 return view('frontend.produk.view', compact('produk', 'kategori', 'produk2', 'rating', 'rating_value', 'user_rating','category'));
             } else {
                 return redirect('/')->with('status', "The link was broken");

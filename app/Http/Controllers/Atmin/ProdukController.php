@@ -140,15 +140,16 @@ class produkController extends Controller
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
         $produk->save();
-        return redirect('/dashboard')->with('status', "produk Berhasil Ditambahkan!");
+        return redirect('/produk2')->with('status', "produk Berhasil Ditambahkan!");
     }
-
+    
     public function editpenjual($id)
     {
         $produk = produk::find($id);
         return view('penjual.produk.edit', compact('produk'));
     }
 
+    
     public function updatepenjual(Request $request, $id)
     {
         $produk = produk::find($id);
@@ -179,7 +180,7 @@ class produkController extends Controller
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
         $produk->save();
-        return redirect('produk')->with('status',"produk telah di update!");
+        return redirect('produk2')->with('status',"produk telah di update!");
     }
     public function destroypenjual($id)
     {
@@ -193,7 +194,8 @@ class produkController extends Controller
             }
         }
         $produk->delete();
-        return redirect('produk')->with('status',"Produk berhasil dihapus!");
+        return redirect('produk2')->with('status',"Produk berhasil dihapus!");
     }
+
 
 }

@@ -9,7 +9,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ url('insert-produk') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('insert-produk2') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">

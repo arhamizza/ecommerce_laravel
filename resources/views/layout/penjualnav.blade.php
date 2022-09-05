@@ -46,7 +46,7 @@
 
                     <li class="nav-item nav-category">Main</li>
                     <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <a href="{{ url('dashboard') }}" class="nav-link">
+                        <a href="{{ url('penjual2') }}" class="nav-link">
                             <i class="link-icon" data-feather="box"></i>
                             <span class="link-title">Dashboard</span>
                         </a>
@@ -62,13 +62,13 @@
                         <div class="collapse" id="uiComponents">
                             <ul class="nav sub-menu">
                                 <li class="nav-item {{ Request::is('produk') ? 'active' : '' }} ">
-                                    <a href="{{ url('produk') }}" class="nav-link">
+                                    <a href="{{ url('produk2') }}" class="nav-link">
                                         <i class="link-icon" data-feather="message-square"></i>
                                         <span class="link-title">Halaman Produk</span>
                                     </a>
                                 </li>
                                 <li class="nav-item {{ Request::is('tambah-produk') ? 'active' : '' }}">
-                                    <a href="{{ url('tambah-produk') }}" class="nav-link">
+                                    <a href="{{ url('tambah-produk2') }}" class="nav-link">
                                         <i class="link-icon" data-feather="calendar"></i>
                                         <span class="link-title">Tambah Produk</span>
                                     </a>
@@ -82,7 +82,7 @@
 
 
                     <li class="nav-item {{ Request::is('orders') ? 'active' : '' }}">
-                        <a href="{{ url('orders') }}" class="nav-link">
+                        <a href="{{ url('orders2') }}" class="nav-link">
                             <i class="link-icon" data-feather="archive"></i>
                             <span class="link-title">List Order</span>
                         </a>

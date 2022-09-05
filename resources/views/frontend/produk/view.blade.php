@@ -1,4 +1,3 @@
-
 @extends('layout.core')
 @section('title', 'Produk')
 @section('contents')
@@ -169,7 +168,7 @@
                                 <h2>Happy customer says</h2>
                             </div>
 
-                            <div class="yt-content-slider sm_imageslider slider-happy-client" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1"  data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                            <div class="yt-content-slider sm_imageslider slider-happy-client" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
                                 <div class="item">
                                     <div class="ct-why">
                                         <div class="client-say">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis neque eget nulla. Curabitur dictum consectetur metus nec dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis.</div>
@@ -201,14 +200,14 @@
                                                 <td colspan="2">
                                                     <p>{{ $rat->review }}</p>
 
-                                                            <div class="ratings">
-                                                                <div class="rating-box">
-                                                                    @for ($i =1; $i<= $rat->stars_rated; $i++) <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                                        @endfor
-                                                                        @for ($j =$rat->stars_rated+1; $j<= 5; $j++) <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                                                            @endfor
-                                                                </div>
-                                                            </div>
+                                                    <div class="ratings">
+                                                        <div class="rating-box">
+                                                            @for ($i =1; $i<= $rat->stars_rated; $i++) <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                                @endfor
+                                                                @for ($j =$rat->stars_rated+1; $j<= 5; $j++) <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                    @endfor
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -238,8 +237,7 @@
                                                 <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
                                                 <label for="rating{{$i}}" class="fa fa-star"></label>
                                                 @endfor
-                                                @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++)
-                                                <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
+                                                @for ($j = $user_rating->stars_rated+1; $j <= 5; $j++) <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
                                                     <label for="rating{{$j}}" class="fa fa-star"></label>
                                                     @endfor
 
@@ -313,6 +311,7 @@
                                         </a>
                                     </div>
 
+
                                     <div class="button-group so-quickview cartinfo--left">
                                         <button type="button" class="addToCart btn-button" title="Add to cart" onclick="cart.add('60 ');"> <i class="fa fa-shopping-basket"></i>
                                             <span>Add to cart </span>
@@ -345,6 +344,27 @@
                     </div>
                     @endforeach
                 </div>
+                <h4> Halaman : {{ $produk2->currentPage() }} <br /></h4>
+
+
+                @if(isset($produk2))
+                @if($produk2->currentPage() > 1)
+
+                <button type="button" data-toggle="tooltip" title="Previous" class="btn btn-primary text-light"> 
+                    <a class="text-white bg-primary" href="{{ $produk2->previousPageUrl() }}">Previous</a></button>
+
+                </button>
+                @endif
+
+                @if($produk2->hasMorePages())
+
+                <button type="button" data-toggle="tooltip" title="Next" class="btn btn-primary text-light"> 
+                    <a class="text-white bg-primary" href="{{ $produk2->nextPageUrl() }}">Next</a></button>
+
+                </button>
+                @endif
+                @endif
+
             </div>
             <!-- end Related  Products-->
 
@@ -356,20 +376,20 @@
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3 content-aside" id="column-left">
 
-				<div class="module category-style">
-                	<h3 class="modtitle">Categories</h3>
-                	<div class="modcontent">
-                		<div class="box-category">
-                			<ul id="cat_accordion" class="list-group">
+            <div class="module category-style">
+                <h3 class="modtitle">Categories</h3>
+                <div class="modcontent">
+                    <div class="box-category">
+                        <ul id="cat_accordion" class="list-group">
                             @foreach ($category as $kat)
-                            <li class=""><a href="{{ url('view-category/' . $kat->slug) }}" class="cutom-parent">{{ $kat->nama }}</a>  <span class="dcjq-icon"></span></li>
+                            <li class=""><a href="{{ url('view-category/' . $kat->slug) }}" class="cutom-parent">{{ $kat->nama }}</a> <span class="dcjq-icon"></span></li>
                             @endforeach
-                			</ul>
-                		</div>
+                        </ul>
+                    </div>
 
 
-                	</div>
                 </div>
+            </div>
 
 
         </aside>
@@ -379,4 +399,3 @@
 </div>
 <!-- //Main Container -->
 @endsection
-

@@ -1,4 +1,4 @@
-@extends('layout.atmin')
+@extends('layout.penjualnav')
 @section('title', 'List Order')
 @section('contents')
     <div class="card">
@@ -27,7 +27,7 @@
                                     <td >Rp {{number_format($item->total_price)}}</td>
                                     <td >{{$item->status == '0' ? 'Pending' : 'Completed'}}</td>
                                     <td style="text-align:center">
-                                        <a href="{{url('admin/view-order/'.$item->id)}}" class="btn btn-primary" >View</a>
+                                        <a href="{{url('admin/view-order2/'.$item->id)}}" class="btn btn-primary" >View</a>
                                     </td>
 
                                 </tr>

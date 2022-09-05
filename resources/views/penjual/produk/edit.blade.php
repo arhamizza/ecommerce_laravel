@@ -9,7 +9,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ url('update-produk/' . $produk->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('update-produk2/' . $produk->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="col-md-12 mb-3">

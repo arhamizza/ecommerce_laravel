@@ -30,7 +30,7 @@ class AdminMiddleware
         }
         else
         {
-            return redirect('/')->with('status','Mohon Login!');
+            return redirect('/login')->with('status','Mohon Login!');
         }
     }
 }

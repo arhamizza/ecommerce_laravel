@@ -1,4 +1,4 @@
-@extends('layout.atmin')
+@extends('layout.penjualnav')
 @section('title', 'Detail Orders')
 @section('contents')
 
@@ -67,7 +67,7 @@
                                 <label for="">
                                     <h6>Order Status :</h6>
                                 </label>
-                                <form action="{{url('update-order/'.$orders->id)}}" method="POST">
+                                <form action="{{url('update-order2/'.$orders->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
