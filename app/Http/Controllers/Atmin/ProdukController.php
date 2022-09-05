@@ -7,13 +7,15 @@ use App\Models\Kategori;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class produkController extends Controller
 {
     public function index()
     {
-        $produk = produk::all();
+        $produk = produk::where('user_id', Auth::id())->get();
         return view('atmin.produk.index', compact('produk'));
+
     }
 
     public function add()
@@ -46,6 +48,7 @@ class produkController extends Controller
         $produk->meta_title = $request->input('meta_title');
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
+        $produk->user_id = Auth::id();
         $produk->save();
         return redirect('/dashboard')->with('status', "produk Berhasil Ditambahkan!");
     }
@@ -85,6 +88,7 @@ class produkController extends Controller
         $produk->meta_title = $request->input('meta_title');
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
+        $produk->user_id = Auth::id();
         $produk->save();
         return redirect('produk')->with('status',"produk telah di update!");
     }
@@ -105,8 +109,9 @@ class produkController extends Controller
 
     public function indexpenjual()
     {
-        $produk = produk::all();
+        $produk = produk::where('user_id', Auth::id())->get();
         return view('penjual.produk.index', compact('produk'));
+      
     }
 
     public function addpenjual()
@@ -139,6 +144,7 @@ class produkController extends Controller
         $produk->meta_title = $request->input('meta_title');
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
+        $produk->user_id = Auth::id();
         $produk->save();
         return redirect('/produk2')->with('status', "produk Berhasil Ditambahkan!");
     }
@@ -179,6 +185,7 @@ class produkController extends Controller
         $produk->meta_title = $request->input('meta_title');
         $produk->meta_keyword = $request->input('meta_keyword');
         $produk->meta_description = $request->input('meta_description');
+        $produk->user_id = Auth::id();
         $produk->save();
         return redirect('produk2')->with('status',"produk telah di update!");
     }

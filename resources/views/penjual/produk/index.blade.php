@@ -17,10 +17,12 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody><?php 
+                        $id = 0;
+                    ?>
                     @foreach ($produk as $item)
                         <tr>
-                            <td>{{ $item->id }}</td>
+                            <td>{{ $id++ +1 }}</td>
                             <td>{{ $item->kategori->nama }}</td>
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->selling_price }}</td>

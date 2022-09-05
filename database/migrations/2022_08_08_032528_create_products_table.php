@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('meta_title');
             $table->mediumText('meta_keyword');
             $table->mediumText('meta_description');
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

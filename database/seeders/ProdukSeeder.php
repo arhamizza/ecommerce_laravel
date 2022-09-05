@@ -33,6 +33,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "pisau buah",
             "meta_keyword" => "pisau,buah,stainless steel,stainless,steel",
             "meta_description" => "macam-macam pisau,pisau tajam,pisau stainless steel",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '1',
@@ -50,6 +51,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "kompor rinnai",
             "meta_keyword" => "kompor, kompor gas, rinnai, stainless steel",
             "meta_description" => "macam macam kompor merek rinnai",
+            "user_id" => 1,
             ],
 
 
@@ -70,6 +72,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Philips Air Purifier 1000",
             "meta_keyword" => "philips, air purifier, purifier, pendingin ruangan",
             "meta_description" => "macam macam alat elektronik pendingin ruangan",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '2',
@@ -87,6 +90,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Toshiba LED TV",
             "meta_keyword" => "TV, Thosiba, TV thosiba, TV Box",
             "meta_description" => "macam-macam TV merek Toshiba",
+            "user_id" => 1,
             ],
 
 
@@ -107,6 +111,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Mukena Zianisa Border",
             "meta_keyword" => "mukena, alat sholat",
             "meta_description" => "macam-macam mukena untuk sholat",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '3',
@@ -124,6 +129,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Hodie Sweater",
             "meta_keyword" => "hodie, hodie polos, sweater, jaket, jaket wanita, jaket pria",
             "meta_description" => "macam-macam hodie dan sweater",
+            "user_id" => 1,
             ],
 
 
@@ -144,6 +150,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "",
             "meta_keyword" => "",
             "meta_description" => "",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '4',
@@ -161,6 +168,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Detektif Conan",
             "meta_keyword" => "kartun, detektif conan",
             "meta_description" => "macam-macam buku komik dan kartun",
+            "user_id" => 1,
             ],
 
 
@@ -181,6 +189,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Luxury Wall Decoration 3D",
             "meta_keyword" => "dekorasi, hiasan, dekorasi tembok, hiasan dinding",
             "meta_description" => "macam macam dekorasi tembok rumah",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '5',
@@ -198,6 +207,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Rak Dinding Besi Dekorasi",
             "meta_keyword" => "dekorasi, rak, rak dinding, hiasan, dekorasi tembok, hiasan dinding",
             "meta_description" => "macam macam dekorasi tembok atau dinding rumah",
+            "user_id" => 1,
             ],
 
 
@@ -218,6 +228,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Gitar Akustik",
             "meta_keyword" => "Gitar, Akustik, Musik, Alat music",
             "meta_description" => "Kebutuhan hobi alat musik",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '6',
@@ -235,6 +246,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Gundam Transformers",
             "meta_keyword" => "gundam, transformers, rakit gundam",
             "meta_description" => "macam-macam mainan gundam",
+            "user_id" => 1,
             ],
 
 
@@ -255,6 +267,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Mouse Gaming AULA S20",
             "meta_keyword" => "mouse, gaming, mouse gaming",
             "meta_description" => "macam-macam perlengkapan gaming",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '7',
@@ -272,6 +285,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Keybord Mouse Converter Controller Set",
             "meta_keyword" => "Gaming mobile, converter mobile, converter keybord, converter mouse",
             "meta_description" => "macam-macam perlengkapan gaming",
+            "user_id" => 1,
             ],
 
 
@@ -292,6 +306,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Xiaomi 12 Pro 12/256 Blue",
             "meta_keyword" => "Xioami, smartphone, xioami 12 pro, handphone",
             "meta_description" => "macam-macam handphone berbagai merek",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '8',
@@ -309,6 +324,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Samsung Galay Z Fold 3 5G",
             "meta_keyword" => "samsung, smartphone, z fold, handphone",
             "meta_description" => "macam-macam smartphone berbagai merek",
+            "user_id" => 1,
             ],
 
 
@@ -330,6 +346,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "MS Glow Men Paket Maskulin",
             "meta_keyword" => "Ms Glow, Alat Kecantikan, Kecantikan, Skincare, Facial Wash",
             "meta_description" => "macam-macam kebutuhan perawatan wajah",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '9',
@@ -347,6 +364,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Whitening Day Cream Ms Glow",
             "meta_keyword" => "Ms Glow, Alat Kecantikan, Kecantikan, Skincare, Facial Wash, Whitening Cream",
             "meta_description" => "macam-macam kebutuhan kecantikan",
+            "user_id" => 1,
             ],
 
         //KESEHATAN
@@ -366,6 +384,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Masker Softies Duckshape",
             "meta_keyword" => "masker, kesehatan, masker duckshape",
             "meta_description" => "macam-macam kebutuhan kesehatan",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '10',
@@ -383,6 +402,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Vitalife Vitamin C",
             "meta_keyword" => "vitamin, suplemen tubuh, vitamin c, daya tahan tubuh",
             "meta_description" => "macam-macam kebutuhan penunjang kesehatan",
+            "user_id" => 1,
             ],
 
 
@@ -403,6 +423,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "HP Victus 15-fa0011TX i5-12500H",
             "meta_keyword" => "laptop, merek hp, laptop HP",
             "meta_description" => "macam-macam laptop berbagai merek",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '11',
@@ -420,6 +441,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "PC Gaming Dan Editing",
             "meta_keyword" => "gaming, editing, PC, komputer, komputer rakitan, PC rakit",
             "meta_description" => "macam-macam komputer atau PC untuk berbagai kebutuhan",
+            "user_id" => 1,
             ],
 
 
@@ -440,6 +462,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Emas Antam 10 Gram",
             "meta_keyword" => "emas, logam mulia, perhiasan",
             "meta_description" => "macam-macam logam mulia",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '12',
@@ -457,6 +480,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Perak Asli Srh 100g",
             "meta_keyword" => "perak, perhiasan, logam mulia",
             "meta_description" => "macam-macam logam mulia",
+            "user_id" => 1,
             ],
 
 
@@ -477,6 +501,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Pentonic-BRT-Pulpen",
             "meta_keyword" => "bulpoint, pulpen, alat tulis",
             "meta_description" => "macam-macam alat tulis",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '14',
@@ -494,6 +519,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Pensil Faber Castell",
             "meta_keyword" => "pensil, alat tulis, faber castel",
             "meta_description" => "macam-macam alat tulis",
+            "user_id" => 1,
             ],
 
 
@@ -514,6 +540,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Treadmill Listrik MultiFungsi",
             "meta_keyword" => "alat olahraga, lari, treadmill",
             "meta_description" => "macam macam alat olahraga",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '15',
@@ -531,6 +558,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "SVARGA Resistance Band",
             "meta_keyword" => "svarga, resistance band, alat olahraga",
             "meta_description" => "macam-macam alat olahraga",
+            "user_id" => 1,
             ],
 
 
@@ -551,6 +579,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "SEAMETAL Sealing Strip Rubber",
             "meta_keyword" => "sealing mobil, rubber sealing, alat otomotif, perlengkapan otomotif",
             "meta_description" => "macam-macam perlengkapan otomotif",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '16',
@@ -568,6 +597,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Clavis Hook Offroud",
             "meta_keyword" => "clavis hoot, offroad, otomotif, alat hook",
             "meta_description" => "macam macam alat otomotif",
+            "user_id" => 1,
             ],
 
 
@@ -588,6 +618,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Pet Pedicure",
             "meta_keyword" => "pedicure, kuku, anjing, perawatan hewan",
             "meta_description" => "macam-macam kebutuhan perawatan hewan",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '17',
@@ -605,6 +636,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Pet Dental Finger",
             "meta_keyword" => "pet dental, anjing, gigi anjing, perawatan hewan",
             "meta_description" => "macam-macam kebutuhan perawatan hewan",
+            "user_id" => 1,
             ],
 
 
@@ -625,6 +657,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Scraping Face",
             "meta_keyword" => "scraping wajah, alat scraping, perawatan tubuh, perawatan wajah",
             "meta_description" => "macam-macam alat perawatan tubuh",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '18',
@@ -642,6 +675,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Healthy Care FISH OIL 1000mg",
             "meta_keyword" => "kulit, kesehatan, wajah, tubuh",
             "meta_description" => "macam-macam alat perawatan tubuh",
+            "user_id" => 1,
             ],
 
 
@@ -662,6 +696,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Balon Foil Kuda Unicorn",
             "meta_keyword" => "pesta, balon, unicorn, alat pesta",
             "meta_description" => "macam-macam perlengkapan pesta",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '19',
@@ -679,6 +714,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Scented Candle",
             "meta_keyword" => "lilin, candle, lilin pesta, lilin aroma terapi",
             "meta_description" => "macam-macam perlengkapan pesta",
+            "user_id" => 1,
             ],
 
 
@@ -699,6 +735,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Cutting Disc",
             "meta_keyword" => "cutting disc, alat pemotong, alat tukang",
             "meta_description" => "macam-macam perlengkapan tukang",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '20',
@@ -716,6 +753,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Mesin Serut Kayu",
             "meta_keyword" => "mesin serut, alat tukang",
             "meta_description" => "macam-macam perlengkapan tukang",
+            "user_id" => 1,
             ],
 
 
@@ -736,6 +774,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Vacuum Cleaner Portable",
             "meta_keyword" => "vacum, vacum cleaner, pembersih lantai",
             "meta_description" => "macam-macam perlengkapan rumah tangga",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '21',
@@ -753,6 +792,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Kleaner Tornado Mop",
             "meta_keyword" => "alat pel lantai, pembersih lantai",
             "meta_description" => "macam-macam perlengkapan rumah tangga",
+            "user_id" => 1,
             ],
 
 
@@ -773,6 +813,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Tas Sepeda Motor Touring",
             "meta_keyword" => "tas, tas sepeda motor, tas touring",
             "meta_description" => "macam-macam perlengkapan touring",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '22',
@@ -796,6 +837,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Thailand Phuket Paradise",
             "meta_keyword" => "traveling, liburan",
             "meta_description" => "macam-macam paket wisata traveling",
+            "user_id" => 1,
             ],
 
 
@@ -816,6 +858,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Japanese Hampers Wedding",
             "meta_keyword" => "wedding, hadiah wedding, hampers wedding",
             "meta_description" => "macam-macam aksesoris wedding",
+            "user_id" => 1,
             ],
             [
             "cate_id" => '23',
@@ -833,6 +876,7 @@ class ProdukSeeder extends Seeder
             "meta_title" => "Dekorasi Lamaran Standing Flower",
             "meta_keyword" => "standing lampu, lampu wedding, perlengkapan wedding, aksesoris wedding",
             "meta_description" => "macam-macam aksesoris wedding",
+            "user_id" => 1,
             ],
 
         ];
@@ -853,6 +897,7 @@ class ProdukSeeder extends Seeder
                 'meta_title' => $value['meta_title'],
                 'meta_description' => $value['meta_description'],
                 'meta_keyword' => $value['meta_keyword'],
+                'user_id' => $value['user_id'],
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);

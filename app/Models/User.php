@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Village::class, 'kelurahan','id');
     }
+
+    public function produk()
+    {
+        return $this->belongsTo(prodz::class, 'role_as','role_as');
+    }
 }

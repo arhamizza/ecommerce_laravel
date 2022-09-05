@@ -24,11 +24,13 @@ class Produk extends Model
         'trending',
         'meta_title',
         'meta_keywords',
-        'meta_description'
+        'meta_description',
+        'role_id'
     ];
 
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'cate_id','id');
     }
+    
 }
