@@ -28,7 +28,7 @@
                         @if (Route::has('register'))
                         <li class="hidden-xs">
                             <a href="{{ route('register') }}">
-                                <i class="fa fa-lock"></i>{{ __('register') }}</a>
+                                <i class="fa fa-lock"></i>{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
@@ -125,15 +125,11 @@
                             </a>
 
                             <ul class="dropdown-menu pull-right shoppingcart-box " role="menu">
-                                <li class="c">
+                                <li class="c cartitems">
                                     <table class="table table-striped ">
                                         <tbody>
-                                            @php
-                                            $total = 0;
-                                            $totalcheck = 0;
-                                            @endphp
                                             @foreach($cart as $item)
-                                            <tr class="product_data">
+                                            <tr class="product_data ">
                                                 <td class="text-center" style="width:70px">
                                                     <a href="product.html">
                                                         <img src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}" style="width:100px" alt="{{ $item->products->nama }}" title="{{ $item->products->nama }}" class="preview">
@@ -143,15 +139,11 @@
                                                 <input type="hidden" class="prod_id" value="{{$item->prod_id}}">
                                                 <td class="text-left"> <a class="cart_product_name" href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}">{{ $item->products->nama }}</a>
                                                 </td>
-                                                @php
-                                                $total = $item->products->selling_price * $item->prod_qty;
-                                                $totalcheck += $item->products->selling_price * $item->prod_qty;
-                                                @endphp
                                                 @else
                                                 <h6>Out of Stock</h6>
                                                 @endif
                                                 <td class="text-center">x{{$item->prod_qty}}</td>
-                                                <td class="text-center">Rp {{ number_format($total)}}</td>
+                                                <td class="text-center">{{$item->products->selling_price}}</td>
                                                 <td class="text-right">
                                                     <a href="product.html" class="fa fa-edit"></a>
                                                 </td>
@@ -166,16 +158,6 @@
                                 </li>
                                 <li>
                                     <div>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-left"><strong>Total</strong>
-                                                    </td>
-                                                    <td class="text-right">Rp {{ number_format($totalcheck)}}</td>
-                                                </tr>
-                                            </tbody>
-
-                                        </table>
                                         <p class="text-right"> <a class="btn view-cart" href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>Lihat
                                                 Keranjang</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="{{ url('checkout') }}"><i class="fa fa-share"></i>Checkout</a>
                                         </p>

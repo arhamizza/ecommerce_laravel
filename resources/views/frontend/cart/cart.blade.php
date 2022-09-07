@@ -63,7 +63,7 @@
                                     $totalcheck += $item->products->selling_price * $item->prod_qty;
                                     $tax = $item->prod_qty * $item->products->tax;
                                     $taxtotal += $item->products->tax * $item->prod_qty;
-                                    $totalseluruh = $totalcheck - $taxtotal ;
+                                    $totalseluruh = $totalcheck + $taxtotal ;
                                     @endphp
                                     @else
                                         <h6>Out of Stock</h6>

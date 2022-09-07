@@ -293,6 +293,8 @@
                 success: function(response) {
                     swal(response.status);
                     loadcart();
+                     $('.cartitems').load(location.href + " .cartitems");
+                    
                 }
             });
 
