@@ -70,11 +70,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-md-4 col-form-label text-md-end">Pilih Kategori</label>
+                            <label for="" class="col-md-4 col-form-label text-md-end">Ingin mendaftar sebagai apa?</label>
                             <div class="col-sm-10">
                             <select class="form-select col-sm-4" name="role_as" >
-                                <option value="0">pembeli</option>
-                                <option value="2">penjual</option>
+                                <option value="0">Pembeli</option>
+                                <option value="2">Penjual</option>
                             </select>
                             </div>
                         </div>

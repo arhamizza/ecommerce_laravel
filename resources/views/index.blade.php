@@ -190,7 +190,7 @@
                                                         @if ($prod->qty > 0)
                                                             <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
                                                             @endif
-                                                            <button type="button" class="addToCart addToWishlist"><i class="fa fa fa-heart"></i> Add to Wish List</button>
+                                                            <button class="btn-button addToWishlist" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
                                                         </div>
 
                                                         <div class="form-group box-info-product">
@@ -267,24 +267,15 @@
                                         <div class="right-block ">
                                             <div class="caption">
                                                 <h4><a href="#" target="_self" title="Ground round enim">{{$item->nama}}</a></h4>
-                                                <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                </div>
 
-
-                                                <p class="price"> <span class="price-new">$66.00</span>
-                                                    <span class="price-old">$76.00</span>
+                                                <p class="price"> <span class="price-new">{{number_format($item->selling_price)}}</span>
+                                                    <span class="price-old">{{number_format($item->original_price)}}</span>
                                                 </p>
                                                 <div class="button-group">
                                                     @if ($prod->qty > 0)
                                                             <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
                                                             @endif
-                                                    <button class="btn-button addToWishlist" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Add to Wish List</span>
-                                                    </button>
+                                                    <button class="btn-button addToWishlist" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
 
                                                 </div>
 
