@@ -116,6 +116,7 @@
                                 </div>
 
                                 <div class="form-group box-info-product">
+                                @if ($produk->qty > 0)
                                     <div class="option quantity">
                                         <div class="input-group quantity-control" style="-webkit-user-select: none;">
                                             <input type="hidden" value="{{$produk->id}}" class="prod_id">
@@ -126,11 +127,11 @@
                                         </div>
                                     </div>
                                     <div class="cart">
-                                        @if ($produk->qty > 0)
+                                        
                                         <button type="button" class="btn btn-mega btn-lg addToCartBtn float-start"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
-                                        @endif
+                                        
                                     </div>
-
+                                    @endif
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="wishlist">

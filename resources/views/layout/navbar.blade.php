@@ -17,16 +17,7 @@
                 </div>
                 <div class="header-top-right collapsed-block col-lg-6 col-md-8 col-sm-6 col-xs-5">
                     <ul class="top-link list-inline">
-                        @if (Auth::user()->role_as == '2')
-                        <li class="hidden-xs">
-                            <a href="{{ url('/penjual') }}" class="hidden-xs">Halaman Penjual</a>
-                        </li>
 
-                        @elseif(Auth::user()->role_as == '1')
-                        <li class="hidden-xs">
-                            <a href="{{ url('/dashboard') }}" class="hidden-xs">Halaman Admin</a>
-                        </li>
-                        @endif
 
                         @guest
                             @if (Route::has('login'))
@@ -43,6 +34,16 @@
                                 </li>
                             @endif
                         @else
+                                                @if (Auth::user()->role_as == '2')
+                        <li class="hidden-xs">
+                            <a href="{{ url('/penjual') }}" class="hidden-xs">Halaman Penjual</a>
+                        </li>
+
+                        @elseif(Auth::user()->role_as == '1')
+                        <li class="hidden-xs">
+                            <a href="{{ url('/dashboard') }}" class="hidden-xs">Halaman Admin</a>
+                        </li>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
