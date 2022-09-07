@@ -28,10 +28,10 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                        <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
                         <div class="form-group required">
                             <div class="col-sm-10">
-                                <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -67,6 +67,15 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
                             <div class="col-sm-10">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-4 col-form-label text-md-end">Pilih Kategori</label>
+                            <div class="col-sm-10">
+                            <select class="form-select col-sm-4" name="role_as" >
+                                <option value="0">pembeli</option>
+                                <option value="2">penjual</option>
+                            </select>
                             </div>
                         </div>
                     </div>

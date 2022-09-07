@@ -131,7 +131,7 @@
                                             @foreach($cart as $item)
                                             <tr class="product_data ">
                                                 <td class="text-center" style="width:70px">
-                                                    <a href="product.html">
+                                                    <a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}" >
                                                         <img src="{{ asset('atmin/assets/uploads/produk/' . $item->products->image) }}" style="width:100px" alt="{{ $item->products->nama }}" title="{{ $item->products->nama }}" class="preview">
                                                     </a>
                                                 </td>
@@ -143,9 +143,9 @@
                                                 <h6>Out of Stock</h6>
                                                 @endif
                                                 <td class="text-center">x{{$item->prod_qty}}</td>
-                                                <td class="text-center">{{$item->products->selling_price}}</td>
+                                                <td class="text-center">{{number_format($item->products->selling_price)}}</td>
                                                 <td class="text-right">
-                                                    <a href="product.html" class="fa fa-edit"></a>
+                                                    <a href="{{url('view-category/' .$item->products->kategori->slug. '/' .$item->products->slug) }}" class="fa fa-edit"></a>
                                                 </td>
                                                 <td class="text-right">
                                                     <a onclick="cart.remove('2');" class="fa fa-times fa-delete delete-cart-item"></a>
