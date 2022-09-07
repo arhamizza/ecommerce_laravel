@@ -33,6 +33,9 @@
                             @php
                             $total = 0;
                             $totalcheck = 0;
+                            $tax = 0;
+                            $taxtotal = 0;
+                            $totalseluruh =0;
                             @endphp
                             @foreach ($cartitems as $item)
                                 <tr class="product_data">
@@ -58,15 +61,18 @@
                                     @php
                                     $total = $item->products->selling_price * $item->prod_qty;
                                     $totalcheck += $item->products->selling_price * $item->prod_qty;
+                                    $tax = $item->prod_qty * $item->products->tax;
+                                    $taxtotal += $item->products->tax * $item->prod_qty;
+                                    $totalseluruh = $totalcheck - $taxtotal ;
                                     @endphp
                                     @else
                                         <h6>Out of Stock</h6>
                                     @endif
 
                                     </td>
-                                    <td class="text-left">Rp. {{$item->products->selling_price}}</td>
+                                    <td class="text-left">Rp. {{number_format($item->products->selling_price)}}</td>
 
-                                    <td class="text-left">Rp. {{$total}}</td>
+                                    <td class="text-left">Rp. {{number_format($total)}}</td>
                                     <td class="text-center"><button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger delete-cart-item "><i class="fa fa-times-circle"></i></button></td>
                                 </tr>
                         </tbody>
@@ -82,31 +88,19 @@
                                     <td class="text-right">
                                         <strong>Sub-Total:</strong>
                                     </td>
-                                    <td class="text-right">Rp. {{$totalcheck}}</td>
+                                    <td class="text-right">Rp. {{number_format($totalcheck)}}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-right">
-                                        <strong>Flat Shipping Rate:</strong>
+                                        <strong>Tax:</strong>
                                     </td>
-                                    <td class="text-right">$4.69</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-right">
-                                        <strong>Eco Tax (-2.00):</strong>
-                                    </td>
-                                    <td class="text-right">$5.62</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-right">
-                                        <strong>VAT (20%):</strong>
-                                    </td>
-                                    <td class="text-right">$34.68</td>
+                                    <td class="text-right">Rp. {{number_format($taxtotal)}}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-right">
                                         <strong>Total:</strong>
                                     </td>
-                                    <td class="text-right">$213.70</td>
+                                    <td class="text-right">Rp. {{number_format($totalseluruh)}}</td>
                                 </tr>
                             </tbody>
                         </table>
