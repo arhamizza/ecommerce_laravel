@@ -17,28 +17,6 @@
                     <div class="so-onepagecheckout row">
                         <div class="col-left col-sm-3">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><i class="fa fa-sign-in"></i> Create an Account or Login</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" value="register" name="account">
-                                            Register Account</label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" checked="checked" value="guest" name="account">
-                                            Guest Checkout</label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" value="returning" name="account">
-                                            Returning Customer</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
 
                                 <div class="panel-heading">
                                     <h4 class="panel-title"><i class="fa fa-user"></i> Your Personal Details</h4>
@@ -68,16 +46,14 @@
                                             <span id="email_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-telephone"
-                                                class="control-label ">Telephone</label>
-                                            <input type="text" class="form-control telephone" id="input-payment-telephone"
-                                                placeholder="Telephone" value="{{ Auth::user()->telephone }}"
-                                                name="telephone">
+                                            <label for="input-payment-telephone" class="control-label ">Telephone</label>
+                                            <input type="text" class="form-control telephone"
+                                                id="input-payment-telephone" placeholder="Telephone"
+                                                value="{{ Auth::user()->telephone }}" name="telephone">
                                             <span id="telephone_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-postcode"
-                                                class="control-label">Alamat</label>
+                                            <label for="input-payment-postcode" class="control-label">Alamat</label>
                                             <input type="text" class="form-control address1" id="input-payment-postcode"
                                                 placeholder="address1" value="{{ Auth::user()->address1 }}" name="address1">
                                             <span id="address1_error" class="text-danger"></span>
@@ -108,8 +84,7 @@
                                             <span id="address2_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-provinsi"
-                                                class="control-label ">Provinsi</label>
+                                            <label for="input-payment-provinsi" class="control-label ">Provinsi</label>
                                             <select class="form-control provinsi" id="provinsi" name="provinsi">
                                                 <option value="">Pilih Provinsi...</option>
                                                 @foreach ($provinces as $provinsi)
@@ -130,8 +105,7 @@
                                             <span id="kabupaten_error" class="text-danger"></span>
                                         </div>
                                         <div class="form-group required">
-                                            <label for="input-payment-kecamatan"
-                                                class="control-label">Kecamatan</label>
+                                            <label for="input-payment-kecamatan" class="control-label">Kecamatan</label>
                                             <select class="form-control kecamatan" id="kecamatan" name="kecamatan">
 
                                                 {{-- @foreach ($districts as $kecamatan)
@@ -151,12 +125,7 @@
                                             </select>
                                             <span id="kelurahan_error" class="text-danger"></span>
                                         </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" checked="checked" value="1"
-                                                    name="shipping_address">
-                                                My delivery and billing addresses are the same.</label>
-                                        </div>
+
                                     </fieldset>
                                 </div>
                             </div>
@@ -184,6 +153,9 @@
                                                     @php
                                                         $total = 0;
                                                         $totalcheck = 0;
+                                                        $tax = 0;
+                                                        $taxtotal = 0;
+                                                        $totalseluruh = 0;
                                                     @endphp
                                                     @foreach ($cartitem as $item)
                                                         <tbody>
@@ -203,8 +175,13 @@
                                                                     {{ number_format($item->products->selling_price) }}
                                                                 </td>
                                                                 @php
+
                                                                     $total = $item->products->selling_price * $item->prod_qty;
                                                                     $totalcheck += $item->products->selling_price * $item->prod_qty;
+                                                                    $tax = $item->prod_qty * $item->products->tax;
+                                                                    $taxtotal += $item->products->tax * $item->prod_qty;
+                                                                    $totalseluruh = $totalcheck + $taxtotal;
+
                                                                 @endphp
                                                                 <td class="text-right">Rp {{ number_format($total) }}</td>
                                                             </tr>
@@ -213,28 +190,19 @@
                                                     <tfoot>
                                                         <tr>
                                                             <td class="text-right" colspan="4">
-                                                                <strong>Sub-Total:</strong></td>
-                                                            <td class="text-right">$93.73</td>
+                                                                <strong>Sub-Total:</strong>
+                                                            </td>
+                                                            <td class="text-right">Rp {{ number_format($totalcheck) }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-right" colspan="4"><strong>Flat Shipping
-                                                                    Rate:</strong></td>
-                                                            <td class="text-right">$4.69.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-right" colspan="4"><strong>Eco Tax
+                                                            <td class="text-right" colspan="4"><strong>Tax
                                                                     (-2.00):</strong></td>
-                                                            <td class="text-right">$3.75.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-right" colspan="4"><strong>VAT
-                                                                    (20%):</strong></td>
-                                                            <td class="text-right">$19.68</td>
+                                                            <td class="text-right">Rp {{ number_format($taxtotal) }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="text-right" colspan="4"><strong>Total:</strong>
                                                             </td>
-                                                            <td class="text-right">Rp {{ number_format($totalcheck) }}
+                                                            <td class="text-right">Rp {{ number_format($totalseluruh) }}
                                                             </td>
                                                         </tr>
                                                     </tfoot>
@@ -242,34 +210,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title"><i class="fa fa-pencil"></i> Add Comments About Your
-                                                Order</h4>
-                                        </div>
-                                        <div class="panel-body">
-                                            <textarea rows="4" class="form-control" id="confirm_comment" name="comments"></textarea>
-                                            <br>
-                                            <label class="control-label" for="confirm_agree">
-                                                <input type="checkbox" checked="checked" value="1" required=""
-                                                    class="validate required" id="confirm_agree" name="confirm agree">
-                                                <span>I have read and agree to the <a class="agree"
-                                                        href="#"><b>Terms &amp; Conditions</b></a></span> </label>
-                                            <div class="buttons">
-                                                <div class="pull-right">
-                                                    <div id="paypal-button-container" class="razorpay_btn"></div>
-                                                    <input type="hidden" name="payment_mode" value="COD">
-                                                    <button type="button" class="btn btn-primary w-100 razorpay_btn">Pay
-                                                        with RazorPay</button>
-                                                    <button type="submit" class="btn btn-success w-100"> Bayar COD
-                                                        </button>
-                                                </div>
-                                            </div>
+                                    <div class="buttons">
+                                        <div class="pull-right">
+                                            <div id="paypal-button-container" class="razorpay_btn"></div>
+                                            <input type="hidden" name="payment_mode" value="COD">
+                                            <button type="button" class="btn btn-primary w-100 razorpay_btn">Pay
+                                                with RazorPay</button>
+                                            <button type="submit" class="btn btn-success w-100 razorpay_btn"> Bayar COD
+                                            </button>
                                         </div>
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>

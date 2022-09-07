@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 
-class produkController extends Controller
+class ProdukController extends Controller
 {
     public function index()
     {
@@ -111,7 +111,7 @@ class produkController extends Controller
     {
         $produk = produk::where('user_id', Auth::id())->get();
         return view('penjual.produk.index', compact('produk'));
-      
+
     }
 
     public function addpenjual()
@@ -148,14 +148,14 @@ class produkController extends Controller
         $produk->save();
         return redirect('/produk2')->with('status', "produk Berhasil Ditambahkan!");
     }
-    
+
     public function editpenjual($id)
     {
         $produk = produk::find($id);
         return view('penjual.produk.edit', compact('produk'));
     }
 
-    
+
     public function updatepenjual(Request $request, $id)
     {
         $produk = produk::find($id);

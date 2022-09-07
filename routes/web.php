@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Atmin\KategoriController;
 use App\Http\Controllers\Atmin\OrderController;
-use App\Http\Controllers\Atmin\produkController;
+use App\Http\Controllers\Atmin\ProdukController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -92,12 +92,12 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('hapus-kategori/{id}', [KategoriController::class, 'destroy']);
 
     // produk admin
-    Route::get('produk', [produkController::class, 'index']);
-    Route::get('tambah-produk', [produkController::class, 'add']);
-    Route::post('insert-produk', [produkController::class, 'insert']);
-    Route::get('edit-produk/{id}', [produkController::class, 'edit']);
-    Route::put('update-produk/{id}', [produkController::class, 'update']);
-    Route::get('hapus-produk/{id}', [produkController::class, 'destroy']);
+    Route::get('produk', [ProdukController::class, 'index']);
+    Route::get('tambah-produk', [ProdukController::class, 'add']);
+    Route::post('insert-produk', [ProdukController::class, 'insert']);
+    Route::get('edit-produk/{id}', [ProdukController::class, 'edit']);
+    Route::put('update-produk/{id}', [ProdukController::class, 'update']);
+    Route::get('hapus-produk/{id}', [ProdukController::class, 'destroy']);
 
     // order admin
     Route::get('users',[FrontendController::class, 'users']);
@@ -115,12 +115,12 @@ route::middleware(['auth', 'isAdmin'])->group(function () {
 
 route::middleware(['auth', 'isPenjual'])->group(function () {
       // produk admin
-    Route::get('produk2', [produkController::class, 'indexpenjual']);
-    Route::get('tambah-produk2', [produkController::class, 'addpenjual']);
-    Route::post('insert-produk2', [produkController::class, 'insertpenjual']);
-    Route::get('edit-produk2/{id}', [produkController::class, 'editpenjual']);
-    Route::put('update-produk2/{id}', [produkController::class, 'updatepenjual']);
-    Route::get('hapus-produk2/{id}', [produkController::class, 'destroypenjual']);
+    Route::get('produk2', [ProdukController::class, 'indexpenjual']);
+    Route::get('tambah-produk2', [ProdukController::class, 'addpenjual']);
+    Route::post('insert-produk2', [ProdukController::class, 'insertpenjual']);
+    Route::get('edit-produk2/{id}', [ProdukController::class, 'editpenjual']);
+    Route::put('update-produk2/{id}', [ProdukController::class, 'updatepenjual']);
+    Route::get('hapus-produk2/{id}', [ProdukController::class, 'destroypenjual']);
 
     // order admin
     Route::get('users2',[FrontendController::class, 'userspenjual']);
