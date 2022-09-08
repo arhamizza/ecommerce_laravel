@@ -216,7 +216,7 @@
                                             <input type="hidden" name="payment_mode" value="COD">
                                             <button type="button" class="btn btn-primary w-100 razorpay_btn">Pay
                                                 with RazorPay</button>
-                                            <button type="submit" class="btn btn-success w-100 razorpay_btn"> Bayar COD
+                                            <button type="submit" class="btn btn-success w-100"> Bayar COD
                                             </button>
                                         </div>
                                     </div>
