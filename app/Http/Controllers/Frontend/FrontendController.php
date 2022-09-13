@@ -6,16 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Produk;
 use App\Models\Rating;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
+    
     public function index()
     {
+        
         $top_produk = Produk::where(
             'trending', '1')
             ->where('qty','!=', '0')
+            ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
             ->inRandomOrder()
             ->limit(5) // here is yours limit
             ->get();
@@ -23,16 +27,17 @@ class FrontendController extends Controller
         $products = Produk::where('trending', '0')->where('qty','!=', '0')->take(10)->get();
         $top_collection = Kategori::where('popular', '1')->take(7)->get();
         $more_cate = Kategori::where('status', '1')->take(20)->get();
-
         return view('index', compact('featured_products', 'top_collection','top_produk','products','more_cate'));
     }
-
+    
     public function category()
     {
+        
         $category = Kategori::where('status', '1')->get();
         return view('index', compact('category'));
     }
 
+    
     public function viewcategory($slug)
     {
 
@@ -40,6 +45,8 @@ class FrontendController extends Controller
             $category = Kategori::where('status', '1')->get();
             $kategori = Kategori::where('slug', $slug)->first();
             $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
+            
+            
             return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
         } else {
             return redirect('/')->where('status', "Slug doesnot exists");

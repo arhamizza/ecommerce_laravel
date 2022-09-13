@@ -120,10 +120,10 @@
                                     <div class="option quantity">
                                         <div class="input-group quantity-control" style="-webkit-user-select: none;">
                                             <input type="hidden" value="{{$produk->id}}" class="prod_id">
-                                            <label for="Quantity">Qty</label>
-                                            <button class="input-group-text decrement-btn">−</button>
+                                            <label for="Quantity ">Qty</label>&nbsp;
+                                            <button class="input-group-text decrement-btn btn-danger">−</button>&nbsp;
                                             <input class="form-control qty-input text-center" type="text" name="quantity" value="1">
-                                            <button class="input-group-text increment-btn">+</button>
+                                            <button  class="input-group-text increment-btn btn-success">+</button>
                                         </div>
                                     </div>
                                     <div class="cart">
@@ -161,24 +161,8 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
                         <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Reviews (1)</a></li>
-
                     </ul>
-                    <div class="col-md-12 happy-about-us">
-                        <div id="slider-happy-about-us" class="happy-ab">
-                            <div class="title-happy-about">
-                                <h2>Happy customer says</h2>
-                            </div>
 
-                            <div class="yt-content-slider sm_imageslider slider-happy-client" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
-                                <div class="item">
-                                    <div class="ct-why">
-                                        <div class="client-say">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis neque eget nulla. Curabitur dictum consectetur metus nec dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue, justo non cursus adipiscing, dui nibh scelerisque justo non cursus adipiscing, dui nibh scelerisque justo, quis pretium turpis.</div>
-                                        <p class="client-info-about"><span class="name">- Mama Duo - </span>Social Media Strategist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="tab-content col-xs-12">
                         <div id="tab-1" class="tab-pane fade active in">
                             <p>
@@ -261,10 +245,6 @@
                                 <button type="submit" class="btn btn-primary">Continue</button>
                             </form>
                         </div>
-                        <div id="tab-4" class="tab-pane fade">
-                            <a href="#">Monitor</a>,
-                            <a href="#">Apple</a>
-                        </div>
                         <div id="tab-5" class="tab-pane fade">
                             <p>Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr, sed diam nonumy eirmod
@@ -303,7 +283,7 @@
                     @foreach ($produk2 as $prod)
                     <div class="item">
                         <div class="item-inner product-layout transition product-grid">
-                            <div class="product-item-container">
+                            <div class="product-item-container"><br>
                                 <div class="left-block">
                                     <div class="product-image-container second_img">
                                         <a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" target="_self" title="{{$prod->nama}}">
@@ -345,7 +325,7 @@
                     </div>
                     @endforeach
                 </div>
-                <h4> Halaman : {{ $produk2->currentPage() }} <br /></h4>
+                <h4 class="m-20"> Halaman : {{ $produk2->currentPage() }} <br /></h4>
 
 
                 @if(isset($produk2))

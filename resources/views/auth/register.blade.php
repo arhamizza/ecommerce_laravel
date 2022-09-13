@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6 grid-margin stretch-card">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
                         <div class="form-group required">
                             <div class="col-sm-10">
@@ -69,26 +69,28 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-4 col-form-label text-md-end">Ingin mendaftar sebagai apa?</label>
+                        <div class="form-group ">
+                            <label for="" class="col-md-4 col-form-label text-md-end">Mendaftar sebagai ?</label>
                             <div class="col-sm-10">
-                            <select class="form-select col-sm-4" name="role_as" >
-                                <option value="0">Pembeli</option>
-                                <option value="2">Penjual</option>
-                            </select>
+                                <!-- <select class="form-select col-sm-4" name="role_as"> -->
+                                <input type="radio" class="form-check-input" name="role_as" value="0">&nbsp;Pembeli</br>
+                                <input type="radio" class="form-check-input" name="role_as" value="2">&nbsp;Penjual
+                                <!-- <option value="0">Pembeli</option>
+                                <option value="2">Penjual</option> -->
+                                <!-- </select> -->
+                                </br></br>
+                                <div class="buttons">
+                                    <div class="pull-left">
+                                        <button type="submit" class="btn btn-primary mr-2">
+                                            {{ __('Register Now') }}
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </fieldset>
 
-                <div class="buttons">
-                    <div class="pull-right">
-
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Register') }}
-                        </button>
-                    </div>
-                </div>
             </form>
         </div>
     </div>

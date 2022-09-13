@@ -239,9 +239,6 @@
 
                                         </button>
                                     </div>
-                                    <!-- @foreach ($category as $kat)
-<li><a href="{{ url('view-category/' . $kat->slug) }}">{{ $kat->nama }}asdasdads</a></li>
-@endforeach -->
                                     <div class="vertical-wrapper">
                                         <span id="remove-verticalmenu" class="fa fa-times"></span>
                                         <div class="megamenu-pattern">
@@ -292,7 +289,26 @@
                                     <span id="remove-megamenu" class="fa fa-times"></span>
                                     <div class="megamenu-pattern">
                                         <div class="container-mega">
-
+                                        <ul class="megamenu" data-transition="slide" data-animationtime="250">
+                                                <li class="">
+                                                    <p class="close-menu"></p>
+                                                    <a href="{{ url('/faq') }}" class="clearfix">
+                                                        <strong>FAQ</strong>
+                                     
+                                                    </a>
+                                        
+                                                </li>
+                                                <li class="">
+                                                    <p class="close-menu"></p>
+                                                    <a href="{{ url('my-orders') }}" class="clearfix">
+                                                        <strong>Cek Order</strong>
+                                     
+                                                    </a>
+                                        
+                                                </li>
+                                                
+                                                
+                                            </ul>
 
                                         </div>
                                     </div>
@@ -308,3 +324,5 @@
     </div>
 
 </header>
+
+

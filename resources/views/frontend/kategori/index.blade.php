@@ -1,4 +1,4 @@
-@extends('layout.core')
+@extends('layout.core2')
 @section('title', 'Kategori')
 @section('contents')
 	<!-- Main Container  -->
@@ -37,8 +37,7 @@
         					<div class="col-sm-12">
         						<div class="banners">
         							<div>
-        								<a  href="#"><img src="{{ asset('atmin/assets/uploads/kategori/' . $kategori->image) }}" width="1370px"  height="300px" alt="img cate"><br></a>
-        							</div>
+                                    <a  href="#"><img src="{{ asset('atmin/assets/uploads/kategori/' . $kategori->image) }}" width="1370px"  height="300px" alt="img cate"><br></a>        							</div>
         						</div>
 
         					</div>
@@ -121,12 +120,11 @@
                                 </div>
                                 <div class="right-block">
                                     <div class="caption">
-                                        <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
+                                    <div class="box-review form-group">
+
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"> Write a
+                                    review</a>
+                            </div>
                                         <h4><a href="{{url('view-category/' .$kategori->slug. '/' .$prod->slug) }}" title="{{ $prod->nama }}" target="_self">{{ $prod->nama }}</a></h4>
                                         <div class="price"> <span class="price-new">$46.00</span>
                                             <span class="price-old">$55.00</span>

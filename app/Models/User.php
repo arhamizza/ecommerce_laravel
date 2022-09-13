@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -51,6 +51,6 @@ class User extends Authenticatable
 
     public function produk()
     {
-        return $this->belongsTo(prodz::class, 'role_as','role_as');
+        return $this->belongsTo(produk::class, 'role_as','role_as');
     }
 }

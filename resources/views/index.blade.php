@@ -19,39 +19,29 @@
 
 
                 <div class="module sohomepage-slider ">
-                        <div class="yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4"
-                            data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1"
-                            data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes"
-                            data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/7.jpg') }}" height="720" width="1680" alt="slider1"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/2.jpg') }}" height="720" width="1680" alt="slider2"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/3.jpg') }}" alt="slider3"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/4.jpg') }}"  alt="slider4"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/5.jpg') }}"height="720" width="1680"  alt="slider5"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/6.jpg') }}" height="720" width="1680" alt="slider6"
-                                        class="img-responsive"></a>
-                            </div>
-                            <div class="yt-content-slide">
-                                <a href="#"><img src="{{ asset('image/banner/1.jpg') }}" height="720" width="1680 alt="slider7"
-                                        class="img-responsive"></a>
-                            </div>
+                    <div class="yt-content-slider" data-rtl="yes" data-autoplay="yes" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1" data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="yes" data-hoverpause="yes">
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/7.jpg') }}" height="720" width="1680" alt="slider1" class="img-responsive"></a>
                         </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/2.jpg') }}" height="720" width="1680" alt="slider2" class="img-responsive"></a>
+                        </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/3.jpg') }}" alt="slider3" class="img-responsive"></a>
+                        </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/4.jpg') }}" alt="slider4" class="img-responsive"></a>
+                        </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/5.jpg') }}" height="720" width="1680" alt="slider5" class="img-responsive"></a>
+                        </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/6.jpg') }}" height="720" width="1680" alt="slider6" class="img-responsive"></a>
+                        </div>
+                        <div class="yt-content-slide">
+                            <a href="#"><img src="{{ asset('image/banner/1.jpg') }}" height="720" width="1680 alt=" slider7" class="img-responsive"></a>
+                        </div>
+                    </div>
                     <div class="loadeding"></div>
                 </div>
                 <div class="block-policy4">
@@ -85,7 +75,7 @@
                                                             <span class="label label-sale">-13%</span>
                                                         </div>
                                                         <a href="{{url('view-category/' .$top->kategori->slug. '/' .$top->slug) }}" target="_self" title="product">
-                                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $top->image) }}" alt="{{ $top->nama }}" class="img-responsive">
+                                                            <img src="{{ asset('atmin/assets/uploads/produk/' . $top->image) }}" alt="{{ Str::limit($top->nama, 15) }}" class="img-responsive">
                                                         </a>
 
                                                     </div>
@@ -99,7 +89,7 @@
                                             <div class="right-block">
 
                                                 <div class="caption">
-                                                    <h4><a href="{{url('view-category/' .$top->kategori->slug. '/' .$top->slug) }}" target="_self" title="Ground round enim">{{ $top->nama }}</a></h4>
+                                                    <h4><a href="{{url('view-category/' .$top->kategori->slug. '/' .$top->slug) }}" target="_self" title="{{ $top->nama }}">{{ $top->nama }}</a></h4>
 
 
                                                     <p class="desc">{{ $top->description }}
@@ -158,7 +148,7 @@
                                                                 <span class="label label-sale">-13%</span>
                                                             </div>
                                                             <a href="{{url('view-category/' .$prod->kategori->slug. '/' .$prod->slug) }}" target="_self" title="product">
-                                                                <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" width="270px" height="270px" alt="Ground round enim" class="img-responsive">
+                                                                <img src="{{ asset('atmin/assets/uploads/produk/' . $prod->image) }}" width="270px" height="270px" alt="{{ $prod->nama }}" class="img-responsive">
                                                             </a>
 
                                                         </div>
@@ -172,7 +162,7 @@
                                                 </div>
                                                 <div class="right-block">
                                                     <div class="caption">
-                                                        <h4><a href="{{url('view-category/' .$prod->kategori->slug. '/' .$prod->slug) }}" target="_self" title="Ground round enim">{{ $prod->nama }}</a>
+                                                        <h4><a href="{{url('view-category/' .$prod->kategori->slug. '/' .$prod->slug) }}" target="_self" title="{{ $prod->nama }}">{{ Str::limit($prod->nama, 12) }}</a>
                                                         </h4>
 
 
@@ -180,24 +170,24 @@
                                                             <span class="price-old">Rp {{ number_format($prod->original_price) }}</span>
                                                         </p>
 
-                                                            <div class="option quantity">
+                                                        <div class="option quantity">
                                                             <div class="input-group quantity-control" style="-webkit-user-select: none;">
                                                                 <input type="hidden" value="{{$prod->id}}" class="prod_id">
                                                                 <input class="form-control qty-input text-center hidden" type="text" name="quantity" value="1">
                                                             </div>
                                                         </div>
                                                         <div class="button-group">
-                                                        @if ($prod->qty > 0)
+                                                            @if ($prod->qty > 0)
                                                             <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
                                                             @endif
-                                                            <button class="btn-button addToWishlist" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
+                                                            <button class="btn-button addToWishlist" type="button" title="Add to Wish List"><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
                                                         </div>
 
                                                         <div class="form-group box-info-product">
 
 
 
-                                                    </div>
+                                                        </div>
 
                                                     </div>
                                                 </div>
@@ -216,12 +206,12 @@
                 <h3 class="modtitle"><span>Top Category</span></h3>
                 <div class="modcontent">
                     <div class="cat-wrap theme3 font-title yt-content-slider" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="5" data-items_column1="4" data-items_column2="3" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
-
-                        @foreach ($top_collection as $kat)
+                  
+                    @foreach ($top_collection as $kat)
                         <div class="content-box">
-                            <div class="image-cat">
+                            <div class="image-cat" bg="primary">
                                 <a href="{{ url('view-category/' . $kat->slug) }}" title="{{ $kat->nama }}" target="_self">
-                                    <img src="{{ asset('atmin/assets/uploads/kategori/' . $kat->image) }}" width="308px" height="230px" title="{{ $kat->nama }}" alt="{{ $kat->nama }}" />
+                                    <img src="{{ asset('atmin/assets/uploads/kategori/' . $kat->image) }}" width="308px" height="120px" title="{{ $kat->nama }}" alt="{{ $kat->nama }}" />
                                 </a>
                             </div>
                             <div class="cat-title">
@@ -236,13 +226,13 @@
 
             <div class="module so-extraslider-ltr extra-layout4 cus1">
                 <div class="form-group col-pre">
-                    <div class="m-head">Mungkin kamu suka<a href="#">View All</a></div>
+                <div class="m-head">Mungkin yang kamu suka?<a href="#">View All</a></div>
                 </div>
                 <div class="modcontent">
                     <div class="so-extraslider">
                         <div class="yt-content-slider extraslider-inner products-list" data-rtl="yes" data-pagination="yes" data-autoplay="yes" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="6" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-lazyload="yes" data-loop="no" data-buttonpage="top">
                             @foreach ($products as $item)
-                            <div class="item ">
+                            <div class="item product_data">
                                 <div class="product-layout product-grid2 style1">
                                     <div class="product-thumb transition product-item-container">
                                         <div class="left-block">
@@ -266,16 +256,22 @@
 
                                         <div class="right-block ">
                                             <div class="caption">
-                                                <h4><a href="#" target="_self" title="Ground round enim">{{$item->nama}}</a></h4>
+                                                <h4><a href="#" target="_self" title="{{$item->nama}}">{{ Str::limit($item->nama, 15) }}</a></h4>
 
                                                 <p class="price"> <span class="price-new">{{number_format($item->selling_price)}}</span>
                                                     <span class="price-old">{{number_format($item->original_price)}}</span>
                                                 </p>
+                                                <div class="option quantity">
+                                                    <div class="input-group quantity-control" style="-webkit-user-select: none;">
+                                                        <input type="hidden" value="{{$prod->id}}" class="prod_id">
+                                                        <input class="form-control qty-input text-center hidden" type="text" name="quantity" value="1">
+                                                    </div>
+                                                </div>
                                                 <div class="button-group">
                                                     @if ($prod->qty > 0)
-                                                            <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
-                                                            @endif
-                                                    <button class="btn-button addToWishlist" type="button" title="Add to Wish List" ><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
+                                                    <button type="button" class="addToCart addToCartBtn"><i class="fa fa-shopping-cart"></i> Add to Cart </button>
+                                                    @endif
+                                                    <button class="btn-button addToWishlist" type="button" title="Add to Wish List"><i class="fa fa-heart"></i><span>Add to Wish List</span> </button>
 
                                                 </div>
 
@@ -297,19 +293,18 @@
                     <div class="so-blog-external">
                         <div class="yt-content-slider blog-external" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="5" data-items_column1="3" data-items_column2="3" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes" data-buttonpage="top">
                             @php
-                                $no = 0;
+                            $no = 0;
                             @endphp
                             @foreach ($more_cate as $kat)
                             @php
-                                $no++;
+                            $no++;
                             @endphp
 
                             <div class="media">
                                 <div class="item">
                                     <div class="media-left">
                                         <a href="{{ url('view-category/' . $kat->slug) }}" target="_self">
-                                            <img src="{{ asset('atmin/assets/uploads/kategori/' . $kat->image) }}" width="470" height="203" alt="{{ $kat->nama }}" />
-                                        </a>
+                                        <img src="{{ asset('atmin/assets/uploads/kategori/' . $kat->image) }}" width="308" height="120" alt="{{ $kat->nama }}" />                                        </a>
                                     </div>
                                     <div class="media-body">
                                         <div class="media-content">

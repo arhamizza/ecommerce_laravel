@@ -13,7 +13,7 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $produk = produk::where('user_id', Auth::id())->get();
+        $produk = produk::all();
         return view('atmin.produk.index', compact('produk'));
 
     }

@@ -13,6 +13,8 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Frontend\IndexController;
 use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
 
@@ -32,11 +34,15 @@ Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
 Route::get('product-list', [FrontendController::class, 'productlistAjax']);
+
+Route::get('faq', function () {
+    return view('frontend.faq.faq');
+});
 Route::post('searchproduct', [FrontendController::class, 'searchProduct'])->name('searchproduct');
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 
@@ -61,7 +67,7 @@ Route::post('update-cart',[CartController::class,'updatecart']);
 Route::post('add-to-wishlist',[WishlistController::class,'add']);
 Route::post('delete-wishlist-item',[WishlistController::class,'deleteitem']);
 
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('cart',[CartController::class, 'viewcart']);
     Route::get('checkout',[CheckoutController::class, 'index']);
     Route::post('place-order',[CheckoutController::class, 'placeorder']);
@@ -136,6 +142,9 @@ route::middleware(['auth', 'isPenjual'])->group(function () {
     });
 });
 
+Route::get('/email',[EmailController::class, 'kirim'] );
+Route::get('/attach',[EmailController::class, 'attach'] );
+Route::get('/pesan',[EmailController::class, 'notif'] );
 
 
 

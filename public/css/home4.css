@@ -8418,7 +8418,7 @@ footer .copyright a {
   display: none;
 }
 .rating-css input + label {
-  font-size: 60px;
+  font-size: 30px;
   text-shadow: 1px 1px 0 #8f8420;
   cursor: pointer;
 }
@@ -8441,4 +8441,14 @@ footer .copyright a {
   overflow: hidden;
   z-index: 40;
   position: fixed;
+}
+
+.verif {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.verif1 {
+  margin-top: 30px;
+  font-size: 170%;
 }
