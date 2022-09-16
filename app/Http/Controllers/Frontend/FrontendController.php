@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
-    
+    public $sorting;
+    public $pagesize;
     public function index()
     {
         
@@ -44,9 +45,31 @@ class FrontendController extends Controller
         if (Kategori::where('slug', $slug)->exists()) {
             $category = Kategori::where('status', '1')->get();
             $kategori = Kategori::where('slug', $slug)->first();
-            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->get();
-            
-            
+          
+            if (request('sorting') == 1) {
+                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
+                ->orderBy('nama', 'desc')
+                ->simplePaginate(4);          
+                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+            } elseif (request('sorting') == 2) {
+                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
+                ->orderBy('nama', 'ASC')          
+                ->Paginate(4);                       
+                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+            } elseif (request('sorting') == 3) {
+                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
+                ->orderBy('selling_price', 'desc')          
+                ->Paginate(4);                       
+                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+            } elseif (request('sorting') == 4) {
+                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
+                ->orderBy('selling_price', 'ASC')          
+                ->Paginate(4);                       
+                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+            } else {
+                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->paginate(4);  
+                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+            }
             return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
         } else {
             return redirect('/')->where('status', "Slug doesnot exists");
