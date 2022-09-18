@@ -17,10 +17,10 @@ use App\Models\Village;
 
 class CheckoutController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth','verified']);
+    // }
     public function index()
     {
         $provinces = Province::all();

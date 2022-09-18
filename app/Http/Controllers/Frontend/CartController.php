@@ -10,10 +10,11 @@ use App\Models\Kategori;
 use App\Models\Cart;
 
 class CartController extends Controller
-{    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
+{
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth','verified']);
+    // }
     public function addProduct(Request $request)
     {
         $product_id = $request->input('product_id');

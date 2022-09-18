@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProdukSeeder::class,
             IndoRegionSeeder::class,
+            CouriersTableSeeder::class,
+            LocationsTableSeeder::class,
         ]);
     }
 }
