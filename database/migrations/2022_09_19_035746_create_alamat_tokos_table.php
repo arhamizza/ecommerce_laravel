@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlamatToko extends Migration
+class CreateAlamatTokosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AlamatToko extends Migration
      */
     public function up()
     {
-        Schema::create('alamat_toko', function (Blueprint $table) {
+        Schema::create('alamat_tokos', function (Blueprint $table) {
             $table->id();
             $table->integer('city_id');
             $table->string('detail');
@@ -28,6 +28,6 @@ class AlamatToko extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alamat_toko');
+        Schema::dropIfExists('alamat_tokos');
     }
 }

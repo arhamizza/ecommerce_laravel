@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             IndoRegionSeeder::class,
             CouriersTableSeeder::class,
             LocationsTableSeeder::class,
+            AlamatTokoSeeder::class,
         ]);
     }
 }

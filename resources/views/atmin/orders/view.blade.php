@@ -27,8 +27,8 @@
                             <label for=""><b>Shipping Address</b></label>
                             <div class="border p-2">
                                 {{$orders->address1}},
-                                {{$orders->village->district->regency->province->name}},
-                                {{$orders->village->district->regency->name}},
+                                {{$orders->provinsi}},
+                                {{$orders->kota}},
                                 {{-- {{$orders->village->district->name}},
                                 {{$orders->village->name}}, --}}
                             </div>

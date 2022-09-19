@@ -17,15 +17,50 @@ use App\Models\Village;
 use App\Models\Provinsi;
 use App\Models\Kota;
 use App\Models\Courier;
+use Illuminate\Support\Facades\DB;
+use Kavist\RajaOngkir\Facades\RajaOngkir;
 
 class CheckoutController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth','verified']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     public function index()
     {
+        //ambil session user id
+        $id_user = Auth::user()->id;
+        //ambil id kota toko
+        $alamat_toko = DB::table('alamat_tokos')->first();
+        //lalu ambil id kota si pelanggan
+        $tujuan = User::where('id',Auth::id())->select('kota')->get();
+        $city_destination =  $tujuan[0]->kota;
+        $cart = DB::table('carts')
+                            ->join('users','users.id','=','carts.user_id')
+                            ->join('products','products.id','=','carts.prod_id')
+                            ->select('products.nama','products.weight','products.qty')
+                            ->where('carts.user_id','=', Auth::id())
+                            ->get();
+
+        $berattotal = 0;
+        foreach($cart as $k){
+            $berat = $k->weight * $k->qty;
+            $berattotal = $berattotal + $berat;
+        }
+
+        $cost = RajaOngkir::ongkosKirim([
+            'origin'  => $alamat_toko->id,
+            'destination' => $city_destination,
+            'weight' => '500',
+            'courier' => 'jne'
+        ])->get();
+        $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
+
+        $data = [
+            'cart' => $cart,
+            'ongkir' => $ongkir,
+        ];
+
         $provinces = Province::all();
         $regencies = Regency::all();
         $districts = District::all();
@@ -43,53 +78,109 @@ class CheckoutController extends Controller
         }
         $cartitem = Cart::where('user_id', Auth::id())->get();
 
-        return view('frontend.checkout.checkout', compact('cartitem','provinces','provinsis','couriers'));
+        // dd($cost);
+        return view('frontend.checkout.checkout', compact('cartitem','provinces','provinsis','couriers','ongkir'));
     }
 
-    public function alamat()
-    {
-        $provinces = Province::all();
-        $regencies = Regency::all();
-        $districts = District::all();
-        $villages = Village::all();
-        $provinsis = Provinsi::all();
-        $couriers = Courier::all();
-        $old_cartitem = Cart::where('user_id', Auth::id())->get();
-        foreach ($old_cartitem as $item )
-        {
-            if (!Produk::where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists())
-            {
-                $removeItem = Cart::where('user_id', Auth::id())->where('prod_id',$item->prod_id)->first();
-                $removeItem->delete();
-            }
-        }
-        $cartitem = Cart::where('user_id', Auth::id())->get();
 
-        return view('frontend.alamat.alamat', compact('cartitem','provinces','provinsis','couriers'));
-    }
 
     public function getCity($id)
     {
         //mengambil data kota/kab
-        $city = Kota::where('province_id',$id)->get();
-        return response()->json($city);
+        $city = Kota::where('province_id',$id)->pluck('title','city_id');
+        return json_encode($city);
+        // return response()->json($city);
+        return view('frontend.alamat.alamat');
+
+
+
+    }
+
+    public function check_ongkir(Request $request)
+    {
+
+    }
+
+    public function alamat(request $request)
+    {
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+        $provinsis = Provinsi::pluck('title','province_id');
+        $couriers = Courier::pluck('title','code');
+        $old_cartitem = Cart::where('user_id', Auth::id())->get();
+
+        foreach ($old_cartitem as $item )
+        {
+            if (!Produk::where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists())
+            {
+                $removeItem = Cart::where('user_id', Auth::id())->where('prod_id',$item->prod_id)->first();
+                $removeItem->delete();
+            }
+        }
+        $cartitem = Cart::where('user_id', Auth::id())->get();
+
+
+
+        return view('frontend.alamat.alamat', compact('cartitem','provinces','provinsis','couriers'));
+    }
+
+    public function postAlamat(request $request)
+    {
+        if(Auth::user()->address1 == NULL)
+        {
+            $user = User::where('id', Auth::id())->first();
+            $user->first_name = $request->input('fname');
+            $user->last_name = $request->input('lname');
+            $user->telephone = $request->input('telephone');
+            $user->address1 = $request->input('address1');
+            $user->address2 = $request->input('address2');
+            $user->postcode = $request->input('postcode');
+            $user->provinsi = $request->input('provinsi');
+            $user->kota = $request->input('kota');
+            // $user->kecamatan = $request->input('kecamatan');
+            // $user->kelurahan = $request->input('kelurahan');
+            $user->save();
+        }
+        else {
+            return redirect('/checkout');
+        }
     }
 
     public function placeorder(request $request)
     {
+
+        //ambil session user id
+        $id_user = Auth::user()->id;
+        //ambil id kota toko
+        $alamat_toko = DB::table('alamat_tokos')->first();
+        //lalu ambil id kota si pelanggan
+        $tujuan = User::where('id',Auth::id())->select('kota')->get();
+        $city_destination =  $tujuan[0]->kota;
+        $cart = DB::table('carts')
+                            ->join('users','users.id','=','carts.user_id')
+                            ->join('products','products.id','=','carts.prod_id')
+                            ->select('products.nama','products.weight','products.qty')
+                            ->where('carts.user_id','=', Auth::id())
+                            ->get();
+
+        $berattotal = 0;
+        foreach($cart as $k){
+            $berat = $k->weight * $k->qty;
+            $berattotal = $berattotal + $berat;
+        }
+
+        $cost = RajaOngkir::ongkosKirim([
+            'origin'  => $alamat_toko->id,
+            'destination' => $city_destination,
+            'weight' => '500',
+            'courier' => 'jne'
+        ])->get();
+        $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
+
         $order = new Order();
         $order->user_id = Auth::id();
-        $order->fname = $request->input('fname');
-        $order->lname = $request->input('lname');
-        $order->email = $request->input('email');
-        $order->telephone = $request->input('telephone');
-        $order->address1 = $request->input('address1');
-        $order->address2 = $request->input('address2');
-        $order->postcode = $request->input('postcode');
-        $order->provinsi = $request->input('provinsi');
-        $order->kota = $request->input('kota');
-        // $order->kecamatan = $request->input('kecamatan');
-        // $order->kelurahan = $request->input('kelurahan');
         $order->payment_mode = $request->input('payment_mode');
         $order->payment_id = $request->input('payment_id');
         // Menghitung total price
@@ -97,13 +188,12 @@ class CheckoutController extends Controller
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
         foreach ($cartitems_total as $prod)
         {
-            $total += $prod->products->selling_price * $prod->prod_qty;
+            $total += ($prod->products->selling_price * $prod->prod_qty) + $ongkir;
         }
+        $order->ongkir = $ongkir;
         $order->total_price = $total;
         $order->tracking_no = '#ruangbit'.rand(1111,9999);
         $order->save();
-
-        // $order->id;
 
         $cartitems = Cart::where('user_id', Auth::id())->get();
         foreach ($cartitems as $item )
@@ -119,22 +209,7 @@ class CheckoutController extends Controller
             $prod->update();
         }
 
-        if(Auth::user()->address1 == NULL)
-        {
-            $user = User::where('id', Auth::id())->first();
-            $user->first_name = $request->input('fname');
-            $user->last_name = $request->input('lname');
-            $user->telephone = $request->input('telephone');
-            $user->address1 = $request->input('address1');
-            $user->address2 = $request->input('address2');
-            $user->postcode = $request->input('postcode');
-            $user->provinsi = $request->input('provinsi');
-            $user->kota = $request->input('kota');
-            // $user->kecamatan = $request->input('kecamatan');
-            // $user->kelurahan = $request->input('kelurahan');
-            $user->update();
 
-        }
 
         $cartitem = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitem);

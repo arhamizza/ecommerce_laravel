@@ -108,7 +108,17 @@
 
             <div class="buttons">
                 <div class="pull-left"><a href="{{url('/')}}" class="btn btn-primary">Continue Shopping</a></div>
+
+                @if (Auth::user()->address1 == NULL)
                 <div class="pull-right"><a href="{{url('alamat')}}" class="btn btn-success">Isi Alamat</a></div>
+
+                @else
+                <div class="pull-right"><a href="{{url('checkout')}}" class="btn btn-success">Checkout</a></div>
+
+                @endif
+
+
+
             </div>
         </div>
         <!--Middle Part End -->

@@ -13,7 +13,9 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\IndoRegionController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\EmailController;
+use Kavist\RajaOngkir\RajaOngkir;
 use App\Http\Controllers\Frontend\IndexController;
 use AzisHapidin\IndoRegion\IndoRegion;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -71,8 +73,17 @@ Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewcart']);
     Route::get('checkout',[CheckoutController::class, 'index']);
     Route::get('alamat',[CheckoutController::class, 'alamat']);
+    Route::post('post-alamat',[CheckoutController::class, 'postAlamat']);
     Route::post('place-order',[CheckoutController::class, 'placeorder']);
     Route::post('getkabupaten',[CheckoutController::class, 'getkabupaten']);
+    Route::get('alamat/{id}/city',[CheckoutController::class, 'getCity']);
+
+    Route::get('updateprofile',[ProfileController::class, 'index']);
+    Route::get('profile',[ProfileController::class, 'index2']);
+    Route::post('update-profile',[ProfileController::class, 'updateprofile']);
+    Route::post('getkabupaten',[ProfileController::class, 'getkabupaten']);
+    Route::post('getkecamatan',[ProfileController::class, 'getkecamatan']);
+    Route::post('getdesa',[ProfileController::class, 'getdesa']);
     // Route::post('getkecamatan',[CheckoutController::class, 'getkecamatan']);
     // Route::post('getdesa',[CheckoutController::class, 'getdesa']);
 
@@ -149,3 +160,7 @@ Route::get('/pesan',[EmailController::class, 'notif'] );
 
 
 
+Route::get('view-categorylowname/{slug}', [FrontendController::class, 'lowName']);
+Route::get('view-categoryhighname/{slug}', [FrontendController::class, 'highName']);
+Route::get('view-categorylowprice/{slug}', [FrontendController::class, 'lowPrice']);
+Route::get('view-categoryhighprice/{slug}', [FrontendController::class, 'highPrice']);

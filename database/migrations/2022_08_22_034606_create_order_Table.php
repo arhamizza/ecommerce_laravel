@@ -16,17 +16,18 @@ class CreateOrderTable extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('email');
-            $table->string('telephone');
-            $table->string('address1');
-            $table->string('address2');
-            $table->integer('postcode');
-            $table->string('provinsi');
-            $table->string('kota');
+            // $table->string('fname');
+            // $table->string('lname');
+            // $table->string('email');
+            // $table->string('telephone');
+            // $table->string('address1');
+            // $table->string('address2');
+            // $table->integer('postcode');
+            // $table->string('provinsi');
+            // $table->string('kota');
             // $table->string('kecamatan');
             // $table->string('kelurahan');
+            $table->string('ongkir');
             $table->integer('total_price');
             $table->string('payment_mode');
             $table->string('payment_id')->nullable();

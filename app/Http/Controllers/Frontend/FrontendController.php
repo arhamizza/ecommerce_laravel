@@ -3,74 +3,58 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Kategori;
 use App\Models\Produk;
 use App\Models\Rating;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
     public $sorting;
-    public $pagesize;
+    public $pagesize = 3;
     public function index()
     {
-        
+
         $top_produk = Produk::where(
-            'trending', '1')
-            ->where('qty','!=', '0')
+            'trending',
+            '1'
+        )
+            ->where('qty', '!=', '0')
             ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
             ->inRandomOrder()
             ->limit(5) // here is yours limit
             ->get();
-        $featured_products = Produk::where('trending', '1')->where('qty','!=', '0')->take(15)->get();
-        $products = Produk::where('trending', '0')->where('qty','!=', '0')->take(10)->get();
+        $featured_products = Produk::where('trending', '1')->where('qty', '!=', '0')->take(15)->get();
+        $products = Produk::where('trending', '0')->where('qty', '!=', '0')->take(10)->get();
         $top_collection = Kategori::where('popular', '1')->take(7)->get();
         $more_cate = Kategori::where('status', '1')->take(20)->get();
-        return view('index', compact('featured_products', 'top_collection','top_produk','products','more_cate'));
+
+
+        return view('index', compact('featured_products', 'top_collection', 'top_produk', 'products', 'more_cate'));
     }
-    
+
     public function category()
     {
-        
+
         $category = Kategori::where('status', '1')->get();
         return view('index', compact('category'));
     }
 
-    
+
     public function viewcategory($slug)
     {
 
         if (Kategori::where('slug', $slug)->exists()) {
             $category = Kategori::where('status', '1')->get();
             $kategori = Kategori::where('slug', $slug)->first();
-          
-            if (request('sorting') == 1) {
-                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
-                ->orderBy('nama', 'desc')
-                ->simplePaginate(4);          
-                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
-            } elseif (request('sorting') == 2) {
-                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
-                ->orderBy('nama', 'ASC')          
-                ->Paginate(4);                       
-                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
-            } elseif (request('sorting') == 3) {
-                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
-                ->orderBy('selling_price', 'desc')          
-                ->Paginate(4);                       
-                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
-            } elseif (request('sorting') == 4) {
-                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')          
-                ->orderBy('selling_price', 'ASC')          
-                ->Paginate(4);                       
-                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
-            } else {
-                $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->paginate(4);  
-                return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
-            }
-            return view('frontend.kategori.index', compact('kategori', 'produk', 'category'));
+
+
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')->paginate(4);
         } else {
             return redirect('/')->where('status', "Slug doesnot exists");
         }
@@ -95,8 +79,8 @@ class FrontendController extends Controller
                 }
 
 
-            
-                return view('frontend.produk.view', compact('produk', 'kategori', 'produk2', 'rating', 'rating_value', 'user_rating','category'));
+
+                return view('frontend.produk.view', compact('produk', 'kategori', 'produk2', 'rating', 'rating_value', 'user_rating', 'category'));
             } else {
                 return redirect('/')->with('status', "The link was broken");
             }
@@ -128,6 +112,59 @@ class FrontendController extends Controller
             }
         } else {
             return redirect()->back();
+        }
+    }
+    public function lowName($slug)
+    {
+        if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
+            $kategori = Kategori::where('slug', $slug)->first();
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
+                ->orderBy('nama', 'ASC')
+                ->paginate(4);
+            return view('frontend.kategori.index', compact('kategori', 'produk', 'category', 'produk'));
+        } else {
+            return redirect('/')->where('status', "Slug doesnot exists");
+        }
+    }
+
+    public function highName($slug)
+    {
+        if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
+            $kategori = Kategori::where('slug', $slug)->first();
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
+                ->orderBy('nama', 'DESC')
+                ->paginate(4);
+            return view('frontend.kategori.index', compact('kategori', 'produk', 'category', 'produk'));
+        } else {
+            return redirect('/')->where('status', "Slug doesnot exists");
+        }
+    }
+    public function lowPrice($slug)
+    {
+        if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
+            $kategori = Kategori::where('slug', $slug)->first();
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
+                ->orderBy('selling_price', 'ASC')
+                ->paginate(4);
+            return view('frontend.kategori.index', compact('kategori', 'produk', 'category', 'produk'));
+        } else {
+            return redirect('/')->where('status', "Slug doesnot exists");
+        }
+    }
+    public function highPrice($slug)
+    {
+        if (Kategori::where('slug', $slug)->exists()) {
+            $category = Kategori::where('status', '1')->get();
+            $kategori = Kategori::where('slug', $slug)->first();
+            $produk = Produk::where('cate_id', $kategori->id)->where('status', '1')
+                ->orderBy('selling_price', 'DESC')
+                ->paginate(4);
+            return view('frontend.kategori.index', compact('kategori', 'produk', 'category', 'produk'));
+        } else {
+            return redirect('/')->where('status', "Slug doesnot exists");
         }
     }
 }

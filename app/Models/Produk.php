@@ -17,6 +17,7 @@ class Produk extends Model
         'description',
         'original_price',
         'selling_price',
+        'weight',
         'image',
         'qty',
         'tax',
@@ -32,5 +33,5 @@ class Produk extends Model
     {
         return $this->belongsTo(Kategori::class, 'cate_id','id');
     }
-    
+
 }

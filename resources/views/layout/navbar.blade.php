@@ -294,20 +294,28 @@
                                                     <p class="close-menu"></p>
                                                     <a href="{{ url('/faq') }}" class="clearfix">
                                                         <strong>FAQ</strong>
-                                     
+
                                                     </a>
-                                        
+
                                                 </li>
                                                 <li class="">
                                                     <p class="close-menu"></p>
                                                     <a href="{{ url('my-orders') }}" class="clearfix">
                                                         <strong>Cek Order</strong>
-                                     
+
                                                     </a>
-                                        
+
                                                 </li>
-                                                
-                                                
+                                                <li class="">
+                                                    <p class="close-menu"></p>
+                                                    <a href="{{ url('profile') }}" class="clearfix">
+                                                        <strong>Profile</strong>
+
+                                                    </a>
+
+                                                </li>
+
+
                                             </ul>
 
                                         </div>

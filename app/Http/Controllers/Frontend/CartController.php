@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Produk;
 use App\Models\Kategori;
 use App\Models\Cart;
+use App\Models\User;
 
 class CartController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth','verified']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     public function addProduct(Request $request)
     {
         $product_id = $request->input('product_id');
@@ -49,8 +50,9 @@ class CartController extends Controller
 
     public function viewcart()
     {
+        $users = User::all();
         $cartitems = Cart::where('user_id', Auth::id())->get();
-        return view('frontend.cart.cart', compact('cartitems'));
+        return view('frontend.cart.cart', compact('cartitems','users'));
     }
 
     public function updatecart(Request $request)

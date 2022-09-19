@@ -440,77 +440,77 @@
             });
         });
 //Dropdown Region Indo
-        $(function() {
+        // $(function() {
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+        //     $.ajaxSetup({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         }
+        //     });
 
-            $('#provinsi').on('change', function() {
-                let id_provinsi = $('#provinsi').val();
+        //     $('#provinsi').on('change', function() {
+        //         let id_provinsi = $('#provinsi').val();
 
-                $.ajax({
-                    type: "POST",
-                    url: "getkabupaten",
-                    data: {
-                        'id_provinsi': id_provinsi
-                    },
-                    cache: false,
-                    success: function(msg) {
-                        $('#kabupaten').html(msg);
-                        $('#kecamatan').html('');
-                        $('#desa').html('');
-                    },
-                    error: function(data) {
-                        console.log('error:', data)
-                    },
-                });
-            })
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "getkabupaten",
+        //             data: {
+        //                 'id_provinsi': id_provinsi
+        //             },
+        //             cache: false,
+        //             success: function(msg) {
+        //                 $('#kabupaten').html(msg);
+        //                 $('#kecamatan').html('');
+        //                 $('#desa').html('');
+        //             },
+        //             error: function(data) {
+        //                 console.log('error:', data)
+        //             },
+        //         });
+        //     })
 
-            $('#kabupaten').on('change', function() {
-                let id_kabupaten = $('#kabupaten').val();
+        //     $('#kabupaten').on('change', function() {
+        //         let id_kabupaten = $('#kabupaten').val();
 
-                $.ajax({
-                    type: "POST",
-                    url: "getkecamatan",
-                    data: {
-                        'id_kabupaten': id_kabupaten
-                    },
-                    cache: false,
-                    success: function(msg) {
-                        $('#kecamatan').html(msg);
-                        $('#desa').html('');
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "getkecamatan",
+        //             data: {
+        //                 'id_kabupaten': id_kabupaten
+        //             },
+        //             cache: false,
+        //             success: function(msg) {
+        //                 $('#kecamatan').html(msg);
+        //                 $('#desa').html('');
 
-                    },
-                    error: function(data) {
-                        console.log('error:', data)
-                    },
-                });
-            })
+        //             },
+        //             error: function(data) {
+        //                 console.log('error:', data)
+        //             },
+        //         });
+        //     })
 
-            $('#kecamatan').on('change', function() {
-                let id_kecamatan = $('#kecamatan').val();
+        //     $('#kecamatan').on('change', function() {
+        //         let id_kecamatan = $('#kecamatan').val();
 
-                $.ajax({
-                    type: "POST",
-                    url: "getdesa",
-                    data: {
-                        'id_kecamatan': id_kecamatan
-                    },
-                    cache: false,
-                    success: function(msg) {
-                        $('#desa').html(msg);
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "getdesa",
+        //             data: {
+        //                 'id_kecamatan': id_kecamatan
+        //             },
+        //             cache: false,
+        //             success: function(msg) {
+        //                 $('#desa').html(msg);
 
-                    },
-                    error: function(data) {
-                        console.log('error:', data)
-                    },
-                });
-            })
+        //             },
+        //             error: function(data) {
+        //                 console.log('error:', data)
+        //             },
+        //         });
+        //     })
 
-        })
+        // })
 
         $(document).ready(function() {
             $('.razorpay_btn').click(function(e) {
@@ -814,7 +814,33 @@
                 source: availableTags
             });
         }
+
     </script>
+        <script>
+            $(document).ready(function() {
+                $('select[name="provinsi"]').on('change', function() {
+                    let provinceId = $(this).val();
+                    if (provinceId) {
+                        jQuery.ajax({
+                            url: '/alamat/' + provinceId + '/city',
+                            type: "GET",
+                            dataType: "json",
+                            success:function(data) {
+                                $('select[name="kota"]').empty();
+                                $.each(data, function(key, value) {
+                                    $('select[name="kota"]').append(
+                                        '<option value="' + key + '">' + value +
+                                        '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        $('select[name="kota"]').empty();
+                    }
+                });
+
+            });
+        </script>
 </body>
 
 </html>
