@@ -70,10 +70,11 @@ Route::post('delete-wishlist-item',[WishlistController::class,'deleteitem']);
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewcart']);
     Route::get('checkout',[CheckoutController::class, 'index']);
+    Route::get('alamat',[CheckoutController::class, 'alamat']);
     Route::post('place-order',[CheckoutController::class, 'placeorder']);
     Route::post('getkabupaten',[CheckoutController::class, 'getkabupaten']);
-    Route::post('getkecamatan',[CheckoutController::class, 'getkecamatan']);
-    Route::post('getdesa',[CheckoutController::class, 'getdesa']);
+    // Route::post('getkecamatan',[CheckoutController::class, 'getkecamatan']);
+    // Route::post('getdesa',[CheckoutController::class, 'getdesa']);
 
     Route::get('my-orders',[UserController::class, 'index']);
     Route::get('view-order/{id}',[UserController::class, 'view']);

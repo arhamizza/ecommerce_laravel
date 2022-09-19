@@ -108,7 +108,7 @@
 
             <div class="buttons">
                 <div class="pull-left"><a href="{{url('/')}}" class="btn btn-primary">Continue Shopping</a></div>
-                <div class="pull-right"><a href="{{url('checkout')}}" class="btn btn-success">Checkout</a></div>
+                <div class="pull-right"><a href="{{url('alamat')}}" class="btn btn-success">Isi Alamat</a></div>
             </div>
         </div>
         <!--Middle Part End -->

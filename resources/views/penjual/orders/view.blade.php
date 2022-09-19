@@ -29,8 +29,8 @@
                                 {{$orders->address1}},
                                 {{$orders->village->district->regency->province->name}},
                                 {{$orders->village->district->regency->name}},
-                                {{$orders->village->district->name}},
-                                {{$orders->village->name}},
+                                {{-- {{$orders->village->district->name}},
+                                {{$orders->village->name}}, --}}
                             </div>
                             <br>
                             <label for=""><b>Kode Pos</b></label>

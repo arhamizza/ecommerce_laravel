@@ -25,8 +25,8 @@ class CreateOrderTable extends Migration
             $table->integer('postcode');
             $table->string('provinsi');
             $table->string('kota');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
+            // $table->string('kecamatan');
+            // $table->string('kelurahan');
             $table->integer('total_price');
             $table->string('payment_mode');
             $table->string('payment_id')->nullable();

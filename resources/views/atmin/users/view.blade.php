@@ -45,14 +45,14 @@
                             <label for=""><b>Kota</b></label>
                             <div class="p-2 border">{{$users->village->district->regency->name}}</div>
                         </div>
-                        <div class="col-md-4 mt-3">
+                        {{-- <div class="col-md-4 mt-3">
                             <label for=""><b>Kecamatan</b></label>
                             <div class="p-2 border">{{$users->village->district->name}}</div>
                         </div>
                         <div class="col-md-4 mt-3">
                             <label for=""><b>Kelurahan</b></label>
                             <div class="p-2 border">{{$users->village->name}}</div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

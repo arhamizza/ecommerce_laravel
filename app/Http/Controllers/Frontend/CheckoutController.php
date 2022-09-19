@@ -14,6 +14,9 @@ use App\Models\Province;
 use App\Models\Regency;
 use App\Models\District;
 use App\Models\Village;
+use App\Models\Provinsi;
+use App\Models\Kota;
+use App\Models\Courier;
 
 class CheckoutController extends Controller
 {
@@ -27,6 +30,8 @@ class CheckoutController extends Controller
         $regencies = Regency::all();
         $districts = District::all();
         $villages = Village::all();
+        $provinsis = Provinsi::all();
+        $couriers = Courier::all();
         $old_cartitem = Cart::where('user_id', Auth::id())->get();
         foreach ($old_cartitem as $item )
         {
@@ -38,7 +43,36 @@ class CheckoutController extends Controller
         }
         $cartitem = Cart::where('user_id', Auth::id())->get();
 
-        return view('frontend.checkout.checkout', compact('cartitem','provinces'));
+        return view('frontend.checkout.checkout', compact('cartitem','provinces','provinsis','couriers'));
+    }
+
+    public function alamat()
+    {
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+        $provinsis = Provinsi::all();
+        $couriers = Courier::all();
+        $old_cartitem = Cart::where('user_id', Auth::id())->get();
+        foreach ($old_cartitem as $item )
+        {
+            if (!Produk::where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists())
+            {
+                $removeItem = Cart::where('user_id', Auth::id())->where('prod_id',$item->prod_id)->first();
+                $removeItem->delete();
+            }
+        }
+        $cartitem = Cart::where('user_id', Auth::id())->get();
+
+        return view('frontend.alamat.alamat', compact('cartitem','provinces','provinsis','couriers'));
+    }
+
+    public function getCity($id)
+    {
+        //mengambil data kota/kab
+        $city = Kota::where('province_id',$id)->get();
+        return response()->json($city);
     }
 
     public function placeorder(request $request)
@@ -54,8 +88,8 @@ class CheckoutController extends Controller
         $order->postcode = $request->input('postcode');
         $order->provinsi = $request->input('provinsi');
         $order->kota = $request->input('kota');
-        $order->kecamatan = $request->input('kecamatan');
-        $order->kelurahan = $request->input('kelurahan');
+        // $order->kecamatan = $request->input('kecamatan');
+        // $order->kelurahan = $request->input('kelurahan');
         $order->payment_mode = $request->input('payment_mode');
         $order->payment_id = $request->input('payment_id');
         // Menghitung total price
@@ -96,8 +130,8 @@ class CheckoutController extends Controller
             $user->postcode = $request->input('postcode');
             $user->provinsi = $request->input('provinsi');
             $user->kota = $request->input('kota');
-            $user->kecamatan = $request->input('kecamatan');
-            $user->kelurahan = $request->input('kelurahan');
+            // $user->kecamatan = $request->input('kecamatan');
+            // $user->kelurahan = $request->input('kelurahan');
             $user->update();
 
         }
@@ -163,8 +197,8 @@ class CheckoutController extends Controller
         $address2 = $request->input('address2');
         $provinsi = $request->input('provinsi');
         $kabupaten = $request->input('kabupaten');
-        $kecamatan = $request->input('kecamatan');
-        $kelurahan = $request->input('kelurahan');
+        // $kecamatan = $request->input('kecamatan');
+        // $kelurahan = $request->input('kelurahan');
 
         return response()->json([
             'firstname'=>$firstname,
@@ -176,8 +210,8 @@ class CheckoutController extends Controller
             'address2'=>$address2,
             'provinsi'=>$provinsi,
             'kabupaten'=>$kabupaten,
-            'kecamatan'=>$kecamatan,
-            'kelurahan'=>$kelurahan,
+            // 'kecamatan'=>$kecamatan,
+            // 'kelurahan'=>$kelurahan,
             'total_price'=> $total_price
         ]);
     }

@@ -3,7 +3,7 @@
 @section('contents')
 
 <div class="main-container container">
-		
+
 		<div class="row">
 			<!--Middle Part Start-->
 			<div id="content" class="col-sm-9">
@@ -17,7 +17,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td style="width: 50%;" class="text-left"> 
+							<td style="width: 50%;" class="text-left">
                                 <b>First Name:</b> {{$orders->fname}}
 								<br>
                                 <b>Last Name:</b> {{$orders->lname}}
@@ -25,17 +25,17 @@
                                 <b>Email:</b> {{$orders->email}}
 								<br>
                                 <b>No Hp:</b> {{$orders->telephone}}
-								
-							<td style="width: 50%;" class="text-left"> 
+
+							<td style="width: 50%;" class="text-left">
                                 <b>Alamat: </b>{{$orders->address1}},
 								<br>
                                 <b>Provinsi: </b>{{$orders->village->district->regency->province->name}},
 								<br>
-                                <b>Kota: </b>{{$orders->village->district->regency->name}}},
+                                <b>Kota: </b>{{$orders->village->district->regency->name}},
 								<br>
-                                <b>Kecamatan: </b>{{$orders->village->district->name}},
+                                {{-- <b>Kecamatan: </b>{{$orders->village->district->name}},
 								<br>
-                                <b>Kelurahan: </b>{{$orders->village->name}},
+                                <b>Kelurahan: </b>{{$orders->village->name}}, --}}
 						</tr>
 					</tbody>
 				</table>
